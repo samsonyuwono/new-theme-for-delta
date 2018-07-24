@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-24T16:48:41-04:00   9857e20328fac7581359e8338e007c3a
+  development: 2018-07-24T17:06:53-04:00   6264a914fc897615e5f5c01bbec85ee2
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
