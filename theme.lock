@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-23T17:14:46-04:00   92d86e3f1abd0d7fa67d0d26dbcc0856
+  development: 2018-07-24T16:48:41-04:00   9857e20328fac7581359e8338e007c3a
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -68,7 +68,7 @@ config/settings_schema.json:
 layout/minimal.liquid:
   development: 2018-07-19T13:34:24-04:00   38a4856746ba7d55dba0d43d218c4fdc
 layout/theme.liquid:
-  development: 2018-07-19T15:47:52-04:00   c88d87fa7eb62b60a2e5b369d9b238f5
+  development: 2018-07-24T10:49:40-04:00   37e34ad0dcfaf8b7720f6353c06084e8
 locales/en.default.json:
   development: 2018-07-19T13:34:24-04:00   2750fb69cb0220c43e694519e7267eb5
 locales/fr.json:
@@ -98,7 +98,7 @@ sections/featured-video.liquid:
 sections/footer.liquid:
   development: 2018-07-19T13:34:17-04:00   4d6ebd99ec112256a30d109f48a195a1
 sections/header.liquid:
-  development: 2018-07-23T15:51:31-04:00   b862dc42e6072cb0d4dff74686079954
+  development: 2018-07-24T11:12:11-04:00   b862dc42e6072cb0d4dff74686079954
 sections/home-slideshow.liquid:
   development: 2018-07-19T13:34:17-04:00   2604a165e900e7d3261316a254c0058a
 sections/image-with-text-overlay.liquid:
@@ -150,7 +150,7 @@ snippets/google-fonts.liquid:
 snippets/header-actions.liquid:
   development: 2018-07-20T14:37:48-04:00   6c20e0998d2d4f2d58eea414fa801a7f
 snippets/header-desktop-nav.liquid:
-  development: 2018-07-23T18:13:09-04:00   7ea0ec40629bd23948e474c960b9c7f4
+  development: 2018-07-24T11:05:51-04:00   074a2e1d375ba561ad880a473c950bab
 snippets/header-mini-cart.liquid:
   development: 2018-07-19T13:34:25-04:00   bb04883bba90cf858a0a330a8debdbe3
 snippets/header-search.liquid:

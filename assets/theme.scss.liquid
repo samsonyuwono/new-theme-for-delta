@@ -5088,7 +5088,7 @@ select::-ms-expand {
   }
 }
 
-// .header__links {
+/* // .header__links {
 //   font-size: 14px;
 //   font-size: 0.77778rem;
 //   text-transform: uppercase;
@@ -5105,8 +5105,8 @@ select::-ms-expand {
 //   svg {
 //     -webkit-transform: translate3d(0, 0, 0);
 //     transform: translate3d(0, 0, 0); /* Force acceleration on Safari */
-//   }
-// }
+/* //   }
+// } */
 
 .header__secondary-nav .header__link {
   position: relative;
@@ -5301,7 +5301,7 @@ select::-ms-expand {
   transform: rotateZ(-180deg);
 }
 
-/*Header STYLING dh-edit 7/16/18*/
+/*Header STYLING sy-edit 7/16/18*/
 
 #header-actions{
   background-color: #73A3EA;
@@ -5374,6 +5374,282 @@ select::-ms-expand {
     //   height: 30px;
     //   display: inline-block;
     // }
+      #header-actions .sign-cart{
+        width: 130px !important;
+        background-color: white;
+        height: 30px;
+        text-align: center;
+        font-size: 1.0625rem;
+        line-height: 30px;
+        padding-right: 10px;
+        border-top: #003a70 solid 1px;
+        border-right: #003a70 solid 1px;
+   	    border-bottom: #003a70 solid 1px;
+        display: inline-block;
+      }
+    #header-actions .sign-cart a{
+      color: #73A3EA !important;
+      font-family: 'Century Gothic Bold';
+
+    }
+    #header-actions .sign-cart span{
+      color: #73A3EA !important;
+      font-family: 'Century Gothic Bold';
+
+    }
+    #header-actions .sign-cart i{
+      color: #73A3EA !important;
+    }
+      #header-actions .sign-cart #nest-outside{
+        position: relative;
+      }
+      #header-actions .sign-cart #cartCount{
+        position: absolute;
+        left: 8px;
+        top: 1px;
+        border-radius: 8px;
+        font-size: 8px;
+        padding: 2px 5px;
+        color: white !important;
+      }
+
+
+
+  #header-actions .search{
+    display: inline-block;
+    // width: 100% !important;
+    margin-top: 5px;
+  }
+    #header-actions .search #header-search{
+      float: none;
+      width: 365px;
+    }
+      #header-actions .search #header-search form.form-search{
+        position: relative;
+        margin-left: 35px;
+        text-align: right;
+      }
+    #header-actions .search #header-search form i.fa-search{
+          position: absolute;
+          left: -25px;
+    top: 25px;
+    color: #73A3EA;
+    float: right;
+    z-index: 1;
+        }
+
+
+    #header-actions .search #header-search input.search-query{
+      margin-left: 0;
+      padding-left: 30px;
+      width: 365px !important;
+      margin-right: 0;
+      border: #003a70 solid 1px;
+      background: white;
+      color: #73A3EA;
+      font-family: 'Century Gothic Bold';
+      border-radius: 25px;
+    }
+
+    #header-actions .search #header-search input.search-query::placeholder{
+		color: #73A3EA;
+        font-family: 'Century Gothic Bold';
+
+    }
+
+    @media screen and (max-width: 1300px) and (min-width: 1200px) {
+    #site-header .top-bar-section .nav-item>a{
+      padding-left: 20px;
+      padding-right: 20px !important;
+    }
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 1024px) {
+    #site-header .top-bar-section .nav-item>a{
+      padding-left: 10px;
+      padding-right: 10px !important;
+    }
+  }
+  @media screen and (max-width: 914px) and (min-width: 640px) {
+    #site-header .top-bar-section{
+      padding-top: 0;
+    }
+    #site-header ul.right{
+      top: 1px !important;
+    }
+
+  }
+  @media screen and (max-width: 1024px) and (min-width: 640px) {
+    #site-header ul.right{
+      top: 3px;
+    }
+    #site-header .top-bar-section .nav-item>a{
+      font-size: 10pt;
+      padding-left: 3px;
+      padding-right: 3px !important;
+    }
+    #header-actions .cell:first-of-type{
+      display: inline-block;
+    }
+    #header-actions .ship-container{
+      width: 215px !important;
+    }
+    #header-actions .ship-container h6 #free-gift-click{
+      font-size: 90%;
+    }
+    #header-actions .sign-cart{
+      font-size: 90%;
+    }
+    #header-actions .search #header-search{
+      width: 345px;
+    }
+    #header-actions .search #header-search form.form-search{
+      margin-left: 55px;
+    }
+    #header-actions .search #header-search input.search-query{
+      width: 345px !important;
+    }
+    #brand-primary-image img{
+      width: 90px;
+    }
+
+    #site-header .top-bar{
+      margin-top: 0;
+      width: 100%;
+    }
+
+  }
+  @media screen and (max-width: 800px) and (min-width: 640px) {
+    #site-header .top-bar-section .nav-item>a{
+      font-size: 8pt;
+      /*padding-left: 5px;
+      padding-right: 5px !important;*/
+    }
+  }
+  @media screen and (min-width: 642px){
+  #brand-primary-image {
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    width: 20%;
+    left: 40%;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 64.063em){
+#branding-wrap, #header-actions .cell:first-of-type {
+    text-align: left;
+    display: inline-block;
+  }
+}
+
+.header__link a{
+     margin-left: 5px;
+   }
+
+
+/*end HEADER STYLES*/
+
+/*navbar styles*/
+.header__link .icon-dropdown-arrow,
+.header__link .icon-next {
+  width: 9px;
+  height: 9px;
+  vertical-align: baseline;
+}
+
+.nav-list {
+	text-decoration:none;
+}
+
+.header__main-nav .header__link .icon-dropdown-arrow {
+  margin-left: 6px;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  transition: -webkit-transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+}
+
+.header__main-nav .header__link:hover .icon-dropdown-arrow,
+.header__main-nav .header__link--focused .icon-dropdown-arrow {
+  -webkit-transform: rotateZ(-180deg);
+  transform: rotateZ(-180deg);
+}
+
+/*Header STYLING sy-edit 7/16/18*/
+
+#header-actions{
+  background-color: #73A3EA;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#dc-header-container{
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: .9375rem;
+  padding-right: .9375rem;
+}
+#header-actions #brand-primary-image{
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: auto;
+    padding-left: .9375rem;
+
+  }
+  #brand-primary-image img{
+    width: 90px;
+  }
+
+  #dc-header-container .brand-cart-search{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #dc-header-container .brand-cart-search .table{
+    text-align: right;
+  }
+
+  #header-actions .brand-cart-search{
+    left: 0;
+    /*margin-right: 5% !important;*/
+  }
+
+  #header-actions .ship-container{
+    display: inline-block;
+    background-color: white;
+    color: #73A3EA;
+    width: 235px !important;
+    height: 30px;
+   	border-top: #003a70 solid 1px;
+    border-left: #003a70 solid 1px;
+   	border-bottom: #003a70 solid 1px;
+
+  }
+    #header-actions .ship-container h6{
+      color: #73A3EA;
+      padding-right: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-left: 6px;
+      font-family: 'Century Gothic Bold';
+
+    }
+    #header-actions .ship-container h6 #free-gift-click{
+      text-decoration: none;
+      letter-spacing: .5px;
+    }
+    #header-actions .ship-container h6 #free-gift-click span{
+      text-decoration: underline;
+    }
+    /* // #header-actions .sign-cart{
+    //   width: 130px !important;
+    //   background-color: white;
+    //   height: 30px;
+    //   display: inline-block;
+    // } */
       #header-actions .sign-cart{
         width: 130px !important;
         background-color: white;
@@ -5542,7 +5818,10 @@ select::-ms-expand {
   }
 }
 
-
+.header .container{
+ max-width: 100% !important;
+ padding: 0px !important;
+}
 
 /*end HEADER STYLES*/
 
@@ -5590,7 +5869,7 @@ ul.header__links li.header__link{
   line-height: 30px;
 }
 
-.first-nav {
+/* .first-nav {
   display: inline-block;
 border-left: 2px solid #003a70;
 font-family: 'Century Gothic Bold';
@@ -5608,7 +5887,7 @@ color: blue;
     margin-bottom: 5px;
     margin-left: 5px;
     color: red;
-  }
+  } */
 /*end navbar styles */
 
 
@@ -5669,12 +5948,14 @@ color: blue;
 }
 
 .nav-dropdown--first > .nav-dropdown__item > .nav-dropdown__link {
-  color: $light-text-color;
+  font-family: 'Century Gothic Bold';
+  color: #73A3EA;
+  line-height: 30px;
 }
 
-.nav-dropdown--first > .nav-dropdown__item:hover > .nav-dropdown__link {
+/* .nav-dropdown--first > .nav-dropdown__item:hover > .nav-dropdown__link {
   color: $heading-color;
-}
+} */
 
 .mega-nav {
   position: absolute;

@@ -10,30 +10,30 @@
   {%- assign mega_nav_names = mega_nav_names | downcase | split: ',' | compact -%}
 
   <nav class="header__main-nav {% if section.settings.logo_position == 'left' %}header__main-nav--stretched{% endif %}">
-    <ul class="header__links list--unstyled" id="{{blog.handle | handleize}}{{shop.name | handleize}}">
+    <ul class="header__links list--unstyled">
       {%- for link in main_menu.links -%}
         <li class="header__link {% if link.links != blank %}header__link--need-extra-space{% endif %}" {% if link.links != blank %}aria-haspopup="true"{% endif %} tabindex>
           <a href="{{ link.url }}" class="link">{{- link.title | escape -}} {% if link.links != blank %}{% include 'icon' with 'dropdown-arrow' %}{% endif %}</a>
-<!--what gets rendered and from where?????
+
           {%- if link.links != blank -%}
             {%- assign downcased_link_title = link.title | strip | downcase -%}
 
-            <!-- {%- if mega_nav_names contains downcased_link_title -%}
+            {%- if mega_nav_names contains downcased_link_title -%}
               <div class="mega-nav">
                 {%- for sub_link in link.links -%}
                   <a href="{{ sub_link.url }}" class="mega-nav__item">
-                    {%- assign mega_nav_image = '' -%} -->
+                    {%- assign mega_nav_image = '' -%}
 
-                    <!-- {%- case sub_link.type -%}
+                    {%- case sub_link.type -%}
                       {%- when 'collection_link' -%}
                         {%- assign mega_nav_image = sub_link.object.image | default: sub_link.object.products.first.featured_image %}
                       {%- when 'product_link' -%}
                         {%- assign mega_nav_image = sub_link.object.featured_image -%}
-                    {%- endcase -%} -->
+                    {%- endcase -%}
 
-                    <!-- {%- if mega_nav_image != blank -%}
+                    {%- if mega_nav_image != blank -%}
                       <img src="{{ mega_nav_image | img_url: '150x150', scale: 2, crop: 'center' }}" height="150" width="150" alt="{{ mega_nav_image.alt | escape }}" class="mega-nav__image">
-                    {%- endif -%} -->
+                    {%- endif -%}
 
                     <span class="mega-nav__title">{{ sub_link.title | escape }}</span>
                   </a>
