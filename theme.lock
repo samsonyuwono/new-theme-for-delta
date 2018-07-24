@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-24T17:06:53-04:00   6264a914fc897615e5f5c01bbec85ee2
+  development: 2018-07-24T17:41:42-04:00   7c3f51ee9674fa562129dce5da4f36ca
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -88,7 +88,7 @@ sections/collection-template.liquid:
 sections/custom-html.liquid:
   development: 2018-07-19T13:34:17-04:00   037c975a962425380aff89c59be934da
 sections/featured-article.liquid:
-  development: 2018-07-19T13:34:17-04:00   7150444573c767bf00506c272ed241b7
+  development: 2018-07-24T17:54:59-04:00   e7237d25a1b1b8b20b30c1c1c1a92b36
 sections/featured-collection.liquid:
   development: 2018-07-19T13:34:17-04:00   5c2c7c5dfab57669636d56f19e539f70
 sections/featured-product.liquid:
@@ -100,7 +100,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-07-24T11:12:11-04:00   b862dc42e6072cb0d4dff74686079954
 sections/home-slideshow.liquid:
-  development: 2018-07-19T13:34:17-04:00   2604a165e900e7d3261316a254c0058a
+  development: 2018-07-24T18:12:17-04:00   b50faea6eb84696a0dcb7ff935f78f76
 sections/image-with-text-overlay.liquid:
   development: 2018-07-19T13:34:17-04:00   d22241af55ac76b775a390542479373b
 sections/instagram-feed.liquid:
@@ -132,7 +132,7 @@ sections/testimonials.liquid:
 sections/text-with-optional-image.liquid:
   development: 2018-07-19T13:34:18-04:00   9c357694728a1d41a958391896acfdda
 snippets/branding.liquid:
-  development: 2018-07-19T15:41:19-04:00   c4122a5f6c8e68cdb2406b6ab7377c3a
+  development: 2018-07-24T18:02:41-04:00   47b406322658b0c4642f4f8574dd748f
 snippets/bundle-links.liquid:
   development: 2018-07-19T13:34:24-04:00   18b0e7a8c845943022883714d5a3ff3c
 snippets/collection-filter.liquid:
