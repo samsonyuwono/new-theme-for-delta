@@ -1,0 +1,750 @@
+<style>
+
+/*Global Styles*/
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Black.otf');
+}
+@font-face{
+  font-family: 'Gotham Medium';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-medium.otf');
+}
+@font-face{
+  font-family: 'Gotham Ultra';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/GothamUltranew.otf');
+}
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.gotham-ultra{
+  font-family: 'Gotham Ultra';
+}
+.light-blue{
+  color: #407cbe !important;
+}
+.dark-blue{
+  color: #1a3d6e !important;
+}
+.dark-grey{
+  color: #606b82;
+}
+.light-grey{
+  color: #8e8e8e;
+}
+
+/*"Where to Buy" Button*/
+
+#wheretobuywrapper{
+  display: flex !important;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+#wheretobuywrapper p{
+  width: 45%;
+  display: inline-block;
+  margin-bottom: 0;
+}
+#wheretobuywrapper p button{
+  margin-bottom: 0 !important;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/*Bundle link styling*/
+
+  .button-link-holder{
+    display: inline-block;
+    border-style: dotted;
+    border-color: #427cbe;
+    width: 265px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: 1;
+    padding: 5px;
+    margin-left: 0;
+  }
+
+  #button-link #title-text{
+    display: inline-block;
+    text-align: left;
+    line-height: 1;
+  }
+  #button-link #title-text span{
+    display: block;
+    width: 100%;
+  }
+  #title-text #save{
+    font-size: 120%;
+  }
+  #title-text #up-to{
+    font-size: 105%;
+  }
+  #title-text #forty{
+    font-size: 150%;
+  }
+
+  #button-link-text{
+    width: 65%;
+    display: inline-block;
+    text-align: left;
+    font-size: 75%;
+    line-height: 1.25;
+    margin-left: 5px;
+  }
+  span#nursery-set i{
+    display: inline;
+    font-weight: 100;
+    letter-spacing: .2px;
+
+  }
+
+  #button-link-or{
+    display: inline;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #4d4949 !important;
+    font-size: 110%;
+    margin-top: 5px;`
+}
+  #save-now{
+    background-color: #bb271b;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    letter-spacing: .8px;
+    font-weight: 100;
+    font-size: 90%;
+  }
+
+  @media only screen and (max-width: 1290px){
+    #wheretobuywrapper{
+      display: block !important;
+      text-align: left;
+      align-items: normal;
+    }
+    .button-link-holder{
+      display: block;
+      width: 265px;
+      text-align: center;
+      margin-left: 0;
+    }
+    #button-link-or {
+    display: block;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 215px;
+    margin-top: 0;
+  }
+  #wheretobuywrapper p button {
+    margin-bottom: 0 !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 215px;
+  }
+}
+.button-link-holder{
+  display: none;
+}
+#button-link-or{
+  display: none;
+}
+
+@media only screen and (max-width: 642px){
+	#button-link-text{
+    	font-size: 70%;
+  	}
+  	 #title-text #save{
+    font-size: 110%;
+  }
+  #title-text #up-to{
+    font-size: 100%;
+  }
+  #title-text #forty{
+    font-size: 140%;
+  }
+
+    }
+
+
+</style>
+
+<!-- HTML for bundle link button -->
+<div class="button-link-holder">
+
+  <a href="" id="button-link">
+    <div id="title-text" class="gotham-ultra light-blue">
+      <span id="save">SAVE</span>
+      <span id="up-to">UP TO</span>
+      <span id="forty">40%</span>
+
+    </div>
+    <!-- <img src="//cdn.shopify.com/s/files/1/0578/7201/files/save-up-to-40.png"> -->
+    <div id="button-link-text" class="gotham-medium dark-blue">
+      when you purchase this
+      <div id="crib-copy" style="display: inline">crib</div> in a
+      <span id="nursery-set" class="gotham-ultra light-blue"><i>NURSERY SET</i></span>
+      including all new baby essentials
+      <span id="save-now" class="gotham-black">Save Now ></span>
+    </div>
+  </a>
+</div>
+<div id="button-link-or" class="gotham-black">OR</div>
+
+
+<script>
+//script for bundle link button functionality
+//looks at SKU of product at bottom of string to get correct id and then inputs relavent href in link
+$(window).on('load', function() {
+  addCorrectBundleLink();
+
+  function addCorrectBundleLink(){
+
+    //variables for Bundle Link Button
+    bundleLinkElement = $('.button-link-holder, #button-link-or');
+    bundleUrlElement = $('#button-link');
+
+    //on load, get SKU #
+    id = $('#display_sku').html();
+    console.log(id);
+    linkToBundles();
+    edgeCase();
+      hideBuyFromDC();
+
+
+    //on change of variant slector on product page, wait .001 sec and check SKU #
+    $('select.single-option-selector').change(function(){
+      setTimeout(function(){
+        id = $('#display_sku').html();
+        console.log(id);
+        linkToBundles();
+        edgeCase();
+        hideBuyFromDC();
+      }, 1);//end set timout window scroll
+    });
+
+    //if variant has this SKU #, place this href in bundleUrlElement
+    function linkToBundles(){
+      //cribs
+      if(id == '540330-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-6-archer-grey');
+      }
+      else if(id == '540330-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-4-archer-bianca');
+      }
+      else if(id == '540330-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-5-archer-dark-chocolate');
+      }
+      else if(id == '541630-149'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-34-aster-bianca-with-ebony');
+      }
+      else if(id == '541630-166'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-33-aster-bianca-with-grey');
+      }
+      else if(id == '6801-100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-35-ava-white');
+      }
+      else if(id == '541130-149'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-32-bellevue-bianca-with-ebony');
+      }
+      else if(id == '541130-166'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-31-bellevue-bianca-with-grey');
+      }
+      else if(id == '7888-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-10-canton-grey');
+      }
+      else if(id == '7888-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-11-canton-bianca');
+      }
+      else if(id == '7380-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-37-emery-grey');
+      }
+      else if(id == '7380-100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-36-emery-white');
+      }
+      else if(id == '7380-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-38-emery-dark-chocolate');
+      }
+      else if(id == '549150-0011'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-19-new-haven-ebony');
+      }
+      else if(id == '549150-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-21-new-haven-grey');
+      }
+      else if(id == '549150-029'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-20-new-haven-charcoal');
+      }
+      else if(id == '549150-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-22-new-haven-bianca');
+      }
+      else if(id == '549150-347'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-18-new-haven-aqua');
+      }
+      else if(id == '704330-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-9-ashland-grey');
+      }
+      else if(id == '704330-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-7-ashland-bianca');
+      }
+      else if(id == '704330-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-8-ashland-dark-chocolate');
+      }
+      else if(id == '702350-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-43-banbury-grey');
+      }
+      else if(id == '702350-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-42-banbury-bianca');
+      }
+      else if(id == '704320-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-41-barrett-grey');
+      }
+      else if(id == '704320-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-39-barrett-bianca');
+      }
+      else if(id == '704320-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-40-barrett-dark-chocolate');
+      }
+      else if(id == '704310-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-14-fall-river-grey');
+      }
+      else if(id == '704310-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-12-fall-river-bianca');
+      }
+      else if(id == '704310-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-13-fall-river-dark-chocolate');
+      }
+      else if(id == '706130-134'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-15-fremont-bianca-with-aqua');
+      }
+      else if(id == '706130-149'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-16-fremont-bianca-with-ebony');
+      }
+      else if(id == '706130-166'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-17-fremont-bianca-with-grey');
+      }
+      else if(id == '703150-084'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-44-langley-rustic-grey');
+      }
+      else if(id == '703150-112'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-45-langley-rustic-whitewash');
+      }
+      else if(id == '703150-229'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-46-langley-rustic-oak');
+      }
+      else if(id == '707250-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-2-mid-century-modern-lifestyle-grey');
+      }
+      else if(id == '707250-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-1-mid-century-modern-lifestyle-bianca');
+      }
+      else if(id == '707250-1324'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-3-mid-century-modern-lifestyle-walnut-espre');
+      }
+      else if(id == '331150-170'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-23-oakmont-rustic-bianca');
+      }
+      else if(id == '331150-940'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-24-oakmont-rustic-haze');
+      }
+      else if(id == '333150-0011'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-26-peyton-ebony');
+      }
+      else if(id == '333150-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-25-peyton-bianca');
+      }
+      else if(id == '332150-122'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-27-ravello-antique-white');
+      }
+      else if(id == '332150-161'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-28-ravello-storm');
+      }
+      else if(id == '329150-122'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-29-tivoli-antique-white');
+      }
+      else if(id == '329150-2100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-30-tivoli-antique-chestnut');
+      }
+      else if(id == '6792-027'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-47-tribeca-white-with-grey');
+      }
+      //end cribs
+      //start rocking chairs, gliders, "add-on" products
+      else if(id == '332070-161'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-28-ravello-storm');
+      }
+      else if(id == '310520-018'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '310520-034'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '310520-277'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '329030-122'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-29-tivoli-antique-white');
+      }
+      else if(id == '329030-2100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-30-tivoli-antique-chestnut');
+      }
+      else if(id == '329090-122'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-29-tivoli-antique-white');
+      }
+      else if(id == '329090-2100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-30-tivoli-antique-chestnut');
+      }
+      else if(id == '331040-170'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-23-oakmont-rustic-bianca');
+      }
+      else if(id == '331040-940'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-24-oakmont-rustic-haze');
+      }
+      else if(id == '331060-170'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-23-oakmont-rustic-bianca');
+      }
+       else if(id == '331060-940'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-24-oakmont-rustic-haze');
+      }
+      else if(id == '332040-122'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-27-ravello-antique-white');
+      }
+      else if(id == '332040-161'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-28-ravello-storm');
+      }
+      else if(id == '332070-122'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-27-ravello-antique-white');
+      }
+      else if(id == '333030-0011'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-26-peyton-ebony');
+      }
+      else if(id == '333030-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-25-peyton-bianca');
+      }
+      else if(id == '333060-0011'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-26-peyton-ebony');
+      }
+      else if(id == '333060-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-25-peyton-bianca');
+      }
+      else if(id == '502210-018'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '502210-034'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '502310-053'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '502310-065'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '502310-424'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '502310-931'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '503310-921'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '503310-931'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '508210-036'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '508210-911'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '508210-923'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '508520-018'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '508520-034'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '508520-277'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '509310-465'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '509310-636'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '510210-034'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '510210-483'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '535031-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '535031-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '535031-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '702040-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '702040-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '702040-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '702180-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '702180-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '702180-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '703040-084'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-44-langley-rustic-grey');
+      }
+      else if(id == '703040-112'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-45-langley-rustic-whitewash');
+      }
+      else if(id == '703040-229'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-46-langley-rustic-oak');
+      }
+      else if(id == '703070-084'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-44-langley-rustic-grey');
+      }
+      else if(id == '703070-112'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-45-langley-rustic-whitewash');
+      }
+      else if(id == '703070-229'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-46-langley-rustic-oak');
+      }
+      else if(id == '707030-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-2-mid-century-modern-lifestyle-grey');
+      }
+      else if(id == '707030-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-1-mid-century-modern-lifestyle-bianca');
+      }
+      else if(id == '707030-1324'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-3-mid-century-modern-lifestyle-walnut-espre');
+      }
+      else if(id == '70967-034'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '70967-499'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '70967-911'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '72977-065'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '72977-1305'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '72977-424'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '72977-921'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '72977-931'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '74103-026'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '74103-100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '74103-130'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '74103-207'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+      else if(id == '76303-100'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/apps/productbuilder/bundle-35-ava-white');
+      }
+      else if(id == 'SS2055A-063'){
+        bundleLinkElement.show();
+        bundleUrlElement.attr('href', '/pages/bundles');
+      }
+
+      //end rocking chairs, gliders, "add-on" products
+      else{
+        bundleLinkElement.hide();
+      }
+    }
+
+    //edge case for if a product only has a "Buy from Delta Children" button -> hides "OR"
+    function edgeCase(){
+      if($("#test button").css('display') == 'none'){
+        $("#button-link-or").hide();
+      }
+      if($('.page-header h1:contains("Crib")').length){
+        $('#crib-copy').show();
+    }
+      else{
+        $('#crib-copy').hide();
+
+      }
+
+  }
+    function hideBuyFromDC(){
+    visibleVariant = $('select.single-option-selector').children(':selected').text();
+    // console.log(visibleVariant);
+    variantQuant = $('#product-select option:contains("' + visibleVariant +'")').attr('quant');
+    variantDcTag = $('#product-select option:contains("' + visibleVariant +'")').attr('tags');
+
+    if(variantQuant < 9 && variantDcTag.indexOf('dc-shop') > -1 ){
+//       console.log('less than 9! and dc shop')
+      $('button.add-to-cart:contains("Add to Cart")').hide();
+
+    }
+    else if (variantQuant > 9 && variantDcTag.indexOf('dc-shop') > -1 ){
+//       console.log('over 9! and dc shop');
+      $('button.add-to-cart:contains("Add to Cart")').show();
+
+    }
+    if($('.form-actions').attr('id') < 9){
+       $('button.add-to-cart:contains("Add to Cart")').hide();
+    }
+  }
+
+  }
+});
+
+
+
+</script>

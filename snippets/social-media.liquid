@@ -1,0 +1,67 @@
+{%- capture social_media_links -%}
+  {%- if settings.social_facebook != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_facebook }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'facebook', title: 'Facebook' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_twitter != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_twitter }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'twitter', title: 'Twitter' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_instagram != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_instagram }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'instagram', title: 'Instagram' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_pinterest != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_pinterest }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'pinterest', title: 'Pinterest' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_youtube != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_youtube }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'youtube', title: 'YouTube' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_vimeo != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_vimeo }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'vimeo', title: 'Vimeo' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_tumblr != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_tumblr }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'tumblr', title: 'Tumblr' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_google_plus != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_google_plus }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'google-plus', title: 'Google+' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_fancy != blank -%}
+    <li class="social-media__item">
+      <a href="{{ settings.social_fancy }}" class="link link--secondary" target="_blank">{%- include 'icon' with 'fancy', title: 'Fancy' -%}</a>
+    </li>
+  {%- endif -%}
+
+  {%- if section.id == 'blog-template' -%}
+    <li class="social-media__item">
+      <a href="{{ blog.url }}.atom" class="link link--secondary" target="_blank">{%- include 'icon' with 'rss', title: 'RSS' -%}</a>
+    </li>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if social_media_links != blank -%}
+  <ul class="social-media {% if small_icons %}social-media--small{% endif %} list--unstyled">
+    {{ social_media_links }}
+  </ul>
+{%- endif -%}

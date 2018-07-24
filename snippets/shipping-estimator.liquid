@@ -1,0 +1,33 @@
+<section class="shipping-estimator {% if for_mobile %}shipping-estimator--mobile hidden-handheld-and-up{% else %}hidden-thumb{% endif %}">
+  <h3 class="shipping-estimator__title text--uppercase">
+    {{ 'cart.shipping_estimator.title' | t }} {%- if for_mobile -%}{%- include 'icon' with 'arrow-bottom' -%}{%- endif -%}
+  </h3>
+
+  <div class="shipping-estimator__inner" {% if for_mobile %}style="display: none"{% endif %}>
+    <div class="shipping-estimator__form">
+      <div class="form__control">
+        <div class="styled-select">
+          {%- include 'icon' with 'dropdown-arrow' -%}
+          <select aria-label="{{ 'cart.shipping_estimator.country' | t }}" id="address_country{% if for_mobile %}_mobile{% endif %}" name="shipping_address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif section.settings.shipping_estimator_default_country != '' %}{{ section.settings.shipping_estimator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+        </div>
+      </div>
+
+      <div class="form__control" id="address_province_container{% if for_mobile %}_mobile{% endif %}" style="display: none;">
+        <div class="styled-select">
+          {%- include 'icon' with 'dropdown-arrow' -%}
+          <select aria-label="{{ 'cart.shipping_estimator.province' | t }}" id="address_province{% if for_mobile %}_mobile{% endif %}" name="shipping_address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+        </div>
+      </div>
+
+      <div class="form__control">
+        <input aria-label="{{ 'cart.shipping_estimator.zip' | t }}" type="text" id="address_zip" class="form__input" placeholder="{{ 'cart.shipping_estimator.zip' | t }}" name="shipping_address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %}>
+      </div>
+
+      <button type="submit" class="button button--secondary shipping-estimator__submit">{{ 'cart.shipping_estimator.submit' | t }}</button>
+    </div>
+
+    <div class="shipping-estimator__results" style="display: none">
+      <ul class="shipping-estimator__list"></ul>
+    </div>
+  </div>
+</section>

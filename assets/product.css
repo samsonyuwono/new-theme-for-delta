@@ -1,0 +1,639 @@
+/*Custom styling for product pages, organzied from top of page to bottom*/
+
+/*Global Styles*/
+@font-face{
+  font-family: 'Gotham Bold';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-bold.otf');
+}
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Black.otf');
+}
+@font-face{
+  font-family: 'Gotham Book';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
+}
+@font-face{
+  font-family: 'Gotham Medium';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-medium.otf');
+}
+@font-face{
+  font-family: 'Gotham Ultra';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/GothamUltranew.otf');
+}
+@font-face{
+  font-family: 'Gotham Extra Light';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_ExtraLight.otf');
+}
+@font-face{
+  font-family: 'Gotham Light';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Light_1.otf');
+}
+@font-face{
+  font-family: 'Futura Bold';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/futura.otf');
+}
+@font-face{
+  font-family: 'Helvetica Medium Condensed';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/helvetica-neue-lt-std-67-medium-condensed.otf?9943094632125790425')
+}
+@font-face{
+  font-family: 'Sun Valley';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/sun_valley-webfont.woff')
+}
+
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-bold{
+  font-family: 'Gotham Bold';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.ultra{
+  font-family: 'Gotham Ultra';
+}
+.gotham-book{
+  font-family: 'Gotham Book';
+}
+.gotham-e-light{
+  font-family: 'Gotham Extra Light';
+}
+.gotham-light{
+  font-family: 'Gotham Light';
+}
+.light-blue{
+  color: #407cbe !important;
+}
+.dark-blue{
+  color: #1a3d6e !important;
+}
+.dark-grey{
+  color: #606b82;
+}
+.light-grey{
+  color: #8e8e8e;
+}
+.darker-grey{
+  color: #58595b;
+}
+.lighter-blue{
+  color: #90B3D9 !important;
+}
+.white{
+  color: white;
+}
+
+/*End Global Styles */
+
+.page__content-wrapper{
+  padding: 30px 0;
+}
+
+/*product title*/
+.product__brand{
+  color: #acacac;
+  font-family:'Gotham Book';
+  margin-bottom: 0;
+  line-height: 1;
+}
+.product__title{
+  color: #8daadb;
+  font-family: 'Gotham Black';
+  font-size: 180%;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+.product__meta{
+  position: relative;
+  margin-bottom: 12px;
+}
+.product__meta .spr-summary{
+  display: inline-block;
+  right: 0;
+  position: relative;
+  right: 0;
+  text-transform: uppercase;
+}
+.product__meta .spr-starrating{
+  vertical-align: text-bottom;
+}
+.product__meta .spr-summary-caption{
+  vertical-align: text-bottom;
+}
+.product__meta .spr-summary-caption span{
+  vertical-align: middle;
+  font-family: 'Gotham Medium';
+  color: #a1a1a1;
+  font-size: 80%;
+}
+#shopify-product-reviews .spr-summary-actions-newreview{
+  background-color: #1a3d6e;
+  font-family: 'Gotham Medium';
+  color: white;
+  text-transform: inherit;
+}
+#shopify-product-reviews .spr-review-header-byline{
+  font-family: 'Gotham Medium';
+  font-style: italic;
+  color: #c2c2c2;
+}
+.product__price{
+  font-family: 'Gotham Book';
+  color: #363636;
+  font-size: 120%;
+  margin-right: 160px;
+}
+.product__variants{
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  vertical-align: top;
+  margin-right: 0;
+  margin-left: -28px;
+}
+.form__control{
+  display: inline-block;
+  position: relative;
+}
+.product__slideshow{
+  margin-bottom: 15px;
+}
+.product__variants .form__control .form__label{
+  font-family: 'Gotham Medium';
+  color: #363636;
+  text-transform: inherit;
+  letter-spacing: normal;
+  font-weight: 100;
+}
+.product__variants .form__control .quantity-selector{
+  font-family: 'Gotham Book';
+}
+.product__available-colors .swatch-name{
+  font-family: 'Gotham Book';
+  color: #363636;
+}
+.form__control .form__label{
+  font-family: 'Gotham Medium';
+  color: #363636;
+  text-transform: inherit;
+  margin-bottom: 0;
+  letter-spacing: normal;
+  font-weight: 100;
+}
+.product__color{
+  margin-bottom: 0;
+}
+.product__color input:checked ~ svg{
+  display: none;
+}
+.color-swatch{
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(161,161,166,0.4);
+}
+.outline-swatch{
+  border: solid #213e6c 3px;;
+}
+.swatch-name{
+  display: block;
+  font-size: 90%;
+}
+.product__form .quantity-selector{
+  font-family: 'Gotham Book';
+}
+.product__payment-container button.product__add-to-cart{
+  background-color: #8daadb;
+  font-family: 'Gotham Medium';
+  color: white;
+  text-transform: inherit;
+  margin-bottom: 12px;
+  max-width: 200px;
+  padding: 12px 20px 11px 20px;
+}
+.product__payment-container button.product__add-to-cart:hover{
+  background-color: #1a3d6e;
+}
+#wheretobuywrapper #wtb-modal{
+  position: fixed;
+  z-index: 5;
+  top: 20%;
+  width: 30%;
+  left: 35%;
+  border: solid 1px black;
+}
+#wheretobuywrapper #wtb-modal iframe{
+  border: none;
+}
+
+#wheretobuywrapper #wtb-modal a{
+  padding-right: 5px;
+}
+#wheretobuywrapper button{
+  background-color: #8daadb;
+  font-family: 'Gotham Medium';
+  color: white;
+  text-transform: inherit;
+  margin-bottom: 12px;
+  max-width: 200px;
+  padding: 12px 20px 11px 20px;
+}
+#wheretobuywrapper button:hover{
+  background-color: #1a3d6e;
+}
+.product__description.rte{
+  margin-bottom: 20px;
+  font-family: 'Gotham Book';
+  font-size: 80%;
+  color: #555555;
+  /*max-height: 200px;
+  overflow-y: scroll;*/
+}
+.product__form{
+  margin-bottom: 12px;
+}
+.product__description a{
+  color: #8daadb !important;
+}
+.product__payment-container{
+  margin-top: 0;
+}
+.product__details{
+  margin-bottom: 10px;
+}
+.share-buttons--horizontal .share-buttons__list{
+  margin-left: 5px;
+}
+.share-buttons span.share-buttons__label{
+  font-family: 'Gotham Black';
+  color: #a1a1a1;
+  text-transform: inherit;
+}
+.share-buttons__item img{
+  width: 25px;
+  vertical-align: middle;
+}
+.product__thumbnails{
+  display: none;
+  margin-top: 12px;
+}
+
+#product-video-container{
+  display: none;
+  height: 0;
+}
+#product-video-container #prod-videos{
+  display: inline-block;
+}
+#product-video-container #prod-videos img{
+  max-height: 125px;
+}
+#product-video-container #prod-vid-arrow{
+  display: inline-block;
+  position: relative;
+}
+#product-video-container #prod-vid-arrow span{
+  font-family: 'Gotham Black';
+  position: absolute;
+  transform: rotate(270deg);
+  width: 125px !important;
+  left: -50px;
+  top: 43px;
+  font-size: 75% !important;
+  display: inline-block;
+  color: white;
+}
+#product-video-container #prod-vid-arrow img{
+  height: 125px;
+}
+#product-video-container .popup-youtube .play-but{
+  position: absolute;
+  width: 30px;
+  margin-top: 45px;
+  margin-left: 65px;
+}
+#product-video-container .popup-youtube img{
+  outline: none !important;
+}
+
+.product__thumbnail-image{
+  max-width: 60px;
+}
+
+.share-buttons--horizontal{
+  margin-bottom: 12px;
+}
+#section-titles{
+  text-align: center;
+  text-align: left;
+}
+#section-titles .title{
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  margin-right: 10px;
+  font-family: 'Futura Bold';
+  font-size: 9pt;
+  color: #555555;
+  font-weight: bold;
+}
+#section-titles .title:hover{
+  color: #a1a1a1;
+}
+#section-titles .title.active{
+  color: #8daadb;
+  text-decoration: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 3px;
+}
+#product-info .section-info{
+  display: none;
+  margin-top: 12px;
+  font-family:'Gotham Medium';
+  max-height: 300px;
+  overflow-y: scroll;
+}
+#product-info #reviews{
+  display: block;
+}
+#product-info #prod-details{
+  color: #636363;
+  font-size: 12pt;
+}
+#product-info #prod-details a{
+  color: #8daadb;
+}
+#product-info #upc-div{
+  font-weight: bold;
+  font-family:'Gotham Medium';
+}
+#product-info #access-adapt{
+  color: #636363;
+  font-size: 12pt;
+}
+#product-info #access-adapt a{
+  color: #8daadb;
+}
+#product-info #ass-instruct{
+  color: #636363;
+  font-size: 12pt;
+}
+#product-info #ass-instruct a{
+  color: #8daadb;
+}
+#shopify-section-product-features{
+  background-image: url('//cdn.shopify.com/s/files/1/0578/7201/files/blue-background-desktop.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#shopify-section-product-features .product-features{
+  background: transparent;
+}
+#shopify-section-product-features .product-features__title{
+  font-family: 'Sun Valley';
+  color: #1a3d6e;
+  opacity: 1;
+  font-size: 40pt;
+  text-transform: inherit;
+  margin-bottom: 0;
+}
+#shopify-section-product-features .product-features__content{
+  font-family: 'Gotham Medium';
+  color: #1a3d6e;
+  opacity: 1;
+}
+
+.template-product .related-products{
+  background-color: white;
+}
+.related-products .section__title{
+  font-family: 'Gotham Black';
+  color: #555555;
+  text-transform: inherit;
+  font-size: 180%;
+}
+.related-products .product-item__vendor{
+  font-family: 'Gotham Medium';
+  color: #acacac;
+  text-transform: inherit;
+}
+.related-products .product-item__title{
+  font-family: 'Gotham Bold';
+  color: #8daadb;
+  text-transform: inherit;
+  min-height: 90px;
+}
+.related-products .product-item__price{
+  font-family: 'Gotham Book';
+  color: #363636;
+  text-transform: inherit;
+}
+.related-products .color-swatch--mini{
+  width: 20px;
+  height: 20px;
+}
+.related-products .product-item__labels{
+  font-family: 'Gotham Book';
+  text-transform: inherit;
+}
+#fixed-bottom-mobile-buy{
+  display: none;
+}
+@media only screen and (min-width: 800px){
+  .product__meta .product__brand{
+    position: relative;
+    top: -5px;
+  }
+  .product__meta .product__title{
+    position: relative;
+    top: -5px;
+  }
+  .product__meta .product__color{
+    margin-bottom: 10px;
+  }
+  .product__slideshow .product__thumbnail{
+    margin: 5px 10px;
+  }
+  .product__slideshow .product__thumbnail .product__thumbnail-image{
+    max-width: 80px;
+  }
+  #shopify-section-product-features .product-features{
+    padding: 25px 0;
+  }
+  .list-products>.grid__cell{
+    padding-left: 0 !important;
+  }
+
+}
+
+@media only screen and (max-width: 1100px){
+  #wheretobuywrapper #wtb-modal{
+    position: absolute;
+    z-index: 5;
+    top: 20%;
+    width: 70%;
+    left: 15%;
+    border: solid 1px black;
+  }
+
+}
+
+/*Tablet and mobile styling*/
+@media only screen and (max-width: 800px){
+  .product__prices{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+  .product__price{
+    margin-right: 0;
+  }
+  .product__meta .spr-summary{
+    width: 50%;
+  }
+  #product-video-container{
+    height: auto;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+    #wheretobuywrapper{
+      text-align: center !important;
+    }
+
+  #wheretobuywrapper #wtb-modal{
+    top: 50%;
+    position: fixed;
+  }
+
+  #test button{
+    background-color: #8daadb;
+    font-family: 'Gotham Medium';
+    color: white;
+    text-transform: inherit;
+    margin-bottom: 12px;
+    max-width: 200px;
+    padding: 12px 20px 11px 20px;
+  }
+  #test button:hover{
+    background-color: #1a3d6e;
+  }
+  .product__variants{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .product__variants .form__control{
+    background-color: #f0f1f2;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .product__variants .form__control .form__label{
+    font-family: 'Gotham Black';
+    color: #213e6c;
+    transform: rotate(270deg);
+    position: absolute;
+    min-width: auto;
+    padding-bottom: 0px;
+  }
+  .product__variants .form__control:nth-child(2){
+    display: none;
+  }
+  .product__variants .product__available-colors{
+    width: 100%;
+    text-align: center;
+  }
+  .product__available-colors .swatch-name {
+    color: #555555;
+    font-family: 'Gotham Medium';
+  }
+  .product__details #section-titles{
+    text-align: center;
+  }
+  #fixed-bottom-mobile-buy{
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    box-shadow: 0 1px rgba(161,161,166,0.4);
+    background: white;
+    box-sizing: border-box !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-top: 1px solid rgba(161,161,166,0.4);
+    z-index: 5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #fixed-bottom-mobile-buy #quantity{
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    vertical-align: middle;
+
+  }
+  #fixed-bottom-mobile-buy .product__payment-container{
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    margin: 0;
+  }
+  #fixed-bottom-mobile-buy .product__payment-container .product__add-to-cart{
+    max-width: 150px;
+    padding: 0px 15px 11px 15px;
+    font-size: 80%;
+  }
+    .product-features{
+      padding-top: 0;
+    }
+  .product-features .container{
+    padding: 0;
+  }
+  .product-features .container .product-features__list{
+    margin-right: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+  .product-features .container .product-features__list .product-features__item{
+    border-bottom: white solid 10px;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    min-height: 160px;
+  }
+}
+
+/*mobile styling*/
+@media only screen and (max-width: 440px){
+  .product__meta .product__brand{
+    font-size: 90%;
+  }
+  .product__meta .product__title{
+    font-size: 130%;
+  }
+  #product-video-container #prod-vid-arrow{
+    vertical-align: top;
+  }
+  #product-video-container #prod-videos{
+    width: 70%;
+  }
+  #product-info #prod-details{
+    font-size: 10pt;
+  }
+  #product-info #access-adapt{
+    font-size: 10pt;
+  }
+  #product-info #ass-instruct{
+    font-size: 10pt;
+  }
+  .related-products .section__title{
+    font-size: 130%;
+  }
+  .product__meta .spr-icon{
+    /*font-size: 60% !important;*/
+  }
+
+}

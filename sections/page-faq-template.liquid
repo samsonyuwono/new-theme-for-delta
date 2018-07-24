@@ -1,0 +1,136 @@
+<div class="faq page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ page.title }}</h1>
+    </div>
+
+    <div class="box box--shrinked">
+      <div class="box__content box__content--large-padding">
+        {%- assign expand_questions = section.settings.expand_questions -%}
+
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'separator' -%}
+              <h2 class="faq__separator h4" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h2>
+
+            {%- when 'question' -%}
+              <div class="faq__item {% unless expand_questions %}faq__item--expandable{% endunless %}" {{ block.shopify_attributes }}>
+                <h3 class="faq__question h5 {% unless expand_questions %}link{% endunless %}">{{ block.settings.title }}</h3>
+                <div class="faq__answer rte">
+                  {{ block.settings.answer }}
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "class": "shopify-section__faq",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "expand_questions",
+      "label": "Expand all questions by default",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "separator",
+      "name": "Section separator",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "separator",
+        "settings": {
+          "title": "Shipping"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "title": "Do you ship overseas?",
+          "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "title": "How long will it take to get my order?",
+          "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "title": "What shipping carriers do you use?",
+          "answer": "<p>We use all major carriers, and local courier partners. You’ll be asked to select a delivery method during checkout.</p>"
+        }
+      },
+      {
+        "type": "separator",
+        "settings": {
+          "title": "Product"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "title": "Can I return my product?",
+          "answer": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we’re happy to help. Just email us directly and we’ll take you through the process.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "title": "Can I get my product personalized?",
+          "answer": "<p>It depends on the creator and the product. All options are outlined on the product page, so look out for customization options there.</p>"
+        }
+      },
+      {
+        "type": "separator",
+        "settings": {
+          "title": "Other"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "title": "Any question?",
+          "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

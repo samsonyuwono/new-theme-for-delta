@@ -1,0 +1,19 @@
+{%- assign force_secondary_background = true -%}
+
+<div class="page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ '404.general.title' | t }}</h1>
+    </div>
+
+    <div class="box box--mini">
+      <div class="box__content box__content--large-padding box__content--centered">
+        {{ '404.general.error' | t }}
+
+        <div class="box__button-wrapper button-wrapper">
+          <a href="{{ shop.url }}" class="button button--secondary">{{ '404.general.back_to_home' | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,183 @@
+{%- assign first_block = section.blocks | first -%}
+
+{%- if first_block.type == 'article' -%}
+  {%- assign article = articles[first_block.settings.article] -%}
+{%- elsif first_block.type == 'blog' -%}
+  {%- assign featured_blog = blogs[first_block.settings.blog] -%}
+  {%- assign article = featured_blog.articles.first -%}
+{%- endif -%}
+
+<section class="section section--positioned section-{{ section.id }}">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    {%- unless article.handle == blank -%}
+      {%- capture article_details -%}
+        <article class="article">
+          <div class="article__content">
+            {%- if section.settings.show_author_name or section.settings.show_date -%}
+              <div class="article__meta text--uppercase">
+                {%- if section.settings.show_author_name -%}
+                  <span class="article__author article__meta-item">{{ 'blog.article.written_by' | t: author: article.user.first_name }}</span>
+                {%- endif -%}
+
+                {%- if section.settings.show_date -%}
+                  <time datetime="{{ article.published_at | date: '%Y-%m-%dT%T' }}" class="article__date article__meta-item">{{ article.published_at | date: format: 'month_day_year' }}</time>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <h1 class="article__title h4">
+              <a href="{{ article.url }}" class="link">{{ article.title }}</a>
+            </h1>
+
+            <div class="article__excerpt rte {% if article.image %}hidden-thumb{% endif %}">
+              {%- if article.excerpt != blank -%}
+                {{ article.excerpt }}
+              {%- else -%}
+                {{ article.content | strip_html | truncate: 350 }}
+              {%- endif -%}
+            </div>
+
+            <a href="{{ article.url }}" class="article__read-more link link--primary link--effect text--uppercase">{{ 'blog.article.continue_reading' | t }}</a>
+          </div>
+        </article>
+      {%- endcapture -%}
+    {%- else -%}
+      {%- capture article_details -%}
+        <article class="article">
+          <div class="article__content">
+            {%- if section.settings.show_author_name or section.settings.show_date -%}
+              <div class="article__meta text--uppercase">
+                {%- if section.settings.show_author_name -%}
+                  {%- capture blog_author_name -%}{{ 'home_page.onboarding.article_author' | t }}{%- endcapture -%}
+                  <span class="article__author article__meta-item">{{ 'blog.article.written_by' | t: author: blog_author_name }}</span>
+                {%- endif -%}
+
+                {%- if section.settings.show_date -%}
+                  <time datetime="{{ 'now' | date: '%Y-%m-%dT%T' }}" class="article__date article__meta-item">{{ 'now' | date: format: 'month_day_year' }}</time>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <h3 class="article__title h4">
+              <a href="{{ article.url }}" class="link">{{ 'home_page.onboarding.article_title' | t }}</a>
+            </h3>
+
+            <div class="article__excerpt rte">
+              {{ 'home_page.onboarding.article_excerpt' | t }}
+            </div>
+
+            <a href="{{ article.url }}" class="article__read-more link link--primary link--effect text--uppercase">{{ 'blog.article.continue_reading' | t }}</a>
+          </div>
+        </article>
+      {%- endcapture -%}
+    {%- endunless -%}
+
+    {%- if article.image != blank -%}
+      <div class="box box--with-image">
+        <div class="box__image image-background" style="background: url({{ article.image | img_url: '1x1', format: 'jpg' }})">
+          <div class="image-background__inner lazyload image--fade-in"
+               data-optimumx="1.4"
+               data-bgset="{{ article.image | img_url: '500x500' }} 500w, {{ article.image | img_url: '700x700' }} 700w, {{ article.image | img_url: '1000x1000' }} 1000w">
+          </div>
+
+          <noscript>
+            <div class="image-background__inner" style="background-image: url({{ article.image | img_url: '1000x1000' }})"></div>
+          </noscript>
+        </div>
+
+        <div class="box__content box__content--large-padding">
+          {{ article_details }}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="box box--shrinked">
+        <div class="box__content box__content--large-padding">
+          {{ article_details }}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.background_image -%}
+      <img src="{{ section.settings.background_image | img_url: '600x1360' }}"
+           alt="{{ section.settings.background_image.alt | escape }}"
+           class="image-below-box image-below-box--vertical-ratio">
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "shopify-section__featured-article",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured article"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author_name",
+      "label": "Show author name",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Secondary image",
+      "info": "600 x 1360px png with transparency recommended - this will be displayed only on large screens."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    },
+    {
+      "type": "blog",
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Blog"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Blog",
+      "name": "Blog posts",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "blog",
+          "settings": {
+            "blog": "news"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

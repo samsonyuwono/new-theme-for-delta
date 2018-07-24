@@ -1,0 +1,171 @@
+{% form 'product', product, class: 'product__form' %}
+  <div class="product__variants">
+    {%- if product.variants.size > 1 -%}
+      {%- assign show_variants_selectors = true -%}
+    {% elsif product.has_only_default_variant == false and section.settings.hide_variants_if_only_one == false %}
+      {%- assign show_variants_selectors = true -%}
+    {%- else -%}
+      {%- assign show_variants_selectors = false -%}
+    {%- endif -%}
+
+    {%- if show_variants_selectors -%}
+      {%- for option in product.options_with_values -%}
+        <div class="form__control">
+          <label for="single-option-selector-{{ forloop.index0 }}" class="form__label">{{ option.name }}</label>
+
+          {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' -%}
+          {%- assign size_label = 'size,taille,bröße,tamanho,tamaño,koko,サイズ' -%}
+
+          {%- assign downcase_option = option.name | downcase -%}
+
+          {%- if section.settings.show_color_swatch and color_label contains downcase_option -%}
+            <ul class="product__available-colors list--unstyled" data-selector-type="color">
+              {%- for value in option.values -%}
+                {%- include 'variant-option-properties', value: value -%}
+
+                {%- assign downcase_value = value | downcase -%}
+                {%- assign color_swatch_white = false -%}
+
+                {%- if 'white,blanc,blanco,白,weiß,vit,branco' contains downcase_value -%}
+                  {%- assign color_swatch_white = true -%}
+                {%- endif -%}
+
+                <li class="product__color {% unless allow_variant_selection %}product__color--unavailable{% endunless %}" title="{{ value }}" id="{{product.sku}}">
+                  <input id="{{ product.id }}-color-swatch-{{ forloop.index0 }}" {% unless allow_variant_selection %}disabled{% endunless %} class="single-option-selector" name="single-option-selector-{{ forloop.parentloop.index0 }}" data-option-index="option{{ forloop.parentloop.index }}" type="radio" {% if option.selected_value == value %}checked="checked"{% endif %} value="{{ value | escape }}">
+                  <label {% if allow_variant_selection %}tabindex="0"{% endif %} class="color-swatch {% if color_swatch_white %}color-swatch--white{% endif %}" for="{{ product.id }}-color-swatch-{{ forloop.index0 }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.png' | asset_url }})"></label>
+                  {%- include 'icon' with 'tick' -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+            {%- elsif section.settings.show_size_swatch and size_label contains downcase_option -%}
+            <ul class="product__available-sizes list--unstyled" data-selector-type="size">
+              {%- for value in option.values -%}
+                {%- include 'variant-option-properties', value: value -%}
+
+                <li class="product__size {% unless allow_variant_selection %}product__size--unavailable{% endunless %}">
+                  <input id="{{ product.id }}-{{ downcase_option | escape }}-{{ forloop.index0 }}" {% unless allow_variant_selection %}disabled{% endunless %} type="radio" class="single-option-selector" name="single-option-selector-{{ forloop.parentloop.index0 }}" data-option-index="option{{ forloop.parentloop.index }}" {% if option.selected_value == value %}checked="checked"{% endif %} value="{{ value | escape }}">
+                  <label {% if allow_variant_selection %}tabindex="0"{% endif %} for="{{ product.id }}-{{ downcase_option | escape }}-{{ forloop.index0 }}" class="product__size-label">{{ value }}</label>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- else -%}
+            <div class="styled-select styled-select--secondary">
+              {%- include 'icon' with 'dropdown-arrow' -%}
+
+              <select class="single-option-selector" id="single-option-selector-{{ forloop.index0 }}" data-option-index="option{{ forloop.index }}" data-selector-type="select">
+                {%- for value in option.values -%}
+                  {%- include 'variant-option-properties', value: value -%}
+
+                  <option value="{{ value | escape }}" {% unless allow_variant_selection %}disabled{% endunless %} {% if option.selected_value == value %}selected="selected"{% endif %}>{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+
+      <div class="form__control hidden-lap-and-up">
+        <label class="form__label">{{ 'product.form.price' | t }}</label>
+
+        <div class="product__prices">
+          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+            <span class="product__price product__price--new h4" data-money-convertible>{{ product.selected_or_first_available_variant.price | money }}</span><!--
+                        --><span class="product__price product__price--old h4" data-money-convertible>{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+          {%- else -%}
+            <span class="product__price h4" data-money-convertible>{{ product.selected_or_first_available_variant.price | money }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="no-js form__control">
+        <label for="product-select-{{ product.id }}" class="form__label">{{ 'product.form.variant_label' | t }}</label>
+
+        <div class="styled-select styled-select--secondary">
+          {%- include 'icon' with 'dropdown-arrow' -%}
+
+          <select id="product-select-{{ product.id }}" name="id" class="variant-info">
+            {%- for variant in product.variants -%}
+              <option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} {% unless variant.available %}disabled="disabled"{% endunless %} value="{{ variant.id }}" data-sku="{{ variant.sku }}" data-upc="{{variant.barcode}}" data-quant="{{variant.inventory_quantity}}">{{ variant.title }} - {{ variant.price | money }}</option>
+            {%- endfor -%}
+          </select>
+        </div>
+      </div>
+    {%- else -%}
+      <input type="hidden" name="id" data-sku="{{ product.selected_or_first_available_variant.sku }}" value="{{ product.selected_or_first_available_variant.id }}">
+    {%- endif -%}
+  </div>
+  {%- if section.settings.show_quantity_selector -%}
+    <div class="form__control" id="quantity">
+      <label class="form__label">{{ 'product.form.quantity' | t }}</label>
+
+      <div class="quantity-selector" >
+        <a href="#" data-action="decrease-product-quantity" title="{{ 'product.form.decrease_quantity' | t }}">{%- include 'icon' with 'minus' -%}</a>
+        <span class="quantity-selector__current-quantity">1</span>
+        <a href="#" data-action="increase-product-quantity" title="{{ 'product.form.increase_quantity' | t }}">{%- include 'icon' with 'plus' -%}</a>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <input type="hidden" name="quantity" value="1">
+  <div class="product__payment-container">
+    {%- if product.tags contains "dc-shop" -%}
+    {%- if product.selected_or_first_available_variant.available -%}
+      <button type="submit" class="product__add-to-cart button button--primary">
+        {%- if product.template_suffix == 'pre-order' -%}
+          {{- 'product.form.pre_order' | t -}}
+        {%- else -%}
+          {{- 'product.form.add_to_cart' | t -}}
+        {%- endif -%}
+      </button>
+    {%- else -%}
+      <button type="submit" class="product__add-to-cart button button--secondary" disabled="disabled">{{ 'product.form.sold_out' | t }}</button>
+
+       {%-endif-%}
+       {%else%}
+       {%-endif-%}
+
+
+
+    {%- if section.settings.show_payment_button -%}
+      {{ form | payment_button }}
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_payment_button and product.selected_or_first_available_variant.available == false -%}
+    <style>
+      #shopify-section-{{ section.id }} .shopify-payment-button {
+        display: none;
+      }
+    </style>
+  {%- endif -%}
+{%- endform -%}
+
+     <div id="wheretobuywrapper">
+       {% include 'bundle-links' %}
+
+
+         {% assign found = false %}
+        {% for c in product.collections %}
+        {% comment %}
+          {% if c.handle == "full-size-bed-rails" or c.handle == "guardrails" or c.handle == "platform-bed-kits"%}
+            {% assign found = true %}
+          {% endif %}
+        {% endcomment %}
+        {% endfor %}
+
+        {% if found == false %}
+            {% include 'wtb-modal' %}
+       {%else%}
+       <div id="no-js-message" style="display:none; color: red;">Our site reqires JavaScript to run. We recommend the latest versions of Chrome, Safari, Firefox, or Internet Explorer. <b>Please enable Javascript and refresh this page.</b><a style="display: block;" href="https://www.enable-javascript.com/" target="_blank"> Learn how to enable JavaScript.</a></div>
+
+           <!-- if JS is blocked... -->
+            <noscript>
+                <style type="text/css">
+                    a#test button{display: none;}
+                    #no-js-message{display: block !important;}
+                  #wheretobuywrapper p{display: none;}
+                </style>
+
+            </noscript>
+        {%endif%}
+      </div>

@@ -1,0 +1,86 @@
+{%- if section.settings.show_newsletter -%}
+  <aside class="newsletter">
+    <div class="container">
+      <div class="newsletter__inner">
+        {%- if section.settings.newsletter_image -%}
+          <div class="newsletter__image-container {% if section.settings.apply_newsletter_gradient %}newsletter__image-container--softened{% endif %}">
+            <img src="{{ section.settings.newsletter_image | img_url: '480x320', crop: 'center' }}" alt="{{ section.settings.newsletter_image.alt | escape }}" class="newsletter__image">
+          </div>
+        {%- endif -%}
+
+        {%- capture newsletter_form_action -%}/contact#shopify-section-{{ section.id }}{%- endcapture -%}
+
+        {%- capture newsletter_form -%}
+          {%- form 'customer', action: newsletter_form_action, class: 'newsletter__form' -%}
+            {%- if form.posted_successfully? -%}
+              {%- capture newsletter_form_success_message -%}{{ 'layout.newsletter.success' | t }}{%- endcapture -%}
+            {%- else -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+
+              <div class="input-group">
+                <input class="input-group__field input-group__field--expand form__input" type="email" name="contact[email]" aria-label="{{ 'layout.newsletter.input_placeholder' | t }}" placeholder="{{ 'layout.newsletter.input_placeholder' | t }}" required="required">
+                <input class="input-group__submit button button--secondary" type="submit" value="{{ 'layout.newsletter.submit' | t }}">
+
+                {%- if form.errors -%}
+                  <p class="form__input-error">{{ form.errors.translated_fields['email'] }} {{ form.errors.messages['email'] }}</p>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        {% endcapture %}
+
+        <p class="newsletter__cta">
+          {%- if newsletter_form_success_message != blank -%}
+            {{ newsletter_form_success_message }}
+          {%- else -%}
+            {{ section.settings.title | escape }}
+          {%- endif -%}
+        </p>
+
+        {{ newsletter_form }}
+      </div>
+    </div>
+  </aside>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "class": "shopify-section__newsletter",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Customers who subscribe will have their email address added to the \"accepts marketing\" [customer list](/admin/customers?query=&accepts_marketing=1)."
+    },
+    {
+      "type": "paragraph",
+      "content": "You can sync your customers with a newsletter service by installing their app."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Subscribe to our newsletter:"
+    },
+    {
+      "type": "image_picker",
+      "id": "newsletter_image",
+      "label": "Background image",
+      "info": "480 x 320px .jpg recommended"
+    },
+    {
+      "type": "checkbox",
+      "id": "apply_newsletter_gradient",
+      "label": "Apply a gradient on background image",
+      "info": "This option can be useful to reduce the image visual impact and give a softer feel.",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

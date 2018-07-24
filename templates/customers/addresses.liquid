@@ -1,0 +1,218 @@
+<div class="page__content-wrapper">
+  <div class="container">
+    <header class="page__header">
+      <h1 class="page__title h1">{{ 'customer.addresses.title' | t }}</h1>
+    </header>
+
+    {%- if customer.addresses_count > 0 -%}
+      {%- paginate customer.addresses by 6 -%}
+        <div class="customer-addresses grid grid--large grid--center">
+          {%- for address in customer.addresses -%}
+            <div class="customer-addresses__item grid__cell 1/3--handheld 3/10--lap-and-up">
+              <div class="box box--secondary">
+                <div class="box__content box__content--small-padding">
+                  {{ address | format_address | replace: '<p>': '<p class="customer-address">' }}
+
+                  <div class="address-actions text--uppercase">
+                    <a href="#" class="link" data-remodal-target="edit-address-{{ address.id }}">{{ 'customer.addresses.edit_link' | t }}</a>
+                    <a href="#" class="link" onclick="Shopify.CustomerAddress.destroy({{ address.id }}); return false">{{ 'customer.addresses.delete_link' | t }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- include 'pagination' -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+
+    <div class="button-wrapper">
+      <button class="button button--primary" data-remodal-target="new-address">{% include 'icon' with 'plus' %} {{ 'customer.addresses.add_address' | t }}</button>
+    </div>
+  </div>
+</div>
+
+<div data-remodal-id="new-address" class="remodal modal box box--mini">
+  <a href="#" class="modal__close" data-remodal-action="close">
+    {%- include 'icon' with 'cross' -%}
+  </a>
+
+  <header class="modal__header">
+    <h3 class="modal__title h3">{{ 'customer.addresses.create_title' | t }}</h3>
+  </header>
+
+  <div class="box__content box__content--large-padding modal__body">
+    {% form 'customer_address', customer.new_address %}
+      <div class="form__control-row">
+        <div class="form__control">
+          <label class="form__label" for="address_first_name_{{form.id}}">{{ 'customer.addresses.first_name' | t }}</label>
+          <input type="text" class="form__input" id="address_first_name_{{form.id}}" name="address[first_name]" value="{{ form.first_name }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_last_name_{{form.id}}">{{ 'customer.addresses.last_name' | t }}</label>
+          <input type="text" class="form__input" id="address_last_name_{{form.id}}" name="address[last_name]" value="{{ form.last_name }}">
+        </div>
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_company_{{form.id}}">{{ 'customer.addresses.company' | t }}</label>
+        <input type="text" class="form__input" id="address_company_{{form.id}}" name="address[company]" value="{{ form.company }}">
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_address1_{{form.id}}">{{ 'customer.addresses.address1' | t }}</label>
+        <input type="text" class="form__input" id="address_address1_{{form.id}}" name="address[address1]" value="{{ form.address1 }}">
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_address2_{{form.id}}">{{ 'customer.addresses.address2' | t }}</label>
+        <input type="text" class="form__input" id="address_address2_{{form.id}}" name="address[address2]" value="{{ form.address2 }}">
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_city_{{form.id}}">{{ 'customer.addresses.city' | t }}</label>
+        <input type="text" class="form__input" id="address_city_{{form.id}}" name="address[city]" value="{{ form.city }}">
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_country_new">{{ 'customer.addresses.country' | t }}</label>
+
+        <div class="styled-select">
+          {% include 'icon' with 'dropdown-arrow' %}
+          <select id="address_country_new" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+        </div>
+      </div>
+
+      <div id="address-province-container-new" class="form__control address-province-container" style="display: none">
+        <label class="form__label" for="address_province_new">{{ 'customer.addresses.province' | t }}</label>
+
+        <div class="styled-select">
+          {% include 'icon' with 'dropdown-arrow' %}
+          <select id="address_province_new" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+        </div>
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_zip_{{form.id}}">{{ 'customer.addresses.zip' | t }}</label>
+        <input type="text" class="form__input" id="address_zip_{{form.id}}" name="address[zip]" value="{{ form.zip }}">
+      </div>
+
+      <div class="form__control">
+        <label class="form__label" for="address_phone_{{form.id}}">{{ 'customer.addresses.phone' | t }}</label>
+        <input type="text" class="form__input" id="address_phone_{{form.id}}" name="address[phone]" value="{{ form.phone }}">
+      </div>
+
+      <div class="form__control">
+        <label class="form__label">
+          {{ form.set_as_default_checkbox }} {{ 'customer.addresses.set_default' | t }}
+        </label>
+      </div>
+
+    <div class="button-wrapper">
+      <button class="button button--secondary" data-remodal-action="close">{{ 'customer.addresses.cancel' | t }}</button>
+      <input class="button button--primary" type="submit" value="{{ 'customer.addresses.create' | t }}" />
+    </div>
+    {% endform %}
+  </div>
+</div>
+
+{%- paginate customer.addresses by 6 -%}
+  {%- for address in customer.addresses -%}
+    <div data-remodal-id="edit-address-{{ address.id }}" class="remodal modal box box--mini">
+      <a href="#" class="modal__close" data-remodal-action="close">
+        {%- include 'icon' with 'cross' -%}
+      </a>
+
+      <header class="modal__header">
+        <h3 class="modal__title h3">{{ 'customer.addresses.edit_title' | t }}</h3>
+      </header>
+
+      <div class="box__content box__content--large-padding modal__body">
+        {% form 'customer_address', address %}
+          <div class="form__control-row">
+            <div class="form__control">
+              <label class="form__label" for="address_first_name_{{form.id}}">{{ 'customer.addresses.first_name' | t }}</label>
+              <input type="text" class="form__input" id="address_first_name_{{form.id}}" name="address[first_name]" value="{{ form.first_name }}">
+            </div>
+
+            <div class="form__control">
+              <label class="form__label" for="address_last_name_{{form.id}}">{{ 'customer.addresses.last_name' | t }}</label>
+              <input type="text" class="form__input" id="address_last_name_{{form.id}}" name="address[last_name]" value="{{ form.last_name }}">
+            </div>
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_company_{{form.id}}">{{ 'customer.addresses.company' | t }}</label>
+            <input type="text" class="form__input" id="address_company_{{form.id}}" name="address[company]" value="{{ form.company }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_address1_{{form.id}}">{{ 'customer.addresses.address1' | t }}</label>
+            <input type="text" class="form__input" id="address_address1_{{form.id}}" name="address[address1]" value="{{ form.address1 }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_address2_{{form.id}}">{{ 'customer.addresses.address2' | t }}</label>
+            <input type="text" class="form__input" id="address_address2_{{form.id}}" name="address[address2]" value="{{ form.address2 }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_city_{{form.id}}">{{ 'customer.addresses.city' | t }}</label>
+            <input type="text" class="form__input" id="address_city_{{form.id}}" name="address[city]" value="{{ form.city }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_country_{{ address.id }}">{{ 'customer.addresses.country' | t }}</label>
+
+            <div class="styled-select">
+              {% include 'icon' with 'dropdown-arrow' %}
+              <select id="address_country_{{ address.id }}" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+            </div>
+          </div>
+
+          <div id="address-province-container-{{ address.id }}" class="form__control address-province-container" style="display: none">
+            <label class="form__label" for="address_province_{{ address.id }}">{{ 'customer.addresses.province' | t }}</label>
+
+            <div class="styled-select">
+              {% include 'icon' with 'dropdown-arrow' %}
+              <select id="address_province_{{ address.id }}" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+            </div>
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_zip_{{form.id}}">{{ 'customer.addresses.zip' | t }}</label>
+            <input type="text" class="form__input" id="address_zip_{{form.id}}" name="address[zip]" value="{{ form.zip }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_phone_{{form.id}}">{{ 'customer.addresses.phone' | t }}</label>
+            <input type="text" class="form__input" id="address_phone_{{form.id}}" name="address[phone]" value="{{ form.phone }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label">
+              {{ form.set_as_default_checkbox }} {{ 'customer.addresses.set_default' | t }}
+            </label>
+          </div>
+
+          <div class="button-wrapper">
+            <button class="button button--secondary" data-remodal-action="close">{{ 'customer.addresses.cancel' | t }}</button>
+            <input class="button button--primary" type="submit" value="{{ 'customer.addresses.edit' | t }}" />
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  {%- endfor -%}
+{%- endpaginate -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address-province-container-new'});
+
+    {% for address in customer.addresses %}
+    new Shopify.CountryProvinceSelector('address_country_{{address.id}}', 'address_province_{{address.id}}', {hideElement: 'address-province-container-{{address.id}}'});
+    {% endfor %}
+  });
+</script>

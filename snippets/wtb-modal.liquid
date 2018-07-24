@@ -1,0 +1,90 @@
+{{'jsmodal.css' | asset_url | stylesheet_tag }}
+{{'cawheretobuy.css' | asset_url | stylesheet_tag }}
+
+
+  <div id="wtb-modal" class="waiting" style="display: none; -webkit-overflow-scrolling:touch !important;">
+    <a href="#close-modal" rel="modal:close" id="closepop">X</a>
+    <iframe id="retailersframe" src="" name="retail-buyer" scrolling="no"></iframe>
+  </div>
+
+
+
+  {% if product.type != "Discontinued" %}
+  <p><a href="#wtb-modal" id="test" rel="modal:close"><button class="button large retailers">Buy from Retailers</button></a></p>
+  {% endif %}
+
+
+<!-- takes off "Buy from Retailer's Button" if tagged with "take-off-where-to-buy" -->
+  {% if product.tags contains "take-off-where-to-buy-button" %}
+<script>
+$(function(){
+  $('button.button.large.retailers').hide();
+});
+</script>
+{% endif %}
+
+
+{% comment %}--CHANNEL ADVISOR SCRIPT TO RETRIEVE RETAILERS--{% endcomment %}
+{{'iframeResizer.min.js' | asset_url | script_tag }}
+
+<script>
+
+      // var link = document.getElementById('test');
+      // link.addEventListener('click',function(){
+      $('a#test button').click(function(){
+          var skuNum = document.getElementById('display_sku').innerHTML;
+          /*Edge case Mattress SKU with -NO at the end*/
+          if((skuNum.length - skuNum.indexOf('-NO')) == 3){
+            // skuNum = skuNum.substring(0,skuNum.length-3);
+            skuNum.replace('-NO', '');
+            // console.log('has -NO !');
+          }
+          /* ----- */
+          var iframe = document.getElementById('retailersframe');
+          var destination = "https://where-to-buy.co/widgets/deltachildren/us/deltachildren/en-us/brandsite-us.html?modelname=" + skuNum;
+          iframe.src = destination;
+
+          $('.waiting').css('background','white');
+          $('#wtb-modal').show();
+          $('#wtb-modal a').click(function(){
+            $('#wtb-modal').hide();
+          });
+      });
+
+      $('iframe').iFrameResize({
+        log                     : false,                  // Enable console logging
+        enablePublicMethods     : true,
+                scrolling : true,
+                checkOrigin:['https://where-to-buy.co'],
+        resizedCallback         : function(messageData){ // Callback fn when resize is received
+
+        // $('.waiting').css('background','white');
+        // $('#wtb-modal').show();
+        // $('#wtb-modal a').click(function(){
+        //   $('#wtb-modal').hide();
+        // });
+                var iframeheight = parseInt($('#retailersframe')[0].style.height.split('px')[0])
+          var testMobile = ($(window).width() <= 649)
+                if(iframeheight <= 410 && testMobile){
+                    $('#retailersframe').css("padding","0px");
+
+                    // adds classes for 2 x 2 rows of retailers 11/28/16
+                    $('#retailersframe').addClass("small-12 columns primary");
+                  }
+        },
+        messageCallback         : function(messageData){ // Callback fn when message is received
+//          $('p#callback').html(
+//            '<b>Frame ID:</b> '    + messageData.iframe.id +
+//            ' <b>Message:</b> '    + messageData.message
+//          );
+          alert(messageData.message);
+        },
+        closedCallback         : function(id){ // Callback fn when iFrame is closed
+//          $('p#callback').html(
+//            '<b>IFrame (</b>'    + id +
+//            '<b>) removed from page.</b>'
+//          );
+        }
+      });
+
+</script>

@@ -1,0 +1,210 @@
+<div class="cart page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ 'cart.general.title' | t }}</h1>
+    </div>
+
+    {%- if cart.item_count == 0 -%}
+      <div class="box box--mini">
+        <div class="box__content box__content--large-padding box__content--centered">
+          {{ 'cart.general.empty' | t }}
+
+          <div class="box__button-wrapper button-wrapper">
+            <a href="{{ shop.url }}" class="button button--secondary">{{ 'cart.general.back_to_home' | t }}</a>
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      <form action="/cart" method="POST">
+        <table class="cart__items">
+          <thead class="cart__headings">
+            <tr>
+              <th class="text--uppercase">{{ 'cart.items.product' | t }}</th>
+              <th class="text--uppercase hidden-handheld">{{ 'cart.items.price' | t }}</th>
+              <th class="text--uppercase">{{ 'cart.items.quantity' | t }}</th>
+              <th class="text--uppercase">{{ 'cart.items.subtotal' | t }}</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {%- for line_item in cart.items -%}
+              <tr class="cart-item" data-variant-id="{{ line_item.id }}" data-index="{{ forloop.index }}">
+                <td class="cart-item__product">
+                  <a href="{{ line_item.url }}" class="cart-item__image-container">
+                    <img class="cart-item__image" src="{{ line_item.image | img_url: '250x250' }}" alt="{{ line_item.title | escape }}">
+                  </a>
+
+                  <div class="cart-item__info">
+                    {%- if settings.product_show_vendor -%}
+                      <h4 class="cart-item__vendor text--uppercase">{{ line_item.vendor }}</h4>
+                    {%- endif -%}
+
+                    <h3 class="cart-item__title h5">
+                      <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
+                    </h3>
+
+                    <div class="hidden-handheld-and-up">
+                      <span class="cart-item__line-price cart-item__price h5" data-money-convertible>{{ line_item.line_price | money }}</span>
+
+                      {%- if line_item.original_line_price > line_item.line_price -%}
+                        <span class="cart-item__original-line-price cart-item__price h5" data-money-convertible>{{ line_item.original_line_price | money }}</span>
+                      {%- endif -%}
+                    </div>
+
+                    {%- unless line_item.product.has_only_default_variant -%}
+                      <ul class="cart-item__variant-options list--unstyled">
+                        {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' -%}
+
+                        {%- for option in line_item.product.options -%}
+                          {%- assign downcase_option = option | downcase -%}
+                          {%- capture option_name -%}option{{ forloop.index }}{%- endcapture -%}
+
+                          {%- if color_label contains downcase_option -%}
+                            {%- assign color_value = line_item.variant[option_name] -%}
+                            {%- assign downcase_color_value = color_value | downcase -%}
+                            {%- assign color_swatch_white = false -%}
+
+                            {%- if 'white,blanc,blanco,白,weiß,vit,branco' contains downcase_color_value -%}
+                              {%- assign color_swatch_white = true -%}
+                            {%- endif --%}
+
+                            <li class="cart-item__variant-option">{{ option }}: <span class="color-swatch color-swatch--mini {% if color_swatch_white %}color-swatch--white{% endif %}" style="background-color: {{ color_value | split: ' ' | last | handle }}; background-image: url({{ color_value | handle | append: '.png' | asset_url }})"></span>{{ line_item.variant[option_name] }}</li>
+                          {%- else -%}
+                            <li class="cart-item__variant-option">{{ option }}: {{ line_item.variant[option_name] }}</li>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </ul>
+                    {%- endunless -%}
+
+                    {%- unless line_item.properties == empty -%}
+                      <ul class="cart-item__properties list--unstyled">
+                        {%- for property in line_item.properties -%}
+                          <li class="cart-item__property">{{ property.first }}: {{ property.last }}</li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endunless -%}
+                  </div>
+                </td>
+
+                <td class="hidden-pocket">
+                  <span class="cart-item__unit-price cart-item__price h5" data-money-convertible>{{ line_item.price | money }}</span>
+
+                  {%- if line_item.original_price > line_item.price -%}
+                    <span class="cart-item__original-unit-price cart-item__price h5" data-money-convertible>{{ line_item.original_price | money }}</span>
+                  {%- endif -%}
+                </td>
+
+                <td class="cart-item__quantity">
+                  <div class="quantity-selector">
+                    {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
+
+                    <a class="link" title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_minus_one }}" href="/cart/change?quantity={{ quantity_minus_one }}&id={{ line_item.id }}">
+                      {%- include 'icon' with 'minus' -%}
+                    </a>
+
+                    <span class="quantity-selector__current-quantity">{{ line_item.quantity }}</span>
+
+                    {%- assign quantity_plus_one = line_item.quantity | plus: 1 -%}
+
+                    <a class="link" title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_plus_one }}" href="/cart/change?quantity={{ quantity_plus_one }}&id={{ line_item.id }}">
+                      {%- include 'icon' with 'plus' -%}
+                    </a>
+                  </div>
+
+                  <a href="/cart/change?quantity=0&id={{ line_item.id }}" class="cart-item__delete hidden-handheld-and-up">{{ 'cart.items.delete' | t }}</a>
+                </td>
+
+                <td class="hidden-thumb">
+                  <span class="cart-item__line-price cart-item__price h5" data-money-convertible>{{ line_item.line_price | money }}</span>
+
+                  {%- if line_item.original_line_price > line_item.line_price -%}
+                    <span class="cart-item__original-line-price cart-item__price h5" data-money-convertible>{{ line_item.original_line_price | money }}</span>
+                  {%- endif -%}
+                </td>
+
+                <td class="hidden-thumb">
+                  <a href="/cart/change?quantity=0&id={{ line_item.id }}" title="{{ 'cart.items.delete' | t }}" class="cart-item__delete link">
+                    {%- include 'icon' with 'cross' -%}
+                  </a>
+                </td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div class="cart__footer">
+          <div class="cart__recap hidden-handheld-and-up">
+            <span class="cart__total h3" data-money-convertible>{{ cart.total_price | money }}</span>
+            <span class="cart__shipping">{{ 'cart.general.shipping_not_included' | t }}</span>
+
+            {%- if settings.currency_conversion_enabled -%}
+              <p class="cart__currency-notice">{{ 'cart.general.currency_notice' | t: shop_currency: shop.currency }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.show_shipping_estimator -%}
+            {%- include 'shipping-estimator', for_mobile: true -%}
+          {%- endif -%}
+
+          <div class="grid">
+            {%- if section.settings.show_notes -%}
+              <div class="cart__instructions grid__cell 1/2--handheld-and-up">
+                <div class="form__control">
+                  <label class="form__label" for="note">{{ 'cart.general.add_note' | t }}</label>
+                  <textarea name="note" cols="30" rows="5" class="form__textarea cart__note">{{ cart.note }}</textarea>
+                </div>
+              </div>
+            {%- endif -%}
+
+            <div class="cart__checkout grid__cell {% if section.settings.show_notes %}1/2--handheld-and-up{% endif %}">
+              <div class="cart__recap hidden-thumb">
+                <span class="cart__total h3" data-money-convertible>{{ cart.total_price | money }}</span>
+                <span class="cart__shipping">{{ 'cart.general.shipping_not_included' | t }}</span>
+
+                {%- capture currency_notice -%}{{ 'cart.general.currency_notice' | t: shop_currency: shop.currency }}{%- endcapture -%}
+
+                {%- if settings.currency_conversion_enabled and currency_notice != blank -%}
+                  <p class="cart__currency-notice">{{ currency_notice }}</p>
+                {%- endif -%}
+              </div>
+
+              <button type="submit" name="checkout" class="cart__checkout-button button button--primary">{{ 'cart.general.checkout' | t }}</button>
+            </div>
+          </div>
+        </div>
+
+        {%- if section.settings.show_shipping_estimator -%}
+          {%- include 'shipping-estimator', for_mobile: false -%}
+        {%- endif -%}
+      </form>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_notes",
+      "label": "Enable order notes",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_estimator",
+      "label": "Show shipping rates calculator",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shipping_estimator_default_country",
+      "label": "Default country to use",
+      "info": "If your customer is logged-in, the country in his default shipping address will be selected.",
+      "default": "United States"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,83 @@
+<div class="grid__cell 1/2--lap-and-up right">
+  <!-- {% assign my_product = all_products[product.metafields.sf_handpicked_relate.product_1] %}
+{% unless my_product.empty? %}
+  {{ my_product.title }}
+  <img src="{{ my_product.featured_image | img_url: '800x' }}">
+  {{my_product.price | money}}
+
+    {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' -%}
+
+    {%- for option in my_product.options_with_values -%}
+      {%- capture color_option_index -%}option{{ forloop.index }}{%- endcapture -%}
+      {%- assign downcase_option = option.name | downcase -%}
+
+      {%- unless color_label contains downcase_option -%}
+        {%- continue -%}
+      {%- endunless -%}
+
+      <ul class="product-item__available-colors list--unstyled">
+        {%- for value in option.values -%}
+          {%- assign downcase_value = value | downcase -%}
+          {%- assign color_swatch_white = false -%}
+
+          {%- if 'white,blanc,blanco,白,weiß,vit,branco' contains downcase_value -%}
+            {%- assign color_swatch_white = true -%}
+          {%- endif -%}
+
+          {%- for variant in my_product.variants -%}
+            {%- if variant[color_option_index] == value -%}
+              {%- assign first_variant_for_color = variant -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          <li class="product-item__color" title="{{ value }}">
+            <a href="{{ first_variant_for_color.url }}" class="color-swatch color-swatch--mini {% if color_swatch_white %}color-swatch--white{% endif %}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.png' | asset_url }})"></a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- break -%}
+    {%- endfor -%}
+
+{% endunless %} -->
+</div>
+<div id="fixed-bottom-mobile-buy"></div>
+<div class="grid__cell 1/2--lap-and-up right">
+  <div class="product__details" id="product-info">
+    <ul id="section-titles">
+      <li class="title active">REVIEWS</li>
+      <li class="title">PRODUCT DETAILS</li>
+      <li class="title">ACCESSORIES &amp; ADAPTORS</li>
+      <li class="title">ASSEMBLY INSTRUCTIONS</li>
+      </ul>
+      <div id="reviews" class="section-info">
+        <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
+      </div>
+      <div id="prod-details" class="section-info">
+        {% assign my_value = product.metafields.sf_product_info.product_detail %}
+        {% if my_value %}
+          {{ my_value }}
+        {% endif %}
+        <br/>
+        <div id="upc-div">
+          {% assign current_variant = product.selected_or_first_available_variant %}
+        SKU: <span id="display_sku">{{ current_variant.sku }}</span><br>
+        UPC: <span id="display_upc">{{current_variant.barcode}}</span><br>
+      </div><br>
+      </div>
+      <div id="access-adapt" class="section-info">
+        {% assign my_value = product.metafields.sf_product_info.accessories_and_adapters %}
+        {% if my_value %}
+          {{ my_value }}
+        {% endif %}
+      </div>
+      <div id="ass-instruct" class="section-info">
+        {% assign my_value = product.metafields.sf_product_info.assembly_information %}
+        {% if my_value %}
+          {{ my_value }}
+        {% endif %}
+      </div>
+  </div>
+</div>

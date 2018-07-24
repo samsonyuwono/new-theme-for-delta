@@ -1,0 +1,33 @@
+{%- case grid_items_per_row -%}
+  {%- when '2' or 2 -%}
+    {%- assign image_size = '500x650' -%}
+  {%- when '3' or 3 -%}
+    {%- assign image_size = '400x550' -%}
+  {%- when '4' or 4 -%}
+    {%- assign image_size = '300x450' -%}
+{%- endcase -%}
+
+{%- assign collection_image = collection.image | default: collection.products.first.featured_image -%}
+
+<a href="{{ collection.url }}" class="collection-item" style="background-image: url({{ collection_image | img_url: '1x1', format: 'pjpg' }})">
+  <div class="collection-item__background-image lazyload image--fade-in"
+       data-optimumx="1.4"
+       data-bgset="{{ collection_image | img_url: '400x' }} 400w, {{ collection_image | img_url: '650x' }} 650w, {{ collection_image | img_url: '850x' }} 800w">
+  </div>
+
+  <noscript>
+    <div class="collection-item__background-image" style="background-image: url({{ collection_image | img_url: '800x' }})"></div>
+  </noscript>
+
+  <div class="collection-item__info">
+    <h3 class="collection-item__title h4">{{ collection.title }}</h3>
+
+    <div class="collection-item__bottom">
+      {%- if collection.description != blank and show_description -%}
+        <p class="collection-item__description">{{ collection.description | strip_html | truncate: 100 }}</p>
+      {%- endif -%}
+
+      <button class="collection-item__button button">{{ 'collections.general.see_more' | t: collection_title: collection.title }}</button>
+    </div>
+  </div>
+</a>

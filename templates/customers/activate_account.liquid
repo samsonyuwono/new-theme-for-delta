@@ -1,0 +1,37 @@
+{%- assign force_secondary_background = true -%}
+
+<div class="page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ 'customer.activate_account.title' | t }}</h1>
+    </div>
+
+    <div class="box box--mini">
+      <div class="box__content box__content--large-padding box__content--centered">
+        {%- form 'activate_customer_password', class: 'form form--shrinked' -%}
+          <p class="form__instructions">{{ 'customer.activate_account.instructions' | t }}</p>
+
+          {%- if form.errors -%}
+            <div class="alert alert--error">
+              <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
+              {%- include 'form-errors' -%}
+            </div>
+          {%- endif -%}
+
+          <div class="form__control">
+            <input type="password" class="form__input" name="customer[password]" required="required" aria-label="{{ 'customer.activate_account.password' | t }}" placeholder="{{ 'customer.activate_account.password' | t }}">
+          </div>
+
+          <div class="form__control">
+            <input type="password" class="form__input" name="customer[password_confirmation]" required="required" aria-label="{{ 'customer.activate_account.password_confirmation' | t }}" placeholder="{{ 'customer.activate_account.password_confirmation' | t }}">
+          </div>
+
+          <div class="box__button-wrapper">
+            <input type="submit" class="button button--enforce-min-width button--primary" value="{{ 'customer.activate_account.submit' | t }}">
+            <input type="submit" class="button button--enforce-min-width button--secondary" name="decline" value="{{ 'customer.activate_account.decline' | t }}">
+          </div>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>

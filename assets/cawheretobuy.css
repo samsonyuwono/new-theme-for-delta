@@ -1,0 +1,92 @@
+.waiting{
+    background:url({{'ring.gif' | asset_url}}) center center no-repeat;
+    background-color: white;
+    top: 10px;
+  }
+
+  #wheretobuywrapper{
+    display: inline-block;
+    display: -moz-inline-box;
+    margin-bottom: 12px;
+  }
+
+#retailersframe::-webkit-scrollbar {
+      width: 12px;
+}
+
+#retailersframe::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px #8dabdd;
+      border-radius: 10px;
+}
+
+#retailersframe::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #8dabdd;
+}
+
+.modal::-webkit-scrollbar {
+      background-color: rgba(255, 255, 255, 0);
+}
+
+.modal::-webkit-scrollbar-track {
+      background-color: rgba(255, 255, 255, 0);
+}
+
+.modal::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0);
+}
+  #retailersframe{
+    width:100%;
+  -webkit-overflow-scrolling:touch !important;
+  }
+  .modal{
+      max-height: 371px;
+      width:597px;
+      overflow-x: hidden;
+    -webkit-overflow-scrolling:touch !important;
+    }
+
+  #closepop{
+    float: right;
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+  @media screen and (max-width:648px){
+      .modal{
+        top: 20px;
+        width: auto;
+        bottom:5%;
+        max-height: 440px;
+        overflow: auto;
+      }
+    #retailersframe{
+      max-height:410px;
+      padding-bottom: 5%;
+      padding-top: 10px !important;
+    }
+  a#closepop.x{
+      float: right;
+      font-size: 16px;
+      padding-bottom: 10px;
+      position: static;
+        }
+
+  }
+  @media screen and (min-width:649px){
+    #retailersframe{
+       max-height: 290px;
+    }
+  }
+  @media screen and (min-width:2000px){
+    .modal{
+        max-height: 375px;
+      }
+  }
+
+    @media screen and (max-width: 420px){
+li.item{
+  width: 50% !important;
+}
+
+
+    }

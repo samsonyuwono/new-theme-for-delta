@@ -1,0 +1,385 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagué \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "breadcrumb": {
+      "home": "Accueil",
+      "account": "Compte"
+    },
+    "pagination": {
+      "previous_page": "Précédent",
+      "next_page": "Suivant",
+      "page_count": "Page {{current_page}} sur {{total_pages}}"
+    },
+    "forms": {
+      "errors": "Il y a des erreurs"
+    },
+    "404": {
+      "title": "404",
+      "subtitle": "La page que vous recherchez n'existe pas.",
+      "go_back": "Retourner à l'accueil"
+    }
+  },
+  "layout": {
+    "header": {
+      "account": "Compte",
+      "login": "Connexion",
+      "cart": "Panier",
+      "search": "Recherche",
+      "currency_conversion": "Devise"
+    },
+    "pagination": {
+      "next": "Précédent",
+      "prev": "Suivant"
+    },
+    "newsletter": {
+      "input_placeholder": "Entrez votre email",
+      "submit": "S'abonner",
+      "success": "Votre email a été enregistré ! Nous vous tiendrons informé de nos nouveautés !"
+    },
+    "popup": {
+      "input_placeholder": "Votre email",
+      "submit": "Soumettre",
+      "newsletter_success": "Votre email a été enregistré ! Nous vous tiendrons informé de nos nouveautés !"
+    },
+    "social": {
+      "share": "Partager"
+    },
+    "instagram": {
+      "content_placeholder": "Le thème va automatiquement extraire les premiers mots de la description de vos photos Instagram"
+    },
+    "footer": {
+      "contact_phone_number": "Appelez nous au {{phone_number}}"
+    }
+  },
+  "password": {
+    "general": {
+      "title": "Ouverture imminente...",
+      "store_owner": "Êtes-vous le gérant de la boutique ? Connectez-vous",
+      "powered_by": "Cette boutique sera propulsée par"
+    },
+    "newsletter": {
+      "input_placeholder": "Entrez votre email",
+      "submit": "C'est parti",
+      "thank_you": "Votre email a été enregistré ! Nous vous tiendrons informé de nos nouveautés !"
+    },
+    "form": {
+      "title": "Une minute !",
+      "subtitle": "Veuillez entrer le mot de passe pour accéder à la boutique",
+      "input_placeholder": "Mot de passe",
+      "submit": "OK"
+    }
+  },
+  "home_page": {
+    "onboarding": {
+      "brand_title": "Marque",
+      "product_title": "Nom du produit",
+      "product_description": "Ecrivez une courte description de votre produit.",
+      "collection_title": "Votre collection",
+      "collection_description": "Ecrivez une courte description de votre collection afin de donner envie à vos visiteurs.",
+      "collection_see_more": "Découvrir",
+      "article_author": "Nom de l'auteur",
+      "article_title": "Titre de l'article",
+      "article_excerpt": "Votre boutique n'a pas publié d'articles pour le moment. Un blog peut être utilisé pour parler de vos nouveaux produits, dévoiler des astuces ou parler de l'actualité de votre boutique."
+    },
+    "featured_product": {
+      "view_details": "En savoir plus"
+    }
+  },
+  "404": {
+    "general": {
+      "title": "Page non trouvée",
+      "error": "Oups... il semblerait que la page que vous recherchiez n'existe pas !",
+      "back_to_home": "Retourner à l'accueil"
+    }
+  },
+  "collections": {
+    "general": {
+      "see_more": "Découvrez {{collection_title}}"
+    }
+  },
+  "collection": {
+    "general": {
+      "empty": "Cette collection ne contient aucun produit.",
+      "back_to_home": "Retourner à l'accueil"
+    },
+    "filters": {
+      "by_tag": "Filtrer",
+      "by_tag_reset": "Tous les produits",
+      "all_types": "Tous les types",
+      "tag_aria_label": "Filter les produits par tag",
+      "sort_by_aria_label": "Trier les produits"
+    },
+    "sorting": {
+      "title": "Trier Par",
+      "featured": "Mis en avant",
+      "best_selling": "Popularité",
+      "az": "Alphabétique, A-Z",
+      "za": "Alphabétique, Z-A",
+      "price_ascending": "Prix, par ordre croissant",
+      "price_descending": "Prix, par ordre décroissant",
+      "date_descending": "Plus récent au plus ancien",
+      "date_ascending": "Plus récent au plus ancien"
+    },
+    "product": {
+      "from_price_html": "À partir de <span data-money-convertible>{{min_price}}<\/span>"
+    }
+  },
+  "product": {
+    "general": {
+      "loading_reviews": "Chargement des avis...",
+      "related_products": "Produits similaires"
+    },
+    "form": {
+      "variant_label": "Variante",
+      "price": "Prix",
+      "increase_quantity": "Augmenter la quantité de 1",
+      "decrease_quantity": "Diminuer la quantité de 1",
+      "quantity": "Quantité",
+      "pre_order": "Précommander",
+      "add_to_cart": "Ajouter",
+      "sold_out": "En rupture",
+      "unavailable": "Indisponible"
+    },
+    "labels": {
+      "sold_out": "En rupture",
+      "on_sale": "En solde"
+    },
+    "tabs": {
+      "reviews": "Avis"
+    }
+  },
+  "list_collections": {
+    "general": {
+      "title": "Toutes les collections"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Panier",
+      "empty": "Votre panier ne contient aucun produit pour le moment.",
+      "back_to_home": "Retourner à l'accueil",
+      "add_note": "Instructions",
+      "shipping_not_included": "Hors frais d'envoi",
+      "estimated_shipping": "+ Frais d'envoi estimé : ",
+      "currency_notice": "Les commandes sont traitées dans la devise de la boutique, qui est {{ shop_currency }}. Le contenu de votre panier peut être affiché dans une autre devise, au taux le plus récent.",
+      "checkout": "Payer"
+    },
+    "items": {
+      "product": "Produit",
+      "price": "Prix",
+      "quantity": "Quantité",
+      "subtotal": "Sous-total",
+      "set_quantity": "Modifier la quantité à {{new_quantity}}",
+      "delete": "Supprimer"
+    },
+    "shipping_estimator": {
+      "title": "Estimation des frais d'envoi",
+      "country": "Pays",
+      "province": "Région",
+      "zip": "Code postal",
+      "submit": "Estimer",
+      "submitting": "Estimation..."
+    },
+    "mini_cart": {
+      "total": "Total",
+      "go_to_cart": "Voir mon panier",
+      "checkout": "Payer",
+      "empty_text": "Votre panier est vide",
+      "empty_button": "Commencer mes achats"
+    }
+  },
+  "blog": {
+    "article": {
+      "written_by": "Par {{author}}",
+      "continue_reading": "Lire la suite",
+      "tags": "Tags",
+      "comments_count": {
+        "zero": "{{count}} commentaire",
+        "one": "{{count}} commentaire",
+        "other": "{{count}} commentaires"
+      }
+    },
+    "sidebar": {
+      "email_placeholder": "Email",
+      "subscribe_newsletter": "Rejoignez-nous",
+      "newsletter_success": "Merci !",
+      "tags": "Catégories",
+      "follow_us": "Nous suivre",
+      "featured_articles": "Articles à la une",
+      "featured_product": "Produit du mois",
+      "product_see_details": "Voir plus"
+    },
+    "comments": {
+      "form_no_comments": "Soyez le premier à commenter",
+      "form_comments": "Laisser un commentaire",
+      "name_placeholder": "Nom",
+      "email_placeholder": "Email",
+      "comment_placeholder": "Message",
+      "approval_notice": "Tous les messages sont validés avant d'être publiés",
+      "submit": "Envoyer",
+      "success_moderated": "Votre commentaire a été envoyé. Il sera visible une fois accepté.",
+      "success": "Votre commentaire a été publié.",
+      "comments_count": {
+        "zero": "{{count}} commentaire",
+        "one": "{{count}} commentaire",
+        "other": "{{count}} commentaires"
+      }
+    }
+  },
+  "customer": {
+    "general": {
+      "logout": "Déconnexion"
+    },
+    "login": {
+      "title": "Connexion",
+      "instructions": "Veuillez indiquer votre email et mot de passe :",
+      "email": "Email",
+      "password": "Mot de passe",
+      "forgot": "Mot de passe oublié ?",
+      "submit": "Connexion",
+      "register_html": "Vous n'avez pas de compte ? <a class=\"link link--secondary\" href=\"\/account\/register\">Créez en un<\/a>"
+    },
+    "recover_password": {
+      "title": "Récupérer mot de passe",
+      "instructions": "Entrez votre email :",
+      "email": "Email",
+      "submit": "Récupérer",
+      "success": "Nous venons de vous envoyer un email avec les instructions pour récupérer votre mot de passe."
+    },
+    "register": {
+      "title": "Inscription",
+      "instructions": "Veuillez indiquer les informations suivantes pour créer votre compte :",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Inscription"
+    },
+    "reset_password": {
+      "title": "Réinitialisation mot de passe",
+      "instructions": "Veuillez indiquer votre nouveau mot de passe :",
+      "password": "Mot de passe",
+      "password_confirmation": "Confirmation mot de passe",
+      "submit": "Réinitialiser"
+    },
+    "activate_account": {
+      "title": "Activation du compte",
+      "instructions": "Veuillez indiquer votre mot de passe pour activer votre compte :",
+      "password": "Mot de passe",
+      "password_confirmation": "Confirmation mot de passe",
+      "submit": "Activer",
+      "decline": "Refuser"
+    },
+    "account": {
+      "title": "Compte",
+      "order_history": "Historique des commandes",
+      "no_orders": "Aucune commande n'a été réalisée.",
+      "start_shopping": "Commencer mes achats",
+      "addresses": "Adresses",
+      "no_addresses": "Aucune adresse n'a été sauvegardée.",
+      "manage_addresses": "Gérer mes adresses",
+      "add_address": "Ajouter une adresse"
+    },
+    "orders": {
+      "order_number": "Commande",
+      "date": "Date",
+      "payment_status": "Statut du paiement",
+      "fulfillment_status": "Statut de la livraison",
+      "total": "Total"
+    },
+    "order": {
+      "title": "Commande {{order_number}}",
+      "cancelled_at": "Commande annulée le {{ date }}",
+      "placed_at": "Commande effectuée le {{ date }}",
+      "product": "Produit",
+      "sku": "SKU",
+      "unit_price": "Prix unitaire",
+      "quantity": "Quantité",
+      "line_price": "Prix ligne",
+      "subtotal": "Sous-total",
+      "discount": "Rabais",
+      "shipping": "Livraison",
+      "tax": "Taxe",
+      "total": "Total",
+      "shipping_address": "Adresse de livraison",
+      "billing_address": "Adresse de facturation",
+      "no_shipping_address": "Aucune adresse de livraison n'a été nécessaire pour cette commande."
+    },
+    "addresses": {
+      "title": "Adresses",
+      "edit_link": "Modifier",
+      "delete_link": "Supprimer",
+      "add_address": "Ajouter une adresse",
+      "create_title": "Création",
+      "edit_title": "Modification",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "company": "Entreprise",
+      "address1": "Adresse 1",
+      "address2": "Adresse 2",
+      "city": "Ville",
+      "country": "Pays",
+      "province": "Région",
+      "zip": "Code postal",
+      "phone": "Téléphone",
+      "set_default": "Définir comme adresse par défaut",
+      "create": "Créer",
+      "edit": "Modifier",
+      "cancel": "Annuler"
+    }
+  },
+  "contact": {
+    "form": {
+      "instructions": "Vous avez une question ? Une suggestion ? N'hésitez pas à nous contacter et nous serons ravis de vous aider !",
+      "name": "Votre nom",
+      "email": "Votre email",
+      "message": "Votre message",
+      "submit": "Envoyer",
+      "successfully_sent": "Votre message a été envoyé. Nous vous répondrons dès que possible."
+    }
+  },
+  "search": {
+    "general": {
+      "title": "Recherche",
+      "instructions": "Indiquez votre recherche dans le champ ci-dessous.",
+      "no_results": "Votre recherche n'a retourné aucun résultat.",
+      "results_count": {
+        "one": "Il y a {{count}} résultat pour \"{{terms}}\"",
+        "other": "Il y a {{count}} résultats pour \"{{terms}}\""
+      },
+      "page_type": "Page",
+      "input_placeholder": "Recherche...",
+      "submit": "GO"
+    },
+    "auto_complete": {
+      "products": "Produits",
+      "pages": "Pages",
+      "articles": "Blog",
+      "pages_and_articles": "Pages & Blog",
+      "view_results": "Résultats ({{count}})",
+      "no_results": "Aucun résultat"
+    }
+  },
+  "gift_card": {
+    "issued": {
+      "subtext": "Voici votre carte cadeau !",
+      "illustration_alt": "Illustration de votre carte cadeau",
+      "disabled": "Votre carte cadeau est désactivée.",
+      "expired": "Votre card cadeau a expiré le {{ expiry }}.",
+      "active": "Votre carte cadeau expire le {{ expiry }}.",
+      "redeem": "Indiquez ce code au moment de payer pour utiliser votre carte cadeau.",
+      "shop_link": "Commencer mes achats",
+      "print": "Imprimer",
+      "remaining_html": "{{ balance }} restant(s)",
+      "add_to_apple_wallet": "Ajouter à Apple Wallet"
+    }
+  },
+  "date_formats": {
+    "month_day_year": "%d %B %Y",
+    "month_day_year_time": "%d %B %Y %I:%M",
+    "month_day_year_at_time": "%d %B %Y à %I:%M"
+  }
+}

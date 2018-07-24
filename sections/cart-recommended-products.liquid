@@ -1,0 +1,156 @@
+{%- if section.settings.show_related_products and cart.item_count > 0 -%}
+  <aside class="related-products">
+    <div class="section">
+      <div class="container">
+        {%- if section.settings.title != blank -%}
+          <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+
+        <div class="list-products grid grid--large grid--center" data-slides-count="{{ section.blocks.size }}">
+          {%- for block in section.blocks -%}
+            {%- assign product = all_products[block.settings.product] -%}
+
+            {%- unless product.empty? -%}
+              <div class="grid__cell 1/2--handheld-and-up 1/4--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+                {%- include 'product-item', product: product, grid_items_per_row: 4, image_dimension: section.settings.image_dimension, show_color_swatch: section.settings.show_color_swatch -%}
+              </div>
+            {%- else -%}
+              <div class="grid__cell 1/2--handheld-and-up 1/4--desk" data-slide-index="{{ forloop.index0 }}">
+                <div class="product-item">
+                  <figure class="product-item__image-container">
+                    <a href="#" class="product-item__link">
+                      {%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%}
+                      {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg product-item__image' }}
+                    </a>
+                  </figure>
+
+                  <div class="product-item__info">
+                    {%- if settings.product_show_vendor -%}
+                      <h4 class="product-item__vendor text--uppercase">{{ 'home_page.onboarding.brand_title' | t }}</h4>
+                    {%- endif -%}
+
+                    <h3 class="product-item__title">{{ 'home_page.onboarding.product_title' | t }}</h3>
+
+                    <span class="product-item__price" data-money-convertible>{{ 1990 | money }}</span>
+                  </div>
+                </div>
+              </div>
+            {%- endunless -%}
+          {%- else -%}
+            {%- for i in (1..4) -%}
+              <div class="grid__cell 1/2--handheld-and-up 1/4--desk" data-slide-index="{{ forloop.index0 }}">
+                <div class="product-item">
+                  <figure class="product-item__image-container">
+                    <a href="#" class="product-item__link">
+                      {%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%}
+                      {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg product-item__image' }}
+                    </a>
+                  </figure>
+
+                  <div class="product-item__info">
+                    {%- if settings.product_show_vendor -%}
+                      <h4 class="product-item__vendor text--uppercase">{{ 'home_page.onboarding.brand_title' | t }}</h4>
+                    {%- endif -%}
+
+                    <h3 class="product-item__title">{{ 'home_page.onboarding.product_title' | t }}</h3>
+
+                    <span class="product-item__price" data-money-convertible>{{ 1990 | money }}</span>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </aside>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Recommended products",
+  "class": "shopify-section__cart-related-products",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Only displayed when the cart is not empty."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_related_products",
+      "label": "Enable recommended products",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show product available colors",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_dimension",
+      "label": "Product image dimension",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "big",
+          "label": "Big"
+        },
+        {
+          "value": "fill_width",
+          "label": "Fill width"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "product",
+        "settings": {}
+      },
+      {
+        "type": "product",
+        "settings": {}
+      },
+      {
+        "type": "product",
+        "settings": {}
+      },
+      {
+        "type": "product",
+        "settings": {}
+      }
+    ]
+  }
+}
+{% endschema %}

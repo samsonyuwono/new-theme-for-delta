@@ -1,0 +1,66 @@
+<nav class="sidebar-nav" tabindex="-1">
+  <ul class="sidebar-nav__links list--unstyled">
+    {%- for link in main_menu.links -%}
+      <li>
+        {%- if link.links == blank -%}
+          <a href="{{ link.url }}" class="sidebar-nav__link sidebar-nav__link--level-1">{{- link.title | escape -}}</a>
+        {%- else -%}
+          <a href="{{ link.url }}" class="sidebar-nav__link sidebar-nav__link--has-sub-links sidebar-nav__link--level-1">
+            {{- link.title | escape -}}
+
+            <div class="plus-button-container" data-action="toggle-mobile-sub-menu" aria-haspopup="true" aria-expanded="{% if section.settings.mobile_expand_nav_first_level %}true{% else %}false{% endif %}">
+              <span class="plus-button {% if section.settings.mobile_expand_nav_first_level %}plus-button--active{% endif %}"></span>
+            </div>
+          </a>
+
+          <ul class="sidebar-nav__sub-links {% if section.settings.mobile_expand_nav_first_level %}sidebar-nav__sub-links--visible{% endif %} list--unstyled">
+            {%- for sub_link in link.links -%}
+              <li>
+                {%- if sub_link.links == blank -%}
+                  <a href="{{ sub_link.url }}" class="sidebar-nav__link sidebar-nav__link--level-2">{{- sub_link.title | escape -}}</a>
+                {%- else -%}
+                  <a href="{{ sub_link.url }}" class="sidebar-nav__link sidebar-nav__link--has-sub-links sidebar-nav__link--level-2">
+                    {{- sub_link.title | escape -}}
+
+                    <div class="plus-button-container" data-action="toggle-mobile-sub-menu" aria-haspopup="true" aria-expanded="false">
+                      <span class="plus-button"></span>
+                    </div>
+                  </a>
+
+                  <ul class="sidebar-nav__sub-links list--unstyled">
+                    {%- for sub_sub_link in sub_link.links -%}
+                      <li>
+                        <a href="{{ sub_sub_link.url }}" class="sidebar-nav__link sidebar-nav__link--level-3">{{- sub_sub_link.title | escape -}}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+
+    {%- if shop.customer_accounts_enabled -%}
+      <li>
+        {%- if customer -%}
+          <a href="/account" class="sidebar-nav__link sidebar-nav__link--level-1">{{ 'layout.header.account' | t }}</a>
+        {%- else -%}
+          <a href="/account/login" class="sidebar-nav__link sidebar-nav__link--level-1">{{ 'layout.header.login' | t }}</a>
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+
+    {%- if settings.currency_conversion_enabled -%}
+      <li>
+        <span class="sidebar-nav__currency">
+          {{ 'layout.header.currency_conversion' | t }}
+          {%- include 'currency-selector' -%}
+        </span>
+      </li>
+    {%- endif -%}
+  </ul>
+
+  {% include 'social-media', small_icons: true %}
+</nav>

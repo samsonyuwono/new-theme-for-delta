@@ -1,0 +1,45 @@
+<section class="section section-{{ section.id }}">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="featured-video">
+      <div class="video-wrapper">
+        {% if section.settings.video_url.type == 'youtube' %}
+          <iframe src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=0&showinfo=0&controls=0&rel=0&minimalbranding=1" frameborder="0" allowfullscreen></iframe>
+          {% elsif section.settings.video_url.type == 'vimeo' %}
+          <iframe src="//player.vimeo.com/video/{{ section.settings.video_url.id }}?portrait=0&byline=0&color={{ settings.accent_color | remove_first: '#' }}" frameborder="0"></iframe>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Video"
+    },
+    {
+      "type": "video_url",
+      "accept": ["vimeo", "youtube"],
+      "id": "video_url",
+      "label": "Video URL",
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Video",
+      "name": "Video",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

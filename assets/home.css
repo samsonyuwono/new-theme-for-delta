@@ -1,0 +1,128 @@
+/*Global Styles*/
+/*Global Styles*/
+@font-face{
+  font-family: 'Gotham Bold';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-bold.otf');
+}
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Black.otf');
+}
+@font-face{
+  font-family: 'Gotham Book';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
+}
+@font-face{
+  font-family: 'Gotham Medium';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-medium.otf');
+}
+@font-face{
+  font-family: 'Gotham Ultra';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/GothamUltranew.otf');
+}
+@font-face{
+  font-family: 'Gotham Extra Light';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_ExtraLight.otf');
+}
+@font-face{
+  font-family: 'Gotham Light';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Light_1.otf');
+}
+@font-face{
+  font-family: 'Helvetica Medium Condensed';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/helvetica-neue-lt-std-67-medium-condensed.otf?9943094632125790425')
+}
+@font-face{
+  font-family: 'Cartoonist Kooky';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/cartoonist_kooky.ttf');
+}
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-bold{
+  font-family: 'Gotham Bold';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.ultra{
+  font-family: 'Gotham Ultra';
+}
+.gotham-book{
+  font-family: 'Gotham Book';
+}
+.gotham-e-light{
+  font-family: 'Gotham Extra Light';
+}
+.gotham-light{
+  font-family: 'Gotham Light';
+}
+.cartoonist{
+  font-family: 'Cartoonist Kooky' !important;
+}
+
+.home-module{
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+  text-transform: inherit !important;
+
+}
+.home-module h2{
+  text-transform: inherit !important;
+}
+
+.home-module img.background{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+/*Page top to bottom styling */
+
+#module_1{
+
+}
+#module_2{
+
+}
+#module_3{
+
+}
+#module_3 #parent-center-container{
+  background-color: white;
+}
+#module_3 #parent-center-container .pc-buttons{
+  display: inline-block;
+}
+#module_4{
+
+}
+#module_4 h2{
+  color: white;
+}
+#module_5{
+  background-color: #91DDFF;
+}
+#module_6{
+
+}
+#module_6 h2{
+  color: white;
+}
+#module_7{
+
+}
+#module_8{
+
+}
+#module_8 h2{
+  color: white;
+}
+#module_9{
+  background-color: #935BD3;
+
+}

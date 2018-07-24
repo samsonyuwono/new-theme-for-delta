@@ -1,0 +1,258 @@
+<section class="section section-{{ section.id }}">
+  {%- assign product = all_products[section.settings.product] -%}
+
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="product product--featured" id="product-{{ product.id }}" data-allow-selecting-sold-out-variants="true">
+      {%- unless product.empty? -%}
+        {%- include 'product-meta', for_mobile: true -%}
+
+        <div class="grid grid--large grid--middle">
+          {%- assign initial_image = product.selected_or_first_available_variant.image | default: product.featured_image -%}
+
+          <div class="grid__cell 1/2--lap-and-up">
+            {%- for image in product.images -%}
+              {%- if image.attached_to_variant? == false and image.id != initial_image.id -%}
+                {%- continue -%}
+              {%- endif -%}
+
+              <div class="product__featured-image" id="image-{{ image.id }}" data-image-id="{{ image.id }}" {% if image.id != initial_image.id %}style="display: none"{% endif %}>
+                {%- assign max_height_mobile = 450 -%}
+                {%- assign max_height_desktop = 700 -%}
+                {%- assign max_width = 980 -%}
+                {%- assign max_aspect_ratio = 1.50769 -%}
+
+                {% if image.aspect_ratio < max_aspect_ratio %}
+                  {% if image.height < max_height_mobile %}
+                    {% assign max_width_mobile = image.width | times: image.aspect_ratio | round %}
+                  {% else %}
+                    {% assign max_width_mobile = max_height_mobile | times: image.aspect_ratio | round %}
+                  {% endif %}
+
+                  {% if image.height < max_height_desktop %}
+                    {% assign max_width_desktop = image.width | times: image.aspect_ratio | round %}
+                  {% else %}
+                    {% assign max_width_desktop = max_height_desktop | times: image.aspect_ratio | round %}
+                  {% endif %}
+                {% else %}
+                  {% if image.width < max_width %}
+                    {% assign max_width_mobile = product.featured_image.width %}
+                    {% assign max_width_desktop = product.featured_image.width %}
+                  {% endif %}
+                {% endif %}
+
+                <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: image.aspect_ratio }}%">
+                  {%- include 'image-size', sizes: '200,300,400,600,800,900,1000,1200', image: image -%}
+                  {%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                  <img class="lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ image.alt | escape }}">
+
+                  <noscript>
+                    <img src="{{ image | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
+                  </noscript>
+                </div>
+
+                <style>
+                  #image-{{ image.id }} {
+                    max-width: {{ max_width_mobile | default: 500 }}px;
+                  }
+
+                  @media screen and (min-width: 801px) {
+                    #image-{{ image.id }} {
+                      max-width: {{ max_width_desktop | default: 900 }}px;
+                    }
+                  }
+                </style>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <div class="grid__cell 1/2--lap-and-up">
+            <div class="product__details">
+              {%- include 'product-meta', for_mobile: false -%}
+
+              {%- include 'product-form' -%}
+
+              {%- if section.settings.show_description and product.description != blank -%}
+                <div class="product__description rte">
+                  {{ product.description }}
+                </div>
+              {%- endif -%}
+
+              <a href="{{ product.url }}" class="product__view-more link link--primary link--effect text--uppercase">{{ 'home_page.featured_product.view_details' | t }}</a>
+
+              {%- if section.settings.show_share_buttons -%}
+                {%- include 'share-buttons', show_horizontal: true -%}
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- else -%}
+        {%- capture product_meta -%}
+          {%- if settings.product_show_vendor -%}
+            <h2 class="product__brand text--uppercase">{{ 'home_page.onboarding.brand_title' | t }}</h2>
+          {%- endif -%}
+
+          <h1 class="product__title h4">{{ 'home_page.onboarding.product_title' | t }}</h1>
+
+          <div class="product__prices">
+            <span class="product__price h4" data-money-convertible>{{ 4000 | money }}</span>
+          </div>
+        {%- endcapture -%}
+
+        <div class="product__meta hidden-lap-and-up">
+          {{ product_meta }}
+        </div>
+
+        <div class="grid grid--large grid--middle">
+          <div class="grid__cell 1/2--lap-and-up">
+            <div class="product__featured-image">
+              {{ 'product-1' | placeholder_svg_tag }}
+            </div>
+          </div>
+
+          <div class="grid__cell 1/2--lap-and-up">
+            <div class="product__details">
+              <div class="product__meta hidden-pocket">
+                {{ product_meta }}
+              </div>
+
+              <div class="product__form">
+                {%- if section.settings.show_quantity_selector -%}
+                  <div class="form__control">
+                    <label class="form__label">{{ 'product.form.quantity' | t }}</label>
+
+                    <div class="quantity-selector" >
+                      <a href="#" title="{{ 'product.form.decrease_quantity' | t }}">{%- include 'icon' with 'minus' -%}</a>
+                      <span class="quantity-selector__current-quantity">1</span>
+                      <a href="#" title="{{ 'product.form.increase_quantity' | t }}">{%- include 'icon' with 'plus' -%}</a>
+                    </div>
+                  </div>
+                {%- endif -%}
+
+                <button type="submit" class="product__add-to-cart button button--primary">{{ 'product.form.add_to_cart' | t }}</button>
+              </div>
+
+              {%- if section.settings.show_description -%}
+                <div class="product__description rte">
+                  {{ 'home_page.onboarding.product_description' | t }}
+                </div>
+              {%- endif -%}
+
+              <a href="#" class="product__view-more link link--primary link--effect text--uppercase">{{ 'home_page.featured_product.view_details' | t }}</a>
+
+              {%- if section.settings.show_share_buttons -%}
+                {%- include 'share-buttons', show_horizontal: true -%}
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endunless -%}
+    </div>
+  </div>
+</section>
+
+{%- unless product.empty? -%}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var initProduct = function(productElement) {
+        productElement.trademarkProduct({
+          product: {{ product | json }},
+          enableHistoryState: false,
+          optionsWithValues: {{ product.options_with_values | json }},
+          context: 'homepage',
+          allowSelectingSoldOutVariants: (productElement.attr('data-allow-selecting-sold-out-variants') === 'true')
+        });
+      };
+
+      initProduct($('#product-{{ product.id }}'));
+
+      $(document).on('shopify:section:unload', '#shopify-section-product-template', function(event) {
+        $(event.target).find('#product-{{ product.id }}').data('plugin_trademarkProduct').destroy();
+      });
+
+      $(document).on('shopify:section:load', '#shopify-section-product-template', function(event) {
+        initProduct($(event.target).find('#product-{{ product.id }}'));
+      });
+    });
+  </script>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured product"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_selecting_sold_out_variants",
+      "label": "Allow selection of sold out variants",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variants_if_only_one",
+      "label": "Hide selectors if there is only one variant",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show color swatch",
+      "info": "Colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch).",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_swatch",
+      "label": "Show size swatch",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show quantity selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show share buttons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show dynamic checkout button",
+      "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "category": "Product",
+      "name": "Featured product",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

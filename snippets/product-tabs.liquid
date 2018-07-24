@@ -1,0 +1,134 @@
+{%- assign first_page = pages[section.settings.tab_page_1_handle] -%}
+{%- assign second_page = pages[section.settings.tab_page_2_handle] -%}
+{%- assign first_custom_page = '' -%}
+{%- assign second_custom_page = '' -%}
+
+{%- comment -%}
+We allow to add two tabs that are extracted using the tag system. To add such a tag, simply create a page and
+note the handle somewhere.
+Next, add a tag to your product in this form: __tab1:page-handle or __tab2:page-handle
+The theme will automatically link the tab to the page
+{%- endcomment -%}
+
+{%- assign has_unique_tab_1 = false -%}
+{%- assign has_unique_tab_2 = false -%}
+
+{%- comment -%}First, check the metafields{%- endcomment -%}
+
+{%- if product.metafields.sf_product_tabs.tab_1_title != blank and product.metafields.sf_product_tabs.tab_1_content != blank -%}
+  {%- assign unique_tab_1_title = product.metafields.sf_product_tabs.tab_1_title -%}
+  {%- assign unique_tab_1_content = product.metafields.sf_product_tabs.tab_1_content -%}
+  {%- assign has_unique_tab_1 = true -%}
+{%- endif -%}
+
+{%- if product.metafields.sf_product_tabs.tab_2_title != blank and product.metafields.sf_product_tabs.tab_2_content != blank -%}
+  {%- assign unique_tab_2_title = product.metafields.sf_product_tabs.tab_2_title -%}
+  {%- assign unique_tab_2_content = product.metafields.sf_product_tabs.tab_2_content -%}
+  {%- assign has_unique_tab_2 = true -%}
+{%- endif -%}
+
+{%- comment -%}Then, let's try the tags{%- endcomment -%}
+
+{%- for tag in product.tags -%}
+  {%- if tag contains '__tab1' -%}
+    {%- assign first_custom_page = tag | split: ':' | last -%}
+    {%- assign first_custom_page = pages[first_custom_page] -%}
+
+    {%- assign unique_tab_1_title = first_custom_page.title -%}
+    {%- assign unique_tab_1_content = first_custom_page.content -%}
+    {%- assign has_unique_tab_1 = true -%}
+  {%- endif -%}
+
+  {%- if tag contains '__tab2' -%}
+    {%- assign second_custom_page = tag | split: ':' | last -%}
+    {%- assign second_custom_page = pages[second_custom_page] -%}
+
+    {%- assign unique_tab_2_title = second_custom_page.title -%}
+    {%- assign unique_tab_2_content = second_custom_page.content -%}
+    {%- assign has_unique_tab_2 = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if first_page.handle != blank or second_page.handle != blank or has_unique_tab_1 or has_unique_tab_2 or section.settings.reviews_enabled -%}
+  <div class="product__tabs tabs">
+    <div class="tabs__nav">
+      <ul class="tabs__nav-inner list--unstyled" role="tablist">
+        {%- assign current_tab_index = 0 -%}
+
+        {%- if section.settings.reviews_enabled -%}
+          <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+            {{- 'product.tabs.reviews' | t -}}
+            {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+          </li>
+        {%- endif -%}
+
+        {%- if has_unique_tab_1 -%}
+          <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+            {{- unique_tab_1_title -}}
+            {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+          </li>
+        {%- endif -%}
+
+        {%- if has_unique_tab_2 -%}
+          <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+            {{- unique_tab_2_title -}}
+            {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+          </li>
+        {%- endif -%}
+
+        {%- unless first_page.empty? -%}
+          <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+            {{- first_page.title -}}
+            {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+          </li>
+        {%- endunless -%}
+
+        {%- unless second_page.empty? -%}
+          <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+            {{- second_page.title -}}
+            {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+          </li>
+        {%- endunless -%}
+      </ul>
+    </div>
+
+    <ul class="tabs__content list--unstyled">
+      {%- assign current_tab_index = 0 -%}
+
+      {%- if section.settings.reviews_enabled -%}
+        <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %}">
+          <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+      {%- endif -%}
+
+      {%- if has_unique_tab_1 -%}
+        <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+          {{- unique_tab_1_content -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+      {%- endif -%}
+
+      {%- if has_unique_tab_2 -%}
+        <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+          {{- unique_tab_2_content -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+      {%- endif -%}
+
+      {%- unless first_page.empty? -%}
+        <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+          {{- first_page.content -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+      {%- endunless -%}
+
+      {%- unless second_page.empty? -%}
+        <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+          {{- second_page.content -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+      {%- endunless -%}
+    </ul>
+  </div>
+{%- endif -%}

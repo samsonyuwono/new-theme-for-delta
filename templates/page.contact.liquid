@@ -1,0 +1,74 @@
+{%- capture contact_form -%}
+  {%- form 'contact' -%}
+    {%- unless form.posted_successfully? -%}
+      <p class="form__instructions">{{ 'contact.form.instructions' | t }}</p>
+    {%- endunless -%}
+
+    {%- if form.posted_successfully? -%}
+      <div class="alert alert--success">
+        <span class="alert__title">{{ 'contact.form.successfully_sent' | t }}</span>
+      </div>
+    {%- endif -%}
+
+    {%- if form.errors -%}
+      <div class="alert alert--error">
+        <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
+        {%- include 'form-errors' -%}
+      </div>
+    {%- endif -%}
+
+    <div class="form__control-row">
+      <div class="form__control">
+        <input type="text" class="form__input" id="contact__name" name="contact[name]" aria-label="{{ 'contact.form.name' | t }}" placeholder="{{ 'contact.form.name' | t }}">
+      </div>
+
+      <div class="form__control">
+        <input type="email" class="form__input" id="contact__email" name="contact[email]" aria-label="{{ 'contact.form.email' | t }}" placeholder="{{ 'contact.form.email' | t }}" required="required">
+      </div>
+    </div>
+
+    <div class="form__control">
+      <textarea rows="8" class="form__textarea" cols="75" id="contact__body" name="contact[body]" required="required" aria-label="{{ 'contact.form.message' | t }}" placeholder="{{ 'contact.form.message' | t }}">{{ form.body }}</textarea>
+    </div>
+
+    <input type="submit" class="button button--primary" value="{{ 'contact.form.submit' | t }}">
+  {%- endform -%}
+{%- endcapture -%}
+
+{%- assign cleaned_content = page.content | strip_html -%}
+
+{%- if cleaned_content == blank -%}
+  {%- assign force_secondary_background = true -%}
+{%- endif -%}
+
+<div class="page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ page.title }}</h1>
+    </div>
+
+    {%- if cleaned_content == blank -%}
+      <div class="box box--mini">
+        <div class="box__content box__content--large-padding box__content--centered">
+          {{ contact_form }}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="grid grid--huge">
+        <div class="grid__cell 1/2--lap-and-up">
+          <div class="contact-page-content rte">
+            {{ page.content }}
+          </div>
+        </div>
+
+        <div class="grid__cell 1/2--lap-and-up">
+          <div class="box box--secondary">
+            <div class="box__content">
+              {{ contact_form }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>

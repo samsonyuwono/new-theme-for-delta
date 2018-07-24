@@ -1,0 +1,149 @@
+.header-utilites-color{
+  color:white;
+}
+
+.inline{
+  display:inline-block;
+}
+
+.no-dot {
+    list-style: none;
+}
+
+.nest {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  margin-top: 87px;
+}
+
+#count{
+  background: white;
+  border: 5px solid white;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-radius: 50%;
+  color: #487ED6;
+}
+
+
+.badge {
+  background-color: #6394F8;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.shopping-cart {
+  margin: 20px 0;
+  background: #FFF;
+  border: 7px solid #487ED6;
+  padding: 20px;
+  margin-top: -51px;
+}
+.shopping-cart .shopping-cart-header {
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+.shopping-cart .shopping-cart-header .shopping-cart-total {
+  float: right;
+}
+.shopping-cart .shopping-cart-items {
+  padding-top: 20px;
+}
+.shopping-cart .shopping-cart-items li {
+  margin-bottom: 18px;
+}
+.shopping-cart .shopping-cart-items img {
+  margin-right: 12px;
+}
+.shopping-cart .shopping-cart-items .item-name {
+  padding-top: 10px;
+  font-size: 16px;
+}
+.shopping-cart .shopping-cart-items .item-price {
+  color: #6394F8;
+  margin-right: 8px;
+}
+.shopping-cart .shopping-cart-items .item-quantity {
+  color: #ABB0BE;
+}
+
+#nest-outside:after {
+  right: 163px;
+  top: 27px;
+  z-index: 5;
+  border: solid rgba(0, 0, 0, 0);
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #FFF;
+  border-width: 8px;
+}
+
+.cart-icon {
+  color: #515783;
+  font-size: 24px;
+  margin-right: 7px;
+  float: left;
+}
+
+#checkout {
+  background: #6394F8;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 25px 0 15px 0;
+}
+.button:hover {
+  background: #729ef9;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.product-in-cart-mobile{
+  color:white;
+  margin-bottom: 30px;
+}
+
+#cart-items-mobile:first-child {
+      margin-top: 10%;
+}
+
+.items-wrapper{
+    margin: 5% 0px 5% 0px;
+}
+
+#cart-items-mobile a li {
+  color:white;
+}
+
+
+@media screen and (max-width: 1025px) {
+  .nest{
+    left:0;
+    right: initial!important;
+    /*override for inline styling for cart popup edge case*/
+  }
+  #nest-outside:after{
+    right: initial!important;
+  }
+
+}

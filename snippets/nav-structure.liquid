@@ -1,0 +1,91 @@
+{% capture cart_item_count %}<span class="count">{{ 'cart.item_count' | t: count: cart.item_count }}</span>{% endcapture %}
+
+{% capture cart_total_price %}{{ cart.total_price | money  }}{% endcapture %}
+
+{% comment %} Level 1 {% endcomment %}
+
+{% if nav_area == 'primary' %}
+  <li class="has-form hide-for-medium-up">
+    <form name="search" action="/search">
+      <input type="hidden" name="type" value="product" />
+      <input type="text" name="q" class="search-query search replace" placeholder="{{ 'general.search.input_placeholder_short' | t }}">
+    </form>
+  </li>
+
+  <li class="hide-for-medium-up">
+    <a href="/cart" id="mobile-cart-AjaxUpdate">{{ 'mobile.footer_navigation.checkout_link_html' | t: cart_item_count: cart_item_count, cart_total_price: cart_total_price }}</a>
+  </li>
+{% endif %}
+
+
+<!-- for left hand nav -->
+{% for link in nav.links %}
+  {% include 'nav-item-class' %}
+  {% capture handle %}{{ link.title | handle }}{% endcapture %}
+
+  {% if linklists[handle] and linklists[handle].links.size > 0 and levels > 1 %}
+    <li class="{{item_class}} has-dropdown main" id="{{page.handle | handleize}}{{collection.handle | handleize}}">
+    <a class="nav-title head" href="{{ link.url }}">{{ link.title }}<span class="up"></span><span class="down"></span></a>
+
+      {% comment %} Level 2 {% endcomment %}
+
+      <ul class="dropdown">
+      {% for link in linklists[handle].links %}
+        {% include 'nav-item-class' %}
+        {% capture handle %}{{ link.title | handle }}{% endcapture %}
+
+        {% if linklists[handle] and linklists[handle].links.size > 0 and levels > 2 %}
+          <li class="{{item_class}} has-dropdown" id="level-2">
+            <a class="hasDropdown" href="{{ link.url }}">{{ link.title }}<span class="angle-up"></span><span class="angle-down"></span></a>
+
+            {% comment %} Level 3 {% endcomment %}
+
+            <ul id="checkThat" class="dropdown" id="{{product.handle | handleize}}">
+              {% for link in linklists[handle].links %}
+                {% include 'nav-item-class' %}
+                <li class="{{item_class}}">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+
+            {% comment %} End level 3 {% endcomment %}
+
+          </li>
+        {% else %}
+          <li class="{{item_class}}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+
+      {% endfor %}
+      </ul>
+      {% comment %} End level 2 {% endcomment %}
+
+    </li>
+  {% else %}
+    <li class="{{item_class}} alone">
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    </li>
+  {% endif %}
+
+{% endfor %}
+
+
+
+{% if nav_area == 'primary' %}
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+      <li class="hide-for-medium-up">
+        <a href="/account">{{ 'customer_accounts.my_account' | t }}</a>
+      </li>
+      <li class="hide-for-medium-up">
+        <a href="/account/logout">{{ 'customer_accounts.sign_out' | t }}</a>
+      </li>
+    {% else %}
+      <li class="hide-for-medium-up">
+        <a href="/account">{{ 'customer_accounts.my_account' | t }}</a>
+      </li>
+    {% endif %}
+  {% endif %}
+{% endif %}

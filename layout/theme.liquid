@@ -1,0 +1,128 @@
+<!doctype html>
+<!--Theme -->
+
+<!--[if IE 9 ]><html class="no-js csscalc no-flexbox ie9" lang="{{ shop.locale }}"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="{{ shop.locale }}"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="theme-color" content="{{ settings.accent_color }}">
+
+    <title>
+      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- comment -%} We preconnect of two popular domains (Shopify CDN and Google Font) to speed up performance {%- endcomment -%}
+    <link rel="preconnect" href="//cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {%- endif -%}
+
+    {%- include 'social-meta-tags' -%}
+    {%- include 'google-fonts' -%}
+
+    {{ content_for_header }}
+
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{{ 'modernizr.min.js' | asset_url }}"></script>
+
+    <script>
+      // This allows to expose several variables to the global scope, to be used in scripts
+      window.theme = {
+        template: {{ template | json }},
+        currentPage: {{ current_page }},
+        shopCurrency: {{ shop.currency | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        collectionSortBy: {{ collection.sort_by | default: collection.default_sort_by | json }},
+        locale: {{ shop.locale | json }}
+      };
+
+      window.languages = {
+        productLabelsOnSale: {{ 'product.labels.on_sale' | t | json }},
+        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% else %}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+        cartEstimatedShipping: {{ 'cart.general.estimated_shipping' | t | json }},
+        shippingEstimatorSubmit: {{ 'cart.shipping_estimator.submit' | t | json }},
+        shippingEstimatorSubmitting: {{ 'cart.shipping_estimator.submitting' | t | json }},
+        recoverPasswordTitle: {{ 'customer.recover_password.title' | t | json }},
+        cartDeleteTitle: {{ 'cart.items.delete' | t | json }}
+      }
+    </script>
+
+    {%- include 'microdata-schema' -%}
+    {%- if template.name == 'collection' -%}
+    {{ 'collection.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+    {%- if template.name == 'product' -%}
+      {%- comment -%}This is used on product pages to power the "features" section{%- endcomment -%}
+      {{ '//use.fontawesome.com/d822a9b4f8.js' | script_tag }}
+      {{ 'mag_popup.css' | asset_url | stylesheet_tag }}
+      {{ 'product.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+  </head>
+
+  {%- assign template_handle = template | replace: '.', ' ' | truncatewords: 1, '' | handle | replace: '_', '-' -%}
+
+  <body class="trademark--v2 template-{{ template_handle }} {% if page.template_suffix != blank %}template-{{ template_handle }}-{{page.template_suffix}}{% endif %}">
+    {%- include 'svg-icons' -%}
+
+    {%- section 'popup' -%}
+
+    <div class="page__overlay"></div>
+
+    <div class="page__container {% if force_secondary_background %}page__container--secondary{% endif %}">
+      {% include 'header-actions' %}
+
+      {%- section 'header' -%}
+
+      <main id="main" class="main" role="main">
+        {{ content_for_layout }}
+      </main>
+      {%include 'seo-collections'%}
+      {%- section 'newsletter' -%}
+      {%- section 'footer' -%}
+    </div>
+
+    {%- if settings.currency_conversion_enabled -%}
+      <script src="//cdn.shopify.com/s/javascripts/currencies.js"></script>
+    {%- endif -%}
+
+    {%- if template.directory == 'customers' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
+      <script src="{{ 'customer_area.js' | shopify_asset_url }}"></script>
+    {%- endif -%}
+
+    {%- if template.name == 'cart' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
+    {%- endif -%}
+
+    <script src="{{ 'libs.js' | asset_url }}"></script>
+    <script src="{{ 'script.js' | asset_url }}" defer></script>
+    {%- if template.name == 'product' -%}
+    {{ 'collection.js' | asset_url | script_tag }}
+    {%- endif -%}
+    {%- if template.name == 'product' -%}
+  {{ 'mag_popup.js' | asset_url | script_tag }}
+    {{ 'product.js' | asset_url | script_tag }}
+    {{ 'variantSkuInfo.js' | asset_url | script_tag }}
+    {%- endif -%}
+    {%- if template.name == 'collection' -%}
+    {{ 'collection.js' | asset_url | script_tag }}
+    {%endif%}
+  </body>
+
+</html>

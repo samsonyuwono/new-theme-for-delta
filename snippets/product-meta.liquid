@@ -1,0 +1,33 @@
+<div class="product__meta {% if for_mobile %}hidden-lap-and-up{% else %}hidden-pocket{% endif %}">
+  {%- if settings.product_show_vendor and product.vendor != blank -%}
+    <h2 class="product__brand">
+      {%- assign vendor_handle = product.vendor | handle -%}
+      {%- assign collection_for_vendor = collections[vendor_handle] -%}
+
+      {%- if collection_for_vendor.empty? -%}
+        {%- assign url_for_vendor = product.vendor | url_for_vendor -%}
+      {%- else -%}
+        {%- assign url_for_vendor = collection_for_vendor.url -%}
+      {%- endif -%}
+
+      <a href="{{ url_for_vendor }}">{{ product.vendor }}</a>
+    </h2>
+  {%- endif -%}
+
+  <h1 class="product__title {% if template.name == 'product' %}h2{% else %}h4{% endif %}">{{ product.title }}</h1>
+
+  <div class="product__prices">
+    {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+      <span class="product__price product__price--new h4" data-money-convertible>{{ product.selected_or_first_available_variant.price | money }}</span><!--
+      --><span class="product__price product__price--old h4" data-money-convertible>{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+    {%- else -%}
+      <span class="product__price h4" data-money-convertible>{{ product.selected_or_first_available_variant.price | money }}</span>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.reviews_enabled -%}
+    <div class="product__review-badge">
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}">{{ 'product.general.loading_reviews' | t }}</span>
+    </div>
+  {%- endif -%}
+</div>

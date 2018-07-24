@@ -1,0 +1,138 @@
+{% assign tagline = 'general.tagline_html' | t %}
+{{ 'cart-popup.css' | asset_url | stylesheet_tag }}
+<!-- BEGIN #header-actions -->
+<div id="header-actions" class="show-for-medium-up">
+  <div id="dc-header-container">
+    <div class="row">
+    <div class="small-12 medium-4 medium-push-1 columns right brand-cart-search">
+
+      <div class="table">
+
+
+
+
+        <div class= "cell ship-container" style="width: 50%;">
+          <h6 class="shipping">
+            <span id="free-gift-click">  Free Shipping + <span>Bonus Gift!</span></span>
+
+          </h6>
+          <!-- <h6 class="shipping" style="color: #f47e7e;">Our website is temporarily under development. Please come back soon.
+          </h6> -->
+
+        </div>
+        <div id="branding-wrap" class="cell">
+            <div id="brand-primary-image" title="{{shop.name}}">
+                  <a href="/">
+                      <img src="//cdn.shopify.com/s/files/1/0578/7201/t/5/assets/logo.png?10048359743863671713" alt="Delta Children" alt="Delta Children">
+                   </a>
+            </div>
+        </div>
+
+        <div class="cell sign-cart">
+          <div class="wrapper">
+            <!-- Session -->
+            <span class="session inline gotham-book">
+              <span class="divider">|</span>
+              {% if shop.customer_accounts_enabled %}
+              {% if customer %}
+              <a href="/account">My Account</a>
+              <span class="divider">|</span>
+              {{ 'customer_accounts.sign_out' | t | customer_logout_link }}
+              {% else %}
+                <a href="/account/login" class="link">Sign In</a>
+              {% endif %}
+              <!-- Hide or from appearing -->
+              <!-- <span>{{ 'top_bar.or' | t }}</span> -->
+              {% endif %}
+            </span>
+            <span class="divider ">|</span>
+
+              <span class="cart inline" id="cart-icon-count">
+                <a href="/cart">
+                 <div id="nest-outside">
+                  <i class="fa fa-shopping-cart header-utilites-color"></i>
+                  <span class="badge" id="cartCount">{{ cart.item_count }}</span>
+                </div>
+              </a>
+            </span>
+            <!-- Disable Checkout link -->
+            <!-- Checkout -->
+            <!-- <a class="checkout" href="/checkout">{{ 'top_bar.checkout' | t }}</a> -->
+            <!-- End Disable Checkout Link -->
+          </div>
+        </div>
+        <div class="cell search">
+          <!-- Search -->
+          <div id="header-search">
+            <form class="form-search form-inline" name="search" action="/search">
+              <i class="fa fa-search"></i>
+              <input type="hidden" name="type" value="product" />
+              <input type="text" name="q" class="search-query search replace" placeholder="Search Delta Children...">
+            </form>
+          </div>
+        </div>
+
+        {% if settings.multicurrency_enabled %}
+        <div class="cell">
+          <!-- Currency selector -->ßß
+          {% include 'currency-select' %}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+</div>
+</div>
+</div>
+<!-- /#header-actions -->
+
+<script>
+  $('#nest-outside').hover(function() {
+    $('.nest').fadeIn(100 , function(){
+      $('#cart-wrapper').mouseover(function(){
+        $('.nest').fadeOut(100);
+      });
+    })
+  });
+
+  $( ".nest" ).mouseleave(function() {
+   $('.nest').fadeOut(100);
+  });
+  $(function() {
+    // $('#site-header a.nav-title').click(function(){
+    //   $('#site-header .nav-item a').each(function(){
+    //     $(this).removeClass('active');
+    //   });
+    //   $(this).addClass('active');
+    // });
+    $('#site-header .nav-item a').each(function(){
+      if($(this).is(":contains('Shop Products')")){
+        $("<i class='fa fa-angle-down'></i>").appendTo($(this));
+      }
+      if($(this).is(":contains('Help Center')")){
+        $("<i class='fa fa-angle-down'></i>").appendTo($(this));
+      }
+      if($(this).is(":contains('Parent Center')")){
+        $("<i class='fa fa-angle-down'></i>").appendTo($(this));
+      }
+      if($(this).is(":contains('About Us')")){
+        $("<i class='fa fa-angle-down'></i>").appendTo($(this));
+      }
+    })
+
+
+
+  })
+</script>
+
+<style>
+
+.shipping{
+  color: white;
+  padding-right: 25%;
+  position: relative;
+  top: 5px;
+}
+
+
+</style>

@@ -1,0 +1,40 @@
+{%- capture collection_filters -%}
+  {%- if section.settings.show_tag_filters and collection.all_tags.size > 1 -%}
+    <div class="collection__filter styled-select">
+      {%- include 'icon' with 'dropdown-arrow' -%}
+
+      <select aria-label="{{ 'collection.filters.tag_aria_label' | t }}" id="collection-tag-filter">
+        {%- if current_tags -%}
+          <option value="/collections/{{ collection.handle }}" {% if current_tags.size == 0 %}selected="selected"{% endif %}>{{ 'collection.filters.by_tag_reset' | t }}</option>
+        {%- else -%}
+          <option value="/collections/{{ collection.handle }}" {% if current_tags.size == 0 %}selected="selected"{% endif %}>{{ 'collection.filters.by_tag' | t }}</option>
+        {%- endif -%}
+
+        {%- for tag in collection.all_tags -%}
+          {%- unless tag contains '__' -%}
+            {%- assign tag_url = tag | link_to_tag: tag | split: 'href=' -%}
+            {%- assign to_remove = '>' | append: tag -%}
+            <option value={{ tag_url[1] | remove: to_remove | strip_html }} {% if current_tags contains tag %}selected="selected"{% endif %}>{{ tag }}</option>
+          {%- endunless -%}
+        {%- endfor -%}
+      </select>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.show_sort_by -%}
+    <div class="collection__filter styled-select">
+      {%- include 'icon' with 'dropdown-arrow' -%}
+
+      <select aria-label="{{ 'collection.filters.sort_by_aria_label' | t }}" id="collection-sort-by">
+        <option value="manual" {% if collection.sort_by == 'manual' %}selected="selected"{% endif %}>{{ 'collection.sorting.featured' | t }}</option>
+        <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected="selected"{% endif %}>{{ 'collection.sorting.price_ascending' | t }}</option>
+        <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected="selected"{% endif %}>{{ 'collection.sorting.price_descending' | t }}</option>
+        <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected="selected"{% endif %}>{{ 'collection.sorting.az' | t }}</option>
+        <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected="selected"{% endif %}>{{ 'collection.sorting.za' | t }}</option>
+        <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected="selected"{% endif %}>{{ 'collection.sorting.date_ascending' | t }}</option>
+        <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected="selected"{% endif %}>{{ 'collection.sorting.date_descending' | t }}</option>
+        <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected="selected"{% endif %}>{{ 'collection.sorting.best_selling' | t }}</option>
+      </select>
+    </div>
+  {%- endif -%}
+{%- endcapture -%}

@@ -1,0 +1,256 @@
+{%- comment -%}
+We have some elements that are at two different places in mobile and desktop. In order to make the CSS easier, we just duplicate those in the code
+{%- endcomment -%}
+
+{%- capture collection_top -%}
+  <div class="collection__top {% if section.settings.show_overlay %}accent-overlay{% else %}collection__top--no-overlay{% endif %}">
+    <img class="collection__image" src="{{ collection.image | img_url: '800x800' }}" alt="{{ collection.image.alt | escape }}">
+
+    <div class="collection__info">
+      <h1 class="collection__title h1">{{ collection.title }}</h1>
+
+      {%- if collection.description != blank -%}
+        <p class="collection__description">{{ collection.description | strip_html }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endcapture -%}
+
+
+{%include 'collection-filters'%}
+
+
+
+<div class="collection page__content-wrapper">
+  <div class="container">
+    {%- if collection.all_products_count == 0 -%}
+      <div class="page__header">
+        <h1 class="page__title h1">{{ collection.title }}</h1>
+      </div>
+
+      <div class="box box--mini">
+        <div class="box__content box__content--large-padding box__content--centered">
+          {{ 'collection.general.empty' | t }}
+
+          <div class="box__button-wrapper button-wrapper">
+            <a href="{{ shop.url }}" class="button button--secondary">{{ 'collection.general.back_to_home' | t }}</a>
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      {%- if collection.image -%}
+        <div class="hidden-lap-and-up">
+          {{ collection_top }}
+        </div>
+      {%- else -%}
+        <div class="page__header">
+          <h1 class="page__title h1">{{ collection.title }}</h1>
+
+          {%- if collection.description != blank -%}
+            <div class="page__description">{{ collection.description }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if collection_filters != blank -%}
+        <div class="collection__filters">
+          {{ collection_filters }}
+        </div>
+      {%- endif -%}
+
+      {%- assign grid_items_per_row = section.settings.grid_items_per_row -%}
+      {%- assign grid_number_of_rows = section.settings.grid_number_of_rows -%}
+      {%- assign products_per_page = grid_items_per_row | times: grid_number_of_rows -%}
+
+
+      {%- comment -%}
+      If we have a collection image, this one is displayed right into the grid and take either one grid item (if there are two items per row) or two grid
+      items (if there are three items per row or more)
+      {%- endcomment -%}
+
+      {%- if collection.image -%}
+        {%- if grid_items_per_row == 2 -%}
+          {%- assign products_per_page = products_per_page | minus: 1 -%}
+
+        {%- else -%}
+        <!-- products per page for collection.image used to be "minus: 2" -->
+          {%- assign products_per_page = products_per_page | minus: 0 -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- paginate collection.products by products_per_page -%}
+        <div class="list-products {% if collection.image %}list-products--with-collection-image{% endif %} grid grid--large">
+          {%- comment -%}
+          If there is an image attached to the collection, the first or first two "products" will be taken by the collection image, so we need to remove one from
+          the pagination count
+          {%- endcomment -%}
+
+          <!-- hid collection image for now -->
+          {%- if collection.image -%}
+            <!-- <div class="grid__cell hidden-thumb hidden-handheld 1/2--lap-and-up {% if grid_items_per_row == 2 %}1/2--desk{% else %}2/{{ grid_items_per_row }}--desk{% endif %}">
+              {{ collection_top }}
+            </div> -->
+          {%- endif -%}
+
+          {%- for product in collection.products -%}
+            <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk">
+              {%- include 'product-item', product: product, grid_items_per_row: grid_items_per_row, image_dimension: section.settings.image_dimension, show_color_swatch: section.settings.show_color_swatch -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- include 'pagination' -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.show_instagram -%}
+  <section class="section section__instagram">
+    {%- if section.settings.instagram_title != blank -%}
+      <div class="container">
+        <h2 class="section__title h3">{{ section.settings.instagram_title }}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.instagram_access_token == blank -%}
+      <div id="instafeed" class="instagram-feed">
+        {%- for i in (1..15) -%}
+          <div class="instagram__tile-wrapper {% if forloop.index == 8 %}instagram__tile-wrapper--featured{% endif %}">
+            <button class="instagram-tile__button instagram-tile__button--prev">
+              {% include 'icon' with 'arrow-left' %}
+            </button>
+
+            <div class="instagram__tile-wrapper-hidder">
+              {%- for j in (1..3) -%}
+                <div class="instagram-tile {% cycle 'instagram-tile': 'instagram-tile--prev', 'instagram-tile--active', 'instagram-tile--next' %}">
+                  <div class="instagram-tile__info">
+                    <div class="instagram-tile__info-wrapper">
+                      <div class="instagram-tile__meta">
+                        <p class="instagram-tile__likes">
+                          {% include 'icon' with 'heart' %}
+                          5
+                        </p>
+                        <div class="instagram-tile__caption rte">{{ 'layout.instagram.content_placeholder' | t }}</div>
+                      </div>
+                      <time class="instagram-tile__date text--uppercase">{{ 'now' | date: '%b %d, %Y' }}</time>
+                    </div>
+                  </div>
+
+                  <a href="#" class="instagram-tile__image-wrapper instagram-tile__image-wrapper--placeholder">
+                    {% capture collection_image_index %}{% cycle '1', '2', '3', '2', '3', '1', '3', '1', '2' %}{% endcapture %}
+                    {{ 'collection-' | append: collection_image_index | placeholder_svg_tag }}
+                  </a>
+                </div>
+              {%- endfor -%}
+            </div>
+
+            <button class="instagram-tile__button instagram-tile__button--next">
+              {% include 'icon' with 'arrow-right' %}
+            </button>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div id="instafeed" class="instagram-feed" data-access-token="{{ section.settings.instagram_access_token }}"></div>
+    {%- endif -%}
+  </section>
+{%- endif -%}
+
+
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show accent tint on image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag_filters",
+      "label": "Show filter by tag",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_by",
+      "label": "Show sort by",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "grid_items_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Products per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_number_of_rows",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "label": "Rows",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show product available colors",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_dimension",
+      "label": "Product image dimension",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "big",
+          "label": "Big"
+        },
+        {
+          "value": "fill_width",
+          "label": "Fill width"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Instagram"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_instagram",
+      "label": "Show Instagram",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "instagram_title",
+      "label": "Heading",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_access_token",
+      "label": "Access Token",
+      "info": "[Find your access token](http://www.maestrooo.com/instagram)."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,160 @@
+<div class="page__content-wrapper">
+  <div class="container">
+    <header class="page__header">
+      <h1 class="page__title h1">{{ 'customer.account.title' | t }}</h1>
+
+      <div class="page__action-button button-wrapper">
+        <a href="/account/logout" class="button button--small button--secondary">{{ 'customer.general.logout' | t }}</a>
+      </div>
+    </header>
+
+    <div class="grid grid--large">
+      <div class="customer__orders grid__cell 7/10--handheld-and-up">
+        <h2 class="h4">{{ 'customer.account.order_history' | t }}</h2>
+
+        {%- if customer.orders.size == 0 -%}
+          <p>{{ 'customer.account.no_orders' | t }}</p>
+          <a href="/" class="button button--primary">{{ 'customer.account.start_shopping' | t }}</a>
+        {%- else -%}
+          {%- paginate customer.orders by 50 -%}
+            <table class="table table--responsive">
+              <thead>
+                <tr>
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th class="table--align-right">{{ 'customer.orders.total' | t }}</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {%- for order in customer.orders -%}
+                  <tr>
+                    <td data-label="{{ 'customer.orders.order_number' | t }}"><a href="{{ order.customer_url }}" class="link link--primary">{{ order.name }}</a></td>
+                    <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                    <td class="table--align-right" data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+
+            {%- include 'pagination', minimal_pagination: true -%}
+          {%- endpaginate -%}
+        {%- endif -%}
+      </div>
+
+      <div class="grid__cell 3/10--handheld-and-up">
+        <h2 class="h4">{{ 'customer.account.addresses' | t }}</h2>
+
+        {%- if customer.addresses_count == 0 -%}
+          <p>{{ 'customer.account.no_addresses' | t }}</p>
+          <a href="/account/addresses" data-remodal-target="new-address" class="text--uppercase link link--primary link--icon">{% include 'icon' with 'plus' %}{{ 'customer.account.add_address' | t }}</a>
+        {%- else -%}
+          <div class="box box--secondary">
+            <div class="box__content box__content--small-padding">
+              {{ customer.default_address | format_address | replace: '<p>': '<p class="customer-address">' }}
+            </div>
+          </div>
+
+          <a href="/account/addresses" class="customer__addresses-link link link--primary text--uppercase">{{ 'customer.account.manage_addresses' | t }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- if customer.addresses_count == 0 -%}
+  <div data-remodal-id="new-address" class="remodal modal box box--mini">
+    <a href="#" class="modal__close" data-remodal-action="close">
+      {%- include 'icon' with 'cross' -%}
+    </a>
+
+    <header class="modal__header">
+      <h3 class="modal__title h3">{{ 'customer.addresses.create_title' | t }}</h3>
+    </header>
+
+    <div class="box__content box__content--large-padding modal__body">
+      {% form 'customer_address', customer.new_address %}
+        <div class="form__control-row">
+          <div class="form__control">
+            <label class="form__label" for="address_first_name_{{form.id}}">{{ 'customer.addresses.first_name' | t }}</label>
+            <input type="text" class="form__input" id="address_first_name_{{form.id}}" name="address[first_name]" value="{{ form.first_name }}">
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="address_last_name_{{form.id}}">{{ 'customer.addresses.last_name' | t }}</label>
+            <input type="text" class="form__input" id="address_last_name_{{form.id}}" name="address[last_name]" value="{{ form.last_name }}">
+          </div>
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_company_{{form.id}}">{{ 'customer.addresses.company' | t }}</label>
+          <input type="text" class="form__input" id="address_company_{{form.id}}" name="address[company]" value="{{ form.company }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_address1_{{form.id}}">{{ 'customer.addresses.address1' | t }}</label>
+          <input type="text" class="form__input" id="address_address1_{{form.id}}" name="address[address1]" value="{{ form.address1 }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_address2_{{form.id}}">{{ 'customer.addresses.address2' | t }}</label>
+          <input type="text" class="form__input" id="address_address2_{{form.id}}" name="address[address2]" value="{{ form.address2 }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_city_{{form.id}}">{{ 'customer.addresses.city' | t }}</label>
+          <input type="text" class="form__input" id="address_city_{{form.id}}" name="address[city]" value="{{ form.city }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_country_new">{{ 'customer.addresses.country' | t }}</label>
+
+          <div class="styled-select">
+            {% include 'icon' with 'dropdown-arrow' %}
+            <select id="address_country_new" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+          </div>
+        </div>
+
+        <div id="address-province-container-new" class="form__control address-province-container" style="display: none">
+          <label class="form__label" for="address_province_new">{{ 'customer.addresses.province' | t }}</label>
+
+          <div class="styled-select">
+            {% include 'icon' with 'dropdown-arrow' %}
+            <select id="address_province_new" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+          </div>
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_zip_{{form.id}}">{{ 'customer.addresses.zip' | t }}</label>
+          <input type="text" class="form__input" id="address_zip_{{form.id}}" name="address[zip]" value="{{ form.zip }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label" for="address_phone_{{form.id}}">{{ 'customer.addresses.phone' | t }}</label>
+          <input type="text" class="form__input" id="address_phone_{{form.id}}" name="address[phone]" value="{{ form.phone }}">
+        </div>
+
+        <div class="form__control">
+          <label class="form__label">
+            {{ form.set_as_default_checkbox }} {{ 'customer.addresses.set_default' | t }}
+          </label>
+        </div>
+
+      <div class="button-wrapper">
+        <button class="button button--secondary" data-remodal-action="close">{{ 'customer.addresses.cancel' | t }}</button>
+        <input class="button button--primary" type="submit" value="{{ 'customer.addresses.create' | t }}" />
+      </div>
+      {% endform %}
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address-province-container-new'});
+    });
+  </script>
+{%- endif -%}

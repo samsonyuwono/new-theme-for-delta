@@ -1,0 +1,43 @@
+{%- assign variant_exists = false -%}
+{%- assign allow_variant_selection = false -%}
+{%- assign variant_available = false -%}
+{%- assign option1 = product.selected_or_first_available_variant.option1 -%}
+{%- assign option2 = product.selected_or_first_available_variant.option2 -%}
+{%- assign option3 = product.selected_or_first_available_variant.option3 -%}
+
+{%- if forloop.parentloop.index == 1 -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option1 == value and variant.option2 == option2 and variant.option3 == option3 -%}
+      {%- assign variant_exists = true -%}
+      {%- assign variant_available = variant.available -%}
+
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- elsif forloop.parentloop.index == 2 -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option1 == option1 and variant.option2 == value and variant.option3 == option3 -%}
+      {%- assign variant_exists = true -%}
+      {%- assign variant_available = variant.available -%}
+
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option1 == option1 and variant.option2 == option2 and variant.option3 == value -%}
+      {%- assign variant_exists = true -%}
+      {%- assign variant_available = variant.available -%}
+
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if variant_exists -%}
+  {%- if variant_available or section.settings.allow_selecting_sold_out_variants -%}
+    {%- assign allow_variant_selection = true -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign allow_variant_selection = true -%}
+{%- endif  -%}

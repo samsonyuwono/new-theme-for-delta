@@ -1,0 +1,70 @@
+{%- assign force_secondary_background = true -%}
+
+<div class="page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ 'customer.login.title' | t }}</h1>
+    </div>
+
+    <div id="login-section" class="box box--mini">
+      <div class="box__content box__content--large-padding box__content--centered">
+        {%- form 'customer_login', class: 'form form--shrinked' -%}
+          <p class="form__instructions">{{ 'customer.login.instructions' | t }}</p>
+
+          {%- if form.errors -%}
+            <div class="alert alert--error">
+              <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
+              {%- include 'form-errors' -%}
+            </div>
+          {%- endif -%}
+
+          <div class="form__control">
+            <input aria-label="{{ 'customer.login.email' | t }}" type="email" class="form__input" name="customer[email]" required="required" placeholder="{{ 'customer.login.email' | t }}">
+          </div>
+
+          <div class="form__control">
+            <input aria-label="{{ 'customer.login.password' | t }}" type="password" class="form__input" name="customer[password]" required="required" placeholder="{{ 'customer.login.password' | t }}">
+            <a href="#" class="login__forgot-link link" data-action="display-recover-form">{{ 'customer.login.forgot' | t }}</a>
+          </div>
+
+          <div class="box__button-wrapper button-wrapper">
+            <button type="submit" class="button button--enforce-min-width button--primary">{{ 'customer.login.submit' | t }}</button>
+          </div>
+
+          <p class="login__register-link">{{ 'customer.login.register_html' | t }}</p>
+        {%- endform -%}
+      </div>
+    </div>
+
+    <div id="recover-password-section" class="box box--mini" style="display: none">
+      <div class="box__content box__content--large-padding box__content--centered">
+        <p class="form__instructions">{{ 'customer.recover_password.instructions' | t }}</p>
+
+        {%- form 'recover_customer_password', class: 'form form--shrinked' -%}
+          {%- if form.errors -%}
+            <div class="alert alert--error">
+              <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
+              {%- include 'form-errors' -%}
+            </div>
+          {%- endif -%}
+
+          {%- if form.posted_successfully? -%}
+            <script>window.recoverPassword = true;</script>
+
+            <div class="alert alert--success">
+              <span class="alert__title">{{ 'customer.recover_password.success' | t }}</span>
+            </div>
+          {%- endif -%}
+
+          <div class="form__control">
+            <input aria-label="{{ 'customer.recover_password.email' | t }}" type="email" class="form__input" name="email" required="required" placeholder="{{ 'customer.recover_password.email' | t }}">
+          </div>
+
+          <div class="box__button-wrapper button-wrapper">
+            <button type="submit" class="button button--enforce-min-width button--primary">{{ 'customer.recover_password.submit' | t }}</button>
+          </div>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>

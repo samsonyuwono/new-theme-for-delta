@@ -1,0 +1,348 @@
+<div class="slideshow-section {% if section.settings.type == 'dual' %}slideshow-section--dual{% else %}slideshow-section--fs{% endif %} section section-{{ section.id }}" data-slideshow-type="{{ section.settings.type }}">
+  {%- if section.settings.type == 'dual' -%}
+    <div class="container">
+      <div class="dual-slideshow"
+           data-autoplay="{% if section.settings.autoplay and section.blocks.size > 1 %}true{% else %}false{% endif %}"
+           data-cycle-speed="{{ section.settings.cycle_speed | times: 1000 }}">
+        {%- if section.blocks.size > 1 -%}
+          <div class="slideshow slideshow--anchor">
+            {%- for block in section.blocks -%}
+              <div class="slideshow__slide {% if forloop.index == 2 %}slideshow__slide--active{% endif %} slideshow__slide--{{ block.type }}"
+                   data-slide-type="{{ block.type }}"
+                   data-slide-index="{{ forloop.index }}"
+                   {{ block.shopify_attributes }}>
+                <div class="slideshow__media-container">
+                  {%- if block.type == 'image' -%}
+                    {%- if block.settings.image != blank -%}
+                      <img class="hide-no-js slideshow__media lazyload image--fade-in"
+                           data-src="{{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }}"
+                           data-srcset="{{ block.settings.image.src | img_url: '650x430', format: 'pjpg' }} 650w, {{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }} 1300w"
+                           alt="{{ block.settings.image.alt | escape }}">
+
+                      <noscript>
+                        <img class="slideshow__media"
+                             src="{{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }}"
+                             srcset="{{ block.settings.image.src | img_url: '650x430', format: 'pjpg' }} 650w, {{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }} 1300w"
+                             alt="{{ block.settings.image.alt | escape }}">
+                      </noscript>
+                    {%- else -%}
+                      {%- capture image_name -%}lifestyle-{% cycle 'anchor': '1', '2' %}{%- endcapture -%}
+                      {{ image_name | placeholder_svg_tag: 'slideshow__media slideshow__media--placeholder' }}
+                    {%- endif -%}
+                  {%- else -%}
+                    {% if block.settings.video_poster.src != blank or block.settings.video_url.type != 'youtube' %}
+                      <img class="slideshow__media"
+                           width="525"
+                           height="800"
+                           src="{{ block.settings.video_poster.src | img_url: '1300x875', format: 'pjpg' }}"
+                           srcset="{{ block.settings.video_poster.src | img_url: '650x430', format: 'pjpg' }} 650w, {{ block.settings.video_poster.src | img_url: '1300x875', format: 'pjpg' }} 1300w"
+                           sizes="80vw, (min-width: 80em) 800px"
+                           alt="{{ block.settings.video_poster.alt | escape }}">
+                    {% else %}
+                      <img class="slideshow__media"
+                           width="525"
+                           height="800"
+                           src="https://img.youtube.com/vi/{{ block.settings.video_url.id }}/hqdefault.jpg">
+                    {% endif %}
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+
+            <div class="slideshow__slide-count">
+              <span class="slideshow__current-slide">1</span>
+              <span class="slideshow__total-slides">/ {{ section.blocks.size }}</span>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <div class="slideshow slideshow--main">
+          {%- if section.blocks.size > 1 -%}
+            <div class="slideshow__nav">
+              <button class="slideshow__nav-button slideshow__nav-prev" data-action="previous-slide">{%- include 'icon' with 'arrow-left' -%}</button>
+              <button class="slideshow__nav-button slideshow__nav-next" data-action="next-slide">{%- include 'icon' with 'arrow-right' -%}</button>
+            </div>
+
+            <div class="slideshow__slide-count">
+              <span class="slideshow__current-slide">1</span>
+              <span class="slideshow__total-slides">/ {{ section.blocks.size }}</span>
+            </div>
+          {%- endif -%}
+
+          {%- for block in section.blocks -%}
+            <div class="slideshow__slide {% if forloop.first %}slideshow__slide--active{% endif %} slideshow__slide--{{ block.type }}"
+                 data-slide-type="{{ block.type }}"
+                 data-slide-index="{{ forloop.index }}"
+                 {{ block.shopify_attributes }}>
+              <div class="slideshow__content">
+                {%- if block.settings.subheading != blank -%}
+                  <h3 class="slideshow__subheading" style="color: {{ block.settings.heading_color }}">{{ block.settings.subheading | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="slideshow__heading" style="color: {{ block.settings.heading_color }}">{{ block.settings.heading | truncate: 45 }}</h2>
+                {%- endif -%}
+
+                {%- if block.type == 'image' and block.settings.button_text != blank -%}
+                  <a href="{{ block.settings.link }}" class="slideshow__button button button--secondary">{{ block.settings.button_text }}</a>
+                {%- endif -%}
+              </div>
+
+              <div class="slideshow__media-container">
+                {%- if block.type == 'image' -%}
+                  {%- if block.settings.image != blank -%}
+                    <img class="hide-no-js slideshow__media lazyload image--fade-in"
+                         data-src="{{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }}"
+                         data-srcset="{{ block.settings.image.src | img_url: '650x430', format: 'pjpg' }} 650w, {{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }} 1300w"
+                         sizes="85vw">
+
+                    <noscript>
+                      <img class="slideshow__media"
+                           src="{{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }}"
+                           srcset="{{ block.settings.image.src | img_url: '650x430', format: 'pjpg' }} 650w, {{ block.settings.image.src | img_url: '1300x875', format: 'pjpg' }} 1300w"
+                           sizes="85vw">
+                    </noscript>
+                  {%- else -%}
+                    {%- capture image_name -%}lifestyle-{% cycle 'main': '1', '2' %}{%- endcapture -%}
+                    {{ image_name | placeholder_svg_tag: 'slideshow__media slideshow__media--placeholder' }}
+                  {%- endif -%}
+                {%- else -%}
+                  <div class="slideshow__media">
+                    <div class="slideshow__plyr-container">
+                      <div class="plyr-video" data-type="{{ block.settings.video_url.type }}" data-video-id="{{ block.settings.video_url.id }}"></div>
+                    </div>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="fs-slideshow">
+      <div class="fs-slideshow__slides"
+           data-autoplay="{% if section.settings.autoplay and section.blocks.size > 1 %}true{% else %}false{% endif %}"
+           data-cycle-speed="{{ section.settings.cycle_speed | times: 1000 }}">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'image' -%}
+            {%- capture slide_inner -%}
+              {%- if block.settings.image -%}
+                <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: block.settings.image.aspect_ratio }}%">
+                  <img class="fs-slideshow__image"
+                       src="{{ block.settings.image | img_url: '1600x800', format: 'pjpg' }}"
+                       srcset="{{ block.settings.image.src | img_url: '800x400', format: 'pjpg' }} 800w, {{ block.settings.image.src | img_url: '1600x800', format: 'pjpg' }} 1600w"
+                       alt="{{ block.settings.image.alt | escape }}">
+                </div>
+              {%- else -%}
+                {%- capture image_name -%}lifestyle-{% cycle 'anchor': '1', '2' %}{%- endcapture -%}
+                {{ image_name | placeholder_svg_tag: 'fs-slideshow__image fs-slideshow__image--placeholder' }}
+              {%- endif -%}
+
+              <div class="fs-slideshow__cover fs-slideshow__cover--{{ block.settings.position }}">
+                <div class="fs-slideshow__content">
+                  {%- if block.settings.subheading != blank -%}
+                    <h3 class="fs-slideshow__subheading" style="color: {{ block.settings.heading_color }}">{{ block.settings.subheading | escape }}</h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="fs-slideshow__heading" style="color: {{ block.settings.heading_color }}">{{ block.settings.heading | escape }}</h2>
+                  {%- endif -%}
+
+                  {%- if block.settings.button_text != blank -%}
+                    <a href="{{ block.settings.link }}" class="fs-slideshow__button button button--primary">{{ block.settings.button_text }}</a>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endcapture -%}
+
+            {%- if block.settings.button_text == blank and block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="fs-slideshow__slide" {{ block.shopify_attributes }} {% unless forloop.first %}style="display: none"{% endunless %} data-slide-index="{{ forloop.index0 }}">
+                {{ slide_inner }}
+              </a>
+            {%- else -%}
+              <div class="fs-slideshow__slide" {{ block.shopify_attributes }} {% unless forloop.first %}style="display: none"{% endunless %} data-slide-index="{{ forloop.index0 }}">
+                {{ slide_inner }}
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            <div class="fs-slideshow__slide" {{ block.shopify_attributes }} {% unless forloop.first %}style="display: none"{% endunless %} data-slide-index="{{ forloop.index0 }}">
+              <div class="fs-slideshow__plyr-container">
+                <div class="plyr-video" data-type="{{ block.settings.video_url.type }}" data-video-id="{{ block.settings.video_url.id }}"></div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="fs-slideshow__slide-count hidden-thumb">
+          <div class="container">
+            <span class="fs-slideshow__current-slide">1</span>
+            <span class="fs-slideshow__total-slides">/ {{ section.blocks.size }}</span>
+          </div>
+        </div>
+
+        <span class="fs-slideshow__progress-bar">
+          <span class="fs-slideshow__progress-bar-advancement" style="width: {{ 100 | divided_by: section.blocks.size }}%"></span>
+        </span>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "class": "shopify-section__slideshow",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "select",
+      "id": "type",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "dual",
+          "label": "Reveal next slide"
+        },
+        {
+          "value": "full_width",
+          "label": "Full width"
+        }
+      ],
+      "default": "dual"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1560 x 1050px jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Your slideshow",
+          "info": "45 characters maximum"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Text position",
+          "info": "This setting is only applicable for the full-screen slideshow",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video slide",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"],
+          "info": "Enter either a Vimeo or YouTube URL",
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+        },
+        {
+          "type": "image_picker",
+          "id": "video_poster",
+          "label": "Video image placeholder",
+          "info": "1300 x 875px jpg recommended. This image is only used in the \"reveal next slide\" slideshow, for the preview slide. For YouTube, a default one is extracted from the video, but we recommend you to upload a custom image for best results."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Heading is not displayed if layout is full screen.",
+          "default": "Your slideshow"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Slideshow",
+      "settings": {
+        "autoplay": true,
+        "cycle_speed": 5
+      },
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

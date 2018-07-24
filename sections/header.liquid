@@ -1,0 +1,127 @@
+{%- assign main_menu_handle = section.settings.navigation_menu | default: 'main-menu' -%}
+{%- assign main_menu = linklists[main_menu_handle] -%}
+
+{%- if template.name == 'password' or template.name == 'gift_card' -%}
+  <header class="header header--minimal header--init {% if section.settings.show_tall_header %}header--tall{% endif %}">
+    <div class="container">
+      <div class="header__inner">
+        {{ header_logo }}
+
+        {%- if template.name == 'password' -%}
+          <button class="header__password link" data-action="toggle-storefront-password">{%- include 'icon' with 'lock' -%}</button>
+        {%- endif -%}
+      </div>
+    </div>
+  </header>
+{%- else -%}
+  {%- include 'header-sidebar-nav' -%}
+  {%- include 'header-mini-cart' -%}
+  {%- include 'header-search' -%}
+
+  <header class="header {% if section.settings.show_tall_header %}header--tall{% endif %} {% if section.settings.logo_position == 'left' %}header--init{% endif %}">
+    <div class="container">
+      <div class="header__inner">
+        <button class="header__nav-toggle hidden-desk" data-action="toggle-mobile-sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {%- if section.settings.logo_position == 'left' -%}
+          {{ header_logo }}
+          {%- include 'header-desktop-nav' -%}
+        {%- else -%}
+          {%- include 'header-desktop-nav' -%}
+          {{ header_logo }}
+        {%- endif -%}
+
+
+      </div>
+    </div>
+  </header>
+{%- endif -%}
+
+
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "shopify-section__header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_tall_header",
+      "label": "Show taller header on large screens",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "200 x 60px .png recommended"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 350,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo image width",
+      "default": 200
+    },
+    {
+      "type": "select",
+      "id": "logo_position",
+      "label": "Desktop logo position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_logo",
+      "label": "Mobile logo image",
+      "info": "80 x 80px .png recommended"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "navigation_menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_expand_nav_first_level",
+      "label": "Expand first level of navigation on mobile",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "navigation_mega_menu",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. This menu has limited support for dropdown items. [Learn more](http://support.maestrooo.com/article/123-navigation-enabling-and-configuring-mega-navigation)."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

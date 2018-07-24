@@ -1,0 +1,77 @@
+<section class="section section-{{ section.id }}">
+  {%- if section.settings.title != blank -%}
+    <div class="container">
+      <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.access_token == blank -%}
+    <div id="instafeed" class="instagram-feed">
+      {%- for i in (1..15) -%}
+        <div class="instagram__tile-wrapper {% if forloop.index == 8 %}instagram__tile-wrapper--featured{% endif %}">
+          <button class="instagram-tile__button instagram-tile__button--prev">
+            {% include 'icon' with 'arrow-left' %}
+          </button>
+
+          <div class="instagram__tile-wrapper-hidder">
+            {%- for j in (1..3) -%}
+              <div class="instagram-tile {% cycle 'instagram-tile': 'instagram-tile--prev', 'instagram-tile--active', 'instagram-tile--next' %}">
+                <div class="instagram-tile__info">
+                  <div class="instagram-tile__info-wrapper">
+                    <div class="instagram-tile__meta">
+                      <p class="instagram-tile__likes">
+                        {% include 'icon' with 'heart' %}
+                        5
+                      </p>
+                      <div class="instagram-tile__caption rte">{{ 'layout.instagram.content_placeholder' | t }}</div>
+                    </div>
+                    <time class="instagram-tile__date text--uppercase">{{ 'now' | date: '%b %d, %Y' }}</time>
+                  </div>
+                </div>
+
+                <a href="#" class="instagram-tile__image-wrapper instagram-tile__image-wrapper--placeholder">
+                  {% capture collection_image_index %}{% cycle '1', '2', '3', '2', '3', '1', '3', '1', '2' %}{% endcapture %}
+                  {{ 'collection-' | append: collection_image_index | placeholder_svg_tag }}
+                </a>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <button class="instagram-tile__button instagram-tile__button--next">
+            {% include 'icon' with 'arrow-right' %}
+          </button>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <div id="instafeed" class="instagram-feed" data-access-token="{{ section.settings.access_token }}"></div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Instagram feed",
+  "class": "shopify-section__instagram",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "text",
+      "id": "access_token",
+      "label": "Access Token",
+      "info": "[Find your access token](http://www.maestrooo.com/instagram)."
+    }
+  ],
+  "presets": [
+    {
+      "category": "Social media",
+      "name": "Instagram feed",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

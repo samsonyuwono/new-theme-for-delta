@@ -1,0 +1,49 @@
+{%- layout none -%}
+
+{%- capture results -%}
+  {%- for result in search.results limit: 4 -%}
+    {%- if result.object_type == 'product' -%}
+      {%- assign first_available_variant = result.selected_or_first_available_variant -%}
+
+      {
+        "object_type"     : {{ result.object_type | json }},
+        "vendor"          : {{ result.vendor | json }},
+        "title"           : {{ result.title | json }},
+        "url"             : {{ result.url | json }},
+        "on_sale"         : {% if first_available_variant.compare_at_price > first_available_variant.price %}true{% else %}false{% endif %},
+        "price"           : {{ first_available_variant.price | money | json }},
+        "compare_at_price": {{ first_available_variant.compare_at_price | money | json }},
+        "image"           : {{ result.featured_image | img_url: 'x430' | json }},
+        "image_alt"       : {{ result.featured_image.alt | escape | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- elsif result.object_type == 'article' -%}
+      {%- assign url_parts = result.url | split: '/' -%}
+      {%- assign article_blog_handle = url_parts[2] -%}
+      {%- assign article_blog = blogs[article_blog_handle] -%}
+
+      {
+        "object_type" : {{ result.object_type | json }},
+        "title"       : {{ result.title | json }},
+        "url"         : {{ result.url | json }},
+        "image"       : {{ result.image | img_url: 'x430' | json }},
+        "image_alt"   : {{ result.image.alt | json }},
+        "blog"        : {{ article_blog.title | escape | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- else -%}
+      {
+        "object_type" : {{ result.object_type | json }},
+        "title"       : {{ result.title | json }},
+        "url"         : {{ result.url | json }},
+        "image"       : {{ result.image | img_url: 'x430' | json }},
+        "image_alt"   : {{ result.image.alt | escape | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{
+  "results": [{{ results }}],
+  "results_count": {{ search.results_count }},
+  "results_label": {% if search.results_count == 0 %}{{ 'search.auto_complete.no_results' | t | json }}{% else %}{{ 'search.auto_complete.view_results' | t: count: search.results_count | json }}{% endif %},
+  "url": "/search?q={{ search.terms }}"
+}

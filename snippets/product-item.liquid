@@ -1,0 +1,147 @@
+{%- case image_dimension -%}
+  {%- when 'small' -%}
+    {%- assign image_max_width = '55%' -%}
+
+  {%- when 'normal' -%}
+    {%- assign image_max_width = '65%' -%}
+
+  {%- when 'big' -%}
+    {%- assign image_max_width = '80%' -%}
+
+  {%- when 'fill_width' -%}
+    {%- assign image_max_width = '100%' -%}
+{%- endcase -%}
+
+<div class="product-item {% if section.id == 'blog-template' %}product-item--bordered{% else %}product-item--push{% endif %}">
+  {%- capture product_labels -%}
+    {%- assign has_found_custom_tag = false -%}
+
+    {%- for tag in product.tags -%}
+      {%- if tag contains '__label' -%}
+        <span class="label label--custom">{{ tag | split: '__label:' | last }}</span>
+
+        {%- assign has_found_custom_tag = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- unless product.available -%}
+      {%- if has_found_custom_tag -%}<br>{%- endif -%}
+        <span class="label label--unavailable">{{ 'product.labels.sold_out' | t }}</span>
+      {%- else -%}
+        {%- if product.compare_at_price > product.price -%}
+          {%- if has_found_custom_tag -%}<br>{%- endif -%}
+          <span class="label label--on-sale">{{ 'product.labels.on_sale' | t }}</span>
+        {%- endif -%}
+    {%- endunless -%}
+  {%- endcapture -%}
+
+  {%- if product_labels != blank -%}
+    <div class="product-item__labels labels">{{- product_labels | strip -}}</div>
+  {%- endif -%}
+
+  <figure class="product-item__image-container">
+    <a href="{{ product.url | within: collection }}" class="product-item__link">
+      {%- include 'image-size', sizes: '200,300,400,600,800,900,1000,1200', image: product.featured_image -%}
+      {%- if template.name == 'product' -%}
+      {% for image in product.images %}
+      {% if image.src contains "room" or image.src contains "hang"  %}
+      {%else%}
+      {%- assign image_url = image.src | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+      {% endif %}
+      {% endfor %}
+      {%else%}
+      {%- assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+      {%endif%}
+      <div class="product-item__image-wrapper" style="max-width: {{ image_max_width }}">
+        <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%">
+          <img class="product-item__image {% if image_dimension == 'fill_width' %}product-item__image--fill{% endif %} {% if template.name == 'blog' %}product-item__image--constrained{% endif %} lazyload image--fade-in"
+               data-sizes="auto"
+               data-widths="[{{ supported_sizes }}]"
+               data-src="{{ image_url }}"
+               alt="{{ product.featured_image.alt }}">
+
+          <noscript>
+            <img class="product-item__image {% if image_dimension == 'fill_width' %}product-item__image--fill{% endif %} {% if template.name == 'blog' %}product-item__image--constrained{% endif %}"
+                 src="{{ product.featured_image | img_url: '800x' }}">
+          </noscript>
+        </div>
+      </div>
+    </a>
+  </figure>
+
+  <div class="product-item__info">
+    {%- if settings.product_show_vendor and product.vendor != blank -%}
+      <h4 class="product-item__vendor text--uppercase">
+        {%- assign vendor_handle = product.vendor | handle -%}
+        {%- assign collection_for_vendor = collections[vendor_handle] -%}
+
+        {%- if collection_for_vendor.empty? -%}
+          {%- assign url_for_vendor = product.vendor | url_for_vendor -%}
+        {%- else -%}
+          {%- assign url_for_vendor = collection_for_vendor.url -%}
+        {%- endif -%}
+
+        <a href="{{ url_for_vendor }}">{{ product.vendor }}</a>
+      </h4>
+    {%- endif -%}
+
+    <h3 class="product-item__title">
+      <a href="{{ product.url | within: collection }}" class="link">{{ product.title }}</a>
+    </h3>
+
+    {%- if product.compare_at_price > product.price -%}
+      <span class="product-item__price product-item__price--new" data-money-convertible>{{ product.price | money }}</span>
+      <span class="product-item__price product-item__price--old" data-money-convertible>{{ product.compare_at_price | money }}</span>
+    {%- elsif product.price_varies -%}
+      {%- assign formatted_min_price = product.price_min | money -%}
+      {%- assign formatted_max_price = product.price_max | money -%}
+      <span class="product-item__price">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+    {%- else -%}
+      <span class="product-item__price" data-money-convertible>{{ product.price | money }}</span>
+    {%- endif -%}
+
+    {%- if show_color_swatch -%}
+      {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' -%}
+
+      {%- for option in product.options_with_values -%}
+        {%- capture color_option_index -%}option{{ forloop.index }}{%- endcapture -%}
+        {%- assign downcase_option = option.name | downcase -%}
+
+        {%- unless color_label contains downcase_option -%}
+          {%- continue -%}
+        {%- endunless -%}
+
+        <ul class="product-item__available-colors list--unstyled">
+          {%- for value in option.values -%}
+            {%- assign downcase_value = value | downcase -%}
+            {%- assign color_swatch_white = false -%}
+
+            {%- if 'white,blanc,blanco,白,weiß,vit,branco' contains downcase_value -%}
+              {%- assign color_swatch_white = true -%}
+            {%- endif -%}
+
+            {%- for variant in product.variants -%}
+              {%- if variant[color_option_index] == value -%}
+                {%- assign first_variant_for_color = variant -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            <li class="product-item__color" title="{{ value }}">
+              <a href="{{ first_variant_for_color.url }}" class="color-swatch color-swatch--mini {% if color_swatch_white %}color-swatch--white{% endif %}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.png' | asset_url }})"></a>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- break -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+    {%- if template.name == 'blog' -%}
+      <div class="product-item__see-more button-wrapper">
+        <a href="{{ product.url }}" class="button button--primary">{{ 'blog.sidebar.product_see_details' | t }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>

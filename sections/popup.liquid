@@ -1,0 +1,125 @@
+{%- if section.settings.popup_enabled -%}
+  {%- assign popup_is_visible = false -%}
+
+  {%- unless section.settings.popup_only_on_index and template != 'index' -%}
+    {%- unless section.settings.popup_only_visitors and customer -%}
+      {%- assign popup_is_visible = true -%}
+    {%- endunless -%}
+  {%- endunless -%}
+
+  <div class="modal box box--mini modal--centered promotion-popup"
+       data-visible="{% if popup_is_visible %}true{% else %}false{% endif %}"
+       data-remodal-id="popup"
+       data-delay="{{ section.settings.popup_delay | times: 1000 }}"
+       data-remember-me="{{ section.settings.popup_remember_me }}">
+    <a href="#" class="modal__close" data-remodal-action="close">
+      {%- include 'icon' with 'cross' -%}
+    </a>
+
+    <div class="box__content box__content--large-padding">
+      {%- if section.settings.popup_heading != blank -%}
+        <h3 class="modal__title h3">{{ section.settings.popup_heading | escape }}</h3>
+      {%- endif -%}
+
+      {%- if section.settings.popup_content != blank -%}
+        <div class="modal__body rte">
+          {{ section.settings.popup_content }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.popup_show_newsletter -%}
+        {%- form 'customer', action: '/contact#popup', class: 'modal__form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="alert alert--success">{{ 'layout.popup.newsletter_success' | t }}</p>
+          {%- else -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+
+            <div class="input-group">
+              <input class="input-group__field input-group__field--secondary form__input" type="email" name="contact[email]" aria-label="{{ 'layout.popup.input_placeholder' | t }}" placeholder="{{ 'layout.popup.input_placeholder' | t }}">
+              <input class="input-group__submit button button--primary" type="submit" value="{{ 'layout.popup.submit' | t }}">
+
+              {%- if form.errors -%}
+                <p class="form__input-error">{{ form.errors.translated_fields['email'] }} {{ form.errors.messages['email'] }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endform -%}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "popup_enabled",
+      "label": "Enable",
+      "info": "[Learn more about why promotion popup does not display on mobile](http://support.maestrooo.com/article/116-why-promotion-popup-does-not-show-up-on-mobile)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "popup_heading",
+      "label": "Heading",
+      "default": "Popup"
+    },
+    {
+      "type": "richtext",
+      "id": "popup_content",
+      "label": "Text",
+      "default": "<p>You can use this popup to display some useful information to your customers.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "popup_show_newsletter",
+      "label": "Show newsletter form"
+    },
+    {
+      "type": "range",
+      "id": "popup_delay",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "unit": "sec",
+      "label": "Delay until the popup appears",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "popup_only_on_index",
+      "label": "Only activate on home page",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "popup_only_visitors",
+      "label": "Only activate for visitors",
+      "info": "Customers who have created an account on your shop won't see it.",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "popup_remember_me",
+      "label": "Number of weeks before the popup re-appears",
+      "options": [
+        {
+          "value": "0",
+          "label": "No delay (debug)"
+        },
+        {
+          "value": "7",
+          "label": "1 week"
+        },
+        {
+          "value": "14",
+          "label": "2 weeks"
+        }
+      ],
+      "default": "7"
+    }
+  ]
+}
+{% endschema %}

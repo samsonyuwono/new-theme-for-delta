@@ -1,0 +1,35 @@
+{%- if paginate.pages > 1 -%}
+  <div class="pagination {% if minimal_pagination %}pagination--minimal{% endif %} text--uppercase">
+    {%- if paginate.previous -%}
+      <a class="pagination__prev link" rel="prev" href="{{ paginate.previous.url }}{{ pagination_hash }}">
+        <span class="pagination__label">{%- include 'icon' with 'previous' -%}{{ 'layout.pagination.prev' | t }}</span>
+      </a>
+    {%- endif -%}
+
+    <ul class="pagination__nav list--unstyled">
+      {%- for part in paginate.parts -%}
+        {%- if part.is_link -%}
+          <li class="pagination__nav-item">
+            <a href="{{ part.url }}" class="pagination__nav-link link">{{ part.title }}</a>
+          </li>
+        {%- else -%}
+          {%- if part.title == paginate.current_page -%}
+            <li class="pagination__nav-item pagination__nav-item--active">
+              <span>{{ part.title }}</span>
+            </li>
+          {%- else -%}
+            <li class="pagination__nav-item">
+              <span>{{ part.title }}</span>
+            </li>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    {%- if paginate.next -%}
+      <a class="pagination__next link" rel="next" href="{{ paginate.next.url }}{{ pagination_hash }}">
+        <span class="pagination__label">{{ 'layout.pagination.next' | t }}{%- include 'icon' with 'next' -%}</span>
+      </a>
+    {%- endif -%}
+  </div>
+{%- endif -%}

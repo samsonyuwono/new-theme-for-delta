@@ -1,0 +1,269 @@
+<div class="product"
+     id="product-{{ product.id }}"
+     data-allow-selecting-sold-out-variants="{% if section.settings.allow_selecting_sold_out_variants %}true{% else %}false{% endif %}"
+     data-enable-image-zoom="{% if section.settings.enable_image_zoom %}true{% else %}false{% endif %}">
+  <div class="page__content-wrapper page__content-wrapper--force-background">
+    <div class="container">
+      {%- include 'product-meta', for_mobile: true -%}
+
+      <div class="grid grid--large">
+        <div class="grid__cell 1/2--lap-and-up">
+          {% comment %}
+          -----------------------------------------------------
+          SLIDESHOW
+          -----------------------------------------------------
+          {% endcomment %}
+
+          <div class="product__slideshow" data-enable-image-zoom="{% if section.settings.enable_image_zoom %}true{% else %}false{% endif %}">
+            {%- assign initial_slide = 0 -%}
+
+            {%- if product.selected_or_first_available_variant.featured_image -%}
+              {%- assign initial_slide = product.selected_or_first_available_variant.featured_image.position | minus: 1 -%}
+            {%- endif -%}
+
+            <ul class="product__slides list--unstyled" data-initial-slide="{{ initial_slide }}">
+              {%- for image in product.images -%}
+                {%- if image.alt contains 'youtube.com/embed' or image.alt contains 'player.vimeo.com' -%}
+                  <li class="product__slide product__slide--video" data-image-position="{{ forloop.index0 }}" data-image-id="{{ image.id }}" {% unless forloop.first %}style="display: none"{% endunless %}>
+                    <div class="product__slide-video-wrapper video-wrapper">
+                      <iframe class="product__video" width="560" height="349" src="{{ image.alt }}" frameborder="0" allowfullscreen=""></iframe>
+                    </div>
+                  </li>
+                {%- else -%}
+                  <li class="product__slide" data-image-position="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-mfp-src="{{ image | img_url: '1500x' }}" {% unless forloop.first %}style="display: none"{% endunless %}>
+                    {%- assign max_height_mobile = 450 -%}
+                    {%- assign max_height_desktop = 700 -%}
+                    {%- assign max_width = 980 -%}
+                    {%- assign max_aspect_ratio = 1.50769 -%}
+
+                    {% if image.aspect_ratio < max_aspect_ratio %}
+                      {% if image.height < max_height_mobile %}
+                        {% assign max_width_mobile = image.width | times: image.aspect_ratio | round %}
+                      {% else %}
+                        {% assign max_width_mobile = max_height_mobile | times: image.aspect_ratio | round %}
+                      {% endif %}
+
+                      {% if image.height < max_height_desktop %}
+                        {% assign max_width_desktop = image.width | times: image.aspect_ratio | round %}
+                      {% else %}
+                        {% assign max_width_desktop = max_height_desktop | times: image.aspect_ratio | round %}
+                      {% endif %}
+                    {% else %}
+                      {% if image.width < max_width %}
+                        {% assign max_width_mobile = image.width %}
+                        {% assign max_width_desktop = image.width %}
+                      {% endif %}
+                    {% endif %}
+
+                    {%- include 'image-size', sizes: '200,300,400,600,800,900,1000,1200', image: image -%}
+                    {%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                    <div class="product__slide-wrapper" id="slide-wrapper-{{ image.id }}">
+                      <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: image.aspect_ratio }}%">
+                        <img class="product__slide-image lazyload image--fade-in"
+                             data-src="{{ image_url }}"
+                             data-widths="[{{ supported_sizes }}]"
+                             data-sizes="auto"
+                             alt="{{ image.alt | escape }}">
+
+                        <noscript>
+                          <img class="product__slide-image" src="{{ image | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
+                        </noscript>
+                      </div>
+                    </div>
+
+                    <style>
+                      #slide-wrapper-{{ image.id }} {
+                        max-width: {{ max_width_mobile | default: 500 }}px;
+                      }
+
+                      @media screen and (min-width: 801px) {
+                        #slide-wrapper-{{ image.id }} {
+                          max-width: {{ max_width_desktop | default: 900 }}px;
+                        }
+                      }
+                    </style>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+
+            {%- if product.images.size > 1 -%}
+              <ul class="product__thumbnails list--unstyled">
+                {%- for image in product.images -%}
+                  <li class="product__thumbnail {% if forloop.first %}product__thumbnail--active{% endif %}" data-slide-index="{{ forloop.index0 }}">
+                    <img class="product__thumbnail-image" src="{{ image | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+          <div id="product-video-container">
+          <div id="prod-vid-arrow">
+          <span>Product Videos</span>
+            <img src="//cdn.shopify.com/s/files/1/0578/7201/files/video-button-desktop.png">
+            </div>
+            {% assign my_value = product.metafields.sf_product_info.product_videos %}
+            {% if my_value %}
+            <div id="prod-videos">
+              {{ my_value }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="grid__cell 1/2--lap-and-up">
+          <div class="product__details">
+            {%- include 'product-meta', for_mobile: false -%}
+
+            {%- include 'product-form' -%}
+
+            {%- if product.description != blank -%}
+              <div class="product__description rte">
+              
+                {% assign my_value = product.metafields.sf_product_info.description %}
+                {% if my_value %}
+                  {{ my_value }}
+                {% endif %}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_share_buttons -%}
+              {%- include 'share-buttons' -%}
+            {%- endif -%}
+
+            {%- include 'product-tabs' -%}
+          </div>
+        </div>
+        /*section containing reviews, product details, accessories, etc.*/
+        {%- include 'product-info' -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var initProduct = function(productElement) {
+      productElement.trademarkProduct({
+        product: {{ product | json }},
+        enableHistoryState: true,
+        optionsWithValues: {{ product.options_with_values | json }},
+        allowSelectingSoldOutVariants: (productElement.attr('data-allow-selecting-sold-out-variants') === 'true')
+      });
+    };
+
+    initProduct($('#product-{{ product.id }}'));
+
+    $(document).on('shopify:section:unload', '#shopify-section-product-template', function(event) {
+      $(event.target).find('#product-{{ product.id }}').data('plugin_trademarkProduct').destroy();
+    });
+
+    $(document).on('shopify:section:load', '#shopify-section-product-template', function(event) {
+      initProduct($(event.target).find('#product-{{ product.id }}'));
+    });
+  });
+</script>
+
+<style>
+  {%- if section.settings.enable_image_zoom -%}
+    .product__slide:not(.product__slide--video) {
+      cursor: zoom-in;
+    }
+  {%- endif -%}
+</style>
+
+{% schema %}
+{
+  "name": "Product page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "allow_selecting_sold_out_variants",
+      "label": "Allow selection of sold out variants",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variants_if_only_one",
+      "label": "Hide selectors if there is only one variant",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show color swatch",
+      "info": "Colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch).",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_swatch",
+      "label": "Show size swatch",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show quantity selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show share buttons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show dynamic checkout button",
+      "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_zoom",
+      "label": "Enable image zoom",
+      "info": "This only works on large screens.",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Tabs"
+    },
+    {
+      "type": "paragraph",
+      "content": "[Learn more about product tabs.](http://support.maestrooo.com/article/82-product-adding-global-tabs-to-product-pages)"
+    },
+    {
+      "type": "page",
+      "id": "tab_page_1_handle",
+      "label": "First page"
+    },
+    {
+      "type": "page",
+      "id": "tab_page_2_handle",
+      "label": "Second page"
+    },
+    {
+      "type": "paragraph",
+      "content": "Trademark also allows you to add specific tabs for a given product only. [Learn more about this feature](http://support.maestrooo.com/article/83-product-adding-different-tabs-per-product)."
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "paragraph",
+      "content": "You need to install [Shopify's free Product Reviews](https://apps.shopify.com/product-reviews) app before enabling this option."
+    },
+    {
+      "type": "checkbox",
+      "id": "reviews_enabled",
+      "label": "Enable",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

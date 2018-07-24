@@ -1,0 +1,67 @@
+{%- if section.settings.image -%}
+  {%- assign overlay_color = section.settings.overlay_color | hex_to_rgba: 0.6 -%}
+{%- else -%}
+  {%- assign overlay_color = section.settings.overlay_color -%}
+{%- endif -%}
+
+<section class="section section-{{ section.id }} promotion" style="background: {{ section.settings.overlay_color }}">
+  {% if section.settings.image %}
+    <div class="promotion__background-image lazyload image--fade-in" data-bgset="{{ section.settings.image | img_url: '600x' }} 600w, {{ section.settings.image | img_url: '800x' }} 800w, {{ section.settings.image | img_url: '1200x' }} 1200w"></div>
+  {% endif %}
+
+  <div class="promotion__overlay" style="background-color: {{ overlay_color }}"></div>
+
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h3 class="promotion__title h4" style="color: {{ section.settings.text_color }}">{{ section.settings.title | escape }}</h3>
+    {%- endif -%}
+
+    {%- if section.settings.content != blank -%}
+      <p class="promotion__text h3" style="color: {{ section.settings.text_color }}">{{ section.settings.content | escape | newline_to_br }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promotion",
+  "class": "shopify-section__promotion",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image",
+      "info": "1200 x 400px .jpg recommended"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Text",
+      "default": "Use a short, catchy sentence to showcase your store."
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Image with text"
+    }
+  ]
+}
+{% endschema %}

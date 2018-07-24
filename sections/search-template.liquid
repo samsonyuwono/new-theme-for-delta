@@ -1,0 +1,149 @@
+<div class="page__content-wrapper">
+  <div class="container">
+    <div class="page__header">
+      <h1 class="page__title h1">{{ 'search.general.title' | t }}</h1>
+
+      {%- if search.performed and search.results_count > 0 -%}
+        {%- assign cleaned_search_terms = search.terms | replace: '*', '' -%}
+        <p class="page__description">{{ 'search.general.results_count' | t: terms: cleaned_search_terms, count: search.results_count }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if search.performed == false or search.results_count == 0 -%}
+      <div class="box box--mini">
+        <div class="box__content box__content--large-padding box__content--centered">
+          {%- if search.performed == false -%}
+            {{ 'search.general.instructions' | t }}
+          {%- else -%}
+            {{ 'search.general.no_results' | t }}
+          {%- endif -%}
+
+          <div class="box__button-wrapper button-wrapper">
+            <form action="/search" method="GET" role="search" class="search__form">
+              <input type="hidden" name="type" value="{{ settings.search_mode }}">
+
+              <div class="input-group">
+                <input class="input-group__field input-group__field--secondary form__input" name="q" autofocus="autofocus" autocomplete="off" autocorrect="off" aria-label="{{ 'search.general.input_placeholder' | t }}" placeholder="{{ 'search.general.input_placeholder' | t }}">
+                <button class="input-group__submit button button--secondary" type="submit">{{ 'search.general.submit' | t }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      {%- assign pagination_size = section.settings.grid_items_per_row | times: section.settings.grid_number_of_rows -%}
+
+      {%- paginate search.results by pagination_size -%}
+        <div class="list-products grid grid--large">
+          {%- for result in search.results -%}
+            <div class="grid__cell 1/2--handheld-and-up 1/{{ section.settings.grid_items_per_row }}--desk">
+              {%- case result.object_type -%}
+                {%- when 'product' -%}
+                  {%- include 'product-item', product: result, grid_items_per_row: section.settings.grid_items_per_row, image_dimension: section.settings.image_dimension, show_color_swatch: section.settings.show_color_swatch -%}
+
+                {%- when 'article' -%}
+                  <div class="product-item product-item--article">
+                    <figure class="product-item__image-container">
+                      <a href="{{ result.url }}" class="product-item__link">
+                        <img class="product-item__image" src="{{ result.image | img_url: '600x600' }}" alt="{{ result.image.alt }}">
+                      </a>
+                    </figure>
+
+                    <div class="product-item__info">
+                      {%- assign url_parts = result.url | split: '/' -%}
+                      {%- assign article_blog_handle = url_parts[2] -%}
+                      {%- assign article_blog = blogs[article_blog_handle] -%}
+
+                      <h4 class="product-item__vendor text--uppercase">
+                        <a href="{{ article_blog.url }}">{{ article_blog.title }}</a>
+                      </h4>
+
+                      <h3 class="product-item__title">
+                        <a href="{{ result.url }}" class="link">{{ result.title }}</a>
+                      </h3>
+                    </div>
+                  </div>
+
+                {%- when 'page' -%}
+                  <div class="product-item product-item--page">
+                    <figure class="product-item__image-container">
+                      <a href="{{ result.url }}" class="product-item__link">
+                        {{ 'image' | placeholder_svg_tag: 'product-item__image' }}
+                      </a>
+                    </figure>
+
+                    <div class="product-item__info">
+                      <h4 class="product-item__vendor text--uppercase">{{ 'search.general.page_type' | t }}</h4>
+
+                      <h3 class="product-item__title">
+                        <a href="{{ result.url }}" class="link">{{ result.title }}</a>
+                      </h3>
+                    </div>
+                  </div>
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {% include 'pagination' %}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search page",
+  "settings": [
+    {
+      "type": "range",
+      "id": "grid_items_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Items per row",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_number_of_rows",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "label": "Rows",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show product available colors",
+      "info": "Colors appear white? [Learn more here](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch).",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_dimension",
+      "label": "Product image dimension",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "big",
+          "label": "Big"
+        },
+        {
+          "value": "fill_width",
+          "label": "Fill width"
+        }
+      ],
+      "default": "normal"
+    }
+  ]
+}
+{% endschema %}
