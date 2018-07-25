@@ -5552,7 +5552,7 @@ select::-ms-expand {
 
 /*end HEADER STYLES*/
 
-/*navbar styles*/
+/*navbar styles SY*/
 .header__link .icon-dropdown-arrow,
 .header__link .icon-next {
   width: 9px;
@@ -5891,25 +5891,6 @@ ul.header__links > li.header__link:last-child{
   margin-left: 5px;
 }
 
-/* {
-  display: inline-block;
-border-left: 2px solid #003a70;
-font-family: 'Century Gothic Bold';
-margin-top: 5px;
-margin-bottom: 5px;
-margin-left: 5px;
-color: blue;
-}
-
-.last-nav{
-    display: inline-block;
-    border-left: 2px solid #003a70;
-    font-family: 'Century Gothic Bold';
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    color: red;
-  } */
 /*end navbar styles */
 
 
@@ -6036,6 +6017,195 @@ color: blue;
   transform: scale(1);
   visibility: visible;
 }
+
+/*banner image formatting SY*/
+
+.grid {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 -25px;
+    font-size: 0;
+}
+
+@media screen and (max-width: 1024px){
+#module_1 h1 {
+    padding-top: 0vw;
+    font-size: 5vw;
+  }
+}
+
+.gotham-black {
+    font-family: 'Gotham Black';
+}
+
+.inner-container {
+    margin: 0 auto;
+    max-width: 1330px;
+    position: relative;
+}
+
+#module_1 p {
+    color: #1b75bc;
+    font-size: 150%;
+    opacity: 1;
+}
+
+.gotham-book {
+    font-family: 'Gotham Book';
+}
+
+p, p.lead {
+    line-height: 1.6;
+}
+
+
+
+.home-module{
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+  text-transform: inherit !important;
+  max-width: auto;
+  min-width: auto;
+  width: auto;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+}
+/*end banner image */
+
+/*Module 1 SY Copied*/
+/*Module 1*/
+#module_1{
+  padding-bottom: 0;
+  height: 57vw;
+  /*max-height: 550px;*/
+  box-shadow: 0px 1px 50px black;
+}
+#module_1 h1 {
+    padding-top: 2vw;
+    font-size: 400%;
+    color: #1b75bc;
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
+}
+#module_1 p{
+  color: #1b75bc;
+  font-size: 150%;
+  opacity: 1;
+}
+#module_1 img{
+  top: 50px;
+}
+#module_1 video{
+  position: relative;
+  bottom: -20px;
+}
+#module_1 #m1_banner-icon-holder{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+#module_1 #m1_banner-icon-holder #dc-img{
+  max-width: 150px;
+}
+#module_1 #m1_banner-icon-holder img{
+  max-width: 100px;
+  display: inline-block;
+  padding: 10px;
+}
+#module_1 #m1_banner-icon-holder .small-text-img{
+  max-width: 150px;
+}
+
+
+@media screen and (min-width: 1900px){
+  #module_1{
+    height: 47vw !important;
+  }
+  #module_1 #m1_banner-icon-holder{
+    display: none;
+  }
+}
+@media screen and (min-width: 1600px){
+  #module_1{
+    max-height: none;
+    height: 60vw;
+  }
+}
+@media screen and (max-width: 1300px){
+  #module_1{
+    height: 65vw;
+  }
+  #module_1 #m1_banner-icon-holder img{
+    max-width: 70px;
+    padding: 5px;
+  }
+  #module_1 #m1_banner-icon-holder .small-text-img{
+    max-width: 120px;
+  }
+  #module_1 #m1_banner-icon-holder #dc-img{
+    max-width: 120px;
+  }
+
+
+}
+@media screen and (max-width: 1024px){
+  #module_1{
+    height: 55vw;
+  }
+  #module_1 img{
+    top: 45px;
+  }
+  #module_1 h1{
+    padding-top: 5vw;
+    font-size: 5vw;
+  }
+  #module_1 p{
+    font-size: 2.5vw;
+  }
+  #module_1 #m1_banner-icon-holder img{
+    margin: 2px;
+    max-width: 60px;
+    padding: 0;
+  }
+  #module_1 #m1_banner-icon-holder .small-text-img{
+    max-width: 100px;
+  }
+  #module_1 #m1_banner-icon-holder #dc-img{
+    max-width: 100px;
+  }
+}
+@media screen and (max-width: 900px){
+  #module_1 #m1_banner-icon-holder img{
+    margin: 2px;
+    max-width: 40px;
+    padding: 0;
+  }
+  #module_1 #m1_banner-icon-holder .small-text-img{
+    max-width: 80px;
+  }
+  #module_1 #m1_banner-icon-holder #dc-img{
+    max-width: 80px;
+  }
+
+}
+@media screen and (max-width: 642px){
+  #module_1 img{
+    top: 0px;
+  }
+  #module_1 h1{
+    font-size: 140%;
+  }
+  #module_1 p{
+    font-size: 90%;
+  }
+}
+/*end Module 1 */
 
 /**
  * CURRENCY SELECTOR
@@ -8523,6 +8693,54 @@ color: blue;
  * ICON
  */
 
+ /*Inserted font SY*/
+
+ @font-face{
+  font-family: 'Gotham Bold';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-bold.otf');
+}
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Gotham Book';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/GOTHIC.TTF');
+}
+@font-face{
+  font-family: 'Helvetica Medium Condensed';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/helvetica-neue-lt-std-67-medium-condensed.otf?9943094632125790425')
+}
+@font-face{
+  font-family: 'Cartoonist Kooky';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-bold{
+  font-family: 'Gotham Bold';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.ultra{
+  font-family: 'Gotham Ultra';
+}
+.gotham-book{
+  font-family: 'Gotham Book';
+}
+.gotham-e-light{
+  font-family: 'Gotham Extra Light';
+}
+.gotham-light{
+  font-family: 'Gotham Light';
+}
+.cartoonist{
+  font-family: 'Cartoonist Kooky' !important;
+}
+/*end inserted Font */
+
 @font-face {
   font-family: 'icomoon';
   src:  url(#{"{{ 'icomoon.eot' | asset_url }}"});
@@ -9540,6 +9758,7 @@ color: blue;
 @include av-mq('desk') {
   .shopify-section__slideshow {
     position: relative;
+    background-color: white; /*edited */
   }
 
   .slideshow-section--dual {
