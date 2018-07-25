@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-25T16:55:47-04:00   e3d2415b78d702a305be8862d7d1dbd9
+  development: 2018-07-25T18:04:58-04:00   6367b8eab3183409ada991832bcf21b6
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -148,7 +148,7 @@ snippets/form-errors.liquid:
 snippets/google-fonts.liquid:
   development: 2018-07-19T13:34:25-04:00   853bf09e38679a1dc11db55090e83e8d
 snippets/header-actions.liquid:
-  development: 2018-07-25T16:27:28-04:00   4a0450cd4b96abf8f8f84195c756ac8d
+  development: 2018-07-25T18:12:13-04:00   d7df8e5b840f81b3068b1aa92d174747
 snippets/header-desktop-nav.liquid:
   development: 2018-07-24T11:05:51-04:00   074a2e1d375ba561ad880a473c950bab
 snippets/header-mini-cart.liquid:
