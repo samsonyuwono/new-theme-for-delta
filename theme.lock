@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-25T11:10:19-04:00   6973d70bf98612477315304f753a9694
+  development: 2018-07-25T12:16:22-04:00   da48b5a29a4c2461ecbd3f247f87e4ef
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -100,7 +100,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-07-24T11:12:11-04:00   b862dc42e6072cb0d4dff74686079954
 sections/home-slideshow.liquid:
-  development: 2018-07-25T11:14:49-04:00   2d1cfece225d67f73c793279a35d7da8
+  development: 2018-07-25T11:44:30-04:00   2d1cfece225d67f73c793279a35d7da8
 sections/image-with-text-overlay.liquid:
   development: 2018-07-19T13:34:17-04:00   d22241af55ac76b775a390542479373b
 sections/instagram-feed.liquid:
