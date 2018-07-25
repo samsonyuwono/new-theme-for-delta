@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-25T15:32:44-04:00   d13508dd5d96910625a8b43beaa9fc2f
+  development: 2018-07-25T16:55:47-04:00   e3d2415b78d702a305be8862d7d1dbd9
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -98,7 +98,7 @@ sections/featured-video.liquid:
 sections/footer.liquid:
   development: 2018-07-19T13:34:17-04:00   4d6ebd99ec112256a30d109f48a195a1
 sections/header.liquid:
-  development: 2018-07-25T15:35:26-04:00   3f4defc6d85d66c837c3739071dfb856
+  development: 2018-07-25T16:07:53-04:00   3f4defc6d85d66c837c3739071dfb856
 sections/home-slideshow.liquid:
   development: 2018-07-25T11:44:30-04:00   2d1cfece225d67f73c793279a35d7da8
 sections/image-with-text-overlay.liquid:
@@ -148,7 +148,7 @@ snippets/form-errors.liquid:
 snippets/google-fonts.liquid:
   development: 2018-07-19T13:34:25-04:00   853bf09e38679a1dc11db55090e83e8d
 snippets/header-actions.liquid:
-  development: 2018-07-20T14:37:48-04:00   6c20e0998d2d4f2d58eea414fa801a7f
+  development: 2018-07-25T16:27:28-04:00   4a0450cd4b96abf8f8f84195c756ac8d
 snippets/header-desktop-nav.liquid:
   development: 2018-07-24T11:05:51-04:00   074a2e1d375ba561ad880a473c950bab
 snippets/header-mini-cart.liquid:
