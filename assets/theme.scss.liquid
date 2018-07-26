@@ -6054,6 +6054,7 @@ ul.header__links > li.header__link:last-child{
     margin: 0 auto;
     max-width: 1330px;
     position: relative;
+    height: 0%;
 }
 
 #module_1 p {
@@ -6086,13 +6087,24 @@ p, p.lead {
   padding-bottom: 20px;
   margin-top: 10px;
 }
+
+.home-module h2{
+  text-transform: inherit !important;
+  font-size: 250%;
+}
+.home-module img.background{
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
 /*end banner image */
 
 /*Module 1 SY Copied*/
 /*Module 1*/
 #module_1{
   padding-bottom: 0;
-  height: 57vw;
+  height: 45vw;
   /*max-height: 550px;*/
   box-shadow: 10px 10px 10px 10px white;
 }
@@ -6150,7 +6162,7 @@ p, p.lead {
 }
 @media screen and (max-width: 1300px){
   #module_1{
-    height: 65vw;
+    // height: 65vw;
   }
   #module_1 #m1_banner-icon-holder img{
     max-width: 70px;

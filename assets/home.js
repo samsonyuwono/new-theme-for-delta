@@ -85,7 +85,7 @@ $(function() {
         $('#module_8 img.background').attr('src', 'https://cdn.shopify.com/s/files/1/0578/7201/files/Charity-1330x700.jpg?8524417848302725016')
 
       }
-      if ( $(window).width() > 1300 && $(window).width() < 1900 && $('#module_1 img.background').attr('src') == 'https://cdn.shopify.com/s/files/1/0578/7201/files/header-1300x700.jpg?9529061808133360917' || $('#module_1 img.background').attr('src') == 'https://cdn.shopify.com/s/files/1/0578/7201/files/Header-2000px_1.jpg?10613375819723254922' ) {
+      if ( $(window).width() > 1300 && $(window).width() < 1900 && $('#module_1 img.background').attr('src') == 'https://cdn.shopify.com/s/files/1/0578/7201/files/header-1300x700.jpg?9529061808133360917' || $('#module_1 img.background').attr('src') == 'https://cdn.shopify.com/s/files/1/0578/7201/files/Header-2000px_1.jpg?10613375819723254922'//switch out ) {
         // console.log(' greater than 1300px and 1300px img')
         $('#module_1 img.background').attr('src', 'https://cdn.shopify.com/s/files/1/0578/7201/files/header-1600x700_04a7e618-4f78-44f0-bdc0-8478966b4871.jpg?9529061808133360917')
         $('#module_8 img.background').attr('src', 'https://cdn.shopify.com/s/files/1/0578/7201/files/Charity-1600x700.jpg?8524417848302725016')

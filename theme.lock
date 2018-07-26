@@ -22,9 +22,9 @@ assets/grey-(026).png:
 assets/grey-026.png:
   development: 2018-07-19T13:34:20-04:00   175016621af973f27522b7274eb54c7b
 assets/home.css:
-  development: 2018-07-19T13:34:20-04:00   df18a75c20960af75b4f864624647569
+  development: 2018-07-26T12:24:07-04:00   df18a75c20960af75b4f864624647569
 assets/home.js:
-  development: 2018-07-26T10:30:55-04:00   485203847e85f5039509e29a596eef43
+  development: 2018-07-26T10:35:38-04:00   c5d5e8257bf8dd1027954d3380f3bcb6
 assets/icomoon.eot:
   development: 2018-07-19T13:34:20-04:00   8611a34adadfd64842ac10137b219909
 assets/icomoon.ttf:
@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-25T18:04:58-04:00   6367b8eab3183409ada991832bcf21b6
+  development: 2018-07-26T12:21:24-04:00   4a146ba52df16da51ae23f61c5f0b8b6
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -100,7 +100,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-07-25T16:07:53-04:00   3f4defc6d85d66c837c3739071dfb856
 sections/home-slideshow.liquid:
-  development: 2018-07-25T11:44:30-04:00   2d1cfece225d67f73c793279a35d7da8
+  development: 2018-07-26T12:24:08-04:00   cb38aa0005d0b330054f5b9d2c624b5d
 sections/image-with-text-overlay.liquid:
   development: 2018-07-19T13:34:17-04:00   d22241af55ac76b775a390542479373b
 sections/instagram-feed.liquid:
