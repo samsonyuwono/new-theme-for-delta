@@ -1,47 +1,78 @@
-{%- if section.settings.show_newsletter -%}
   <aside class="newsletter">
     <div class="container">
       <div class="newsletter__inner">
-        {%- if section.settings.newsletter_image -%}
-          <div class="newsletter__image-container {% if section.settings.apply_newsletter_gradient %}newsletter__image-container--softened{% endif %}">
-            <img src="{{ section.settings.newsletter_image | img_url: '480x320', crop: 'center' }}" alt="{{ section.settings.newsletter_image.alt | escape }}" class="newsletter__image">
-          </div>
-        {%- endif -%}
-
-        {%- capture newsletter_form_action -%}/contact#shopify-section-{{ section.id }}{%- endcapture -%}
-
-        {%- capture newsletter_form -%}
-          {%- form 'customer', action: newsletter_form_action, class: 'newsletter__form' -%}
-            {%- if form.posted_successfully? -%}
-              {%- capture newsletter_form_success_message -%}{{ 'layout.newsletter.success' | t }}{%- endcapture -%}
-            {%- else -%}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-
-              <div class="input-group">
-                <input class="input-group__field input-group__field--expand form__input" type="email" name="contact[email]" aria-label="{{ 'layout.newsletter.input_placeholder' | t }}" placeholder="{{ 'layout.newsletter.input_placeholder' | t }}" required="required">
-                <input class="input-group__submit button button--secondary" type="submit" value="{{ 'layout.newsletter.submit' | t }}">
-
-                {%- if form.errors -%}
-                  <p class="form__input-error">{{ form.errors.translated_fields['email'] }} {{ form.errors.messages['email'] }}</p>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-          {%- endform -%}
-        {% endcapture %}
-
+      <h2>Subscribe for 10% Off!</h2>
         <p class="newsletter__cta">
-          {%- if newsletter_form_success_message != blank -%}
-            {{ newsletter_form_success_message }}
-          {%- else -%}
-            {{ section.settings.title | escape }}
-          {%- endif -%}
+          Sign up for our newsletter for 10% off your next order and member-only deals delivered straight to your inbox.
         </p>
 
         {{ newsletter_form }}
+
+
+              <input type="hidden" name="contact[tags]" value="newsletter">
+
+            <div class="input-group">
+              <form method="post" action="{{ settings.widget_newsletter_action }}" name="mc-embedded-subscribe-form" target="_blank">
+              <div class="row collapse">
+                <div class="small-9 columns">
+                  <input type="email" name="EMAIL" class="email with-postfix" data-required="true" data-required-message="{{ 'widgets.newsletter.email_field_required' | t }}"  data-type-email-message="{{ 'widgets.newsletter.email_field_valid' | t }}" placeholder="{{ 'widgets.newsletter.email_field_placeholder' | t }}">
+                  </div>
+                <div class="small-3 columns">
+                  <button type="submit" class="button postfix radius">{{ 'widgets.newsletter.submit' | t }}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+          <p><a href="https://deltachildren.activehosted.com/unsubscribe/1">Unsubscribe</a></p>
+
+          <div class="large-3 columns">
+
+
+    <!-- <section class="widget widget-social-links ">
+      <div class="widget-inner">
+
+
+    <header class="widget-header">
+      <h2>Social Links</h2>
+    </header> -->
+
+  <ul class="social-links inline-list"><li>
+        <a href="https://instagram.com/deltachildren/" title="Instagram" data-target-new="" target="_blank">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </li><li>
+        <a href="https://www.facebook.com/deltachildren" title="Facebook" data-target-new="" target="_blank">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://twitter.com/DeltaChildren" title="Twitter" data-target-new="" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.pinterest.com/deltachildren/" title="Pinterest" data-target-new="" target="_blank">
+          <i class="fa fa-pinterest"></i>
+        </a>
+      </li>
+
+  <li>
+        <a href="https://www.youtube.com/user/deltachildren" title="Youtube" data-target-new="" target="_blank">
+          <i class="fa fa-youtube"></i>
+        </a>
+      </li></ul>
+      <p><a href="https://deltachildren.activehosted.com/unsubscribe/1"></a></p><p><a href="https://deltachildren.activehosted.com/unsubscribe/1" style="display: none;">Unsubscribe</a></p><p></p></div>
+    </section>
+
+
+                </div>
       </div>
     </div>
   </aside>
-{%- endif -%}
+
 
 {% schema %}
 {

@@ -24,7 +24,7 @@ assets/grey-026.png:
 assets/home.css:
   development: 2018-07-26T12:24:07-04:00   df18a75c20960af75b4f864624647569
 assets/home.js:
-  development: 2018-07-26T13:37:15-04:00   a47344b634c2d48653af7ded95d1d299
+  development: 2018-07-26T15:14:52-04:00   7e09ee9f2e672e254b6dec07a0404ec5
 assets/icomoon.eot:
   development: 2018-07-19T13:34:20-04:00   8611a34adadfd64842ac10137b219909
 assets/icomoon.ttf:
@@ -58,7 +58,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-26T14:55:51-04:00   8967ad7a15f99864c4a23db895eeebe5
+  development: 2018-07-26T16:09:19-04:00   0b47b0063aaeef58f004d313fd53c485
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -68,7 +68,7 @@ config/settings_schema.json:
 layout/minimal.liquid:
   development: 2018-07-19T13:34:24-04:00   38a4856746ba7d55dba0d43d218c4fdc
 layout/theme.liquid:
-  development: 2018-07-24T10:49:40-04:00   37e34ad0dcfaf8b7720f6353c06084e8
+  development: 2018-07-26T15:37:59-04:00   578827cfcc27f7e1b78c05c921ca4fbc
 locales/en.default.json:
   development: 2018-07-19T13:34:24-04:00   2750fb69cb0220c43e694519e7267eb5
 locales/fr.json:
@@ -96,7 +96,7 @@ sections/featured-product.liquid:
 sections/featured-video.liquid:
   development: 2018-07-19T13:34:17-04:00   0497ac873e6982a046a4583e32dc6816
 sections/footer.liquid:
-  development: 2018-07-19T13:34:17-04:00   4d6ebd99ec112256a30d109f48a195a1
+  development: 2018-07-26T15:56:44-04:00   037d1c52e9b085b70dbf8b3d82a3f915
 sections/header.liquid:
   development: 2018-07-25T16:07:53-04:00   3f4defc6d85d66c837c3739071dfb856
 sections/home-slideshow.liquid:
@@ -110,7 +110,7 @@ sections/list-collections-template.liquid:
 sections/map.liquid:
   development: 2018-07-19T13:34:17-04:00   92cad884ce772ea7c82911f47d40569e
 sections/newsletter.liquid:
-  development: 2018-07-19T13:34:17-04:00   de3541a2ac69ef1dc37720cfe65b000e
+  development: 2018-07-26T16:58:52-04:00   a5ad56ea033a8f7291b731fa5bb77668
 sections/page-faq-template.liquid:
   development: 2018-07-19T13:34:17-04:00   c6105f1977df7b4e1c4dd71e94edc273
 sections/password-template.liquid:
@@ -173,6 +173,8 @@ snippets/nav-structure.liquid:
   development: 2018-07-20T15:35:43-04:00   fe99fd831652edda229a6ad411c11460
 snippets/pagination.liquid:
   development: 2018-07-19T13:34:25-04:00   ee6a54b7218e5e5264c90ce7a1419401
+snippets/path-footer.liquid:
+  development: 2018-07-26T15:54:58-04:00   995190c009c167cba70d2e0aeace0698
 snippets/product-form.liquid:
   development: 2018-07-19T13:34:25-04:00   bc1c8b5ad848dfa706c6a475423fa9a3
 snippets/product-info.liquid:

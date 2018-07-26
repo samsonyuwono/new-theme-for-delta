@@ -15,11 +15,7 @@ $(function() {
   lazyLoad();
   jeepCarousel();
   replaceBanner();
-  stickyNav();
 
-  function stickyNav(){
-    var header = document.getElementById("myHeader");
-  }
 
   function lazyLoad(){
     //lazy loading of home page images
