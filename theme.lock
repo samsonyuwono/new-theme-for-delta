@@ -98,7 +98,7 @@ sections/featured-product.liquid:
 sections/featured-video.liquid:
   development: 2018-07-19T13:34:17-04:00   0497ac873e6982a046a4583e32dc6816
 sections/footer.liquid:
-  development: 2018-07-27T18:48:55-04:00   88965170df705897ec94c8932e488793
+  development: 2018-07-27T19:02:06-04:00   f76a80bd3ce263bd82a6ad40432ccd31
 sections/header.liquid:
   development: 2018-07-27T12:24:50-04:00   87c1469245d48a669044c3456a8d823a
 sections/home-slideshow.liquid:
