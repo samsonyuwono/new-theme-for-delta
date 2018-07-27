@@ -10,6 +10,8 @@
   {%- assign mega_nav_names = mega_nav_names | downcase | split: ',' | compact -%}
 
   <nav class="header__main-nav {% if section.settings.logo_position == 'left' %}header__main-nav--stretched{% endif %}">
+    <section class="top-bar-section">
+      <!-- section inserted -->
     <ul class="header__links list--unstyled">
       {%- for link in main_menu.links -%}
         <li class="header__link {% if link.links != blank %}header__link--need-extra-space{% endif %}" {% if link.links != blank %}aria-haspopup="true"{% endif %} tabindex>
@@ -64,5 +66,6 @@
         </li>
       {%- endfor -%}
     </ul>
+  </section>
   </nav>
 {%- endif -%}

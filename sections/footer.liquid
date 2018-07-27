@@ -1,105 +1,109 @@
 {%- assign has_twitter = false -%}
+<style>
+  .footer{
+    padding: 48px;
+  }
 
+  #description-block{
+    width: 49.66667%;
+    padding-left: 5% !important;
+    padding-right: 10% !important;
+  }
+
+  #shop-products{
+    width: 16.66667%;
+
+  }
+
+  #our-story{
+    width: 16.66667%;
+  }
+
+  #help-center{
+    width:16.66667%;
+  }
+
+  #misc{
+    width: 16.66667%;
+  }
+
+  #description-block h4{
+    font-size: 89%;
+    letter-spacing: 1.5px;
+  }
+
+
+.footer__block ul{
+  list-style-type: none;
+}
+
+</style>
 <div class="footer">
   <div class="container">
     <div class="footer__content grid grid--large">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'text' -%}
-            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" {{ block.shopify_attributes }}>
-              <h2 class="footer__title text--uppercase">{{ block.settings.title | escape }}</h2>
 
-              <div class="footer__text rte">
-                {{ block.settings.text }}
-              </div>
+            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" id="description-block">
+              <h4 id="desc-text">Delta Children is the world's leading crib manufacturer. Shop our collection of nursery furniture, kids&#39; furniture, cribs, baby strollers, mattresses, beds and more products.</h4>
 
-              {%- capture social_media -%}
-                {%- include 'social-media', small_icons: false -%}
-              {%- endcapture -%}
-
-              {%- if block.settings.show_social_media and social_media != blank -%}
-                {{- social_media -}}
-              {%- endif -%}
             </div>
 
-          {%- when 'links' -%}
-            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" {{ block.shopify_attributes }}>
-              {%- assign menu = linklists[block.settings.menu_linklist] -%}
 
-              <h2 class="footer__title text--uppercase">{{ menu.title }}</h2>
-
-              {%- if menu.links.size > 0 -%}
-                <ul class="footer__links list--unstyled">
-                  {%- for link in menu.links -%}
-                    <li class="footer__link"><a href="{{ link.url }}" class="link">{{ link.title }}</a></li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
+            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" id="shop-products">
+              <h5 class="text title">SHOP PRODUCTS<i class="arrow down"></i></h5>
+              <ul id="shop-products" class="footer-list">
+                <li><a href="/pages/nursery"><h6 class="text">Nursery Furniture</h6></a></li>
+                <li><a href="/pages/bundles"><h6 class="text">Nursery Furniture Sets</h6></a></li>
+                <li><a href="/collections/cribs"><h6 class="text">Cribs</h6></a></li>
+                <li><a href="/collections/gliders"><h6 class="text">Gliders</h6></a></li>
+                <li><a href="/collections/strollers"><h6 class="text">Strollers</h6></a></li>
+                <li><a href="/pages/baby-gear"><h6 class="text">Baby Gear</h6></a></li>
+                <li><a href="/pages/kids-furniture"><h6 class="text">Kids&#39; Furniture</h6></a></li>
+                <li><a href="/collections/toddler-beds"><h6 class="text">Toddler Beds</h6></a></li>
+                <li><a href="/pages/mattresses"><h6 class="text">Mattresses</h6></a></li>
+                <li><a href="/collections/storage-decor"><h6 class="text">Storage &amp; D&eacute;cor</h6></a></li>
+                <li><a href="/pages/crib-conversions-accessories"><h6 class="text">Guardrails &amp; Crib Conversions</h6></a></li>
+                <li><a href="/pages/characters"><h6 class="text">Characters</h6></a></li>
+                <ul>
             </div>
 
-          {%- when 'contact' -%}
-            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" {{ block.shopify_attributes }}>
-              <h2 class="footer__title text--uppercase">{{ block.settings.title | escape }}</h2>
-              <p>
-                {%- if block.settings.phone_number != blank -%}
-                  {{ 'layout.footer.contact_phone_number' | t: phone_number: block.settings.phone_number }}
-                {%- endif -%}
 
-                {%- if block.settings.email != blank -%}
-                  {%- if block.settings.phone_number != blank -%}
-                    <br>
-                  {%- endif -%}
+            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" id="our-story">
+              <h5 class="text title">OUR STORY<i class="arrow down"></i></h5>
+              <ul id="our-story" class="footer-list">
+                <li><a href="/pages/about-us"><h6 class="text">About Us</h6></a></li>
+                <li><a href="/pages/articles"><h6 class="text">Press Room</h6></a></li>
 
-                  <a href="mailto:{{ block.settings.email }}" class="link">{{ block.settings.email | escape }}</a>
-                {%- endif -%}
-              </p>
+              </ul>
+              <h5 class="text title">CHILD SAFETY<i class="arrow down"></i></h5>
+              <ul id="child-safety" class="footer-list">
+                <li><a href="/pages/leaders-in-safety"><h6 class="text">Leaders in Child Safety</h6></a></li>
+                <li><a href="/pages/safe-sleep"><h6 class="text">Safe Sleep Campaign</h6></a></li>
+                <li><a href="/pages/safety-tips"><h6 class="text">Nursery Safety Tips</h6></a></li>
+                <li><a href="/pages/toddler-safety-tips"><h6 class="text">Toddler Safety Tips</h6></a></li>
+              </ul>
             </div>
 
-          {%- when 'twitter' -%}
-            {%- assign has_twitter = true -%}
-            {%- assign twitter_handle = block.settings.twitter_handle | remove_first: '@' -%}
-            <div id="twitter-timeline" style="display: none !important"></div>
-
-            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk"
-                 {% if twitter_handle != blank %}data-twitter-handle="{{ twitter_handle }}"{% endif %}
-                 {{ block.shopify_attributes }}>
-              <div class="tweet box box--secondary">
-                <div class="box__content box__content--small-padding">
-                  <p class="tweet__username">{%- include 'icon' with 'twitter' -%} <a href="https://twitter.com/{{ twitter_handle }}" class="link" target="_blank">@{{ twitter_handle }}</a></p>
-                  <div class="tweet__content"></div>
-                  <date class="tweet__date text--uppercase"></date>
-                </div>
-              </div>
+            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" id="help-center">
+              <h5 class="text title">HELP CENTER<i class="arrow down"></i></h5>
+              <ul id="help-center" class="footer-list">
+                <li><a href="/pages/product-registration"><h6 class="text">Product Registration</h6></a></li>
+                <li><a href="/pages/contact-us-delta"><h6 class="text">Contact Us</h6></a></li>
+                <li><a href="/pages/track-order"><h6 class="text">Track Order</h6></a></li>
+                <li><a href="/pages/returns-exchanges"><h6 class="text">Returns &amp; Exchanges</h6></a></li>
+                <li><a href="/pages/instructions"><h6 class="text">Assembly Instructions</h6></a></li>
+                <li><a href="/pages/extended-warranty"><h6 class="text">Extended Warranty</h6></a></li>
+                <li><a href="http://www.cribrecallcenter.com" target="_blank"><h6 class="text">Recall Center</h6></a></li>
+                <li><a href="https://www.deltachildren.com/pages/recall" target="_blank"><h6 class="text">Safety Recall</h6></a></li>
+              </ul>
             </div>
-        {%- endcase -%}
-      {%- endfor -%}
-    </div>
 
-    <div class="footer__copyright">
-      <a href="{{ shop.url }}" class="link">© {{ shop.name }}</a> / {{ powered_by_link | replace: '<a', '<a class="link"' }}
+            <div class="footer__block grid__cell 1/2--handheld 1/3--lap 1/4--desk" id="misc">
+              <a href="/blogs/the-play-yard"><h5 class="blog-sale text title">BLOG</h5></a>
+              <a href="/pages/sale"><h5 class="blog-sale text title">SALE</h5></a>
+              <a href="/pages/product-registration"><h5 class="blog-sale text title show-for-small-only">REGISTER YOUR PRODUCT</h5></a>
+            </div>
 
-      {%- if section.settings.show_payment_methods -%}
-        <ul class="footer__payment-methods list--unstyled">
-          {%- for type in shop.enabled_payment_types -%}
-            {%- if type contains 'visa' -%}<li class="footer__payment-method">{%- include 'icon' with 'visa' -%}</li>{%- endif -%}
-            {%- if type contains 'master' -%}<li class="footer__payment-method">{%- include 'icon' with 'mastercard' -%}</li>{%- endif -%}
-            {%- if type contains 'american_express' -%}<li class="footer__payment-method">{%- include 'icon' with 'amex' -%}</li>{%- endif -%}
-            {%- if type contains 'dankort' -%}<li class="footer__payment-method">{%- include 'icon' with 'dk' -%}</li>{%- endif -%}
-            {%- if type contains 'jcb' -%}<li class="footer__payment-method">{%- include 'icon' with 'jcb' -%}</li>{%- endif -%}
-            {%- if type contains 'dogecoint' -%}<li class="footer__payment-method">{%- include 'icon' with 'dogecoin' -%}</li>{%- endif -%}
-            {%- if type contains 'discover' -%}<li class="footer__payment-method">{%- include 'icon' with 'discover' -%}</li>{%- endif -%}
-            {%- if type contains 'diners_club' -%}<li class="footer__payment-method">{%- include 'icon' with 'diners-club' -%}</li>{%- endif -%}
-            {%- if type contains 'maestro' -%}<li class="footer__payment-method">{%- include 'icon' with 'maestro' -%}</li>{%- endif -%}
-            {%- if type contains 'stripe' -%}<li class="footer__payment-method">{%- include 'icon' with 'stripe' -%}</li>{%- endif -%}
-            {%- if type contains 'paypal' -%}<li class="footer__payment-method">{%- include 'icon' with 'paypal' -%}</li>{%- endif -%}
-            {%- if type contains 'litecoin' -%}<li class="footer__payment-method">{%- include 'icon' with 'litecoin' -%}</li>{%- endif -%}
-            {%- if type contains 'bitcoin' -%}<li class="footer__payment-method">{%- include 'icon' with 'bitcoin' -%}</li>{%- endif -%}
-            {%- if type contains 'forbrugsforeningen' -%}<li class="footer__payment-method">{%- include 'icon' with 'forbrugsforeningen' -%}</li>{%- endif -%}
-            {%- if type contains 'amazon-payments' -%}<li class="footer__payment-method">{%- include 'icon' with 'amazon-payments' -%}</li>{%- endif -%}
-            {%- if type contains 'apple_pay' -%}<li class="footer__payment-method">{%- include 'icon' with 'apple-pay' -%}</li>{%- endif -%}
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
+
     </div>
   </div>
 </div>

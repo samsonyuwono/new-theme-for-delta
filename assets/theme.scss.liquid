@@ -30,9 +30,9 @@ body {
   margin: 0;
 }
 
-[hidden] {
-  display: none;
-}
+// [hidden] {
+//   display: none;
+// }
 
 /**
  * HTML5 display definitions
@@ -2355,9 +2355,10 @@ img.lazyload[data-sizes="auto"] {
 }
 
 .container {
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 0 25px;
+  // SY edit
+  max-width: 100% !important;
+  // margin: 0 auto;
+  // padding: 0 25px;
 }
 
 .visually-hidden {
@@ -2498,7 +2499,7 @@ html {
 
 body {
   font-weight: 400;
-  font-family: $text-font;
+  font-family: 'Century Gothic Bold';
   color: $text-color;
   line-height: 1.5;
   scroll-behavior: smooth;
@@ -4126,20 +4127,18 @@ h6:last-child {
 }
 .footer {
   padding: 30px 0;
-  color: $heading-color;
+  background-color: #446cc3; /*inserted SY*/
+  color: white !important; /*inserted SY*/
 }
 
-.footer__block {
-  margin-bottom: 25px;
-}
 
 .footer__text {
   margin-bottom: 1.35em;
 }
 
-.footer__block .social-media {
-  padding: 6px 0;
-}
+// .footer__block .social-media {
+//   padding: 6px 0;
+// }
 
 .footer__link:not(:last-child) {
   margin-bottom: 8px;
@@ -4211,9 +4210,9 @@ h6:last-child {
 }
 
 @include av-mq('handheld-and-up') {
-  .footer__block {
-    margin-bottom: 50px;
-  }
+  // .footer__block {
+  //   margin-bottom: 50px;
+  // }
 
   .footer__copyright {
     margin-top: 0;
@@ -5306,6 +5305,10 @@ select::-ms-expand {
   background-color: #73A3EA;
   padding-top: 5px;
   padding-bottom: 5px;
+  position: fixed;
+  top: 21px;
+  width: 100%;
+  z-index: 1;
 }
 
 #dc-header-container{
@@ -5315,6 +5318,11 @@ select::-ms-expand {
   padding-left: .9375rem;
   padding-right: .9375rem;
 }
+.header .container{
+  max-width: 100% !important;
+  padding: 0px !important;
+}
+
 #header-actions #brand-primary-image{
     position: absolute;
     top: 0;
@@ -5337,8 +5345,8 @@ select::-ms-expand {
 
   #header-actions .brand-cart-search{
     left: 0;
-    width: 35%;
-    float: right;
+    width: 38%;
+    /* float: right; */
     /*margin-right: 5% !important;*/
   }
 
@@ -5354,31 +5362,21 @@ select::-ms-expand {
    	border-bottom: #003a70 solid 1px;
 
   }
-    #header-actions .ship-container h6{
-      color: #73A3EA;
-      padding-right: 0;
-      margin-left: 3px;
-      margin-bottom: 0;
-      margin-top: 0;
-      padding-left: 20px;
-      font-size: 14px;
-      font-family: 'Century Gothic Bold';
-      top: 2px;
-      position: relative;
-    }
+
     #header-actions .ship-container h6 #free-gift-click{
       text-decoration: none;
       letter-spacing: .5px;
+      font-size: 16px;
     }
     #header-actions .ship-container h6 #free-gift-click span{
       text-decoration: underline;
     }
-    // #header-actions .sign-cart{
+    /* // #header-actions .sign-cart{
     //   width: 130px !important;
     //   background-color: white;
     //   height: 30px;
     //   display: inline-block;
-    // }
+    // } */
       #header-actions .sign-cart{
         width: 130px !important;
         background-color: white;
@@ -5395,6 +5393,7 @@ select::-ms-expand {
     #header-actions .sign-cart a{
       color: #73A3EA !important;
       font-family: 'Century Gothic Bold' !important;
+      font-size: small;
 
     }
     #header-actions .sign-cart span{
@@ -5476,7 +5475,7 @@ select::-ms-expand {
       padding-right: 10px !important;
     }
   }
-  @media screen and (max-width: 914px) and (min-width: 640px) {
+  @media screen and (max-width: 1024px) and (min-width: 640px) {
     #site-header .top-bar-section{
       padding-top: 0;
     }
@@ -5485,46 +5484,7 @@ select::-ms-expand {
     }
 
   }
-  @media screen and (max-width: 1024px) and (min-width: 640px) {
-    #site-header ul.right{
-      top: 3px;
-    }
-    #site-header .top-bar-section .nav-item>a{
-      font-size: 10pt;
-      padding-left: 3px;
-      padding-right: 3px !important;
-    }
-    #header-actions .cell:first-of-type{
-      display: inline-block;
-    }
-    #header-actions .ship-container{
-      width: 215px !important;
-    }
-    #header-actions .ship-container h6 #free-gift-click{
-      font-size: 90%;
-    }
-    #header-actions .sign-cart{
-      font-size: 90%;
-    }
-    #header-actions .search #header-search{
-      width: 345px;
-    }
-    #header-actions .search #header-search form.form-search{
-      margin-left: 55px;
-    }
-    #header-actions .search #header-search input.search-query{
-      width: 345px !important;
-    }
-    #brand-primary-image img{
-      width: 90px;
-    }
 
-    #site-header .top-bar{
-      margin-top: 0;
-      width: 100%;
-    }
-
-  }
   @media screen and (max-width: 800px) and (min-width: 640px) {
     #site-header .top-bar-section .nav-item>a{
       font-size: 8pt;
@@ -5564,9 +5524,10 @@ select::-ms-expand {
 }
 
 .header__link a {
-  margin-left: 24px;
-  margin-right: 10px;
-  // font-family: sans-serif;
+  // margin-left: 24px;
+  // margin-right: 10px;
+  padding-right: 22px;
+  padding-left: 22px;
 }
 
 .nav-list {
@@ -5646,11 +5607,16 @@ select::-ms-expand {
     #header-actions .ship-container h6{
       color: #73A3EA;
       padding-right: 0;
+      margin-left: 3px;
       margin-bottom: 0;
       margin-top: 0;
+      padding-left: 17px;
+      font-size: 14px;
       font-family: 'Century Gothic Bold';
-
+      top: 2px;
+      position: relative;
     }
+
     #header-actions .ship-container h6 #free-gift-click{
       text-decoration: none;
       letter-spacing: .5px;
@@ -5737,6 +5703,8 @@ select::-ms-expand {
       color: #73A3EA;
       font-family: 'Century Gothic Bold';
       border-radius: 25px;
+      font-size: small;
+      height: 26px;
     }
 
     #header-actions .search #header-search input.search-query::placeholder{
@@ -5745,7 +5713,7 @@ select::-ms-expand {
 
     }
 
-    @media screen and (max-width: 1900px) and (min-width: 1600px) {
+    @media screen and (max-width: 2200px) and (min-width: 1600px) {
     #header-actions .search #header-search input.search-query {
       width: 120% !important;
     }
@@ -5785,7 +5753,7 @@ select::-ms-expand {
       padding-right: 10px !important;
     }
   }
-  @media screen and (max-width: 914px) and (min-width: 640px) {
+  @media screen and (max-width: 1024px) and (min-width: 640px) {
     #site-header .top-bar-section{
       padding-top: 0;
     }
@@ -5810,7 +5778,7 @@ select::-ms-expand {
       width: 215px !important;
     }
     #header-actions .ship-container h6 #free-gift-click{
-      font-size: 90%;
+      font-size: 97%;
     }
     #header-actions .sign-cart{
       font-size: 90%;
@@ -5819,7 +5787,8 @@ select::-ms-expand {
       width: 345px;
     }
     #header-actions .search #header-search form.form-search{
-      margin-left: 55px;
+      width: 29%;
+      right: 114px
     }
     #header-actions .search #header-search input.search-query{
       width: 345px !important;
@@ -5832,8 +5801,9 @@ select::-ms-expand {
       margin-top: 0;
       width: 100%;
     }
-
   }
+
+
   @media screen and (max-width: 800px) and (min-width: 640px) {
     #site-header .top-bar-section .nav-item>a{
       font-size: 8pt;
@@ -5877,15 +5847,27 @@ select::-ms-expand {
 
 ul.header__links { //nav bar absolute
   float: none !important;
-  position: absolute;
+  // position: absolute;
+  position: fixed;
   width: 100%;
   display: inline-block;
   text-align: center;
   border-top: 2px solid #003a70;
   border-bottom: 2px solid #003a70;
   background-color: white;
+  top: 89px;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 640px) {
+  ul.header__links {
+    display: inline-flex;
+    height: 47px;
+  }
+
+  #header-actions .sign-cart{
+    width: 48% !important;
+  }
+}
 .header__links {
   font-size: 14px;
   font-size: 0.77778rem;
@@ -5924,11 +5906,17 @@ ul.header__links > li.header__link:last-child{
   margin-left: 5px;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
+@media screen and (max-width: 1024) and (min-width: 640px){
+#brand-primary-image {
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  width: 20%;
+  left: 40%;
+  text-align: center;
 }
+}
+
 /*end navbar styles */
 
 
@@ -8814,6 +8802,8 @@ p, p.lead {
 .cartoonist{
   font-family: 'Cartoonist Kooky' !important;
 }
+
+
 /*end inserted Font */
 
 // @font-face {

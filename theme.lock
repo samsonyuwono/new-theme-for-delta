@@ -17,6 +17,8 @@ assets/dark-chocolate-(207).png:
   development: 2018-07-19T13:34:19-04:00
 assets/dark-chocolate-207.png:
   development: 2018-07-19T13:34:19-04:00   dd5d345d7c43ae84ee7302435d36b20d
+assets/footer.css:
+  development: 2018-07-27T16:52:32-04:00   d633afb7d80dec5253bdd3c810158e33
 assets/grey-(026).png:
   development: 2018-07-19T13:34:20-04:00
 assets/grey-026.png:
@@ -58,7 +60,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-26T16:09:19-04:00   0b47b0063aaeef58f004d313fd53c485
+  development: 2018-07-27T18:21:59-04:00   d3e943dfff31d974ed045e334eba6e58
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -68,7 +70,7 @@ config/settings_schema.json:
 layout/minimal.liquid:
   development: 2018-07-19T13:34:24-04:00   38a4856746ba7d55dba0d43d218c4fdc
 layout/theme.liquid:
-  development: 2018-07-26T15:37:59-04:00   578827cfcc27f7e1b78c05c921ca4fbc
+  development: 2018-07-27T17:59:12-04:00   578827cfcc27f7e1b78c05c921ca4fbc
 locales/en.default.json:
   development: 2018-07-19T13:34:24-04:00   2750fb69cb0220c43e694519e7267eb5
 locales/fr.json:
@@ -96,9 +98,9 @@ sections/featured-product.liquid:
 sections/featured-video.liquid:
   development: 2018-07-19T13:34:17-04:00   0497ac873e6982a046a4583e32dc6816
 sections/footer.liquid:
-  development: 2018-07-26T15:56:44-04:00   037d1c52e9b085b70dbf8b3d82a3f915
+  development: 2018-07-27T18:48:55-04:00   88965170df705897ec94c8932e488793
 sections/header.liquid:
-  development: 2018-07-25T16:07:53-04:00   3f4defc6d85d66c837c3739071dfb856
+  development: 2018-07-27T12:24:50-04:00   87c1469245d48a669044c3456a8d823a
 sections/home-slideshow.liquid:
   development: 2018-07-26T12:24:08-04:00   cb38aa0005d0b330054f5b9d2c624b5d
 sections/image-with-text-overlay.liquid:
@@ -110,7 +112,7 @@ sections/list-collections-template.liquid:
 sections/map.liquid:
   development: 2018-07-19T13:34:17-04:00   92cad884ce772ea7c82911f47d40569e
 sections/newsletter.liquid:
-  development: 2018-07-26T16:58:52-04:00   a5ad56ea033a8f7291b731fa5bb77668
+  development: 2018-07-27T15:48:03-04:00   357e18bcb26eb6fd14935fc59530c146
 sections/page-faq-template.liquid:
   development: 2018-07-19T13:34:17-04:00   c6105f1977df7b4e1c4dd71e94edc273
 sections/password-template.liquid:
@@ -148,9 +150,9 @@ snippets/form-errors.liquid:
 snippets/google-fonts.liquid:
   development: 2018-07-19T13:34:25-04:00   853bf09e38679a1dc11db55090e83e8d
 snippets/header-actions.liquid:
-  development: 2018-07-25T18:12:13-04:00   d7df8e5b840f81b3068b1aa92d174747
+  development: 2018-07-27T10:29:47-04:00   ebc04dc39639a43e0a108c073981aa59
 snippets/header-desktop-nav.liquid:
-  development: 2018-07-24T11:05:51-04:00   074a2e1d375ba561ad880a473c950bab
+  development: 2018-07-27T13:48:41-04:00   05206cd18ba349f3168954285e928fe2
 snippets/header-mini-cart.liquid:
   development: 2018-07-19T13:34:25-04:00   bb04883bba90cf858a0a330a8debdbe3
 snippets/header-search.liquid:
@@ -174,7 +176,7 @@ snippets/nav-structure.liquid:
 snippets/pagination.liquid:
   development: 2018-07-19T13:34:25-04:00   ee6a54b7218e5e5264c90ce7a1419401
 snippets/path-footer.liquid:
-  development: 2018-07-26T15:54:58-04:00   995190c009c167cba70d2e0aeace0698
+  development: 2018-07-27T17:26:47-04:00   08f6298ca83079904fec84657033fcfb
 snippets/product-form.liquid:
   development: 2018-07-19T13:34:25-04:00   bc1c8b5ad848dfa706c6a475423fa9a3
 snippets/product-info.liquid:

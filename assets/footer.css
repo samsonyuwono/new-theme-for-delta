@@ -1,0 +1,101 @@
+#shopify-section-newsletter {
+  background-color: #487ed6;
+    padding-top: 32px;
+}
+
+.row .row{
+  width: auto;
+}
+
+.columns .email{
+  font-family: 'Century Gothic Bold';
+  font-size: 23px;
+  float: left;
+  display: table;
+  height: 48px;
+}
+
+.columns .email[type="email"]{
+  font-size: 15px;
+  padding-left: 12px;
+  font-family: initial;
+  font-weight: 500;
+}
+
+.columns .button{
+  font-size: 14px;
+  text-transform: initial;
+}
+
+aside.footer-widgets a.button, aside.footer-widgets .button {
+  background-color: #8dabdd;
+  color: #fff;
+}
+
+@media only screen and (min-width: 679px){
+.columns {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media only screen and (min-width: 64.063em){
+.columns {
+  width: 110%;
+}
+
+.footer-widgets .widgets .row .large-5 {
+    padding-left: 5% !important;
+}
+
+@media only screen and (min-width: 64.063em){
+.large-5 {
+    width: 41.66667%;
+  }
+}
+
+
+section.widget.widget-newsletter header.widget-header h2 {
+    display: block;
+}
+
+.widget-newsletter h2 {
+  color: #fff;
+  font-style: 'Century Gothic Bold';
+}
+
+.widget-newsletter form {
+    width: 1000%;
+}
+
+.widget-newsletter p {
+    font-size: 60%;
+    letter-spacing: 0.5px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.columns input {
+  width: 6%
+}
+
+section.widget.widget-newsletter header.widget-header h2 {
+    display: block;
+}
+
+.widget-header h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+}
+
+.inline-list{
+  list-style: none;
+  color: #fff;
+  font-size: 25px;
+  display: inline-flex;
+  margin: 67px 648px;
+}
+
+.inline-list li{
+  margin-right: 10px;
+}
