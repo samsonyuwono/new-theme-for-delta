@@ -18,7 +18,7 @@ assets/dark-chocolate-(207).png:
 assets/dark-chocolate-207.png:
   development: 2018-07-19T13:34:19-04:00   dd5d345d7c43ae84ee7302435d36b20d
 assets/footer.css:
-  development: 2018-07-29T20:17:16-04:00   870239ecde48df992862e64cc744cf16
+  development: 2018-07-30T12:37:54-04:00   6f3207ec3a4e0a4127b430e56340577b
 assets/grey-(026).png:
   development: 2018-07-19T13:34:20-04:00
 assets/grey-026.png:
@@ -60,7 +60,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-29T20:16:55-04:00   d3e943dfff31d974ed045e334eba6e58
+  development: 2018-07-30T14:05:43-04:00   5ac15592962bdf3676cc38665c7fdae1
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -98,7 +98,7 @@ sections/featured-product.liquid:
 sections/featured-video.liquid:
   development: 2018-07-19T13:34:17-04:00   0497ac873e6982a046a4583e32dc6816
 sections/footer.liquid:
-  development: 2018-07-29T21:10:08-04:00   fea871b85547e87df20fd4d27ac9dd67
+  development: 2018-07-30T11:18:13-04:00   d3b4effe9314c297ff7298f88d249200
 sections/header.liquid:
   development: 2018-07-27T12:24:50-04:00   87c1469245d48a669044c3456a8d823a
 sections/home-slideshow.liquid:
@@ -112,7 +112,7 @@ sections/list-collections-template.liquid:
 sections/map.liquid:
   development: 2018-07-19T13:34:17-04:00   92cad884ce772ea7c82911f47d40569e
 sections/newsletter.liquid:
-  development: 2018-07-27T15:48:03-04:00   357e18bcb26eb6fd14935fc59530c146
+  development: 2018-07-30T12:26:15-04:00   0bd86470213c37b069ecefd4c39289d6
 sections/page-faq-template.liquid:
   development: 2018-07-19T13:34:17-04:00   c6105f1977df7b4e1c4dd71e94edc273
 sections/password-template.liquid:
@@ -150,7 +150,7 @@ snippets/form-errors.liquid:
 snippets/google-fonts.liquid:
   development: 2018-07-19T13:34:25-04:00   853bf09e38679a1dc11db55090e83e8d
 snippets/header-actions.liquid:
-  development: 2018-07-27T10:29:47-04:00   ebc04dc39639a43e0a108c073981aa59
+  development: 2018-07-30T13:10:30-04:00   2733cf121ca580969ab0aea79f98b24c
 snippets/header-desktop-nav.liquid:
   development: 2018-07-27T13:48:41-04:00   05206cd18ba349f3168954285e928fe2
 snippets/header-mini-cart.liquid:
