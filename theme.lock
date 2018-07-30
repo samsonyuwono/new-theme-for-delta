@@ -18,7 +18,7 @@ assets/dark-chocolate-(207).png:
 assets/dark-chocolate-207.png:
   development: 2018-07-19T13:34:19-04:00   dd5d345d7c43ae84ee7302435d36b20d
 assets/footer.css:
-  development: 2018-07-27T16:52:32-04:00   d633afb7d80dec5253bdd3c810158e33
+  development: 2018-07-29T20:17:16-04:00   870239ecde48df992862e64cc744cf16
 assets/grey-(026).png:
   development: 2018-07-19T13:34:20-04:00
 assets/grey-026.png:
@@ -60,7 +60,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-27T18:21:59-04:00   d3e943dfff31d974ed045e334eba6e58
+  development: 2018-07-29T20:16:55-04:00   d3e943dfff31d974ed045e334eba6e58
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -98,7 +98,7 @@ sections/featured-product.liquid:
 sections/featured-video.liquid:
   development: 2018-07-19T13:34:17-04:00   0497ac873e6982a046a4583e32dc6816
 sections/footer.liquid:
-  development: 2018-07-27T19:02:06-04:00   f76a80bd3ce263bd82a6ad40432ccd31
+  development: 2018-07-29T21:10:08-04:00   fea871b85547e87df20fd4d27ac9dd67
 sections/header.liquid:
   development: 2018-07-27T12:24:50-04:00   87c1469245d48a669044c3456a8d823a
 sections/home-slideshow.liquid:
