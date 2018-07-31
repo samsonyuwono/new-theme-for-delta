@@ -4129,6 +4129,7 @@ h6:last-child {
   padding: 30px 0;
   background-color: #446cc3; /*inserted SY*/
   color: white !important; /*inserted SY*/
+  width: 100%; /*inserted SY*/
 }
 
 .footer__block {
@@ -5730,7 +5731,7 @@ select::-ms-expand {
 
     }
 
-    @media screen and (max-width: 2200px) and (min-width: 1600px) {
+    @media screen and (max-width: 2500px) and (min-width: 1600px) {
     #header-actions .search #header-search input.search-query {
       width: 120% !important;
     }
@@ -5812,7 +5813,7 @@ select::-ms-expand {
       right: 37px
     }
     #header-actions .search #header-search input.search-query{
-      width: 226% !important;
+      width: 230% !important;
     }
     #brand-primary-image img{
       width: 90px;
@@ -5842,21 +5843,6 @@ select::-ms-expand {
       width: 189% !important;
     }
   }
-  //
-  // @media screen and (max-width: 750px) and (min-width: 640px){
-  //
-  //   #header-actions .ship-container{
-  //     width: 63% !important;
-  //   }
-  //
-  //   #header-actions .ship-container h6{
-  //     padding-left: 0px;
-  //   }
-  //   #header-actions .search #header-search input.search-query{
-  //     width: 320% !important;
-  //   }
-  // }
-
 
   /*end painful responsiveness*/
 
@@ -6177,9 +6163,11 @@ p, p.lead {
 /*Module 1*/
 #module_1{
   padding-bottom: 0;
-  height: 45vw;
-  /*max-height: 550px;*/
-  box-shadow: 10px 10px 10px 10px white;
+  height: 50vw;
+  // /*max-height: 550px;*/
+  box-shadow: 0px 1px 50px black;
+  max-width: 100%;
+  width: 100vw;
 }
 #module_1 h1 {
     padding-top: 2vw;
@@ -6218,18 +6206,26 @@ p, p.lead {
   max-width: 150px;
 }
 
-
-@media screen and (min-width: 1900px){
+@media screen and (min-width: 2100px){
   #module_1{
-    height: 37vw !important;
+    height: 44vw !important;
+    }
+}
+
+
+@media screen and (min-width: 1900px) and (max-width: 2100px){
+  .shopify-section__slideshow{
+    margin-top: 30px;
+  }
+  #module_1{
+    height: 47vw !important;
   }
   #module_1 #m1_banner-icon-holder{
     // display: none;
   }
 }
-@media screen and (min-width: 1600px){
+@media screen and (min-width: 1600px) and (max-width: 1900px){
   #module_1{
-    max-height: none;
     height: 43vw;
   }
 }
@@ -6279,6 +6275,7 @@ p, p.lead {
   }
   .inner-container{
     background-color: white;
+    padding-top: 17px;
   }
 }
 @media screen and (max-width: 900px){
@@ -9875,10 +9872,13 @@ p, p.lead {
   }
 }
 
-@include av-mq('desk') {
+@media screen and (min-width: 640px) { /*edited */
   .shopify-section__slideshow {
     position: relative;
     background-color: white; /*edited */
+    text-align: center;
+    width: 100% !important;
+    padding-top: 50px;
   }
 
   .slideshow-section--dual {

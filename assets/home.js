@@ -1,21 +1,8 @@
-// $(function() {
-//   //lazy loading of home page images
-//   $('.lazy').Lazy({
-//    scrollDirection: 'vertical',
-//    effect: 'fadeIn',
-//    visibleOnly: true,
-//    onError: function(element) {
-//        console.log('error loading ' + element.data('src'));
-//    }
-//    });
-// });
-
 $(function() {
   //Global Function Instances for home page
   lazyLoad();
   jeepCarousel();
   replaceBanner();
-
 
   function lazyLoad(){
     //lazy loading of home page images
@@ -74,7 +61,6 @@ $(function() {
         $('#module_8 img.background').attr('src', 'https://cdn.shopify.com/s/files/1/0578/7201/files/Charity-1600x700.jpg?8524417848302725016')
       }
       if ( $(window).width() > 1900) {
-        console.log("hit")
         $('#module_1 img.background').attr('src', 'https://cdn.shopify.com/s/files/1/0578/7201/files/header-2000x700-logos.jpg?11215943449077199441')
         $('#module_8 img.background').attr('src', 'https://cdn.shopify.com/s/files/1/0578/7201/files/Charity-1600x700.jpg?8524417848302725016')
       }

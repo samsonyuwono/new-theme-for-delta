@@ -26,7 +26,7 @@ assets/grey-026.png:
 assets/home.css:
   development: 2018-07-26T12:24:07-04:00   df18a75c20960af75b4f864624647569
 assets/home.js:
-  development: 2018-07-26T15:14:52-04:00   7e09ee9f2e672e254b6dec07a0404ec5
+  development: 2018-07-31T12:33:22-04:00   ed147526d2b890518cc3ee05b32d8e71
 assets/icomoon.eot:
   development: 2018-07-19T13:34:20-04:00   8611a34adadfd64842ac10137b219909
 assets/icomoon.ttf:
@@ -60,7 +60,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-07-30T18:02:48-04:00   08213b16e6c02e40b133170f55abfc2e
+  development: 2018-07-31T12:59:46-04:00   cd9c9f939024eaa59162d61ba68f09ca
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -102,7 +102,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-07-27T12:24:50-04:00   87c1469245d48a669044c3456a8d823a
 sections/home-slideshow.liquid:
-  development: 2018-07-26T12:24:08-04:00   cb38aa0005d0b330054f5b9d2c624b5d
+  development: 2018-07-31T09:40:54-04:00   1d931f84223543190fd5ed729b1a86a7
 sections/image-with-text-overlay.liquid:
   development: 2018-07-19T13:34:17-04:00   d22241af55ac76b775a390542479373b
 sections/instagram-feed.liquid:
@@ -132,7 +132,7 @@ sections/search-template.liquid:
 sections/testimonials.liquid:
   development: 2018-07-19T13:34:18-04:00   9ad07033b642c3a585938aa44c498bcf
 sections/text-with-optional-image.liquid:
-  development: 2018-07-19T13:34:18-04:00   9c357694728a1d41a958391896acfdda
+  development: 2018-07-30T18:34:18-04:00   ad3a15066cb9a51eb03f22c2e67ca7c0
 snippets/branding.liquid:
   development: 2018-07-24T18:02:41-04:00   47b406322658b0c4642f4f8574dd748f
 snippets/bundle-links.liquid:
