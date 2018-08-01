@@ -95,11 +95,15 @@ section.widget.widget-newsletter header.widget-header h2 {
   }
 
   .inline-list {
-    margin: 165px -592px;
+    margin-left: 0px !important; /*change*/
     font-size: 27px;
   }
-
-
+	section.widget.widget-newsletter{ /*change*/
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #3743a1;
+      width: 100%;
+    }
 }
 
 .columns .email {

@@ -18,7 +18,7 @@ assets/dark-chocolate-(207).png:
 assets/dark-chocolate-207.png:
   development: 2018-07-19T13:34:19-04:00   dd5d345d7c43ae84ee7302435d36b20d
 assets/footer.css:
-  development: 2018-07-31T17:59:32-04:00   e66de2c6fafd49e8648f8b129c165be2
+  development: 2018-08-01T13:38:55-04:00   0006063ce312334a4dbc557b46e324a6
 assets/grey-(026).png:
   development: 2018-07-19T13:34:20-04:00
 assets/grey-026.png:
@@ -52,7 +52,7 @@ assets/mag_popup.js:
 assets/modernizr.min.js:
   development: 2018-07-19T13:34:22-04:00   45d421a3aa3ee66c6306fe91d992bb46
 assets/nursery-banner.css:
-  development: 2018-08-01T10:28:12-04:00   1243285f381a0d62183a6b647f65cb4b
+  development: 2018-08-01T13:39:10-04:00   80b34a3cefdaa8bec6c80015c157cae9
 assets/password-page-background.jpg:
   development: 2018-07-19T13:34:23-04:00   9d774ca21e919afe239de7df6db37c3b
 assets/product.css:
@@ -64,7 +64,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-08-01T12:02:27-04:00   893b850cdd7e5ee3939cabf590f9adb5
+  development: 2018-08-01T13:37:43-04:00   4df359b632cdac744ea70de6e87cf8ae
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -96,9 +96,9 @@ sections/featured-video.liquid:
 sections/footer.liquid:
   development: 2018-07-31T17:06:52-04:00   a6acb2895957dc6d22fdbe7b76df8ff1
 sections/header.liquid:
-  development: 2018-08-01T11:48:29-04:00   b862dc42e6072cb0d4dff74686079954
+  development: 2018-08-01T13:39:40-04:00   6c17f70da05e00c1732a6f04a3087033
 sections/home-slideshow.liquid:
-  development: 2018-08-01T12:03:07-04:00   3700a8d781096662d46cd19143f94a5b
+  development: 2018-08-01T13:36:44-04:00   c2c09bb089682b4574d2ac93a19db650
 sections/instagram-feed.liquid:
   development: 2018-07-19T13:34:17-04:00   567f379cbfaf50abea447b83bc57c63b
 sections/list-collections-template.liquid:

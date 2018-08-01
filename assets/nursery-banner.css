@@ -260,10 +260,12 @@ z-index: 4;
   }
   #twenty-off-form-header .age li{
     width: 45%;
+    margin-top: 5px !important;
     display: inline-block !important;
   }
-  #twenty-off-form-header .how li{
-    width: 95%;
+  #twenty-off-form-header .how li{/*change*/
+    width: 100%;
+    margin-top: 5px !important;
     display: inline-block;
   }
   #twenty-off-form-header .hidden{

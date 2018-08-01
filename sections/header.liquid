@@ -14,26 +14,21 @@
     </div>
   </header>
 {%- else -%}
-  {%- include 'header-sidebar-nav' -%}
+  <!-- {%- include 'header-sidebar-nav' -%}
   {%- include 'header-mini-cart' -%}
-  {%- include 'header-search' -%}
+  {%- include 'header-search' -%} -->
 
   <header class="header {% if section.settings.show_tall_header %}header--tall{% endif %} {% if section.settings.logo_position == 'left' %}header--init{% endif %}">
     <div class="container">
       <div class="header__inner">
-        <button class="header__nav-toggle hidden-desk" data-action="toggle-mobile-sidebar">
+        <!-- <button class="header__nav-toggle hidden-desk" data-action="toggle-mobile-sidebar">
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </button> -->
 
-        {%- if section.settings.logo_position == 'left' -%}
-          {{ header_logo }}
-          {%- include 'header-desktop-nav' -%}
-        {%- else -%}
-          {%- include 'header-desktop-nav' -%}
-          {{ header_logo }}
-        {%- endif -%}
+          {% include 'header-desktop-nav' %}
+
 
 
       </div>
