@@ -21,6 +21,8 @@
   font-family: initial;
   font-weight: 500;
   font-family: sans-serif;
+  max-height: 100%;
+  height: 36px;
 }
 
 .columns .button{
@@ -31,6 +33,7 @@
 aside.footer-widgets a.button, aside.footer-widgets .button {
   background-color: #8dabdd;
   color: #fff;
+  padding: 12px 28px;
 }
 
 
@@ -45,7 +48,7 @@ section.widget.widget-newsletter header.widget-header h2 {
 }
 
 .widget-newsletter form {
-    width: 1000%;
+    width: 430%;
 }
 
 .widget-newsletter p {
@@ -83,7 +86,7 @@ section.widget.widget-newsletter header.widget-header h2 {
 }
 
 .widget-inner{
-  margin-left: 14px;
+  margin-left: 25px;
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1024px) {
@@ -104,7 +107,7 @@ section.widget.widget-newsletter header.widget-header h2 {
 }
 #fine-print {
   line-height: 1.1rem;
-  margin: 60px;
+  margin: 46px;
   text-align: center;
   color: #8dabdd;
 }
@@ -114,6 +117,17 @@ section.widget.widget-newsletter header.widget-header h2 {
   font-size: 11px;
 }
 
+#path-paragraph {
+    position: relative;
+    width: 70%;
+    left: 15%;
+    padding-top: 10px;
+}
+
+#path-paragraph p {
+    font-size: 67%;
+    color: white;
+}
 /* @media only screen and (min-width: 679px){
 .columns {
     margin: 0 !important;

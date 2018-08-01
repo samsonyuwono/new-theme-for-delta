@@ -1,0 +1,23 @@
+{% assign social_networks_string = 'twitter, facebook, google-plus, youtube, vimeo, flickr, instagram, pinterest' %}
+{% assign social_networks = social_networks_string | split: ', ' %}
+
+<ul class="social-links inline-list">
+{% for network in social_networks %}
+  {% assign current_network = network | prepend: 'widget_social_links_' %}
+
+  {% if network == 'vimeo' %}
+    {% assign network_icon = 'youtube-play' %}
+  {% else %}
+    {% assign network_icon = network %}
+  {% endif %}
+
+  {% if settings[current_network] != '' %}
+    <li>
+      <a href="{{ settings[current_network] }}" title="{{ network | replace: '-', ' ' | capitalize }}" data-target-new>
+        <i class="fa fa-{{ network_icon }}"></i>
+      </a>
+    </li>
+  {% endif %}
+
+{% endfor %}
+</ul>

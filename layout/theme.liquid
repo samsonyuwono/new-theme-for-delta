@@ -33,12 +33,16 @@
     {{ content_for_header }}
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+    {{'nursery-banner.css' | asset_url | stylesheet_tag}}
+
 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{{ 'modernizr.min.js' | asset_url }}"></script>
 
     <script>
+
+
       // This allows to expose several variables to the global scope, to be used in scripts
       window.theme = {
         template: {{ template | json }},
@@ -89,6 +93,9 @@
 
       {%- section 'header' -%}
 
+      <!-- for header and footer pop-ups -->
+      {% include 'header-footer-popup'%}
+
       <main id="main" class="main" role="main">
         {{ content_for_layout }}
       </main>
@@ -125,5 +132,7 @@
     {{ 'collection.js' | asset_url | script_tag }}
     {%endif%}
   </body>
+
+  {{ 'header-footer-popup.js' | asset_url | script_tag }}
 
 </html>
