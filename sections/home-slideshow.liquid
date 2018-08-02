@@ -1,3 +1,4 @@
+{{ 'home.css' | asset_url | stylesheet_tag }}
 <div class="grid" id="home-page-container">
   <div id="module_1" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
     <div class="inner-container">
@@ -154,7 +155,8 @@
 
 <div id="module_6" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
   <div class="module-6-container">
-    <h2 class="cartoonist">Spotted with Delta Children</h2>
+        <h2 class="module-6-header">Spotted with Delta Children</h2>
+    <img class="background" src="//cdn.shopify.com/s/files/1/0578/7201/files/Celebrity_Section.jpg">
     <div id="m6-img-text-container">
       <div class="celeb-holder" id="img-t-1">
         <h4>@kellyrowland</h4>
@@ -174,7 +176,7 @@
       </div>
     </div>
   </div>
-  <div class="module-6-container" id="i-c-2">
+  <div id="i-c-2">
     <div id="m6-title-2"><h3 class="cartoonist">Spotted With</h3><img alt="Jeep Logo" src="https://cdn.shopify.com/s/files/1/0578/7201/files/jeep_logo_white.png"></div>
     <div class="arrow-container-right">
       <i class="right-new jeep-arrow"></i>
@@ -286,8 +288,91 @@
       </div>
     </div>
   </div>
-  <img class="background" src="//cdn.shopify.com/s/files/1/0578/7201/files/Celebrity_Section.jpg">
 </div>
+
+<div id="module_7" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
+  <div class="module-7-container">
+    <div>
+      <h2 id="m7-title">
+          <div class="gotham-book">READY TO <span class="gotham-black">CONVERT</span></div>
+        <div class="gotham-book">YOUR <span class="gotham-black">CRIB?</span></div>
+      </h2>
+    </div>
+    <div id="m7-main-img">
+      <img alt="Delta Crib" class="lazy" src="" data-src="//cdn.shopify.com/s/files/1/0578/7201/files/CVC-Main.png?11608153260874179948">
+    </div>
+    <div id="m7-right-img">
+      <a href="/collections/guardrails">
+        <div class="m7-img-holder">
+          <h6 class="m7-img-text gotham-book">
+            To a <span class="gotham-black">Toddler Bed</span>
+          </h6>
+            <img alt="Convert to a Toddler Bed" class="lazy" src="" data-src="//cdn.shopify.com/s/files/1/0578/7201/files/Toddler_Button.jpg">
+            <span class="click gotham-book">Click Here</span>
+        </div>
+      </a>
+      <a href="/collections/full-size-bed-rails">
+        <div class="m7-img-holder">
+          <h6 class="m7-img-text gotham-book">
+            To a <span class="gotham-black">Full-Size Bed</span>
+          </h6>
+            <img alt="Convert to a Full-Size Bed" class="lazy" src="" data-src="//cdn.shopify.com/s/files/1/0578/7201/files/Crib_Button_6a4f53a4-9f46-4949-9744-52c0522bcedc.jpg">
+            <span class="click gotham-book">Click Here</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- Ready to Convert Your Crib section -->
+  <img class="background" src="//cdn.shopify.com/s/files/1/0578/7201/files/Convert_Your_Crib.jpg">
+</div>
+<div id="module_8" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
+  <div class="module-8-container">
+    <h2 class="cartoonist">Every Purchase Has a Purpose</h2>
+    <p class="gotham-book">
+      <span>Through Your Purchase, Delta Children Is Able To Provide</span>
+      <span>Safe Sleep Environments For Babies Around The World.</span>
+      <span>$4 Million Already Donated To Families In Need!</span>
+    </p>
+    <a class="gotham-book" href="/pages/safe-sleep-campaign"> Learn More ></a>
+  </div>
+  <!-- Every Purchase has a purpose section -->
+  <img class="background" src="https://cdn.shopify.com/s/files/1/0578/7201/files/Charity-1600x700.jpg?8524417848302725016">
+</div>
+
+<div id="module_9" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
+  <div class="module-9-container">
+    <h2 class="gotham-black">Follow Us @deltachildren On Social Media</h2>
+    <span class="gotham-book">For Giveaways, Resources, And A Daily Dose Of Love And Laughter</span>
+  </div>
+</div>
+
+<div id="module_10" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
+  <div class="module-10-container">
+    <div id="instagram-feed-container">
+      {% include 'insta-footer' %}
+    </div>
+  </div>
+
+  <div id="module_11" class="grid__cell 10/10--handheld 10/10--lap-and-up home-module">
+    <div class="module-11-container">
+      <div id="icon-container">
+        <!-- <a href="">Instagram</a>
+        <a href="">Facebook</a>
+        <a href="">Twitter</a>
+        <a href="">Pinterest</a> -->
+        {% include 'widget-social-links' %}
+      </div>
+      <div id="m11-text">
+        <span>Tag<span> #deltachildren</span> For a Chance to be Featured</span>
+      </div>
+    </div>
+    <!-- Follow Us on Socia Media section -->
+  </div>
+
+  <!-- End container for home page  -->
+
+</div>
+
 
 
 </div>

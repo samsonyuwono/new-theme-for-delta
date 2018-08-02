@@ -44,6 +44,7 @@
   font-family: 'Cartoonist Kooky' !important;
 }
 
+
 .grid {
     display: block;
     list-style: none;
@@ -54,89 +55,86 @@
     margin-right: auto;
   width: fit-content;
 }
-#content-wrap{
-  margin-bottom: 10px;
-}
-@media screen and (min-width: 1300px) {
-#content-wrap .primary{
-  margin-bottom: -140px !important;
-      overflow: hidden;
+
+@media screen and (max-width: 1024px){
+#module_1 h1 {
+    padding-top: 2vw;
+    font-size: 5vw;
+  }
 }
 
+.gotham-black {
+    font-family: 'Gotham Black';
 }
-#home-page-container{
-  /*max-width: 1990px;*/
-  min-width: auto;
-  width: auto;
-  margin: 0 auto;
-  /*padding-top: 50px;*/
-  top: -25px;
-  position: relative;
+
+.inner-container {
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+    height: 0%;
 }
+
+#module_1 p {
+    color: #1b75bc;
+    font-size: 150%;
+    opacity: 1;
+}
+
+.gotham-book {
+    font-family: 'Gotham Book';
+}
+
+p, p.lead {
+    line-height: 1.6;
+}
+
+
+
 .home-module{
   position: relative;
   overflow: hidden;
   text-align: center;
   padding: 0;
   text-transform: inherit !important;
-  max-width: 1600px;
-  min-width: auto;
+  max-width: 2000px;
+  min-width: 642px;
   width: auto;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 10px;
 }
-.inner-container{
-  margin: 0 auto;
-  max-width: 1330px;
-  position: relative;
-}
+
 .home-module h2{
   text-transform: inherit !important;
   font-size: 250%;
 }
 .home-module img.background{
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   top: 0;
   width: 100%;
   z-index: -1;
 }
-@media screen and (min-width: 1600px){
-  .home-module{
-    max-width: none;
-  }
+/*end banner image */
 
-}
-
-@media screen and (max-width: 1300px){
-  #home-page-container{
-    margin-bottom: -110px;
-  }
-}
-@media screen and (max-width: 642px){
-  #home-page-container{
-    top: 30px;
-  }
-}
-
-
-/*Page top to bottom styling */
-
+/*Module 1 SY Copied*/
 /*Module 1*/
 #module_1{
   padding-bottom: 0;
-  height: 47vw;
-  /*max-height: 550px;*/
+  height: 50vw;
+  // /*max-height: 550px;*/
   box-shadow: 0px 1px 50px black;
+  max-width: 100%;
+  width: 100vw;
 }
-#module_1 h1{
-  padding-top: 3vw;
-  font-size: 400%;
-  color: #1b75bc;
-  margin: 0;
-  line-height: 1;
+#module_1 h1 {
+    padding-top: 2vw;
+    font-size: 335%;
+    color: #1b75bc;
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
 }
 #module_1 p{
   color: #1b75bc;
@@ -167,24 +165,32 @@
   max-width: 150px;
 }
 
-
-@media screen and (min-width: 1900px){
+@media screen and (min-width: 2100px){
   #module_1{
-    height: 27vw !important;
+    height: 44vw !important;
+    }
+}
+
+
+@media screen and (min-width: 1900px) and (max-width: 2100px){
+  .shopify-section__slideshow{
+    margin-top: 30px;
+  }
+  #module_1{
+    height: 47vw !important;
   }
   #module_1 #m1_banner-icon-holder{
-    display: none;
+    // display: none;
   }
 }
-@media screen and (min-width: 1600px){
+@media screen and (min-width: 1600px) and (max-width: 1900px){
   #module_1{
-    max-height: none;
-    height: 46vw;
+    height: 43vw;
   }
 }
 @media screen and (max-width: 1300px){
   #module_1{
-    height: 54vw;
+    // height: 65vw;
   }
   #module_1 #m1_banner-icon-holder img{
     max-width: 70px;
@@ -196,8 +202,10 @@
   #module_1 #m1_banner-icon-holder #dc-img{
     max-width: 120px;
   }
-
-
+  #module_1 h1{
+    padding-top: 2vw;
+    font-size: 5vw;
+  }
 }
 @media screen and (max-width: 1024px){
   #module_1{
@@ -207,7 +215,7 @@
     top: 45px;
   }
   #module_1 h1{
-    padding-top: 5vw;
+    padding-top: 2vw;
     font-size: 5vw;
   }
   #module_1 p{
@@ -223,6 +231,10 @@
   }
   #module_1 #m1_banner-icon-holder #dc-img{
     max-width: 100px;
+  }
+  .inner-container{
+    background-color: white;
+    padding-top: 17px;
   }
 }
 @media screen and (max-width: 900px){
@@ -251,73 +263,107 @@
   }
 }
 
-/*Module 2*/
+
+/*end Module 1 */
+
+/*copied Module 2 SY */
 #module_2{
   margin-top: 0;
   position: relative;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 3px;
+  width: 100%;
 }
   #module_2 h2{
     color: white;
     margin-bottom: 0;
-    font-size: 300%;
+    font-size: 223%;
+    position: absolute;
+    top: 27%;
+    left: 22%;
   }
   #module_2 #pregnant-img{
     position: absolute;
-    left: 75px;
-    top: -40px;
-    height: 180px;
+    left: 164px;
+    top: 40px;
+    height: 178px;
   }
   #module_2 a{
     background-color: white;
     color: #4b80d3;
     width: 300px;
-    position: relative;
+    position: absolute;
     display: inline-block;
     padding-top: 15px;
-    padding-bottom: 10px;
-    font-size: 230%;
+    padding-bottom: 2px;
+    font-size: 148%;
     border-radius: 30px;
+    top: 50%;
+    left: 42%;
   }
   #module_2 a:hover{
     opacity: .7;
   }
 
+  @media screen and (min-width: 1900px){
+    #module_2 #pregnant-img{
+          height: 264px;
+    }
+
+    #module_2 h2{
+      font-size: 268%;
+    }
+  }
+
+  @media screen and (min-width: 1600px){
+    #module_2 #pregnant-img{
+      height: 226px;
+    }
+
+    #module_2 h2{
+      font-size: 248%;
+    }
+
+    #module_2 a{
+      font-size: 158%;
+      width: 290px;
+    }
+  }
+
 @media screen and (max-width: 1300px){
   #module_2{
-    padding-top: 40px;
+    padding-top: 5px;
     padding-bottom: 40px;
   }
   #module_2 h2{
-    font-size: 200%;
+    font-size: 162%;
+    left: 21%;
   }
   #module_2 a{
-    font-size: 180%;
-    width: 250px;
-    padding-top: 10px;
+    font-size: 140%;
+    width: 262px;
+    padding-top: 0px;
   }
   #module_2 .inner-container{
     width: auto;
     display: inline-block;
   }
   #module_2 #pregnant-img{
-    left: -80px;
-    top: -30px;
+    /* top: 140px; */
     height: 140px;
+    left: 129px;
   }
 }
 @media screen and (max-width: 1024px){
   #module_2{
-    min-height: 90px;
+    min-height: 10px;
   }
   #module_2 h2{
     font-size: 3vw;
   }
   #module_2 #pregnant-img{
-    left: -40px;
-    height: 70px;
-    top: -10px;
+    height: 75%;
+    top: 24px;
+    left: 65px;
   }
   #module_2 a{
     font-size: 2vw;
@@ -354,7 +400,24 @@
   }
 }
 
-/*Module 3*/
+.module-2-container{
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  height: 0%;
+}
+
+.module_2_background {
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+
+/*end Module 2 */
+
+/* copied Module 3 SY*/
 #module_3{
   display: none;
 }
@@ -404,15 +467,16 @@
   color: white;
   font-size: 240%;
 }
+/*end module 3*/
 
-
-/*Module 4*/
+/*coped SY Module 4*/
 #module_4{
-  padding-top: 50px;
-  padding-bottom: 45px;
+  margin-top: -38px;
+  padding-bottom: 85px;
+  width: 100%;
 }
   #module_4 .background{
-    height: 100%;
+    height: 412px;
   }
   #module_4 #m4-text-img-container{
     margin-left: 100px;
@@ -420,6 +484,7 @@
     position: relative;
     padding-left: 50px;
     padding-right: 50px;
+    bottom: 500px;
   }
     #module_4 #m4-text-img-container .m4-img{
       max-width: 100px;
@@ -459,7 +524,7 @@
       display: block;
     }
   #module_4 p{
-    font-size: 230%;
+    font-size: 177%;
     color: white;
   }
     #module_4 p span{
@@ -478,6 +543,40 @@
       position: relative;
       top: 10px;
     }
+
+    @media screen and (min-width: 1900px) {
+      #module_4 #m4-text-img-container{
+        margin-left: 182px;
+        margin-right: 182px;
+        bottom: 500px;
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 1300px) and (max-width: 3000px) {
+
+      #module_4 h2 {
+        font-size: 290%
+      }
+
+      #module_4 #m4-text-img-container{
+        margin-left: 182px;
+        margin-right: 182px;
+        bottom: 375px;
+        width: 79%;
+      }
+    }
+
+    @media screen and (min-width: 1024px) and (max-width: 1300px) {
+      #module_4 .background{
+        height: 377px
+      }
+
+      #module_4 #m4-text-img-container{
+        bottom: 316px
+      }
+    }
+
 @media screen and (min-width: 1300px) {
   #module_4 #m4-text-img-container .m4-img#img-5{
     max-width: 120px;
@@ -489,10 +588,10 @@
     display: inline-block;
   }
   #module_4 h2{
-    font-size: 300%;
+    font-size: 266%;
   }
   #module_4 p{
-    font-size: 150%;
+    font-size: 139%;
   }
   #module_4 #m4-text-img-container .m4-img{
     max-width: 70px;
@@ -582,16 +681,29 @@
   }
 }
 
+.module-4-container{
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  text-align: center;
+  height: 0%;
+}
+
+
+/* Copied SY Module 5 */
 #module_5{
   background-color: rgba(144, 221, 255, 0.45);
   /*height: 450px;*/
   min-height: 650px;
   /*margin-top: 0;*/
+  width: 100%;
+  height: 675px;
+  bottom: 390px;
 }
   #module_5 #hot-prod-img-container{
     /*height: 370px;*/
     /*height: 30vw;*/
-    min-height: 430px;
+    min-height: 450px;
   }
     #module_5 #hot-prod-img-container .img-text{
       width: 19%;
@@ -647,10 +759,10 @@
       top: 70px !important;
       left: auto !important;
     }
+
+
 @media screen and (min-width: 1300px){
-  #module_5{
-    height: 650px;
-  }
+
   #module_5 #proud-partners-container{
     bottom: 30px;
     position: relative;
@@ -661,6 +773,7 @@
     padding-top: 0;
     min-height: 44vw;
     height: 18vw;
+    margin-top: 37px;
   }
   #module_5 #proud-partners-container{
     bottom: 20px;
@@ -670,7 +783,7 @@
     font-size: 300%;
   }
   #module_5 #hot-prod-img-container{
-    min-height: 30vw;
+    min-height: 29vw;
   }
   #module_5 #proud-partners-container img{
     width: 60px;
@@ -702,15 +815,37 @@
   }
 }
 
+@media screen and (min-width: 1600px) and (max-width: 1900px){
+  .module-5-container{
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .module-5-container{
+    width: 68%
+  }
+
+}
+
+.module-5-container{
+  margin: 0 auto;
+  max-width: 90%;
+  position: relative;
+}
+/*module 6 SY inserted */
 
 #module_6{
   min-height: 470px;
   padding-bottom: 0;
+  bottom: 402px;
+  width: 100%;
 }
   #module_6 h2{
     color: white;
     font-size: 300%;
     margin-bottom: 30px;
+    position: absoulute;
   }
   #module_6 #i-c-2{
     background-color: #e65696;
@@ -718,9 +853,10 @@
     height: 500px;
   }
   #module_6 #m6-img-text-container{
-    position: relative;
+    position: absolute;
     width: 100%;
     min-height: 320px;
+    bottom: 81px;
     /*top: 2vw;*/
   }
     #module_6 #m6-title-2 h3{
@@ -734,7 +870,7 @@
       display: inline-block;
       width: 100px;
       margin-left: 10px;
-      top: -7px;
+      top: 8px;
       position: relative;
     }
   #module_6 #m6-container-2{
@@ -900,9 +1036,25 @@
   }
 }
 
+.module-6-container{
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    height: 0%;
+}
+
+.module-6-header{
+  text-align: center;
+  position: absolute;
+  left: 29%;
+  top: 8%;
+}
 
 #module_7{
   height: 470px;
+  bottom: 406px;
+  width: 100%;
 }
   #module_7 .background{
     height: 100%;
@@ -990,6 +1142,7 @@
 @media screen and (max-width: 1024px){
   #module_7{
     min-height: 350px;
+
   }
   #module_7 h2#m7-title{
     font-size: 300%;
@@ -1017,10 +1170,17 @@
   }
 }
 
+.module-7-container {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  height: 0%;
+}
 
 #module_8{
   padding-bottom: 0;
   /*height: 27vw;*/
+  bottom: 550px;
 }
   #module_8 h2{
     color: white;
@@ -1056,7 +1216,7 @@
 }
 @media screen and (max-width: 1300px) {
   #module_8{
-    height: 37vw;
+    height: 49vw;
   }
   #module_8 h2{
     font-size: 300%;
@@ -1084,12 +1244,19 @@
   }
 }
 
+.module-8-container{
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  height: 0%;
+}
 
 #module_9{
   background-color: #935BD3;
   color: white;
   margin-top: 10px;
   height: 180px;
+  bottom: 554px;
 }
   #module_9 h2{
     font-size: 300%;
@@ -1119,15 +1286,28 @@
     font-size: 110%;
   }
 }
+
 #module_10{
   margin-top: 0;
   padding-top: 0;
-  top: -40px;
+  bottom: 554px;
   background-color: #74CBE4;
+  width: 100%
 }
-        #module_10 #eapps-instagram-feed-1 .eapps-instagram-feed-posts-slider-nav{
-          background: #4b80d3;
-        }
+
+#module_10 #eapps-instagram-feed-1 .eapps-instagram-feed-posts-slider-nav{
+  background: #4b80d3;
+  }
+
+  .module-10-container{
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    height: 0%;
+  }
+
+
+
 
 #module_11{
   background-color: #74CBE4;
