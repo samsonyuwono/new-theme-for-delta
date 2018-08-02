@@ -38,6 +38,8 @@
 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
+
     <script src="{{ 'modernizr.min.js' | asset_url }}"></script>
 
     <script>
@@ -89,7 +91,7 @@
     <div class="page__overlay"></div>
 
     <div class="page__container {% if force_secondary_background %}page__container--secondary{% endif %}">
-      
+
       {% include 'header-actions' -%}
 
       {%- section 'header' -%}

@@ -18,7 +18,7 @@ assets/dark-chocolate-(207).png:
 assets/dark-chocolate-207.png:
   development: 2018-07-19T13:34:19-04:00   dd5d345d7c43ae84ee7302435d36b20d
 assets/footer.css:
-  development: 2018-08-01T13:38:55-04:00   0006063ce312334a4dbc557b46e324a6
+  development: 2018-08-01T17:59:58-04:00   2f0ed59fcca86f41d687882f1ae98f48
 assets/grey-(026).png:
   development: 2018-07-19T13:34:20-04:00
 assets/grey-026.png:
@@ -64,7 +64,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-08-01T16:26:06-04:00   682811a8a1b41a91c91234430feaf6ca
+  development: 2018-08-02T10:32:06-04:00   af818d9a9fc87aa83cf717731bdbdb4f
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -74,7 +74,7 @@ config/settings_schema.json:
 layout/minimal.liquid:
   development: 2018-07-19T13:34:24-04:00   38a4856746ba7d55dba0d43d218c4fdc
 layout/theme.liquid:
-  development: 2018-08-01T15:50:41-04:00   0d0618698bda2a2bf16df57bcdced36c
+  development: 2018-08-01T18:26:32-04:00   b0ba1c7af8d37faf5964428fa454fd28
 locales/en.default.json:
   development: 2018-07-19T13:34:24-04:00   2750fb69cb0220c43e694519e7267eb5
 locales/fr.json:
@@ -98,7 +98,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-08-01T15:50:36-04:00   6c17f70da05e00c1732a6f04a3087033
 sections/home-slideshow.liquid:
-  development: 2018-08-01T16:04:14-04:00   e9385b42c07d0a8b6604a163e9b1b732
+  development: 2018-08-01T18:45:51-04:00   c0a7058244c2c1dc14713167e21d41e6
 sections/instagram-feed.liquid:
   development: 2018-07-19T13:34:17-04:00   567f379cbfaf50abea447b83bc57c63b
 sections/list-collections-template.liquid:
@@ -152,7 +152,7 @@ snippets/header-search.liquid:
 snippets/header-sidebar-nav.liquid:
   development: 2018-07-19T13:34:25-04:00   4714d86851d1bd7d75c9bcf541e35a8a
 snippets/home-page-new.liquid:
-  development: 2018-08-01T15:42:36-04:00   3d1c4aeff394962f8cb3d077d2b27a21
+  development: 2018-08-01T18:31:51-04:00   b30ed255d2364f118f995b2b2865dcb2
 snippets/home-v1.liquid:
   development: 2018-07-19T13:34:25-04:00   98cdaae7582a61f5cfeace75abd0dccf
 snippets/icon.liquid:
