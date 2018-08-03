@@ -335,8 +335,8 @@ p, p.lead {
     padding-bottom: 40px;
   }
   #module_2 h2{
-    font-size: 162%;
-    left: 21%;
+    font-size: 167%;
+    left: 27%;
   }
   #module_2 a{
     font-size: 140%;
@@ -1023,6 +1023,8 @@ p, p.lead {
   }
   #module_6 #m6-img-text-container{
     min-height: 25vw;
+    left: 1%;
+    width: 99%;
   }
   #module_6 #m6-img-text-container .celeb-holder h4{
     font-size: 110%;
@@ -1042,7 +1044,8 @@ p, p.lead {
     min-height: 265px;
   }
   #module_6 h2{
-    font-size: 200%;
+    font-size: 173%;
+    left: 25%;
     margin-bottom: 10px;
   }
   #module_6 #m6-img-text-container .celeb-holder{
@@ -1054,7 +1057,7 @@ p, p.lead {
   #module_6 #m6-title-2 img{
     width: 55px;
     margin-left: 6px;
-    top: -4px;
+    top: 4px;
   }
   #module_6 #m6-img-text-container .celeb-holder h4{
     font-size: 90%;
@@ -1080,7 +1083,7 @@ p, p.lead {
 }
 
 #module_7{
-  height: 470px;
+  height: 553px;
   bottom: 406px;
   width: 100%;
 }
@@ -1150,7 +1153,7 @@ p, p.lead {
       }
 @media screen and (max-width: 1300px) {
   #module_7{
-    height: 40vw;
+    height: 46vw;
     min-height: 460px;
   }
   #module_7 h2#m7-title{
@@ -1169,7 +1172,7 @@ p, p.lead {
 }
 @media screen and (max-width: 1024px){
   #module_7{
-    min-height: 350px;
+    min-height: 410px;
 
   }
   #module_7 h2#m7-title{
@@ -1216,6 +1219,7 @@ p, p.lead {
     font-size: 400%;
     margin-bottom: 0;
     margin-top: 6vw;
+    padding-top: 13vw;
   }
   #module_8 span{
     color: white;
@@ -1237,7 +1241,7 @@ p, p.lead {
   }
 @media screen and (min-width: 1300px) {
   #module_8{
-    height: 37vw;
+    height: 56vw;
   }
   #module_8 h2{
     margin-top: 10vw;
@@ -1246,37 +1250,40 @@ p, p.lead {
 @media screen and (max-width: 1300px) {
   #module_8{
     height: 49vw;
+    bottom: 556px;
   }
   #module_8 h2{
-    font-size: 300%;
+    font-size: 273%;
     margin-top: 10vw;
   }
   #module_8 p{
-    font-size: 90%;
+    font-size: 80%;
   }
   #module_8 a{
-    font-size: 120%;
+    font-size: 93%;
+    width: 12%;
   }
 }
 @media screen and (max-width: 1024px){
   #module_8{
-    min-height: 200px;
+    bottom: 526px;
+    height: 71vw;
   }
   #module_8 h2{
-    font-size: 200%;
+    font-size: 160%;
   }
   #module_8 p{
-    font-size: 60%;
+    font-size: 48%;
   }
   #module_8 a{
     font-size: 100%;
+    width: 20%;
   }
 }
 
 .module-8-container{
   margin: 0 auto;
   position: relative;
-  text-align: center;
   height: 0%;
 }
 
