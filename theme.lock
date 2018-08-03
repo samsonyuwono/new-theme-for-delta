@@ -26,7 +26,7 @@ assets/grey-026.png:
 assets/header-footer-popup.js:
   development: 2018-07-31T17:58:38-04:00   a3dc125e22f3688aadbd83f34046e05b
 assets/home.css:
-  development: 2018-08-02T12:42:44-04:00   21127cfcf6b4c6e88a6bcd7437aab18d
+  development: 2018-08-03T10:21:57-04:00   1f892134f8390b70863b2aa4dd144dcf
 assets/home.js:
   development: 2018-07-31T12:33:22-04:00   ed147526d2b890518cc3ee05b32d8e71
 assets/icomoon.eot:
@@ -98,7 +98,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-08-01T15:50:36-04:00   6c17f70da05e00c1732a6f04a3087033
 sections/home-slideshow.liquid:
-  development: 2018-08-02T12:48:21-04:00   05789e9caf4dcfb5804b4ca7c04ddca2
+  development: 2018-08-02T14:51:02-04:00   94f558f815a52787ab1fb29582f273bd
 sections/instagram-feed.liquid:
   development: 2018-07-19T13:34:17-04:00   567f379cbfaf50abea447b83bc57c63b
 sections/list-collections-template.liquid:
