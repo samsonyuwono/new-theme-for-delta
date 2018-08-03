@@ -53,7 +53,6 @@
     font-size: 0;
     margin-left: auto;
     margin-right: auto;
-  width: fit-content;
 }
 
 @media screen and (max-width: 1024px){
@@ -872,6 +871,8 @@ p, p.lead {
     font-size: 300%;
     margin-bottom: 30px;
     position: absoulute;
+    left: 26%;
+}
   }
   #module_6 #i-c-2{
     background-color: #e65696;
@@ -954,7 +955,7 @@ p, p.lead {
     top: 45px;
     cursor: pointer;
     z-index: 5;
-    top: 40%;
+    top: 68%;
     height: 100px;
     background-color: #4b80d3;
     width: 100px;
@@ -970,7 +971,7 @@ p, p.lead {
     top: 45px;
     cursor: pointer;
     z-index: 5;
-    top: 40%;
+    top: 68%;
     height: 100px;
     background-color: #4b80d3;
     width: 100px;
@@ -1437,13 +1438,6 @@ p, p.lead {
     font-size: 170%;
     padding-top: 20px;
   }
-
-  @media screen and (min-width: 1025px){
-    #module_11 #icon-container{
-        padding-right: 51%;
-      }
-  }
-
 @media screen and (max-width: 1300px){
   #module_11 #m11-text{
     /*font-size: 130%;*/

@@ -26,9 +26,9 @@ assets/grey-026.png:
 assets/header-footer-popup.js:
   development: 2018-07-31T17:58:38-04:00   a3dc125e22f3688aadbd83f34046e05b
 assets/home.css:
-  development: 2018-08-03T12:39:13-04:00   0d450ac9b46444ce98535a0b44c1ba5a
+  development: 2018-08-03T14:59:57-04:00   8df2dc028ad5749f9d7374a57eef7aa3
 assets/home.js:
-  development: 2018-07-31T12:33:22-04:00   ed147526d2b890518cc3ee05b32d8e71
+  development: 2018-08-03T14:58:45-04:00   ed147526d2b890518cc3ee05b32d8e71
 assets/icomoon.eot:
   development: 2018-07-19T13:34:20-04:00   8611a34adadfd64842ac10137b219909
 assets/icomoon.ttf:
@@ -64,7 +64,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-08-03T12:11:11-04:00   ed21f9df2b50a024342f181bc801c48a
+  development: 2018-08-03T13:04:35-04:00   871ef71a995d8244303966f01c8bf90b
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -74,7 +74,7 @@ config/settings_schema.json:
 layout/minimal.liquid:
   development: 2018-07-19T13:34:24-04:00   38a4856746ba7d55dba0d43d218c4fdc
 layout/theme.liquid:
-  development: 2018-08-01T18:26:32-04:00   b0ba1c7af8d37faf5964428fa454fd28
+  development: 2018-08-03T14:41:29-04:00   793054e8a22ddae897d218052717eded
 locales/en.default.json:
   development: 2018-07-19T13:34:24-04:00   2750fb69cb0220c43e694519e7267eb5
 locales/fr.json:
@@ -98,7 +98,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-08-01T15:50:36-04:00   6c17f70da05e00c1732a6f04a3087033
 sections/home-slideshow.liquid:
-  development: 2018-08-03T11:49:12-04:00   94f558f815a52787ab1fb29582f273bd
+  development: 2018-08-03T15:02:05-04:00   33b8402296c5c5b9c2e0757672b63df1
 sections/instagram-feed.liquid:
   development: 2018-07-19T13:34:17-04:00   567f379cbfaf50abea447b83bc57c63b
 sections/list-collections-template.liquid:
