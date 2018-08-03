@@ -26,7 +26,7 @@ assets/grey-026.png:
 assets/header-footer-popup.js:
   development: 2018-07-31T17:58:38-04:00   a3dc125e22f3688aadbd83f34046e05b
 assets/home.css:
-  development: 2018-08-03T14:59:57-04:00   8df2dc028ad5749f9d7374a57eef7aa3
+  development: 2018-08-03T15:31:17-04:00   5a01303461bea8a6ecf12df44ad51c0e
 assets/home.js:
   development: 2018-08-03T14:58:45-04:00   ed147526d2b890518cc3ee05b32d8e71
 assets/icomoon.eot:
@@ -64,7 +64,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-08-03T13:04:35-04:00   871ef71a995d8244303966f01c8bf90b
+  development: 2018-08-03T15:32:54-04:00   9c383754a92f9244456622b6f244c180
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -98,7 +98,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-08-01T15:50:36-04:00   6c17f70da05e00c1732a6f04a3087033
 sections/home-slideshow.liquid:
-  development: 2018-08-03T15:02:05-04:00   33b8402296c5c5b9c2e0757672b63df1
+  development: 2018-08-03T15:37:02-04:00   bf3daf9eb19c45f41659602480a2e004
 sections/instagram-feed.liquid:
   development: 2018-07-19T13:34:17-04:00   567f379cbfaf50abea447b83bc57c63b
 sections/list-collections-template.liquid:

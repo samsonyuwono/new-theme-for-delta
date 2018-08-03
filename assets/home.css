@@ -905,7 +905,7 @@ p, p.lead {
   #module_6 #m6-container-2{
     position: relative;
     width: 100%;
-    min-height: 320px;
+    /* min-height: 320px; */
     /*top: 2vw;*/
   }
     #module_6 #m6-img-text-container .celeb-holder{
@@ -1018,9 +1018,9 @@ p, p.lead {
     margin-bottom: 20px;
   }
   #module_6 #m6-title-2 img{
-    width: 70px;
+    width: 81px;
     margin-left: 8px;
-    top: -5px;
+    top: 5px;
   }
   #module_6 #m6-img-text-container{
     min-height: 25vw;
@@ -1074,6 +1074,7 @@ p, p.lead {
     position: relative;
     text-align: center;
     height: 0%;
+    background-color: pink;
 }
 
 .module-6-header{
