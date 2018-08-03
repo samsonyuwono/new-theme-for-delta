@@ -1292,7 +1292,7 @@ p, p.lead {
   color: white;
   margin-top: 10px;
   height: 180px;
-  bottom: 642px;
+  bottom: 550px;
   width: 100%;
 }
   #module_9 h2{
@@ -1304,7 +1304,36 @@ p, p.lead {
   #module_9 span{
     font-size: 170%;
   }
+
+  @media screen and (max-width: 3000px){
+    #module_9 {
+      bottom: 914px;
+    }
+  }
+
+
+  @media screen and (max-width: 2400px){
+    #module_9 {
+      bottom: 825px;
+    }
+  }
+
+
+  @media screen and (max-width: 2000px){
+    #module_9 {
+      bottom: 655px;
+    }
+  }
+
+  @media screen and (max-width: 1800px){
+    #module_9 {
+      bottom: 643px;
+    }
+  }
 @media screen and (max-width: 1300px){
+  #module_9 {
+    bottom: 558px;
+  }
   #module_9 h2{
     /*font-size: 250%;*/
   }
@@ -1315,26 +1344,25 @@ p, p.lead {
 @media screen and (max-width: 1024px){
   #module_9{
     height: 160px;
+    bottom: 682px;
   }
   #module_9 h2{
-    font-size: 200%;
+    font-size: 173%;
   }
   #module_9 span{
-    font-size: 110%;
+    font-size: 92%;
   }
 }
 
 .module-9-container{
   margin: 0 auto;
   position: relative;
-  text-align: center;
-  height: 0%;
 }
 
 #module_10{
   margin-top: 0;
   padding-top: 0;
-  bottom: 638px;
+  bottom: 10px;
   background-color: #74CBE4;
   width: 100%
 }
@@ -1409,6 +1437,13 @@ p, p.lead {
     font-size: 170%;
     padding-top: 20px;
   }
+
+  @media screen and (min-width: 1025px){
+    #module_11 #icon-container{
+        padding-right: 51%;
+      }
+  }
+
 @media screen and (max-width: 1300px){
   #module_11 #m11-text{
     /*font-size: 130%;*/
