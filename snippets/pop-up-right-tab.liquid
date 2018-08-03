@@ -1,0 +1,224 @@
+<style>
+@font-face{
+  font-family: 'Gotham Medium';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-medium.otf');
+}
+  #JotFormIFrame-81686637984174{
+    display: none;
+    position: fixed;
+    top: 30%;
+    width: 100% !important;
+    left: 0;
+    min-height: 500px;
+    min-width: auto !important;
+    z-index: 10;
+    text-align: center;
+  }
+  #close-form-ten-percent{
+   position: absolute;
+    top: 30%;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: white;
+    opacity: .5;
+    text-align: center;
+    line-height: 21px;
+    z-index: 10;
+    display: inline-block;
+    margin-left: 400px;
+    margin-top: -20px;
+    cursor: pointer;
+  }
+
+#right-tab {
+    display: none;
+    position: fixed;
+    width: 110px;
+    height: 74px;
+    right: -40px;
+    top: 30%;
+    background-color: #8CAADB;
+    color: #000000;
+    z-index: 10;
+    text-align: left;
+    line-height: 50px;
+    cursor: pointer;
+    font-family: 'Gotham Medium';
+    border-radius: 15px;
+    border-color: grey;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+    #right-tab:hover{
+      opacity: .8;
+    }
+  #get{
+        display: inline-block;
+    width: 40%;
+    line-height: 1.2;
+    left: 10px;
+    top: 15px;
+    position: relative;
+    color: white;
+    font-family: 'Gotham Ultra';
+    letter-spacing: 1.5px;
+    font-weight: 100;
+    font-size: 80%;
+  }
+  #ten-perc{
+    display: block;
+    font-size:	140%;
+  }
+  #close-right-tab{
+	    margin-left: 20px;
+    top: -35px;
+    position: relative;
+    right: 12px;
+    font-size: 80%;
+    color: white;
+  }
+
+
+  #right-tab-overlay{
+  display: none;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  opacity: .7;
+  z-index: 9;
+    text-align: center;
+  }
+  #close-right-tab{
+    margin-left: 20px;
+  }
+
+  .left-click{
+    position: absolute;
+left: 0;
+top: 0;
+width: 20%;
+height: 100%;
+z-index: 11;
+  }
+  .right-click{
+    position: absolute;
+right: 0;
+top: 0;
+width: 20%;
+height: 100%;
+z-index: 11;
+  }
+  @media only screen and (max-width: 1300px) and (min-width: 1000px){
+    .right-click{
+      width: 15%;
+    }
+    .left-click{
+      width: 15%;
+    }
+}
+@media only screen and (max-width: 1000px) and (min-width: 664px){
+  #close-form-ten-percent{
+	margin-left: 250px;
+  }
+}
+
+  @media only screen and (max-width: 664px){
+  #close-form-ten-percent{
+	margin-left: 0;
+  }
+}
+
+
+@media only screen and (max-width: 800px){
+  .right-click{
+width: 0 }
+  .left-click{
+width: 0; }
+}
+
+/*   @media only screen and (max-width: 1000px){
+    #right-tab{
+      width: 150px;
+      height: 30px;
+      right: -60px;
+      line-height: 30px;
+    }
+  }
+ */
+
+</style>
+
+<div id="right-tab" class="rotate gotham-medium"><span id="get">GET<span id="ten-perc">10%</span>OFF!</span><span id="close-right-tab">X</span></div>
+<div id="right-tab-overlay"><span id="close-form-ten-percent">X</span></div>
+  <iframe id="JotFormIFrame-81686637984174" onload="window.parent.scrollTo(0,0)" allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera" src="https://form.jotform.com/81686637984174" frameborder="0" style="width: 1px; min-width: 100%; height:539px; border:none;" scrolling="no" > </iframe> <script type="text/javascript"> var ifr = document.getElementById("JotFormIFrame-81686637984174"); if(window.location.href && window.location.href.indexOf("?") > -1) { var get = window.location.href.substr(window.location.href.indexOf("?") + 1); if(ifr && get.length > 0) { var src = ifr.src; src = src.indexOf("?") > -1 ? src + "&" + get : src + "?" + get; ifr.src = src; } } window.handleIFrameMessage = function(e) { var args = e.data.split(":"); if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); } if (!iframe) { return; } switch (args[0]) { case "scrollIntoView": iframe.scrollIntoView(); break; case "setHeight": iframe.style.height = args[1] + "px"; break; case "collapseErrorPage": if (iframe.clientHeight > window.innerHeight) { iframe.style.height = window.innerHeight + "px"; } break; case "reloadPage": window.location.reload(); break; case "loadScript": var src = args[1]; if (args.length > 3) { src = args[1] + ':' + args[2]; } var script = document.createElement('script'); script.src = src; script.type = 'text/javascript'; document.body.appendChild(script); break; case "exitFullscreen": if (window.document.exitFullscreen) window.document.exitFullscreen(); else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen(); else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen(); else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen(); else if (window.document.msExitFullscreen) window.document.msExitFullscreen(); break; } var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false; if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) { var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)}; iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*"); } }; if (window.addEventListener) { window.addEventListener("message", handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent("onmessage", handleIFrameMessage); } </script>
+
+<script>
+ $(function() {
+
+   if(sessionStorage.getItem("hideRightTab")){
+
+    }
+
+    else{
+
+     //prep dom changes before click event
+    $('#right-tab').appendTo('.scotch-panel-wrapper');
+      showRightTab();
+      function showRightTab(){
+        if(sessionStorage.getItem("rightTabLoaded")){
+        $('#right-tab').fadeIn('slow');
+        }else{
+        setTimeout(function(){
+          $('#right-tab').fadeIn('slow', function(){
+           sessionStorage.setItem("rightTabLoaded", true);
+          });
+      	}, 30000);
+        }
+      }
+
+    $('#right-tab-overlay').appendTo('.scotch-panel-wrapper');
+    $('#JotFormIFrame-81686637984174').appendTo('.scotch-panel-wrapper');
+    $('<div class="left-click"></div>').appendTo('.scotch-panel-wrapper');
+    $('<div class="right-click"></div>').appendTo('.scotch-panel-wrapper');
+    $('.left-click, .right-click').hide();
+
+	//click events for pop-up manipulation
+    $('#get, #right-tab-overlay, .left-click, .right-click').click(function(){
+      $('.left-click, .right-click').toggle();
+      $('#right-tab-overlay').toggle();
+      $('#JotFormIFrame-81686637984174').fadeToggle('slow',function(){
+        //hides right tab if form is submitted. I know when form is submitted because the iframe height gets smaller and is < 542px.
+        formHeightOnLoad = $('#JotFormIFrame-81686637984174').height();
+
+		//checks to see if user get all the way to thank you page - this will change the verticla height of iframe
+        formHeightOnExit = $('#JotFormIFrame-81686637984174').height();
+          if (formHeightOnLoad == formHeightOnExit) {
+          }
+          else{
+            $('#right-tab').hide();
+            //sets cookie
+           sessionStorage.setItem("hideRightTab", true);
+          }
+      });
+    });
+
+      //if user clicks "x" to hide tab
+    $('#close-right-tab').click(function(){
+      $('#right-tab').hide();
+      //sets cookie
+           sessionStorage.setItem("hideRightTab", true);
+    });
+
+      //hide tab from "product Reg" page
+    if(window.location.href === "https://www.deltachildren.com/pages/product-registration"){
+    $('#right-tab').hide();
+	}
+ }
+//    cookie if function
+
+});//on load function
+
+</script>

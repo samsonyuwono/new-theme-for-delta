@@ -903,8 +903,9 @@ p, p.lead {
       position: relative;
     }
   #module_6 #m6-container-2{
-    position: relative;
+    position: absolute;
     width: 100%;
+    top: 16%;
     /* min-height: 320px; */
     /*top: 2vw;*/
   }
@@ -955,7 +956,7 @@ p, p.lead {
     top: 45px;
     cursor: pointer;
     z-index: 5;
-    top: 68%;
+    top: 50%;
     height: 100px;
     background-color: #4b80d3;
     width: 100px;
@@ -971,7 +972,7 @@ p, p.lead {
     top: 45px;
     cursor: pointer;
     z-index: 5;
-    top: 68%;
+    top: 50%;
     height: 100px;
     background-color: #4b80d3;
     width: 100px;
@@ -1073,8 +1074,8 @@ p, p.lead {
     max-width: 100%;
     position: relative;
     text-align: center;
-    height: 0%;
-    background-color: pink;
+    height: 28vw;
+    /* background-color: pink; */
 }
 
 .module-6-header{

@@ -26,7 +26,7 @@ assets/grey-026.png:
 assets/header-footer-popup.js:
   development: 2018-07-31T17:58:38-04:00   a3dc125e22f3688aadbd83f34046e05b
 assets/home.css:
-  development: 2018-08-03T15:31:17-04:00   5a01303461bea8a6ecf12df44ad51c0e
+  development: 2018-08-03T16:20:54-04:00   6af949aadad619b3e36856dd9e41fe59
 assets/home.js:
   development: 2018-08-03T14:58:45-04:00   ed147526d2b890518cc3ee05b32d8e71
 assets/icomoon.eot:
@@ -74,7 +74,7 @@ config/settings_schema.json:
 layout/minimal.liquid:
   development: 2018-07-19T13:34:24-04:00   38a4856746ba7d55dba0d43d218c4fdc
 layout/theme.liquid:
-  development: 2018-08-03T14:41:29-04:00   793054e8a22ddae897d218052717eded
+  development: 2018-08-03T16:44:42-04:00   b2d1ff0a4257a1062d90876e371a3866
 locales/en.default.json:
   development: 2018-07-19T13:34:24-04:00   2750fb69cb0220c43e694519e7267eb5
 locales/fr.json:
@@ -98,7 +98,7 @@ sections/footer.liquid:
 sections/header.liquid:
   development: 2018-08-01T15:50:36-04:00   6c17f70da05e00c1732a6f04a3087033
 sections/home-slideshow.liquid:
-  development: 2018-08-03T15:37:02-04:00   bf3daf9eb19c45f41659602480a2e004
+  development: 2018-08-03T16:26:56-04:00   a049037fdacb01a77535cd579850f356
 sections/instagram-feed.liquid:
   development: 2018-07-19T13:34:17-04:00   567f379cbfaf50abea447b83bc57c63b
 sections/list-collections-template.liquid:
@@ -173,6 +173,8 @@ snippets/pagination.liquid:
   development: 2018-07-19T13:34:25-04:00   ee6a54b7218e5e5264c90ce7a1419401
 snippets/path-footer.liquid:
   development: 2018-07-27T17:26:47-04:00   08f6298ca83079904fec84657033fcfb
+snippets/pop-up-right-tab.liquid:
+  development: 2018-08-03T16:50:37-04:00   48fc6861970c2264338e289708217ba5
 snippets/product-form.liquid:
   development: 2018-07-19T13:34:25-04:00   bc1c8b5ad848dfa706c6a475423fa9a3
 snippets/product-info.liquid:
@@ -208,7 +210,7 @@ templates/404.liquid:
 templates/article.liquid:
   development: 2018-07-19T13:34:26-04:00   f2d8970d80f929f833c6ac18ab19462e
 templates/blog.liquid:
-  development: 2018-07-19T13:34:26-04:00   d83cc3686f59028de70157c3babfbad1
+  development: 2018-08-03T16:41:22-04:00   91c2d9d1599982d4c708d47bf5fc6716
 templates/cart.liquid:
   development: 2018-07-19T13:34:26-04:00   6afe38809d861f7083fbaa61667c4eeb
 templates/cart.mini-cart.liquid:

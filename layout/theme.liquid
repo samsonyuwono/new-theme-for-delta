@@ -135,6 +135,8 @@
     {%- if template.name == 'collection' -%}
     {{ 'collection.js' | asset_url | script_tag }}
     {%endif%}
+
+    	{% include 'pop-up-right-tab' %}
   </body>
 
   {{ 'header-footer-popup.js' | asset_url | script_tag }}
