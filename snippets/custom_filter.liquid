@@ -1,0 +1,893 @@
+{% comment %}note: ORDER MIRRORS LEFT-NAV{% endcomment %}
+
+
+
+<!-- <div class="FILTER"> -->
+{% comment %}CRIBS FILTER{% endcomment %}
+{% if collection.handle == 'cribs'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" id="Type" data-collection="{{collection.id}}">
+   <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+   <h6>BRAND:<span class="angle-down"></span></h6>
+   <div id="filterList" class="fadeIn">
+     {% for tag in collection.all_tags %}
+       {% if tag != '' and tag == 'Delta Children' or tag =="Serta" or tag == "Simmons Kids" %}
+        <ul>
+         <li><input class="checkBox" data-group="{{collection.handle}}" name="brand"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+       {% endif %}
+     {% endfor %}
+   </div>
+  </form>
+  <form class="js-collection-filter" id="Price" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FEATURE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '3-in-1' or tag == '4-in-1' or tag == "Crib 'N' Changer" or tag == 'Mini Crib' or tag == 'Portable Crib' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" id="Price" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $149' or tag == '$150 - $299' or tag == '$300 - $499' or tag == '$500+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+<!-- </div> -->
+
+
+
+{% comment %}GLIDERS/ROCKING CHAIRS FILTER{% endcomment %}
+{% if collection.handle == 'gliders'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" id="Type" data-collection="{{collection.id}}">
+   <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+   <h6>TYPE:<span class="angle-down"></span></h6>
+   <div id="filterList" class="fadeIn">
+     {% for tag in collection.all_tags %}
+       {% if tag != '' and tag == 'Rocking Chair' or tag =="Glider" or tag == "Ottoman" or tag == "Recliner" %}
+        <ul>
+         <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+       {% endif %}
+     {% endfor %}
+   </div>
+  </form>
+  <form class="js-collection-filter" id="Price" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $149' or tag == '$150 - $299' or tag == '$300 - $449' or tag == '$450+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+
+{% comment %}CHANGING-TABLES (listed in left-nav as 'Dressers & Changers'){% endcomment %}
+{% if collection.handle == 'dressers-and-changers'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" id="Brand" data-collection="{{collection.id}}">
+   <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+   <h6>BRAND:<span class="angle-down"></span></h6>
+   <div id="filterList" class="fadeIn">
+    {% for tag in collection.all_tags %}
+     {% if tag != '' and tag == 'Delta Children' or tag == "Simmons Kids" or tag == 'Serta' %}
+     <ul>
+       <li><input class="checkBox" data-group="{{collection.handle}}" name="brand"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+     </ul>
+     {%endif %}
+    {% endfor %}
+  </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Changing Table' or tag == 'Chest' or tag == 'Changing Top' or tag == "Crib 'N' Changer" or tag == 'Dresser' or tag == 'Double Dresser' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+   <input id="hideThisBox" data-group="{{collection.handle}}" name="type" type="checkbox" disabled="" selected="" value=""></input>
+   <h6>FEATURE:<span class="angle-down"></span></h6>
+   <div id="filterList" class="fadeIn">
+     {% for tag in collection.all_tags %}
+       {% if tag != '' and tag == 'Changing Top Included' or tag == "Changing Top Compatible" %}
+       <ul>
+         <li><input class="checkBox" data-group="{{collection.handle}}" name="feature"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+       </ul>
+       {% endif %}
+     {% endfor %}
+   </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $249' or tag == '$250 - $399' or tag == '$400 - $599' or tag == '$600+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}Nightstands{% endcomment %}
+{% if collection.handle == 'nightstands'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>BRAND:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Delta Children' or tag == "Simmons Kids"  or tag == "Serta"  %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="brand" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $199' or tag == '$200 - $249' or tag == '$250+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+
+{% comment %}Bookcases & Hutches{% endcomment %}
+{% if collection.handle == 'bookcase-and-hutches'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>BRAND:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Delta Children' or tag == "Simmons Kids"  or tag == "Serta"  %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="brand" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $149' or tag == '$150 - $299' or tag == '$300 - $499' or tag == '$500+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+
+{% comment %}STROLLERS FILTER{% endcomment %}
+{% if collection.handle == 'strollers'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>BRAND:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Delta Children' or tag == 'Simmons Kids' or tag == 'J is for Jeep® Brand' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="brand" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Umbrella' or tag == 'Car Seat Adapter' or tag == 'Double Stroller' or tag == 'Full-Size' or tag == 'Jogger' or tag == 'Light Weight' or tag == 'Umbrella' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FEATURE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Car Seat Compatible' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $24' or tag == '$25 - $99' or tag == '$100 - $249' or tag == '$250+' %}
+        <ul id="insertStrollerPriceFix">
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}Bassinets{% endcomment %}
+{% if collection.title == 'Bassinets & Sleepers'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>BRAND:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Delta Children' or tag == 'Simmons Kids' or tag == 'Serta' or tag == "Beautyrest®" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="brand" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Bassinets' or tag == 'Sleepers' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $49' or tag == '$50 - $149' or tag == '$150+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+
+{% comment %}TODDLER-BEDS{% endcomment %}
+{% if collection.handle == 'toddler-beds'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FINISH:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Print' or tag == "Solid Color" or tag == "Team Print" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CHARACTER:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Blaze and the Monster Machines' or tag == 'Cars' or tag == 'Doc McStuffins' or tag == 'Dora' or tag == 'Finding Dory' or tag == 'Frozen' or tag == "Hello Kitty" or tag == "How to Train Your Dragon" or tag == 'The Lion Guard' or tag == 'Little Mermaid' or tag == 'Mickey Mouse' or tag == 'Minnie Mouse' or tag == 'PAW Patrol' or tag == 'Peppa Pig' or tag == 'PJ Masks' or tag == "Disney Princess" or tag == 'Sesame Street' or tag == "Sofia the First" or tag == "Spider-Man" or tag == "SpongeBob" or tag == "Teenage Mutant Ninja Turtles"%}
+        <ul id="addCharToddBeds">
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="character" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+	<form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TEAM:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'NY Yankees' or tag == 'LA Dodgers' or tag == 'Boston Red Sox' or tag == 'Chicago Cubs' or tag == 'St. Louis Cardinals' or tag == 'Houston Astros' %}
+        <ul id="addCharToddBeds">
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="team" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $99' or tag == '$100 - $199' or tag == '$200 - $399' or tag == '$400+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+
+{% comment %}TWIN-BEDS{% endcomment %}
+{% if collection.handle == 'twin-beds'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FINISH:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Print' or tag == "Solid Color" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CHARACTER:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Avengers' or tag == 'Batman' or tag == 'Cars' or tag == 'DC Superhero Girls' or tag == 'Frozen' or tag == 'Justice League' or tag == 'Minnie Mouse' or tag == 'Disney Princess' or tag == 'Spider-Man' or tag == 'Star WARS' or tag == 'Teenage Mutant Ninja Turtles' or tag == 'Wonder Woman' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="character" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $199' or tag == '$200 - $349' or tag == '$350+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}TOY-STORAGE (listed in left-nav as Toy Organizers & Bookshelves){% endcomment %}
+{% if collection.handle == 'toy-storage'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Toy Box' or tag == "Toy Organizer" or tag == "Book Storage" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FINISH:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Print' or tag == 'Solid Color' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CHARACTER:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Avengers' or tag == 'Batman' or tag == 'Blaze and the Monster Machines' or tag == 'Cars' or tag == 'DC Superhero Girls' or tag == 'Doc McStuffins' or tag == 'Dora' or tag == "Elena of Avalor" or tag == 'Finding Dory' or tag == 'Frozen' or tag == "Hello Kitty" or tag == "How to Train Your Dragon" or tag == 'Justice League' or tag == 'The Lion Guard' or tag == 'Little Mermaid' or tag == 'Mickey Mouse' or tag == 'Minnie Mouse' or tag == 'PAW Patrol' or tag == 'Peppa Pig' or tag == 'PJ Masks' or tag == "Disney Princess" or tag == 'Sesame Street' or tag == "Sofia the First" or tag == "Spider-Man" or tag == 'Star WARS' or tag == 'SpongeBob' or tag == "Teenage Mutant Ninja Turtles" or tag == "Wonder Woman" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="character" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $24' or tag == '$25 - $49' or tag == '$50+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}TABLE-CHAIR-SETS (listed in left-nav as Tables & Chairs){% endcomment %}
+{% if collection.handle == 'table-chair-sets'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Table & Chair Set' or tag == "Single Chair" or tag == 'Desk' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FINISH:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Print' or tag == 'Solid Color' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CHARACTER:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Blaze and the Monster Machines' or tag == 'Cars' or tag == 'Doc McStuffins' or tag == 'Dora' or tag == 'Finding Dory' or tag == 'Frozen' or tag == "Hello Kitty" or tag == "How to Train Your Dragon" or tag == 'The Lion Guard' or tag == 'Little Mermaid' or tag == 'Mickey Mouse' or tag == 'Minnie Mouse' or tag == 'PAW Patrol' or tag == 'Peppa Pig' or tag == 'PJ Masks' or tag == "Disney Princess" or tag == 'Sesame Street' or tag == "Sofia the First" or tag == 'Star WARS' or tag == 'SpongeBob' or tag == "Teenage Mutant Ninja Turtles" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="character" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $49' or tag == '$50 - $99' or tag == '$100 - $199' or tag == '$200+' %}
+        <ul id="insertTableChairPriceFix">
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}Activity (listed in left-nav as Desks & Activity){% endcomment %}
+{% if collection.handle == 'activity'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Desk' or tag == "Easel" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FINISH:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Print' or tag == "Solid Color" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="finish"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CHARACTER:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Blaze and the Monster Machines' or tag == 'Cars' or tag == 'Doc McStuffins' or tag == 'Dora' or tag == 'Finding Dory' or tag == 'Frozen' or tag == "Hello Kitty" or tag == "How to Train Your Dragon" or tag == 'The Lion Guard' or tag == 'Little Mermaid' or tag == 'Mickey Mouse' or tag == 'Minnie Mouse' or tag == 'PAW Patrol' or tag == "Disney Princess" or tag == 'Sesame Street' or tag == "Sofia the First" or tag == 'Star WARS' or tag == 'SpongeBob' or tag == "Teenage Mutant Ninja Turtles" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="character" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $49' or tag == '$50+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}KIDS-SEATING{% endcomment %}
+{% if collection.handle == 'kids-seating'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Chair' or tag == "Sofa" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FINISH:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Character Print' or tag == 'Solid Color' or tag == 'Team Print' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CHARACTER:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Batman' or tag == 'Blaze and the Monster Machines' or tag == 'DC Superhero Girls' or tag == 'Cars' or tag == 'Doc McStuffins' or tag == 'Dora' or tag == 'Elena of Avalor' or tag == 'Finding Dory' or tag == 'Frozen' or tag == "Hello Kitty" or tag == "How to Train Your Dragon" or tag == 'Justice League' or tag == 'The Lion Guard' or tag == 'Little Mermaid' or tag == 'Mickey Mouse' or tag == 'Minnie Mouse' or tag == 'PAW Patrol' or tag == 'PJ Masks' or tag == 'Peppa Pig' or tag == "Disney Princess" or tag == 'Sesame Street' or tag == "Sofia the First" or tag == 'Star WARS' or tag == 'SpongeBob' or tag == "Teenage Mutant Ninja Turtles" or tag == 'Wonder Woman' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="character" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+	<form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TEAM:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'NY Yankees' or tag == 'LA Dodgers' or tag == 'Boston Red Sox' or tag == 'Chicago Cubs' or tag == 'St. Louis Cardinals' or tag == 'Houston Astros' %}
+        <ul id="addCharToddBeds">
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="team" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $49' or tag == '$50+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}SERTA MATTRESSES {% endcomment %}
+<!-- {% if collection.handle == 'serta-mattresses'%} -->
+<!-- {% assign collection = collections[{{collection.handle}}] %} -->
+   <!-- <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>BRAND:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Delta Children' or tag == "Simmons Kids" or tag == 'J is for Jeep® Brand' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="brand"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form> -->
+  <!-- <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FEATURE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Natural' or tag == 'Additional Toddler Side' or tag == 'Vinyl Cover' or tag == 'Fabric Cover' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="core" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CORE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Soy Enhanced Foam' or tag == 'Soy Foam Core' or tag == 'Open Coil Core' or tag == 'Polyester Fiber Core' or tag == 'Pocketed Coils' or tag == 'PE Core' or tag == "Natural Coconut Core" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="core" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $49' or tag == '$50+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %} -->
+
+{% comment %}SIMMONS MATTRESSES (listed in left-nav as Beautyrest Mattresses){% endcomment %}
+{% if collection.handle == 'simmons-mattresses'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <!-- <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>BRAND:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Delta Children' or tag == "Simmons Kids" or tag == 'J is for Jeep® Brand' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="brand"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form> -->
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>FEATURE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Natural' or tag == 'Additional Toddler Side' or tag == 'Vinyl Cover' or tag = "Fabric Cover"  %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="feature" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>CORE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Soy Enhanced Foam' or tag == 'Soy Foam Core' or tag == 'Open Coil Core' or tag == 'Polyester Fiber Core' or tag == 'Pocketed Coils' or tag == 'PE Core' or tag == "Natural Coconut Core" %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="core" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $49' or tag == '$50+' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}STORAGE-DECOR{% endcomment %}
+{% if collection.handle == 'storage-decor'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Area Rugs' or tag == 'Decor' or tag == "Bins & Boxes" or tag == 'Hangers' or tag == 'Organizers' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6>PRICE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == '$0 - $24' or tag == '$25+'  %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="price" type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+{% endif %}
+
+{% comment %}SHOP NOW{% endcomment %}
+{% if collection.handle == 'shop-now'%}
+{% assign collection = collections[{{collection.handle}}] %}
+   <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6 style="width: 146px;">PRODUCT TYPE:<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn" style="width: 146px;">
+      {% for tag in collection.all_tags %}
+        {% if tag != '' and tag == 'Toddler Beds' or tag == "Twin Beds" or tag == 'Toy Storage' or tag == 'Table and Chair Sets' or tag == "Kids' Seating" or tag == 'Guardrails' or tag == 'Full Size Bed Rails' or tag == 'Platform Bed Kits' or tag == 'Hangers'  or tag == 'Strollers' or tag == 'Bassinets' or tag == 'Play Yards' or tag == 'Mattresses' or tag == 'Baby Monitors' %}
+        <ul>
+          <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+{% endif %}
+
+{% if collection.handle == 'value' or collection.handle == 'natural' or collection.handle == 'luxury'%}
+{% assign collection = collections[{{collection.handle}}] %}
+  <form class="js-collection-filter" data-collection="{{collection.id}}">
+    <input id="hideThisBox" data-group="{{collection.handle}}" type="checkbox" disabled="" selected="" value=""></input>
+    <h6 style="width: 146px;">MATERIAL<span class="angle-down"></span></h6>
+    <div id="filterList" class="fadeIn" style="width: 146px;">
+      {% for tag in collection.all_tags %}
+        {% if collection.handle == 'luxury' and tag != '' and tag == 'Innerspring-Coils' or tag == 'Soy-Enhanced-Foam' or tag == 'Pocketed-Coils' or tag == 'Soy-Enhanced-Edge-Support'%}
+          <ul>
+            <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+          </ul>
+        {% elsif collection.handle == 'natural' and tag != '' and tag == 'Soy-Enhanced-Foam' or tag == 'Pocketed-Coils' or tag == 'Innerspring-Coils' or tag == 'Coconut-Core'%}
+          <ul>
+            <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+          </ul>
+        {% elsif collection.handle == 'value' and tag != '' and tag == 'Thermo-Bonded-Polyester' or tag == 'Foam-Core' or tag == 'Innerspring-Coils'%}
+          <ul>
+            <li><input class="checkBox" data-group="{{collection.handle}}" name="type"  type="checkbox" value="{{ tag }}"><div class="checkBoxText"> {{ tag }}</div></input></li>
+          </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </form>
+{% endif %}
+
+
+
+<script>
+
+ // define filterList globally to a string to account for undefined error thrown on pages with no filters
+var filterList = "";
+
+ // funtionality for filter Titles triggering dropdown menu
+$(document).ready(function() {
+
+  var h6 = $('h6');
+
+  for (var i = 0; i < h6.length; i++) {
+
+    var click = h6[i]
+
+    $(click).click(function(e) {
+      e.stopPropagation();
+
+      var h6Parent = $(this).parent();
+
+      filterList = $('#filterList', h6Parent);
+      var fadeIn = $('.fadeIn', h6Parent);
+
+      // if ( $(filterList).css('opacity') == '0' ) {
+      //    $(fadeIn).css('opacity','1');
+      // } else  {
+      //    $(filterList).css('opacity','0');
+      // }
+
+      if ( $(filterList).css('display') == 'none' ) {
+         $(fadeIn).css('display','block');
+      } else  {
+         $(filterList).css('display','none');
+      }
+
+    });
+
+  }
+
+
+     // if click anywhere on page but filters or sort, close filter list (if open)
+  $('body').click(function(evt){
+
+    if (!$(evt.target).is('.checkBox') && !$(evt.target).is('#sort-by') && !$(evt.target).is('.checkBoxText')) {
+
+      $('.fadeIn').css('display', 'none');
+
+    }
+
+  });
+
+});
+
+</script>

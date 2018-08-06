@@ -26,7 +26,7 @@ assets/grey-026.png:
 assets/header-footer-popup.js:
   development: 2018-07-31T17:58:38-04:00   a3dc125e22f3688aadbd83f34046e05b
 assets/home.css:
-  development: 2018-08-03T16:20:54-04:00   6af949aadad619b3e36856dd9e41fe59
+  development: 2018-08-06T11:55:55-04:00   018fefc2238acd523371bfe5c7c294fb
 assets/home.js:
   development: 2018-08-03T14:58:45-04:00   ed147526d2b890518cc3ee05b32d8e71
 assets/icomoon.eot:
@@ -59,12 +59,14 @@ assets/product.css:
   development: 2018-07-19T13:34:23-04:00   f6ad662ed3071e4508c56f3ec8b7d4d0
 assets/product.js:
   development: 2018-07-19T13:34:23-04:00   3d56381ae6f301a57ee1166d20fd3198
+assets/product_filter.js:
+  development: 2018-08-03T17:55:18-04:00   dd934c3aa977e21cba808fb153ce6ff2
 assets/script.js.liquid:
   development: 2018-08-01T11:59:33-04:00   c1961f1e31b1aa0130c9411714a09f8d
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-08-03T15:32:54-04:00   9c383754a92f9244456622b6f244c180
+  development: 2018-08-06T10:40:53-04:00   d5b3dee5d8b32003d079a17bdd3c0e8c
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -94,9 +96,9 @@ sections/featured-product.liquid:
 sections/featured-video.liquid:
   development: 2018-07-19T13:34:17-04:00   0497ac873e6982a046a4583e32dc6816
 sections/footer.liquid:
-  development: 2018-07-31T17:06:52-04:00   a6acb2895957dc6d22fdbe7b76df8ff1
+  development: 2018-08-06T11:29:54-04:00   1f0670f3d5d0bba258426d4695b96c7e
 sections/header.liquid:
-  development: 2018-08-01T15:50:36-04:00   6c17f70da05e00c1732a6f04a3087033
+  development: 2018-08-06T10:26:45-04:00   148165062cb1d71db13814b8c2f9ce0b
 sections/home-slideshow.liquid:
   development: 2018-08-03T16:26:56-04:00   a049037fdacb01a77535cd579850f356
 sections/instagram-feed.liquid:
@@ -135,6 +137,8 @@ snippets/collection-item.liquid:
   development: 2018-07-19T13:34:24-04:00   d306029218f5a37bfe86881969d49782
 snippets/currency-selector.liquid:
   development: 2018-07-19T13:34:24-04:00   54a1e591c57af78fb514087231ee20e6
+snippets/custom_filter.liquid:
+  development: 2018-08-03T17:57:14-04:00   1c70ec0650cfb0f051faaadf3d29f709
 snippets/form-errors.liquid:
   development: 2018-07-19T13:34:25-04:00   517f9f4cb97dfc183b1d5ec59afc8688
 snippets/google-fonts.liquid:
@@ -183,6 +187,8 @@ snippets/product-item.liquid:
   development: 2018-07-19T13:34:25-04:00   b663c57155afda271106e3f787583630
 snippets/product-meta.liquid:
   development: 2018-07-19T13:34:25-04:00   38353fa684da05365d443f2ac427a4d1
+snippets/product-small.liquid:
+  development: 2018-08-03T17:54:25-04:00   a50dca73d36b7cb49c2025b7e20beea0
 snippets/product-tabs.liquid:
   development: 2018-07-19T13:34:25-04:00   0d7be8c58207e9584155cc2ba4dfc37e
 snippets/seo-collections.liquid:
@@ -217,6 +223,10 @@ templates/cart.mini-cart.liquid:
   development: 2018-07-19T13:34:26-04:00   58536b1046229725b3ec330989d0de79
 templates/collection.liquid:
   development: 2018-07-19T13:34:26-04:00   a9dc33a7b955e471996965f0ddd41b2e
+templates/collection.shop-now.liquid:
+  development: 2018-08-03T17:53:20-04:00   6ebfd2d3424212a48f9cd7c03dc14ea7
+templates/collection.test.liquid:
+  development: 2018-08-03T17:52:39-04:00   fef189e321a14e02a197decd7438d845
 templates/customers/account.liquid:
   development: 2018-07-19T14:40:44-04:00   45893842e1fb7c545212fe88324db094
 templates/customers/activate_account.liquid:

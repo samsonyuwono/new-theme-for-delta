@@ -423,6 +423,7 @@ $retina:           "screen and (-webkit-min-device-pixel-ratio: 2), screen and (
   padding: 0;
   margin: 0 0 0 -25px;
   font-size: 0;
+
 }
 
 .grid__cell {
@@ -5320,10 +5321,10 @@ select::-ms-expand {
   background-color: #73A3EA;
   padding-top: 13px;
   padding-bottom: 5px;
-  // position: fixed;
-  top: 21px;
+  position: fixed;
+  /* top: 21px; */
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 #dc-header-container{
@@ -5884,7 +5885,7 @@ select::-ms-expand {
 
 /*navbar SY styles*/
 .header--init {
-  padding-top: 5px;
+  padding-top: 1px;
   background-color: #73A3EA !important;
   line-height: 1.5em;
 }
@@ -5904,7 +5905,8 @@ ul.header__links { //nav bar absolute
   border-top: 2px solid #003a70;
   border-bottom: 2px solid #003a70;
   background-color: white;
-  top: 89px;
+  top: 83px;
+  /* top: 89px; for when header is fixed */
 }
 
 @media screen and (max-width: 1024px) and (min-width: 640px) {

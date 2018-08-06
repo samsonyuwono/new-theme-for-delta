@@ -53,6 +53,7 @@
     font-size: 0;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 85px; /*for sticky header */
 }
 
 @media screen and (max-width: 1024px){
@@ -470,7 +471,7 @@ p, p.lead {
 
 /*coped SY Module 4*/
 #module_4{
-  margin-top: -38px;
+  margin-top: -50px;
   padding-bottom: 85px;
   width: 100%;
 }
@@ -885,6 +886,7 @@ p, p.lead {
     min-height: 320px;
     top: 23%;
     left: 8%;
+    z-index: 0;
     /* bottom: 81px; */
     /*top: 2vw;*/
   }
@@ -1363,11 +1365,12 @@ p, p.lead {
 }
 
 #module_10{
-  margin-top: 0;
+  margin-top: -540px;
   padding-top: 0;
   bottom: 10px;
   background-color: #74CBE4;
-  width: 100%
+  width: 100%;
+  z-index: 0;
 }
 
 #module_10 #eapps-instagram-feed-1 .eapps-instagram-feed-posts-slider-nav{
@@ -1380,6 +1383,18 @@ p, p.lead {
     text-align: center;
     height: 0%;
   }
+
+  @media screen and (min-width: 1301px){
+    #module_10{
+    margin-top: -622px;
+  }
+}
+
+@media screen and (min-width: 2001px){
+  #module_10{
+  margin-top: -811px;
+}
+}
 
 
 

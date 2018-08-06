@@ -1,0 +1,142 @@
+{% if settings.collection_image_height != "0" %}
+  {% assign card_class = 'fixed-image-height' %}
+{% else %}
+  {% assign card_class = '' %}
+{% endif %}
+
+<div class="product card {{ card_class }}">
+
+  <!-- adds schema.org markup for products based on PAth Recomendation 8/17 -->
+  <article itemscope itemtype="http://schema.org/Product" class="hproduct product-{{product.id}} {{product.handle}}" data-url="{{ product.url }}" data-variant-count="{{product.variants.size }}">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.selected_or_first_available_variant.url }}" />
+    <meta itemprop="image" content="https:{{ variant.image.src | img_url: 'medium' }}" />
+
+    <div class="image-wrap" id="{{collection.title}}">
+      <div class="image">
+
+
+    	  {%if collection.handle == "storage-decor" or collection.handle == "toddler-beds" or collection.handle == "twin-beds" or collection.handle == "toy-storage" or collection.handle == "table-chair-sets" or collection.handle == "activity" or collection.handle == 'twin-mattresses' or collection.handle == 'full-mattresses' %}
+        	          {%if collection.handle == 'twin-mattresses' or collection.handle == 'full-mattresses' %}
+        					    {%for variant in product.variants limit:1 %}
+
+        				 <a href="{{ variant.url }}" title="{{ product.title }}"><img src="{{ variant.image.src | img_url: 'medium' }}" /></a>
+        						{%endfor%}
+        				{%else%}
+
+
+
+        <!-- displays all variants on collection page - dh-edit 4/6/17 -->
+          <a href="{{ variant.url }}" title="{{ product.title }}"><img src="{{ variant.image.src | img_url: 'medium' }}" /></a>
+        	{%endif%}
+        {%else%}
+          <a class="varRedirect" href="{{ product.url }}" title="{{ product.title }}"><div class="image-helper"></div><img class="prodImgCollPage" src="{{ product.images.first | product_img_url: 'large' }}" alt="{{ product.title }}" /></a>
+        {%endif%}
+      </div>
+      <!-- for Swatchify app -->
+       {% if collection.handle == "gliders" or collection.handle == "cribs" or collection.handle == "dressers-and-changers" or collection.handle == "nightstands" or collection.handle == "bookcase-and-hutches" %}
+
+        {% include "panda-swatch" %}
+      {% endif %}
+    </div>
+
+    <div class="details">
+
+      <header>
+        <h2>
+          <a href="{{ product.url }}" title="{{ product.title }}">
+            <span itemprop="name" class="name">{{ product.title }}</span>
+          </a>
+        </h2>
+      </header>
+
+      {% if settings.collection_display_vendor? %}
+      <span class="brand">{{ product.vendor }}</span>
+      {% endif %}
+
+      {% if settings.collection_display_price? %}
+      {% include 'product-price' %}
+      {% endif %}
+
+      {% if settings.collection_display_actions? %}
+      <div class="actions">
+        {% if product.available %}
+
+        <form method="post" action="/cart/add">
+
+        {% if settings.collection_display_variant_selector? %}
+
+          <select name='id' class="product-select option-selector">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+              <option value="{{ variant.id }}">
+              {{ product.title }} - {{ product.price | money }}
+              </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+        {% else %}
+
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              {% assign available_variant_id = variant.id %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          <input type="hidden" name="id" value="{{ available_variant_id }}" />
+
+        {% endif %}
+
+          <button class="add-to-cart button small" type="submit">{{ 'products.add_to_cart' | t }}</button>
+        </form>
+
+        {% else %}
+        <a href="#" class="button small disabled"></a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if settings.collection_display_sale? %}
+      {% if product.compare_at_price_max > product.price %}
+      <span class="sticker">
+        {{ 'collections.collection.sticker' | t }}
+      </span>
+      {% endif %}
+      {% endif %}
+
+      {% if product.type != "Discontinued" %}
+      {% if product.compare_at_price_max > product.price %}
+      <div class="compare-prod-price" style="text-decoration: line-through;">
+        {{product.compare_at_price | money}}
+      </div>
+      <div class="prod-price" style="color:red;">
+        {{product.price | money}}
+      </div>
+      {%else%}
+
+      <!-- dh-eidt - changes price on collection page to the price of the variant, not the product.price_min -->
+      <span itemscope itemtype="http://schema.org/PriceSpecification">
+        <span itemprop="priceCurrency" content="USD"></span>
+        <div itemprop="price" class="prod-price">
+          {{product.price | money}}
+        </div>
+        {%endif%}
+
+      {% endif %}
+
+    </div>
+
+
+
+  </article>
+
+</div>
+
+
+
+<script>
+
+
+
+</script>
