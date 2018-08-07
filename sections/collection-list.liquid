@@ -1,0 +1,107 @@
+<section class="section section-{{ section.id }}">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="list-collections grid grid--large grid--center" data-slides-count="{{ section.blocks.size }}">
+      {%- assign grid_items_per_row = section.settings.grid_items_per_row -%}
+
+      {%- for block in section.blocks -%}
+        {%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%}
+
+        {%- assign collection = collections[block.settings.collection] -%}
+
+        {%- unless collection.empty? -%}
+          <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+            {%- include 'collection-item', collection: collection, grid_items_per_row: grid_items_per_row, show_description: section.settings.show_description -%}
+          </div>
+        {%- else -%}
+          <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+            <a class="collection-item">
+              <div class="collection-item__placeholder">
+                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+
+              <div class="collection-item__info">
+                <h3 class="collection-item__title h4">{{ 'home_page.onboarding.collection_title' | t }}</h3>
+
+                <div class="collection-item__bottom">
+                  {%- if section.settings.show_description -%}
+                    <p class="collection-item__description">{{ 'home_page.onboarding.collection_description' | t }}</p>
+                  {%- endif -%}
+
+                  <button class="collection-item__button button">{{ 'home_page.onboarding.collection_see_more' | t }}</button>
+                </div>
+              </div>
+            </a>
+          </div>
+        {%- endunless -%}
+      {%- else -%}
+
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "class": "shopify-section__collection-list",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection list"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show collections' description excerpt",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "grid_items_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Collections per row (desktop)",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Collection",
+      "name": "Collection list",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
