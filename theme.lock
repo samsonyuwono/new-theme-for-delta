@@ -66,7 +66,7 @@ assets/script.js.liquid:
 assets/superfields_definitions.json:
   development: 2018-07-19T13:34:23-04:00   be1a459e7dd646ad0af6c1b37ec3fbb7
 assets/theme.scss.liquid:
-  development: 2018-08-07T09:54:15-04:00   a938af4c544b6fdd83aa4ad37486df25
+  development: 2018-08-07T15:43:53-04:00   2a4415113b16e41063a7e276becdd479
 assets/variantSkuInfo.js:
   development: 2018-07-19T13:34:24-04:00   41e5cfcacef99e6bd20952be5c54be2b
 config/settings_data.json:
@@ -129,8 +129,6 @@ snippets/branding.liquid:
   development: 2018-07-24T18:02:41-04:00   47b406322658b0c4642f4f8574dd748f
 snippets/bundle-links.liquid:
   development: 2018-07-19T13:34:24-04:00   18b0e7a8c845943022883714d5a3ff3c
-snippets/collection-filter.liquid:
-  development: 2018-07-19T13:34:24-04:00
 snippets/collection-filters.liquid:
   development: 2018-07-19T13:34:24-04:00   9c09c06619858e19fc9a27e14f0a210e
 snippets/collection-item.liquid:
@@ -222,11 +220,9 @@ templates/cart.liquid:
 templates/cart.mini-cart.liquid:
   development: 2018-07-19T13:34:26-04:00   58536b1046229725b3ec330989d0de79
 templates/collection.liquid:
-  development: 2018-07-19T13:34:26-04:00   a9dc33a7b955e471996965f0ddd41b2e
+  development: 2018-08-07T15:42:44-04:00   034c451ba6a62f5a53975ef0b2fce124
 templates/collection.shop-now.liquid:
   development: 2018-08-03T17:53:20-04:00   6ebfd2d3424212a48f9cd7c03dc14ea7
-templates/collection.test.liquid:
-  development: 2018-08-03T17:52:39-04:00   fef189e321a14e02a197decd7438d845
 templates/customers/account.liquid:
   development: 2018-07-19T14:40:44-04:00   45893842e1fb7c545212fe88324db094
 templates/customers/activate_account.liquid:

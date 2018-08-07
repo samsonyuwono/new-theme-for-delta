@@ -1,0 +1,192 @@
+/*Custom styling for product pages, organzied from top of page to bottom*/
+
+/*Global Styles*/
+@font-face{
+  font-family: 'Gotham Bold';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-bold.otf');
+}
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Black.otf');
+}
+@font-face{
+  font-family: 'Gotham Book';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
+}
+@font-face{
+  font-family: 'Gotham Medium';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-medium.otf');
+}
+@font-face{
+  font-family: 'Gotham Ultra';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/GothamUltranew.otf');
+}
+@font-face{
+  font-family: 'Gotham Extra Light';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_ExtraLight.otf');
+}
+@font-face{
+  font-family: 'Gotham Light';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Light_1.otf');
+}
+@font-face{
+  font-family: 'Futura Bold';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/futura.otf');
+}
+@font-face{
+  font-family: 'Helvetica Medium Condensed';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/helvetica-neue-lt-std-67-medium-condensed.otf?9943094632125790425')
+}
+@font-face{
+  font-family: 'Sun Valley';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/sun_valley-webfont.woff')
+}
+
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-bold{
+  font-family: 'Gotham Bold';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.ultra{
+  font-family: 'Gotham Ultra';
+}
+.gotham-book{
+  font-family: 'Gotham Book';
+}
+.gotham-e-light{
+  font-family: 'Gotham Extra Light';
+}
+.gotham-light{
+  font-family: 'Gotham Light';
+}
+.light-blue{
+  color: #407cbe !important;
+}
+.dark-blue{
+  color: #1a3d6e !important;
+}
+.dark-grey{
+  color: #606b82;
+}
+.light-grey{
+  color: #8e8e8e;
+}
+.darker-grey{
+  color: #58595b;
+}
+.lighter-blue{
+  color: #90B3D9 !important;
+}
+.white{
+  color: white;
+}
+
+.collection.page__content-wrapper{
+  background-color: white;
+}
+
+.product-item__info .product-item__vendor{
+  font-family: 'Gotham Medium';
+  color: #acacac;
+  font-size: 65%;
+  text-transform: initial;
+  letter-spacing: 1.5px;
+}
+
+.product-item__info .product-item__title{
+  font-family: 'Gotham Black';
+  color: #8daadb;
+  font-size: 85%;
+  text-transform: initial;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+.product-item__info .product-item__title a:hover{
+  color: #213e6c;
+}
+
+
+.product-item__info .product-item__price{
+  font-family: 'Gotham Book';
+  color: #555555;
+  font-size: 80%;
+}
+
+.product-item .product-item__image-wrapper{
+  max-width: 100% !important;
+}
+.product-item .product-item__labels{
+  font-family: 'Gotham Book';
+  text-transform: initial;
+}
+
+#crib-paragraph{
+  font-family: 'Gotham Book';
+  background-color: #8daadb;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 90%;
+}
+#jeep-paragraph{
+  font-family: 'Gotham Book';
+  background-color: #8daadb;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 90%;
+}
+
+@media only screen and (max-width: 800px){
+  .collection .container{
+    padding: 0;
+  }
+
+  .collection.page__content-wrapper{
+    padding-top: 0;
+  }
+  .collection__top .collection__image{
+    display: none;
+  }
+  .collection__top.accent-overlay{
+    background-color: #496191 !important;
+    min-height: auto;
+  }
+  .collection__top .collection__info{
+    padding-top: 15px;
+    padding-bottom: 0;
+  }
+  .collection__title.h1{
+    font-family: 'Gotham Medium';
+    /*text-transform: inherit;*/
+  }
+
+
+}
+
+
+@media only screen and (max-width: 558px){
+.collection.page__content-wrapper .grid__cell{
+  width: 50%;
+}
+.product-item__info{
+  padding-left: 0;
+  padding-right: 0;
+}
+.collection__title.h1{
+  font-size: 1.2rem;
+}
+.header__logo.header__logo--image{
+  margin-left: 65px;
+}
+#crib-paragraph{
+  font-size: 80%;
+}
+#jeep-paragraph{
+  font-size: 80%;
+}
+}

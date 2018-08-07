@@ -1,0 +1,196 @@
+#hideThisBox {
+  display: none;
+}
+#crib-paragraph{
+  padding-top: 50px;
+  color:#1a3d6e !important;
+}
+/*for overlap of filters*/
+ul#collectionGrid{
+  position: relative;
+  top: -50px;
+  padding-bottom: 90px;
+}
+#filtersWrap{
+  position: relative;
+  padding-bottom: 20px;
+  background-color: white;
+}
+#filtersWrap h3{
+  margin-bottom: 0;
+}
+#collectionGrid .details{
+ margin-top: 15px !important;
+}
+
+#mainFilterContainer {
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  right: 20px;
+  left: 10px;
+}
+
+.js-collection-filter{
+  padding: 2%;
+  /*width: auto;*/
+  height: 100%;
+}
+
+form.js-collection-filter h6 {
+  background-color: lightgray;
+  padding-left: 5px;
+  width: 140px;
+}
+
+form h6  .angle-down:after {
+content: '\f107';
+font-family: FontAwesome;
+font-weight: normal;
+font-style: normal;
+text-decoration:none;
+float: right !important;
+padding-left: 10px;
+padding-top: 2px;
+margin-right: 2px;
+}
+
+#filterList{
+  /*opacity: 0;*/
+  display: none;
+  border-top: none;
+  position: relative;
+  border: 1px solid darkgray;
+  bottom: 17px;
+  padding-top: 15px;
+  height: auto;
+  width: 140px;
+  z-index: 9999;
+  background-color: white;
+  transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -webkit-transition: opacity .4s ease-in-out;
+}
+
+#filterList ul {
+  margin-bottom: 0;
+}
+
+#filterList li {
+  list-style: none !important;
+  position: relative;
+  /* right: 17px; */
+  padding-left: 5px;
+}
+
+#filterList li input {
+  float: left;
+}
+
+.checkBoxText {
+  overflow: hidden;
+  padding: 0px 0px 0px 5px;
+  position: relative;
+  bottom: 5px;
+}
+
+
+.fadeIn {
+  /*opacity: 1;*/
+  display: block;
+  border-top: none;
+  position: relative;
+  border: 1px solid darkgray;
+  bottom: 17px;
+  height: auto;
+  z-index: 99999;
+  background-color: white;
+  transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -webkit-transition: opacity .4s ease-in-out;
+  padding-bottom: -10px;
+}
+
+div#sort {
+  margin-left: auto;
+  position: relative;
+  bottom: 21px;
+}
+
+.checkBox {
+  margin: 0px 0 !important;
+}
+
+  #append {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -10px;
+	margin-top: -10px;
+ }
+
+ .filteredProduct {
+   float: left;
+ 	flex: 1 0 calc(20% - 10px);
+   box-sizing: border-box;
+   padding: 10px;
+ 	margin-left: 10px;
+ 	margin-top: 10px;
+   position: relative;
+   top: -50px;
+  }
+
+  #imageHB {
+    width: 172.76px;
+    /*height: 123.42px;*/
+  }
+
+div#noFilterMainContainer.products.cards{
+  z-index: 0;
+}
+.details{
+ padding-top: 0 !important;
+}
+.prod-price{
+  display: block;
+}
+
+/*SWATCH RELATED*/
+.swatchAreaContainer {
+ padding-top: 10px;
+}
+
+@media screen and (min-width: 641px) {
+
+  .cards .card.fixed-image-height .image{
+    height: auto!important;
+  }
+  .detailsHB{
+    width: 100%;
+    /*padding-top: 10px;*/
+  }
+}
+
+/*end overlap styling*/
+
+ul#append {
+  padding-top: 10%;
+  background-color: white;
+}
+
+/*for iPads, etc. */
+@media screen and (max-width: 1024px) and (min-width: 641px) {
+  #filtersWrap{
+    padding-bottom: 80px;
+  }
+  #filterList{
+    width: auto;
+  }
+  form h6{
+    width: auto;
+  }
+}
+
+ul {
+list-style-type: none;
+}
