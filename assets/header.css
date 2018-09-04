@@ -19,15 +19,6 @@
  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
 }
 @font-face{
- font-family: 'Cartoonist Kooky';
- src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
-}
-@font-face{
- font-family: 'Gotham-Book';
- src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
-}
-
-@font-face{
  font-family: 'Century Gothic Bold';
  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
 }
@@ -95,7 +86,7 @@
   #brand-primary-image img{
     width: 92px;
     position: relative;
-    top: -6px;
+    top: 0;
   }
 
   #dc-header-container .brand-cart-search{
@@ -210,9 +201,9 @@
 
     }
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1300px){
       .table {
-        margin-left: 10%;
+        margin-left: 7%;
         width: 144% !important;
       }
 
@@ -225,11 +216,11 @@
       }
 
       #header-actions .search #header-search input.search-query {
-        width: 355px !important;
+        width: 92% !important;
       }
 
       #header-actions .divider{
-        padding: 3px;
+        padding: 3px !important;
       }
     }
 
@@ -245,17 +236,6 @@
     #site-header .top-bar-section .nav-item>a{
       padding-left: 10px;
       padding-right: 10px !important;
-    }
-  }
-  @media screen and (max-width: 1024px) and (min-width: 640px) {
-    #site-header .top-bar-section{
-      padding-top: 0;
-    }
-    #site-header ul.right{
-      top: 1px !important;
-    }
-    #header-actions .brand-cart-search{
-      width: 42% !important;
     }
   }
 
@@ -282,8 +262,6 @@
 }
 
 .header__link a {
-  // margin-left: 24px;
-  // margin-right: 10px;
   padding-right: 22px;
   padding-left: 22px;
 }
@@ -324,10 +302,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-  #dc-header-container .brand-cart-search .table{
-    text-align: right;
-  }
-
   #header-actions .ship-container h6{
     color: #73A3EA;
     margin-left: 6%;
@@ -360,11 +334,6 @@
   #header-actions .search{
     display: inline-block;
     margin-top: 2px;
-  }
-
-  #header-actions .search #header-search{
-    float: none;
-    width: 365px;
   }
 
   #header-actions .search #header-search form i.fa-search{
@@ -407,7 +376,43 @@
       padding-right: 10px !important;
     }
   }
-  @media screen and (max-width: 1024px) and (min-width: 640px) {
+  @media screen and (max-width: 1024px){
+    .table {
+      margin-left: -8%;
+      width: 167% !important
+    }
+
+    #header-actions .ship-container h6{
+      margin-left: 5% !important;
+    }
+
+    #header-actions .cell:first-of-type{
+      display: inline-block;
+    }
+    #header-actions .ship-container{
+      width: 37% !important;
+    }
+
+    #header-actions .search #header-search input.search-query {
+      width: 83% !important;
+    }
+
+    #header-actions .ship-container h6 #free-gift-click {
+      font-size: 14px;
+    }
+
+    #header-actions .ship-container h6 #free-gift-click span{
+      font-size: 14px;
+    }
+
+    #header-actions .sign-cart a {
+      font-size: 14px;
+    }
+
+    #header-actions .divider {
+      padding: 0;
+    }
+
     #site-header .top-bar-section{
       padding-top: 0;
     }
@@ -415,8 +420,6 @@
       top: 1px !important;
     }
 
-  }
-  @media screen and (max-width: 1024px) and (min-width: 640px) {
     #site-header ul.right{
       top: 3px;
     }
@@ -425,36 +428,6 @@
       padding-left: 3px;
       padding-right: 3px !important;
     }
-    #header-actions .cell:first-of-type{
-      display: inline-block;
-    }
-    #header-actions .ship-container{
-      width: 52% !important;
-    }
-
-    #header-actions .ship-container h6{
-      padding-left: 0px;
-    }
-    #header-actions .ship-container h6 #free-gift-click{
-      font-size: 83%;
-    }
-    #header-actions .sign-cart{
-      font-size: 48% !important;
-    }
-    /* // #header-actions .search #header-search{
-    //   width: 345px;
-    // } */
-    #header-actions .search #header-search form.form-search{
-      width: 40%;
-      right: 37px
-    }
-    #header-actions .search #header-search input.search-query{
-      width: 230% !important;
-    }
-
-    #header-actions .sign-cart a {
-      font-size: 169%;
-    }
 
     #site-header .top-bar{
       margin-top: 0;
@@ -462,29 +435,25 @@
     }
   }
 
-  /*for responsiveness <1024px SY */
-  @media screen and (max-width: 1024px) and (min-width: 895px){
-    #header-actions .ship-container h6 #free-gift-click{
-      font-size: 95%;
+  @media screen and (max-width: 850px) {
+    #header-actions .ship-container {
+      width: 41% !important;
+    }
+
+    .table {
+    margin-left: -32%;
+    width: 182% !important;
     }
   }
 
-  @media screen and (max-width: 790px) and (min-width: 640px){
+  /*for responsiveness <1024px SY */
 
-    #header-actions .ship-container h6 #free-gift-click{
-      font-size: 74% !important;
-    }
+  @media screen and (max-width: 790px) and (min-width: 640px){
 
     .wrapper a {
       font-size: 144%;
     }
 
-    #header-actions .ship-container h6{
-      padding-left: 0px;
-    }
-    #header-actions .search #header-search input.search-query{
-      width: 189% !important;
-    }
   }
 
   /*end painful responsiveness*/
@@ -499,14 +468,14 @@
     }
   }
   @media screen and (min-width: 642px){
-  #brand-primary-image {
+  /* #brand-primary-image {
     position: absolute;
     top: 0px;
     z-index: 2;
     width: 20%;
     left: 40%;
     text-align: center;
-  }
+  } */
 }
 
 @media only screen and (min-width: 64.063em){

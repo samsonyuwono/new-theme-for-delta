@@ -1,0 +1,404 @@
+/*This stylesheet applies to the Mattress Landing page*/
+
+/* ------ Font Face ----- */
+@font-face{
+  font-family: 'Montserrat SemiBold';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/Montserrat_SemiBold.otf?12350108609126995874');
+}
+@font-face{
+  font-family: 'Montserrat Light';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/Montserrat_Light.otf?12350108609126995874');
+}
+@font-face{
+  font-family: 'Montserrat Bold';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/Montserrat_Bold.otf?12350108609126995874');
+}
+@font-face{
+  font-family: 'Montserrat Black';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/Montserrat_Black.otf?12350108609126995874');
+}
+@font-face{
+  font-family: 'Kabel Itc Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/KabelItcT_Medium?13731186704223552861');
+}
+
+/* ------ Brands (Beautyrest, Serta, Delta) ----- */
+.move-up{
+  top: -60px;
+  position: relative
+}
+#header-image div{
+  width:100%;
+  text-align: center
+}
+#header-image img{
+  max-width: 85%;
+}
+#brands{
+  text-align: center
+}
+#brand-names{
+  margin: 0 5% 0 5%;
+  font-size: 25px;
+  font-family: 'Montserrat Light';
+  color: #164271 !important;
+  text-align: center;
+  line-height: 120%
+}
+#brand-names span{
+  font-family:'Montserrat Semibold';
+}
+.brand-logos{
+  width: 30%;
+  height: 150px;
+  vertical-align: middle;
+  display: inline-flex;
+  flex-direction: column;
+}
+.brand-logos img{
+  margin:auto;
+  display: block;
+  max-width:70%
+}
+.brand-logos a{
+  display: block;
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 12px;
+  color: #404141 !important;
+
+}
+.brand-logos a::after{
+  content: "▶";
+  position: relative;
+  left: 5%;
+  width: 0;
+  height: 0;
+}
+
+/* ------ Certifies Section ----- */
+#certified{
+  height: 215px;
+  text-align: center
+}
+#certified-head{
+  font-family: 'Montserrat Black';
+  color: #164271 !important;
+  font-size: 50px;
+  margin: 0%;
+  text-align: center;
+  line-height:110%
+}
+#certified-tail{
+  font-family: 'montserrat';
+  color: #164271 !important;
+  font-size: 22px;
+  margin: 0%;
+  text-align: center
+}
+.certified-logos{
+  display: inline-block;
+  position: relative;
+  margin: 3%;
+}
+.certified-logos img{
+  display: inline-block;
+  margin: auto;
+}
+
+/* ------ Main Section (Best Value, Natural Choice, Experience Luxury) ----- */
+#hero{
+  background-image: url(https://cdn.shopify.com/s/files/1/0578/7201/files/Background-Banners.jpg?7860515622168761543);
+  background-size: cover;
+  max-width: 90%;
+  margin: auto;
+  display: block;
+}
+.hero-shop{
+  height: 333px;
+  padding: 0 !important;
+}
+.hero-shop h2{
+  font-family: "Montserrat Black";
+  font-size: 40px;
+  display: block;
+  line-height: 100%;
+  width: 100%;
+  position: relative;
+  left: 7%;
+  top: 30%
+}
+.hero-shop a{
+  font-size: 20px;
+  font-family: "montserrat";
+  text-align: center;
+  display: block;
+  position: relative;
+  top: 30%;
+  width: 70%;
+}
+.hero-text{
+  height: 333px;
+  position: relative;
+}
+.hero-text p{
+  font-size: 20px;
+  font-family: 'Montserrat Light';
+  position: absolute;
+  top: 30%;
+  text-align: justify-all;
+  width: 85%;
+  margin-left: 5%;
+  line-height: 120%
+}
+#value{
+  color: #164271 !important;
+}
+#value-shop{
+  background-color: #323d49;
+  color: #ffffff !important
+}
+#value-p{
+  color: #164271 !important;
+}
+#choice{
+  color: #6e625a !important;
+}
+#choice-shop{
+  background-color: #8ec549;
+  color: #ffffff !important
+}
+#choice-p{
+  color: #6e625a !important;
+}
+#experience{
+  color: #ffffff !important;
+}
+#experience-shop{
+  background-color: #d7d7d7;
+  color: black !important
+}
+#experience-p{
+  color: #ffffff !important;
+}
+@media only screen and (max-width: 1050px){
+  .hero-shop h2{
+  font-size: 36px;
+  }
+  .hero-shop h3{
+    font-size: 22px;
+  }
+  .hero-text p{
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 1025px){
+  .hero-shop h2{
+  font-size: 34px;
+  }
+  .hero-shop h3{
+    font-size: 20px;
+  }
+  .hero-text p{
+    font-size: 18px;
+  }
+  #brand-names{
+    font-size: 23px
+  }
+  #certified-head{
+    font-size: 45px
+  }
+  #certified-tail{
+    font-size:20px
+  }
+}
+@media only screen and (max-width: 970px){
+  .hero-shop h2{
+  font-size: 30px;
+  }
+  .hero-shop h3{
+    font-size: 18px;
+  }
+  .hero-text p{
+    font-size: 16px;
+  }
+  #brand-names{
+    font-size: 21px
+  }
+  #certified-head{
+    font-size: 40px
+  }
+  #certified-tail{
+    font-size:19px
+  }
+}
+@media only screen and (max-width: 830px){
+  .hero-shop h2{
+  font-size: 26px;
+  }
+  .hero-shop h3{
+    font-size: 20px;
+  }
+  .hero-text p{
+    font-size: 14px;
+  }
+  #brand-names{
+    font-size: 20px
+  }
+  #certified-head{
+    font-size: 35px
+  }
+  #certified-tail{
+    font-size:18px
+  }
+}
+@media only screen and (max-width: 730px){
+  .hero-shop h2{
+  font-size: 23px;
+  }
+  .hero-shop h3{
+    font-size: 18px;
+  }
+  .hero-text p{
+    font-size: 12px;
+  }
+  #brand-names{
+    font-size: 20px
+  }
+  #certified-head{
+    font-size: 35px
+  }
+  #certified-tail{
+    font-size:18px
+  }
+}
+@media only screen and (min-width: 642px){
+  .mobile{
+    display:none
+  }
+  #header-image{
+    margin: 0% 5% 0% 5%;
+  }
+  .certified-logos{
+    width: 25%
+  }
+}
+@media only screen and (max-width: 641px){
+  .desktop{
+    display: none
+  }
+  #hero.desktop{
+    display: none
+  }
+  .page-header{
+    display:none
+  }
+  .move-up{
+    top: 0
+  }
+  #header-image img{
+    max-width: 100%
+  }
+  #brands{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #brand-names{
+    font-size: 15px
+  }
+  #brand-names br{
+    content: ' '
+  }
+  .brand-logos{
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column
+  }
+  #certified{
+    height: 100%;
+    margin-top: 10%;
+  }
+  #certified-head{
+    margin-bottom: 3%;
+    font-size: 30px
+  }
+  #certified-tail{
+    width: 80%;
+    margin: auto;
+    font-size: 16px
+  }
+  #certified-logos-mobile-container{
+    display: flex;
+    align-items: center;
+    margin-top: 3%
+  }
+  #mobile-bottom-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .bottom-background-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size:cover
+  }
+  #bv-container{
+    background-image: url(https://cdn.shopify.com/s/files/1/0578/7201/files/background_best_value.jpg?1400126117914585092);
+  }
+  #nc-container{
+    background-image: url(https://cdn.shopify.com/s/files/1/0578/7201/files/background_natural.jpg?1400126117914585092)
+  }
+  #el-container{
+    background-image: url(https://cdn.shopify.com/s/files/1/0578/7201/files/background_luxury.jpg?1400126117914585092)
+  }
+  .bottom-background-container h2{
+    width: 100%;
+    font-family: 'Montserrat Black';
+    margin-bottom: 2%;
+    margin-top: 2%
+  }
+  .bottom-background-container h2 br{
+    content: " "
+  }
+  .bottom-background-container p{
+    font-family: 'Montserrat Light';
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%
+  }
+  .bottom-background-container a{
+    font-family: 'Montserrat Light';
+    width: 35%;
+    justify-content: center;
+    font-size: 120%;
+    margin-bottom: 1%
+  }
+  .bottom-background-container h3{
+    font-family: 'Montserrat Light';
+    width: 30%;
+    justify-content: center;
+    font-size: 120%;
+    margin-bottom: 1%
+  }
+  #experience{
+    font-family: 'Montserrat Bold'
+  }
+  #experience-p{
+    margin-left: 5%;
+    margin-right: 5%
+  }
+  .bottom-background-container h3.dollar-sign{
+    font-size: 100%;
+    margin-bottom: 4%
+  }
+  #content-wrap{
+    margin-bottom: 0 !important
+  }
+  #experience-shop + h3{
+    color: #ffffff !important
+  }
+}

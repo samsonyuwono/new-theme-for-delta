@@ -1,0 +1,545 @@
+/*Global Styles*/
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Black.otf');
+}
+@font-face{
+  font-family: 'Gotham Medium';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-medium.otf');
+}
+@font-face{
+  font-family: 'Gotham Light';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Light_1.otf');
+}
+
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+
+.light-blue{
+  color: #407cbe !important;
+}
+.dark-blue{
+  color: #124660 !important;
+}
+.dark-grey{
+  color: #606b82;
+}
+.light-grey{
+  color: #8e8e8e;
+}
+
+/*for changing the page to full screen*/
+
+#content-wrap .row:first-child div.primary:first-child{
+  width: 100%;
+  left: 0;
+}
+
+
+#content-wrap .row .sidebar{
+  display: none !important;
+}
+
+  header.page-header{
+    visibility: hidden;
+  }
+
+
+/*   moves convert your crib banner asset up to top of page  */
+  @media screen and (min-width: 800px) {
+
+    #content-wrap .row div.primary{
+     margin-top: -100px;
+
+    }
+
+  }
+  @media screen and (max-width: 642px) {
+
+    header.page-header{
+    display: none;
+  }
+    #banner-img-search{
+      padding-top: 6px;
+    }
+
+  }
+
+
+  #left-nav-container ul.dropdown{
+    display: block !important;
+  }
+#noFilterMainContainer{
+  top: 0;
+}
+#borderTest{
+  display: none;
+}
+#banner-img-search{
+  /*background-image:url('//cdn.shopify.com/s/files/1/0578/7201/files/guardrail-page-search-banner.jpg');*/
+  position: relative;
+  text-align: center;
+}
+
+  #banner-img-search video{
+    margin-top: 121px;
+    /* width: 960px; */
+    width: 1200px;
+  }
+#banner-img-search #search-feature-title{
+  position: absolute;
+  top: 22%;
+  width: 100%;
+  font-family: 'Gotham Book';
+  text-transform: uppercase;
+  font-size: 130%;
+}
+#banner-img-search input.crib-input{
+  position: absolute;
+  top: 85%;
+  width: 25%;
+  left: 42%;
+  height: 30px;
+  font-family: 'Gotham Light';
+  color: #124660 !important;
+  box-shadow:inset 0 0 1px 1px #d3d3d3;
+  border-radius: 6px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+#banner-img-search input.crib-input::-webkit-input-placeholder{
+  font-family: 'Gotham Light';
+  color: #124660 !important;
+}
+
+#banner-img-search input.guardrail-input{
+  position: absolute;
+  top: 91%;
+  width: 25%;
+  left: 42%;
+  height: 30px;
+  font-family: 'Gotham Light';
+  color: #124660 !important;
+  box-shadow:inset 0 0 1px 1px #d3d3d3;
+  border-radius: 6px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+#banner-img-search input.guardrail-input::-webkit-input-placeholder{
+  font-family: 'Gotham Light';
+  color: #124660 !important;
+}
+#banner-img-search input.bedrail-input{
+  position: absolute;
+  top: 91%;
+  width: 25%;
+  left: 42%;
+  height: 30px;
+  font-family: 'Gotham Light';
+  color: #124660 !important;
+  box-shadow:inset 0 0 1px 1px #d3d3d3;
+  border-radius: 6px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+#banner-img-search input.bedrail-input::-webkit-input-placeholder{
+  font-family: "Gotham Light";
+  color: #124660 !important;
+}
+
+#guardrails-table_wrapper{
+  padding-left: 0 !important;
+  padding-top: 20px;
+}
+#guardrails-table tbody tr td:nth-child(2){
+  min-width: 150px;
+}
+.dataTables_wrapper .dataTables_filter{
+  float: left;
+  padding-bottom: 20px;
+  display: block;
+  width: 100%;
+}
+.dataTables_wrapper .dataTables_filter label{
+  text-align: left;
+}
+.dataTables_wrapper .dataTables_filter input{
+  margin-left: 0 !important;
+  margin-bottom: 0;
+}
+#search-feature-title{
+  text-align: center;
+}
+#guardrails-table tbody tr td:first-child{
+  width: 200px;
+  min-width: 100px;
+}
+#guardrails-table tbody tr td:nth-child(4){
+  width: 100px;
+}
+#guardrails-table tbody tr td:nth-child(6){
+ width: 100px;
+}
+
+#guardrails-table .head{
+  display: block;
+  color: #124660 !important;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100px;
+}
+#guardrails-table .sorting{
+  background-image: none;
+  box-sizing: border-box;
+  position: relative;
+}
+.arrow-down {
+  width: 0 !important;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #124660;
+  position: absolute;
+  bottom: -11px;
+  left: 53px !important;
+}
+#only-guardrails-table tbody tr{
+  display: inline-block;
+  min-height: 200px;
+  /* width: 180px; */
+  width: 15%;
+  text-align: center;
+  position: relative;
+  margin: 20px;
+  background-color: white;
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+  #only-guardrails-table tbody tr td {
+    display: inline-block;
+    background-color: white;
+    font-size: 90%;
+    line-height: 1.4;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+#only-guardrails-table tbody tr:hover {
+  box-shadow: 0 20px 30px 0 rgba(0,0,0,0.06);
+  transform: translateY(-8px);
+}
+
+#only-bedrail-table tbody tr:hover {
+  box-shadow: 0 20px 30px 0 rgba(0,0,0,0.06);
+  transform: translateY(-8px);
+}
+
+#only-bedrail-table tbody tr{
+  display: inline-block;
+/*   min-height: 200px; */
+  width: 15%;
+  text-align: center;
+  position: relative;
+  margin: 20px;
+  background-color: white;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+  #only-bedrail-table tbody tr td {
+    display: inline-block;
+    background-color: white;
+    font-size: 90%;
+    line-height: 1.4;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+#only-guardrails-table thead{
+  display: none;
+}
+#only-bedrail-table thead{
+  display: none;
+}
+#only-guardrails-table tbody tr td{
+  display: inline-block;
+  background-color: white;
+  color: #8daadb;
+  font-family: 'Gotham Medium';
+}
+
+#only-bedrail-table tbody tr td{
+  display: inline-block;
+  background-color: white;
+  color: #8daadb;
+  font-family: 'Gotham Medium';
+}
+#only-guardrails-table img.g-img{
+  max-width: 100% !important;
+}
+#only-guardrails-table tbody{
+  text-align: left;
+}
+#only-bedrail-table tbody{
+  text-align: left;
+}
+@media screen and (max-width: 1024px) {
+  #guardrails-table_wrapper{
+    overflow-x: scroll;
+  }
+  #banner-img-search #search-feature-title{
+    font-size: 90%;
+  }
+   #banner-img-search video{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 641px) {
+  .hero_img_holder{
+    display: none !important;
+  }
+  #banner-img-search #search-feature-title{
+    font-size: 50%;
+  }
+  #banner-img-search input{
+    height: 30px;
+  }
+  #only-guardrails-table tbody tr{
+    min-height: 170px;
+    width: 150px;
+  }
+  #only-bedrail-table tbody tr{
+    min-height: 170px;
+    width: 150px;
+  }
+  #guardrails-table_wrapper{
+    overflow-x: scroll;
+  }
+  #guardrails-table tbody tr td:first-child{
+    min-width: 100px;
+  }
+  #guardrails-table tbody tr td:nth-child(4){
+    min-width: 100px;
+  }
+  #guardrails-table tbody tr td:nth-child(6){
+   min-width: 100px;
+  }
+}
+
+#know-crib{
+  position: absolute;
+  top: 85.5%;
+  left: 34%;
+  color: #124660 !important;
+}
+#guardrail-name{
+  position: absolute;
+  top: 91.5%;
+  left: 33%;
+  color: #124660 !important;
+}
+#crib-or{
+  display: block;
+  font-family: 'Gotham Light' !important;
+  line-height: .6;
+  text-align: center;
+  color: #124660 !important;
+}
+
+@media screen and (max-width: 2000px) {
+  #know-crib{
+    font-size: 100%;
+    top: 85%;
+    left: 33%;
+  }
+  #guardrail-name {
+    top: 91%;
+    left: 32%;
+  }
+  #banner-img-search input.bedrail-input {
+    left: 42%;
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  #know-crib{
+    left: 31%;
+  }
+  #guardrail-name {
+    left: 30%;
+  }
+
+  #banner-img-search input.crib-input {
+    width: 26%;
+    left: 45%;
+  }
+
+  #banner-img-search input.guardrail-input {
+    width: 26%;
+    left: 45%;
+  }
+  #banner-img-search input.bedrail-input {
+    width: 26%;
+    left: 45%;
+  }
+}
+
+
+
+@media screen and (max-width: 1230px) {
+  #know-crib{
+    font-size: 100%;
+    top: 81%;
+    left: 24%;
+
+  }
+  #guardrail-name{
+    font-size: 100%;
+    top: 87%;
+    left: 23%;
+  }
+  #crib-or{
+    font-size: 95%;
+    line-height: 1.5;
+  }
+  #banner-img-search input.crib-input{
+    position: absolute;
+    top: 80%;
+    width: 30%;
+    left: 45%;
+    font-size: 90%;
+  }
+  #banner-img-search input.crib-input::-webkit-input-placeholder{
+    font-family: 'Gotham Light';
+    color: #124660 !important;
+  }
+
+  #banner-img-search input.guardrail-input{
+    position: absolute;
+    top: 87%;
+    width: 30%;
+    left: 45%;
+    font-size: 90%;
+  }
+  #banner-img-search input.guardrail-input::-webkit-input-placeholder{
+    font-family: 'Gotham Light';
+    color: #124660 !important;
+  }
+  #banner-img-search input.bedrail-input{
+    position: absolute;
+    top: 87%;
+    width: 30%;
+    left: 45%;
+    font-size: 90%;
+  }
+  #banner-img-search input.bedrail-input::-webkit-input-placeholder{
+    font-family: 'Gotham Light';
+    color: #124660 !important;
+  }
+}
+@media screen and (max-width: 1025px) {
+  #crib-or{
+    line-height: 1.6;
+    font-size: 95%;
+  }
+  #banner-img-search input.crib-input{
+    height: 20px;
+      top: 80%;
+  }
+  #banner-img-search input.guardrail-input{
+    height: 20px;
+      top: 87%;
+  }
+  #banner-img-search input.bedrail-input{
+    height: 20px;
+      top: 87%;
+  }
+
+  #know-crib{
+    font-size: 100%;
+    top: 80%;
+    left: 20%;
+
+  }
+  #guardrail-name{
+    font-size: 100%;
+    top: 87%;
+    left: 20%;
+  }
+}
+@media screen and (max-width: 850px) {
+  #know-crib{
+  left: 15%;
+  }
+  #guardrail-name{
+  left: 15%;
+  }
+  #crib-or{
+  line-height: .5;
+  }
+}
+
+/*For Mobile*/
+@media screen and (max-width: 420px) {
+  #crib-or{
+    line-height: .7;
+    font-size: 95%;
+  }
+  #banner-img-search input.crib-input{
+    height: 20px;
+      top: 74%;
+      left: 50%;
+  }
+  #banner-img-search input.guardrail-input{
+    height: 20px;
+      top: 84%;
+      left: 50%;
+  }
+  #banner-img-search input.bedrail-input{
+    height: 20px;
+    top: 84%;
+    left: 50%;
+  }
+
+  #know-crib{
+    font-size: 100%;
+    top: 74%;
+    left: 10%;
+
+  }
+  #guardrail-name{
+    font-size: 100%;
+    top: 84%;
+    left: 10%;
+  }
+}
+
+.dataTables_info{
+  padding-left: 35px;
+  font-family: 'Gotham Medium';
+  color: #8daadb;
+}
+
+#only-guardrails-table_wrapper{
+  margin: 36px 0 0 100px;
+}
+
+#only-bedrail-table_wrapper{
+  margin: 36px 0 0 100px;
+}
+
+.grid__cell {
+  width: 20%;
+}
+
+table.dataTable.display tbody td {
+    border-top: none !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important
+}
