@@ -189,7 +189,17 @@
       "checkout": "Checkout",
       "empty_text": "Your cart is empty",
       "empty_button": "Start shopping"
-    }
+    },
+    "backorder": "Item is on backorder",
+    "checkout": "Checkout",
+    "continue_shopping": "continue shopping",
+    "empty_html": "Your shopping cart is empty.",
+    "remove_prompt": "Are you sure you want to remove {{ product_title }} {{ variant_title }} from your cart?",
+    "subtotal": "Subtotal",
+    "title": "Your Cart",
+    "update": "Update",
+    "view_cart": "View Cart"
+
   },
   "blog": {
     "article": {
@@ -341,6 +351,12 @@
       "successfully_sent": "Your message has been sent. We will get back to you as soon as possible."
     }
   },
+  "breadcrumbs": {
+  "home": "Home",
+  "account": "My Account",
+  "products": "Products",
+  "search": "Search"
+},
   "search": {
     "general": {
       "title": "Search",

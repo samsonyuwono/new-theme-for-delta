@@ -872,7 +872,7 @@ p, p.lead {
     font-size: 300%;
     margin-bottom: 30px;
     position: absoulute;
-    left: 26%;
+    left: 25%;
 }
   }
   #module_6 #i-c-2{
@@ -894,8 +894,7 @@ p, p.lead {
       display: inline-block;
       color: white;
       font-size: 250%;
-      margin-top: 20px;
-      margin-bottom: 0;
+      margin-top: 2px;
     }
     #module_6 #m6-title-2 img{
       display: inline-block;
@@ -910,6 +909,7 @@ p, p.lead {
     top: 16%;
     /* min-height: 320px; */
     /*top: 2vw;*/
+    background-color: #e45b9f;
   }
     #module_6 #m6-img-text-container .celeb-holder{
       display: inline-block;
@@ -1006,8 +1006,8 @@ p, p.lead {
       max-width: 100%;
       position: relative;
       text-align: center;
-      height: 28vw;
-      /* background-color: pink; */
+      height: 32vw;
+      background-color: #e45b9f;
   }
 
   .module-6-header{
@@ -1031,10 +1031,10 @@ p, p.lead {
   }
 
   .module-6-container{
-    height: 30vw;
+    height: 36vw;
   }
   #module_6 h2{
-    font-size: 250%;
+    font-size: 247%;
   }
   #module_6 #m6-title-2 h3{
     font-size: 200%;
@@ -1412,16 +1412,24 @@ p, p.lead {
     height: 0%;
   }
 
+  @media screen and (min-width: 2001px){
+    #module_10{
+    margin-top: -811px;
+    }
+  }
+
   @media screen and (min-width: 1301px){
     #module_10{
     margin-top: -622px;
   }
 }
 
-@media screen and (min-width: 2001px){
+
+
+@media screen and (max-width: 1024px){
   #module_10{
-  margin-top: -811px;
-}
+    bottom: 148px;
+  }
 }
 
 
