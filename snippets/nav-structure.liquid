@@ -1,3 +1,9 @@
+{% capture cart_item_count %}<span class="count">{{ 'cart.item_count' | t: count: cart.item_count }}</span>{% endcapture %}
+
+{% capture cart_total_price %}{{ cart.total_price | money  }}{% endcapture %}
+
+{% comment %} Level 1 {% endcomment %}
+
 {% if nav_area == 'primary' %}
   <li class="has-form hide-for-medium-up">
     <form name="search" action="/search">

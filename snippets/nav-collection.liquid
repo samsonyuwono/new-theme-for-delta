@@ -1,27 +1,106 @@
+{{ 'sidebar.css' | asset_url | stylesheet_tag }}
+
+
  <div class="sidenav-container">
   <div class="sidenav-header">
- 	<h1>{{collection.title}}</h1>
+    {% comment %}
+    {% shrinks Toy Storage & Bookshelves and Headboards collection title to fit onto left side navbar%}
+    {% endcomment %}
+    {% if {{collection.title}} == "Toy Storage & Bookshelves" %}
+ 	    <h1 style="font-size: 27px;">{{collection.title}}</h1>
+      {% elsif {{collection.title}} == "Headboards" %}
+       <h1 style="font-size: 28px;">{{collection.title}}</h1>
+      {%else%}
+      <h1>{{collection.title}}</h1>
+    {% endif %}
   </div>
-  {{linklist.handle}}
-  	<nav class="navigation">
+
       <ul class="mainmenu">
-        <li><a href="#">Nursery Furniture</a></li>
-        <ul class="submenu">
-          <li><a href="#">Nursery Furniture Sets</a></li>
-          <li><a href="#">Cribs</a></li>
-          <li><a href="#">Gliders & Rocking Chairs</a></li>
-          <li><a href="#">Dressers & Changers</a></li>
-          <li><a href="#">Nightstands</a></li>
-          <li><a href="#">Bookcase & Hutches</a></li>
-          <li><a href="#">Nursery Inspiration</a></li>
+        {% for link in linklists.side-navigation.links %}
+          {% include 'nav-item-class' %}
+          {% capture handle %}{{ link.title | handle }}{% endcapture %}
+        <li class="{{item_class}} has-dropdown main" id="{{page.handle | handleize}}{{collection.handle | handleize}}">
+          <a class="nav-title head" href="{{link.url}}">{{ link.title | escape }}<span class="up"></span><span class="down"></span></a>
+          {% if  linklists[handle] and linklists[handle].links.size > 1 %}
+        <ul class="dropdown">
+          {% for sublink in linklists.[link.handle].links %}
+            {% include 'nav-item-class' %}
+            {% capture handle %}{{ link.title | handle }}{% endcapture %}
+          <li class="{{item_class}} has-dropdown" id="level-2">
+            <a class="hasDropdown" href="{{ sublink.url }}">{{ sublink.title | escape }}</a></li>
+          {% endfor %}
         </ul>
-        <li><a href="#">Strollers & Baby Gear</a></li>
-        <li><a href="#">Kids Furniture</a></li>
-        <li><a href="#">Mattresses</a></li>
-        <li><a href="#">Matress Pads & Covers</a></li>
-        <li><a href="#">Storage and Décor</a></li>
-        <li><a href="#">Crib Conversions & Accessories</a></li>
-        <li><a href="#">Sale</a></li>
-      </ul>
-  	</nav>
+        {% else %}
+       <li class="{{item_class}} alone">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
 </div>
+
+<script>
+// makes Sale in Top Header red
+// $("li.nav-item a:contains('Sale')").css('color', 'red');
+// $("li.nav-item a:contains('Sale')").css('border-bottom', 'white');
+//hides duplicate menu items
+$("li.main a:contains('Storage & Décor')").hide()
+$("li.main a:contains('Strollers')").hide()
+$("li.main a:contains('Sale')").hide()
+
+$('.mainmenu a.head').each(function(){
+  $(this).click(function(e){
+    e.preventDefault();
+  });
+});
+
+$( document ).ready(function() {
+  addClassToHeader();
+  addArrowToHeader();
+  openSelectedSection();
+  hideSideBar();
+  //adds active class to header of selected section
+  function addClassToHeader(){
+  $('.mainmenu a').each(function(){
+    if(this.href == document.location){
+      $(this).addClass('title-active')
+    }
+  })
+}
+//end addClassToHeader()
+  //appends arrows to nav items with dropdowns
+  function addArrowToHeader(){
+  $('.mainmenu a.head').each(function(){
+    $("<i class='arrow'></i>").appendTo(this);
+    if(this.href == document.location){
+      $(this).addClass('active') //adds class to current sub menu
+    }
+  })
+}
+//end addArrowToHeader()
+//opens current section on dropdown menu
+function openSelectedSection(){
+  $('.mainmenu a').filter(function(){
+    return $(this).attr('href') == location.pathname
+    }).addClass('active').closest('ul').parent().addClass('active');
+  }
+//end openSelectedSection()
+
+function hideSideBar(){
+  if(window.location.pathname === "/collections/guardrails" || window.location.pathname === "/collections/full-size-bed-rails"){
+    $('.sidenav-container').hide()
+  }
+}
+//on click slide dropdown down, flip arrow, and hide all other main categories
+  $('.mainmenu a').click(function(){
+    $(this).siblings('.dropdown').slideToggle();
+    $(this).children('.arrow').toggleClass('arrow-up title-active-arrow');
+    $(this).toggleClass('title-active'); //this gives the active class
+  });
+  // on page load, looks for active class in nav-item and initiates click on parent to show dropdown and hide all other categories
+  $('.mainmenu ul.dropdown li.nav-item.active').parent().prev().click();
+});
+
+
+</script>

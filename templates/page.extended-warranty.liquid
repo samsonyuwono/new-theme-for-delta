@@ -1,0 +1,479 @@
+{{ 'extended-warranty.css' | asset_url | stylesheet_tag }}]
+<!-- {% assign has_sidebar = true %}
+{% assign sidebar_side = 'left' %}
+{% assign has_crumbs = true %} -->
+
+<!-- {% include 'settings' %}
+{% include 'page-header' with page.title %}
+{% include 'content-wrap-open' %}
+{% include 'content-open' %} -->
+
+{{ page.content }}
+
+<!-- extended warranty markup starts -->
+<div class="row title">
+<h1>Products that Outlast The<br> Most Mischievous Kids!</h1>
+</div>
+<div class="row main_img">
+<img src="//cdn.shopify.com/s/files/1/0578/7201/files/upholstered-chairs-image.svg">
+</div>
+<div class="row bullets">
+  <div class="bullet">
+    <img class="num-bullet" src="//cdn.shopify.com/s/files/1/0578/7201/files/number-one.svg">
+    <h4 class="copy-bullet"> Choose from the product categories below for the item you just registered</h4>
+  </div>
+  <div class="bullet">
+    <img class="num-bullet" src="//cdn.shopify.com/s/files/1/0578/7201/files/number-two.svg">
+    <h4 class="copy-bullet"> Complete the quick online form with a few details about your product</h4>
+  </div>
+  <div class="bullet">
+    <img class="num-bullet" src="//cdn.shopify.com/s/files/1/0578/7201/files/number-three.svg">
+    <h4 class="copy-bullet"> Enter your customer and payment information – and you’re all set!</h4>
+  </div>
+</div>
+<div class="row menu">
+<img id="nf" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-button-cribs-dressers.jpg">
+<img id="g" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-button-gliders.jpg">
+<img id="tf" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-button-toddler.jpg">
+<img id="s" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-button-stroller.jpg">
+<img id="b" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-button-bassinet.jpg">
+</div>
+
+<div class= "cover"></div>
+  {% for product in collections.extended-warranty-1.products %}
+  <div class="form" id="{{product.handle}}">
+    <div class="row banner-holder">
+      <img class="pop-up-x" src="//cdn.shopify.com/s/files/1/0911/1270/files/close.png">
+      {% if product.handle == "toddler-furniture-extended-warranty"%}
+      <img id="tfbanner" class="popup-banner" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-page-pop-up-banner-toddler.svg">
+      {%endif%}
+      {% if product.handle == "gliders-extended-warranty"%}
+      <img id="gbanner" class="popup-banner" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-page-pop-up-banner-glider.svg">
+      {%endif%}
+      {% if product.handle == "cribs-and-dressers-extended-warranty"%}
+      <img id="nfbanner" class="popup-banner" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-page-pop-up-banner-crib-dresser.svg">
+      {%endif%}
+      {% if product.handle == "bassinets-extended-warranty-1"%}
+      <img id="bbanner" class="popup-banner" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-page-pop-up-banner-bassinet.svg">
+      {%endif%}
+      {% if product.handle == "strollers-extended-warranty"%}
+      <img id="sbanner" class="popup-banner" src="//cdn.shopify.com/s/files/1/0578/7201/files/extended-warranty-page-pop-up-banner-stroller.svg">
+      {%endif%}
+    </div>
+    <form action="/cart/add" method="post" id="add-to-cart" class="custom" enctype="multipart/form-data" data-parsley-validate>
+      <!-- <form action="/cart/add" method="post" id="addToCartForm" class="custom" enctype="multipart/form-data"> -->
+
+<!-- see product variants ex war for what to put here -->
+    <div class="hidden">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <input type="hidden" name="quantity" value="1">
+    </div>
+
+    <!-- for validating applicable state -->
+    <div class="row">
+      <div class="small-12 medium-12 large-12 columns">
+        <label>State:</label><span>*Please note that extended warranties are currently only available to residents of the states listed below.</span>
+        {%include 'state-dropdown' %}
+      </div>
+    </div>
+
+
+
+    <!-- fix for add the correct "cribs and gliders Ex W" to cart while also saving correct brand as line-item - dh-edit 4/27/17 -->
+    {%if product.handle == "cribs-and-dressers-extended-warranty" or product.handle == "bassinets-extended-warranty-1"%}
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <label>Brand:</label>
+          <select required class="required" id="nf_brand" name="properties[Brand]" onchange="selectBrand(this)">
+            <option id="DC" value="Delta Children">Delta Children</option>
+            <option id="SK"value="Simmons Kids">Simmons Kids</option>
+            {%if product.handle == "cribs-and-dressers-extended-warranty"%}
+            <option id="S" value="Serta">Serta</option>
+            {%endif%}
+          </select>
+      </div>
+      {%if product.handle == "cribs-and-dressers-extended-warranty"%}
+      <div class="small-12 medium-6 large-6 columns">
+        <label class="p" id="DC_brand_price">$29.99</label>
+        <label class="p" id="SimmonsK_brand_price">$49.99</label>
+        <label class="p" id="Serta_brand_price">$39.99</label>
+      </div>
+      {%endif%}
+    </div>
+    {%if product.handle == "cribs-and-dressers-extended-warranty"%}
+    <div class="row correct-variant">
+      <!-- Variant select -->
+        <div class="small-12 medium-6 large-6 columns">
+          <label class="placeholder" for="product-select" "brand">Brand:</label>
+          <select id="product-select" "brand" name='id' 'properties[Brand]' option-selector>
+            {% for variant in product.variants %}
+              <option id="{{ variant.id }}" data-metafield="{{ metafield_data }}" {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+              <!-- <h4 style="display: inline-block" class="variant_price">{{variant.price}}</h4> -->
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      {%endif%}
+      <!-- end fix -->
+    <!-- <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <label for="brand">Brand:</label>
+        <input required type="text" id="brand" name="properties[Brand]">
+      </div>
+    </div> -->
+    {%endif%}
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <h6 id="prod-info">Product Information*</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <label for="style_num">Style #:</label>
+        <input required="required" type="text" id="style_num" name="properties[Style #]" required>
+      </div>
+      <div class="small-12 medium-6 large-6 columns">
+        <label for="style_name">Style Name:</label>
+        <input required type="text" id="style_name" name="properties[Style Name]">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <label for="date_code">Date Code:</label>
+        <input class="ex-war-field" type="text" id="date_code" name="properties[Date Code]" required>
+      </div>
+      <div class="small-12 medium-6 large-6 columns">
+        <label for="lot_code">Lot Code:</label>
+        <input required class="ex-war-field" type="text" id="lot_code" name="properties[Lot Code]" data-error="Please enter your lot code." >
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <p class="line-item-property__field">
+          <input type="hidden" name="properties[Accepts Terms and Conditions?]" value="No">
+          <input id="accepts-terms-and-conditions" required class="required" type="checkbox" name="properties[Accepts Terms and Conditions?]" value="Yes">
+          <label for="accepts-terms-and-conditions">Accepts Terms and Conditions?</label>
+        </p>
+      </div>
+    </div> -->
+    <!-- exposed contract id field that will remain hidden, but still popoulated on click of buy button. -->
+    <div class = "contract-id-holder" style="display: none;">
+    <label for="contract_id">Contract ID:</label>
+    <input type="text" id="contract_id" name="properties[Contract ID]">
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+      <a class ="info-link">*Where Do I Find This Information?</a>
+    </div>
+    <!-- </div> -->
+    <div class="info-holder columns">
+      <div class="row x"><strong>X</strong></div>
+      <div class="row info-spot">
+        {% if product.handle == "toddler-furniture-extended-warranty"%}
+        <img id="tfinfo" class="popup-info" src="//cdn.shopify.com/s/files/1/0911/1270/files/extended-warranty-page-pop-up-info-image-toddler.svg">
+          {%endif%}
+        {% if product.handle == "cribs-and-dressers-extended-warranty" or product.handle == "gliders-extended-warranty"%}
+        <img id="nfinfo" class="popup-info" src="//cdn.shopify.com/s/files/1/0911/1270/files/extended-warranty-page-pop-up-info-image-nursery.svg">
+        {%endif%}
+        {% if product.handle == "bassinets-extended-warranty-1" or product.handle == "strollers-extended-warranty"%}
+        <img id="sbinfo" class="popup-info" src="//cdn.shopify.com/s/files/1/0911/1270/files/extended-warranty-page-pop-up-info-image-baby-gear.svg">
+        {%endif%}
+      </div>
+    </div>
+  </div>
+    <div class="row" id= "terms_conditions">
+      <div class="small-12 medium-12 large-6 columns">
+        <p class="line-item-property__field">
+          <input type="hidden" name="properties[Accepts Terms and Conditions?]" style="float: left;"value="No" required>
+          <input id="accepts-terms-and-conditions" class="parsley-validated" type="checkbox" name="properties[Accepts Terms and Conditions?]" value="Yes" required>
+          <label for="accepts-terms-and-conditions" style="float: right;">Accepts Terms and Conditions?</label>
+        </p>
+      </div>
+    </div>
+    <div class="row buy">
+      <div class="small-12 medium-6 large-6 columns">
+        <div class="form-actions">
+          <!-- <button type="submit" name="add" id="submit-ex-war" class="add-to-cart button large ew-buy" data-parsley-validate>{{ 'products.add_to_cart' | t }}</button> -->
+          <input type="submit" class= "button large" id="add-ex-war-to-cart" value="Add to Cart">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+  {%endfor%}
+<!-- extended warranty markup ends -->
+
+<script>
+
+//disables for mfrom submiting without all fields filled
+// $(document).ready(function (){
+//
+// });
+
+
+
+
+// extended warranty script
+$( document ).ready(function(){
+changeBuyText();
+popUpEwStrollers();
+popUpEwBassinets();
+popUpEwNF();
+popUpEwTF();
+popUpEwG();
+closeEw();
+closeEwOnX();
+}); //end document.ready function
+
+
+function changeBuyText(){
+  $('button.ew-buy').text("Add to Cart");
+};
+
+function popUpEwStrollers(){
+  // displays pop-up on click of image in menu
+  $('img#s').click(function(){
+    $('form#add-to-cart').removeAttr('novalidate');
+
+// sets up opaque gray background by appending form and background to container div
+  $('div.cover').appendTo('div#container');
+    $('div#strollers-extended-warranty.form').appendTo('div#container');
+    $('div.cover').show();
+    $('div#strollers-extended-warranty.form').show();
+    // centers form on any screen size
+    $('div#strollers-extended-warranty.form').wrap("<div class='form-wrapper'></div>");
+    $('div#strollers-extended-warranty.form').css('display', 'inline-block');
+    // on click of link, displays "where to find" info box
+    $('div#strollers-extended-warranty.form a.info-link').click(function(){
+      $('.info-holder').show();
+      $('img#sbinfo').show();
+      //click event for X on "where to find" box
+      $('strong').click(function(){
+        $('.info-holder').hide();
+        $('img#sbinfo').hide();
+      });
+    });
+    // adds extended warranty to cart and directs user to cart page
+    goToCart();
+  });
+  //click event on menu image that happens once and places contract id value into input#contract_id field
+  $('img#s').one('click', function(){
+    $('div#strollers-extended-warranty.form input#contract_id').val($('div#strollers-extended-warranty.form input#contract_id').val() + createNumber("DEL#"));
+  });
+};
+
+function popUpEwBassinets(){
+  $('img#b').click(function(){
+    $('form#add-to-cart').removeAttr('novalidate');
+
+    $('div.cover').appendTo('div#container');
+    $('div#bassinets-extended-warranty-1.form').appendTo('div#container');
+    $('div.cover').show();
+    $('div#bassinets-extended-warranty-1.form').show();
+    $('div#bassinets-extended-warranty-1.form').wrap("<div class='form-wrapper'></div>");
+    $('div#bassinets-extended-warranty-1.form').css('display', 'inline-block');
+    $('div#bassinets-extended-warranty-1.form input#contract_id').val('');
+    $('div#bassinets-extended-warranty-1.form input#contract_id').val($('div#bassinets-extended-warranty-1.form input#contract_id').val() + createNumber("DEL#"));
+    $('div#bassinets-extended-warranty-1.form a.info-link').click(function(){
+      $('.info-holder').show();
+      $('img#sbinfo').show();
+      //click event for X on "where to find" box
+      $('strong').click(function(){
+        $('.info-holder').hide();
+        $('img#sbinfo').hide();
+      });
+    });
+    goToCart();
+  });
+};
+
+function popUpEwNF(){
+  $('img#nf').click(function(){
+    $('form#add-to-cart').removeAttr('novalidate');
+
+    $('div.cover').appendTo('div#container');
+    $('div#cribs-and-dressers-extended-warranty.form').appendTo('div#container');
+    $('div.cover').show();
+    $('div#cribs-and-dressers-extended-warranty.form').show();
+    $('div#cribs-and-dressers-extended-warranty.form').wrap("<div class='form-wrapper'></div>");
+    $('div#cribs-and-dressers-extended-warranty.form').css('display', 'inline-block');
+    $('label#SimmonsK_brand_price').hide();
+    $('label#Serta_brand_price').hide();
+    $('label#DC_brand_price').show();
+    // selects correct brand
+    $('select#product-select').val('38531071500');
+    // clears contract ID first, then sets default contract id prmise to "DEL#"
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val('');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val($('div#cribs-and-dressers-extended-warranty.form input#contract_id').val() + createNumber("DEL#"));
+    //on lcik of "where to find" link show image
+    $('div#cribs-and-dressers-extended-warranty.form a.info-link').click(function(){
+      $('.info-holder').show();
+      $('img#nfinfo').show();
+      //click event for X on "where to find" box
+      $('strong').click(function(){
+        $('.info-holder').hide();
+        $('img#nfinfo').hide();
+      });
+    });
+    goToCart();
+});
+};
+
+function popUpEwTF(){
+  $('img#tf').click(function(){
+    $('form#add-to-cart').removeAttr('novalidate');
+
+    $('div.cover').appendTo('div#container');
+    $('div#toddler-furniture-extended-warranty.form').appendTo('div#container');
+    $('div.cover').show();
+    $('div#toddler-furniture-extended-warranty.form').show();
+    $('div#toddler-furniture-extended-warranty.form').wrap("<div class='form-wrapper'></div>");
+    $('div#toddler-furniture-extended-warranty.form').css('display', 'inline-block');
+    $('div#toddler-furniture-extended-warranty.form a.info-link').click(function(){
+      $('.info-holder').show();
+      $('img#tfinfo').show();
+      //click event for X on "where to find" box
+      $('strong').click(function(){
+        $('.info-holder').hide();
+        $('img#tfinfo').hide();
+      });
+    });
+    goToCart();
+  });
+  //click event on menu image that happens once and places contract id value into input#contract_id field
+  $('img#tf').one('click', function(){
+    $('div#toddler-furniture-extended-warranty.form input#contract_id').val($('div#toddler-furniture-extended-warranty.form input#contract_id').val() + createNumber("DEL#"));
+  });
+};
+
+function popUpEwG(){
+  $('img#g').click(function(){
+    $('form#add-to-cart').removeAttr('novalidate');
+
+    $('div.cover').appendTo('div#container');
+    $('div#gliders-extended-warranty.form').appendTo('div#container');
+    $('div.cover').show();
+    $('div#gliders-extended-warranty.form').show();
+    $('div#gliders-extended-warranty.form').wrap("<div class='form-wrapper'></div>");
+    $('div#gliders-extended-warranty.form').css('display', 'inline-block');
+    $('div#gliders-extended-warranty.form a.info-link').click(function(){
+      $('.info-holder').show();
+      $('img#nfinfo').show();
+      //click event for X on "where to find" box
+      $('strong').click(function(){
+        $('.info-holder').hide();
+        $('img#nfinfo').hide();
+      });
+    });
+    goToCart();
+  });
+  //click event on menu image that happens once and places contract id value into input#contract_id field
+  $('img#g').one('click', function(){
+    $('div#gliders-extended-warranty.form input#contract_id').val($('div#gliders-extended-warranty.form input#contract_id').val() + createNumber("DEL#"));
+  });
+};
+
+// closes pop-up when user clicks above or below pop-up
+function closeEw(){
+  $('div.cover').click(function(){
+    $('div.cover').hide();
+    $('div.form').hide();
+    $('.info-holder').hide();
+    $('img#sbinfo').hide();
+    $('img#nfinfo').hide();
+    $('img#tfinfo').hide();
+    $('div.form-wrapper').children().unwrap();
+  });
+};
+
+// closes pop-up when user clicks on X in upper right hand corner
+function closeEwOnX(){
+  $('img.pop-up-x').click(function(){
+    $('div.cover').hide();
+    $('div.form').hide();
+    $('.info-holder').hide();
+    $('img#sbinfo').hide();
+    $('img#nfinfo').hide();
+    $('img#tfinfo').hide();
+    $('div.form-wrapper').children().unwrap();
+  });
+};
+// displays price of brand in pop-up and adds brand to line item property
+function selectBrand(elem){
+  if (elem.value == "Simmons Kids"){
+    $('label#DC_brand_price').hide();
+    $('label#Serta_brand_price').hide();
+    $('label#SimmonsK_brand_price').show();
+    $('select#product-select').val('38531071436');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val('');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val($('div#cribs-and-dressers-extended-warranty.form input#contract_id').val() + createNumber("SIM#"));
+    $('div#bassinets-extended-warranty-1.form input#contract_id').val('');
+    $('div#bassinets-extended-warranty-1.form input#contract_id').val($('div#bassinets-extended-warranty-1.form input#contract_id').val() + createNumber("SIM#"));
+
+  }
+  if (elem.value == "Serta"){
+    $('label#DC_brand_price').hide();
+    $('label#SimmonsK_brand_price').hide();
+    $('label#Serta_brand_price').show();
+    $('select#product-select').val('36462731916');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val('');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val($('div#cribs-and-dressers-extended-warranty.form input#contract_id').val() + createNumber("SER#"));
+  }
+  if (elem.value == "Delta Children"){
+    $('label#SimmonsK_brand_price').hide();
+    $('label#Serta_brand_price').hide();
+    $('label#DC_brand_price').show();
+    $('select#product-select').val('38531071500');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val('');
+    $('div#cribs-and-dressers-extended-warranty.form input#contract_id').val($('div#cribs-and-dressers-extended-warranty.form input#contract_id').val() + createNumber("DEL#"));
+    $('div#bassinets-extended-warranty-1.form input#contract_id').val('');
+    $('div#bassinets-extended-warranty-1.form input#contract_id').val($('div#bassinets-extended-warranty-1.form input#contract_id').val() + createNumber("DEL#"));
+
+  }
+}
+function goToCart(){
+  // $('button.ew-buy').click(function(){
+  //   setTimeout(function() {
+  //     window.location.href = "/cart";
+  //   }, 1000);
+  // });
+};
+
+//random id generation for Extended Warranty contract #
+function createNumber(brand) {
+  var number;
+
+  try {
+
+    // If the client supports the more secure crypto lib
+    if (Uint32Array && window.crypto && window.crypto.getRandomValues) {
+
+      var numbers = new Uint32Array(1);
+      window.crypto.getRandomValues(numbers);
+      number = numbers.length ? (numbers[0] + '') : null;
+    }
+  } catch(e) {
+
+    // If the browser fucks up ...
+
+  } finally {
+
+    // The fallback
+    if (!number) {
+      number = Math.floor( Math.random() * 1e9 ).toString() + (new Date().getTime());
+    }
+  }
+
+// parameter variable for proper brand
+var brand = brand
+
+
+var id = brand.concat(number.substring(0,6));
+return id;
+};
+
+
+// end functions for extended warranty
+
+</script>

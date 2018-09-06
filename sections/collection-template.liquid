@@ -17,15 +17,12 @@ We have some elements that are at two different places in mobile and desktop. In
 {%- endcapture -%}
 
 
-{%include 'collection-filters'%}
-
-
 
 <div class="collection page__content-wrapper">
   <div class="container">
     {%- if collection.all_products_count == 0 -%}
       <div class="page__header">
-        <h1 class="page__title h1">{{ collection.title }}</h1>
+        <h1 class="page__title h1" style="display: none">{{ collection.title }}</h1>
       </div>
 
       <div class="box box--mini">
@@ -44,7 +41,7 @@ We have some elements that are at two different places in mobile and desktop. In
         </div>
       {%- else -%}
         <div class="page__header">
-          <h1 class="page__title h1">{{ collection.title }}</h1>
+          <h1 class="page__title h1" style="display: none">{{ collection.title }}</h1>
 
           {%- if collection.description != blank -%}
             <div class="page__description">{{ collection.description }}</div>

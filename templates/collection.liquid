@@ -1,45 +1,239 @@
-
-
-{%include "nav-collection"%}
-
+{%- assign force_secondary_background = true -%}
 {{ 'collection-filter.css' | asset_url | stylesheet_tag }}]
-<!-- {{ 'product_filter.js' | asset_url | script_tag }} -->
+{{ 'product_filter.js' | asset_url | script_tag }}
 <!-- swatchesfiltered used to be here
  -->
-{{ 'handlebars-v4.0.5.js' | asset_url | stylesheet_tag }}
+{{ 'handlebars-v4.0.5.js' | asset_url | script_tag }}
+
+<style>
+
+/*   for crib colleciton page  */
+  #crib-paragraph{
+    padding-top: 50px;
+    color:#1a3d6e !important;
+  }
+  /*for overlap of filters*/
+  ul#collectionGrid{
+    position: relative;
+    top: -50px;
+    padding-bottom: 90px;
+  }
+  #filtersWrap{
+    position: relative;
+    padding-bottom: 20px;
+    background-color: white;
+  }
+  #filtersWrap h3{
+    margin-bottom: 0;
+    float: left;
+}
+  #collectionGrid .details{
+   margin-top: 15px !important;
+  }
+
+
+ #mainFilterContainer{
+   visibility: hidden;
+   position: absolute;
+   display: flex;
+   /* left: 350px; */
+   left: 254px;
+   margin-top: 10px;
+  }
+  .js-collection-filter{
+    padding-left: 0;
+  }
+  div#noFilterMainContainer.products.cards{
+    z-index: 0;
+  }
+  .details{
+   padding-top: 0 !important;
+  }
+  .prod-price{
+    display: block;
+  }
+
+ /*SWATCH RELATED*/
+ .swatchAreaContainer {
+   padding-top: 10px;
+ }
+
+  @media screen and (min-width: 641px) {
+
+    .cards .card.fixed-image-height .image{
+      height: auto!important;
+    }
+    .detailsHB{
+      width: 100%;
+      /*padding-top: 10px;*/
+    }
+}
+
+  /*end overlap styling*/
+
+  ul#append { padding-top: 3%; }
+
+  /*for iPads, etc. */
+  @media screen and (max-width: 1024px) and (min-width: 641px) {
+    #filtersWrap{
+      padding-bottom: 80px;
+    }
+    #filterList{
+      width: auto;
+    }
+    form h6{
+      width: auto;
+    }
+  }
+  /*for mobile devices*/
+  @media only screen and (max-device-width: 640px) {
+form.js-collection-filter{
+  width: 50%;
+}
+
+#site-body h6{
+  margin-bottom: 0;
+}
+#filterList{
+top: 0;
+}
+#sort{
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+#filtersWrap{
+  padding-bottom: 0;
+}
+
+ul#collectionGrid{
+  margin: 0 !important;
+}
+    .filteredProduct{
+  flex: none;
+}
+.cards .card.fixed-image-height .image{
+  height: auto !important;
+}
+.details{
+   padding-top: 0 !important;
+  }
+}
+/*iphone 5 styling*/
+@media only screen and (max-device-width: 320px) {
+  #filtersWrap{
+    padding-bottom: 20px;
+  }
+
+  #detailsHB {
+
+    width: 100%;
+  }
+
+ .filteredProduct{
+  flex: none;
+}
+
+}
+</style>
+
+{%if collection.handle == "jeep-strollers"%}
+<style>
+@media screen and (max-width: 460px) {
+  #jeep-strollers.hero_img_holder{
+    display: none;
+  }
+  #mainFilterContainer #sort{
+    top: 0 !important;
+  }
+  #template-filtered-products #append{
+    bottom: 0 !important;
+  }
+}
+
+</style>
+{%endif%}
+
+{%if collection.handle == "strollers"%}
+<style>
+  @media screen and (max-width: 460px) {
+#strollers.hero_img_holder .hero_image{
+  display: block !important;
+  }
+    #sort{
+      top: -20px !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 50% !important;
+    }
+    #template-filtered-products #append{
+      padding-top: 10% !important;
+      bottom: 0 !important;
+  }
+    #noFilterMainContainer{
+      top: -60px !important;
+  }
+  }
+
+
+
+</style>
+{%endif%}
+
 
 
 <!-- {%- assign force_secondary_background = true -%} -->
 
 <!-- {%include "nav-collection"%} -->
 
+
 {% assign has_crumbs = true %}
-
-
 
 {% if settings.collection_display_browse? %}
   {% include 'collection-tag-filter' %}
 {% endif %}
 
+{% if collection.description and collection.description.size > 0 %}
+  <!-- <div id="borderTest">
+    <div id="bannerImage" class="collection-description">
+      {{ collection.description }}
+  </div>
+</div> -->
+{% endif %}
+
+{% if collection.handle != 'guardrails' and collection.handle != 'full-size-bed-rails' %}
+  {% include "nav-collection" %}
+  {% endif %}
+
+{% if collection.handle == 'guardrails' or collection.handle == 'full-size-bed-rails' %}
+  {% include 'guardrail-data-tables' %}
+{%endif%}
 
 <div class="hero_img_holder" id={{collection.handle}}>
   <div class="hero_image">
   </div>
 </div>
 
+{%if collection.handle == 'value'%}
+  {%include 'mattress-bv'%}
+{%elsif collection.handle == 'luxury'%}
+  {%include 'mattress-el'%}
+{%elsif collection.handle == 'natural'%}
+  {%include 'mattress-nc'%}
+{%endif%}
+
+{% unless collection.handle == 'guardrails' or collection.handle == "full-size-bed-rails" %}
 
 {% comment %}RENDER FILTERS{% endcomment %}
-<div id="filtersWrap" style="margin-top: 91px;">
+<div id="filtersWrap" style="margin-top: 150px;">
   <div>
-    <h3 style="font-family: Montserrat, Helvetica, Arial, sans-serif;
-    font-size: 126%;"
->Filters</h3>
+    <h3>Filters</h3>
     <div id="customLoader"></div>
   </div>
   <div id="mainFilterContainer" class="{{collection.handle}}">
     {% include 'custom_filter'%}
     <div id="sort" class="M_SM_Sort">
-      <label for="sort-by">Sort by</label>
+      <label for="sort-by" style="font-size: 83%; color: #0e2f63; padding-right: 8px; font-family: 'Gotham Bold';">Sort by:</label>
       <select id="sort-by">
         <option id="select" value="manual">Select</option>
         <option name="price-ascending" value="All">Price: Low to High</option>
@@ -59,11 +253,12 @@
 
 
 {% comment %}HANDLEBARS TEMPLATE FOR FILTERED PRODUCTS INSIDE OF GRID LAYOUT{% endcomment %}
-<div class="products cards {{collection.handle}}" id="template-filtered-products">
+<div class="products cards {{collection.handle}}" id="list-template-collection">
     <ul id="append" class="append">
-      <script id='template-src' type="text/x-handlebars-template" >
+      <script id='template-src' type="text/template" >
         {% raw %}
-          <li class="filteredProduct" id="{{id}}" data-name="{{title}}" data-price="{{price}}" data-category="{{category}}" data-allTags="{{allTags}}" data-tag="{{tag}}" style="list-style:none;">
+          <li class="filteredProduct product-container" id="{{id}}" data-name="{{title}}" data-price="{{price}}" data-category="{{category}}" data-allTags="{{allTags}}" data-tag="{{tag}}" style="list-style:none;">
+
             <div class="product card fixed-image-height">
               <article>
                 <div class="image-wrap">
@@ -92,19 +287,47 @@
                       <img id="imageHB" class="imgHB" src="{{img4}}"/>
                     </a>
                   </div>
+                  <div class="varImages" id="{{varTitle5}}" style="display: none;">
+                    <a href="{{var_url5}}">
+                      <img id="imageHB" class="imgHB" src="{{img5}}"/>
+                    </a>
+                  </div>
+                  <div class="varImages" id="{{varTitle6}}" style="display: none;">
+                    <a href="{{var_url6}}">
+                      <img id="imageHB" class="imgHB" src="{{img6}}"/>
+                    </a>
+                  </div>
                 </div>
+
+                <div id="detailsHB" class="detailsHB">
+                  <h4 class="vendor">
+                    <a href="https://www.deltachildren.com/collections/vendors?q={{handle}}">{{vendor}}</a>
+                  </h4>
+                    <h2>
+                      <a href="https://www.deltachildren.com/products/{{handle}}" title={{title}}>
+                        <span class="name">{{title}}</span>
+                      </a>
+                    </h2>
+                  <div class="prod-price">${{price}}</div>
+                </div>
+                <!-- <img src="https://s3-us-west-2.amazonaws.com/swatchify-static.sellerpanda.com/swatches/delta-children/Color/Rustic-Bianca-11702.png" /> -->
+
                 <!-- swatches -->
                 <div class="swatchAreaContainer">
                   <div class="filterSwatches">
-                    <div><img src="{{color_src1}}" /></div>
-                    <div><img src="{{color_src2}}" /></div>
-                    <div><img src="{{color_src3}}" /></div>
-                    <div><img src="{{color_src4}}" /></div>
-                    <div class="moreSwatches">
+                    <div class="color-swatch-template"><img src="{{color_src1}}" /></div>
+                    <div class="color-swatch-template"><img src="{{color_src2}}" /></div>
+                    <div class="color-swatch-template"><img src="{{color_src3}}" /></div>
+                    <div class="color-swatch-template"><img src="{{color_src4}}" /></div>
+                    <div class="color-swatch-template"><img src="{{color_src5}}" /></div>
+                    <div class="color-swatch-template"><img src="{{color_src6}}" /></div>
+
+
+                    <!-- <div class="moreSwatches">
                       <a href="https://www.deltachildren.com/products/{{handle}}" style="color: #4e4949;">
                         <h1>{{swatchOverFour}}</h1>
                       </a>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                   <!-- <div class="swatchCount">
@@ -114,17 +337,6 @@
                   </div> -->
 
                 <!-- end swatches -->
-                <div id="detailsHB" class="detailsHB">
-                  <header>
-                    <h2>
-                      <a href="https://www.deltachildren.com/products/{{handle}}" title={{title}}>
-                        <span class="name">{{title}}</span>
-                      </a>
-                    </h2>
-                  </header>
-                  <div class="prod-price">${{price}}</div>
-                </div>
-                <!-- <img src="https://s3-us-west-2.amazonaws.com/swatchify-static.sellerpanda.com/swatches/delta-children/Color/Rustic-Bianca-11702.png" /> -->
 
 
               </article>
@@ -135,49 +347,17 @@
     </ul>
 </div>
 
-<style>
-
-div.hero_img_holder{
-  display: none;
-}
-
-div.hero_image{
-  display: none;
-}
-
-@media only screen and (max-width: 640px){
-div.hero_image{
-/*   display: none !important; */
-}
-div.collection-description {
-  display: none;
-}
-
-div.hero_img_holder{
-  content: " ";
-  padding: 0;
-  display: block;
-  width: 100%;
-  padding-top: 5%;
-  height: 180px;
-}
-
-div.hero_image{
-  max-width: 1254px;
-  height: 150px;
-  background-image: url({{collection.image.src | collection_img_url: 'original' }});
-  background-size: cover;
-  background-position: center;
-  display: block;
-}
-
-}
+{%endunless%}
 
 
 
 
-</style>
+<!-- template for filtering -->
+{%- section 'collection-template' -%}
+<!-- {% include 'pagination' %} -->
 
+
+<!-- replace this -->
 <script>
 
 
@@ -243,8 +423,3 @@ $('#mainFilterContainer').each(function() {
 
 
 </script>
-
-
-{% section 'collection-template' %}
-
-{% section 'collection-template' %}

@@ -1,0 +1,295 @@
+{% include 'settings' %}
+{% assign display_variants = true %}
+{% assign display_qty = settings.product_display_quantity? %}
+{% assign variant = product.selected_or_first_available_variant %}
+
+{% if product.variants.size <=  1 %}
+  {% assign display_variants = false %}
+{% endif %}
+
+<!-- EXTENDED WARRANTY PRODUCT product-ex_war-variants.liquid -->
+
+    <div class="discontinued-notice">
+      <p>
+      </p>
+    </div>
+
+  <div class="variants section">
+    <form action="/cart/add" method="post" id="add-to-cart" class="custom" enctype="multipart/form-data">
+
+      <div class="hidden">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        <input type="hidden" name="quantity" value="1">
+      </div>
+
+      <div class="row">
+        <!-- Variant select -->
+        {% if display_variants %}
+          <div class="large-8 columns">
+            <label class="placeholder" for="product-select">&nbsp;</label>
+            <select id="product-select" name='id' class="option-selector">
+
+              {% for variant in product.variants %}
+                {% capture metafield_data %}{% endcapture %}
+                {% assign related_products = variant.metafields.recommendations.productHandles | split: '|' %}
+                {% for related_product in related_products %}
+                  {% assign metafield_items = related_product | split: ',' %}
+                  {% assign r_p = metafield_items[0] %}
+                  {% assign r_sku = metafield_items[1] %}
+                  {% assign r_n = all_products[r_p].title %}
+                  {% for related_variant in all_products[r_p].variants %}
+                    {% if related_variant.sku == r_sku %}
+                      {% assign r_i = related_variant.image.src | img_url: 'medium' %}
+                      {% assign r_vid = related_variant.id %}
+                    {% endif %}
+                  {% endfor %}
+                  {% capture metafield_data %}{{metafield_data}}{{ r_p }},{{ r_sku }},{{ r_i }},{{ r_n }},{{ r_vid }},{% unless forloop.last %}|{% endunless %}{% endcapture %}
+                {% endfor %}
+                <option id="{{ variant.id }}" data-metafield="{{ metafield_data }}" {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+              {% endfor %}
+
+            </select>
+          </div>
+        {% endif %}
+
+        <!-- Quantity select -->
+
+        {% if display_qty %}
+          {% if product.tags contains 'dc-shop' and product.price > 0 %}
+            <div class="large-4 columns {{ 'product.price' }}">
+              <div class="selector-qty">
+              <label for="quantity">{{ 'products.quantity' | t }}</label>
+              <select id="quantity" name="quantity">
+                {% for i in (1..10) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+              </select>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% if product.tags contains 'dc-shop' %}
+    <div class="pricing section" style= "padding-bottom: 0px">
+    <label>Price</label>
+      <i class="fa fa-spinner fa-spin"></i>
+      {% if product.compare_at_price > product.price %}
+      <span class="price" style="color: red"></span>
+      <span class="price compare"></span>
+      {%else%}
+      <span class="price"></span>
+      {%endif%}
+
+
+      {%elsif product.tags contains 'discontinued' %}
+      <h4 style="padding-left: 14px;">No Longer Available</h4>
+      {% else %}
+
+      <div class="pricing section" style= "padding-bottom: 0px">
+      <label>Suggested Retail Price</label>
+        <i class="fa fa-spinner fa-spin"></i>
+        {% if product.compare_at_price_max > product.price %}
+        <span class="price" style="color: red;"></span>
+        <!-- <span class="price compare"></span> -->
+        {%else%}
+        <span class="price"></span>
+        {%endif%}
+
+
+
+          {% if settings.product_display_compare_at? %}
+            <span class="price compare"></span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      </div>
+
+      {% if product.tags contains 'dc-shop' and product.price > 0  %}
+      <!-- embedded custom fields for extended warranty products on product-ex_war-variants - dhedit 3/28/17 -->
+      <div>
+      <label for="brand">Brand</label>
+      <input required type="text" id="brand" name="properties[Brand]">
+      </div>
+
+      <div>
+      <label for="style_num">Style #:</label>
+      <input required type="text" id="style_num" name="properties[Style #]">
+      </div>
+
+      <div>
+      <label for="date_code">Date Code:</label>
+      <input required type="text" id="date_code" name="properties[Date Code]">
+      </div>
+
+      <div>
+      <label for="style_name">Style Name:</label>
+      <input required type="text" id="style_name" name="properties[Style Name]">
+      </div>
+
+      <div>
+      <label for="lot_code">Lot Code:</label>
+      <input required type="number" id="lot_code" name="properties[Lot Code]">
+      </div>
+
+      <div>
+      <label for="contract_id">Contract ID:</label>
+      <input required type="text" id="contract_id" name="properties[Contract ID]">
+      </div>
+
+      <div>
+        <p class="line-item-property__field">
+      <input type="hidden" name="properties[Accepts Terms and Conditions?]" value="No">
+      <input id="accepts-terms-and-conditions" required class="required" type="checkbox" name="properties[Accepts Terms and Conditions?]" value="Yes">
+      <label for="accepts-terms-and-conditions">Accepts Terms and Conditions?</label>
+          </p>
+      </div>
+      <div class="form-actions">
+        <button type="submit" name="add" class="add-to-cart button large">{{ 'products.add_to_cart' | t }}</button>
+      </div>
+
+
+      {% endif %}
+
+     <div id="wheretobuywrapper">
+         {% assign found = false %}
+        {% for c in product.collections %}
+        {% comment %}
+          {% if c.handle == "full-size-bed-rails" or c.handle == "guardrails" or c.handle == "platform-bed-kits"%}
+            {% assign found = true %}
+          {% endif %}
+        {% endcomment %}
+        {% endfor %}
+
+        {% if found == false %}
+            {% include 'wtb-modal' %}
+        {% endif %}
+      </div>
+    </div>
+    </form>
+  </div>
+     <div class="not-sold-notice">
+    </div>
+    {% if settings.product_backorder_text != '' %}
+    <div data-alert class="backorder-notice alert-box hide">
+      {% capture variant_title %}<span class="variant-name"></span>{% endcapture %}
+      {{ 'products.backorder_html' | t: product_title: product.title, variant_title: variant_title }}
+    </div>
+    {% endif %}
+
+  </div>
+<script>
+  $(document).ready(function() {
+    var firstOrAvailableSKU = "{{ product.selected_or_first_available_variant.sku }}" ? "{{ product.selected_or_first_available_variant.sku }}" : "";
+    var firstOrAvailableUPC = "{{ product.selected_or_first_available_variant.barcode }}" ? "{{ product.selected_or_first_available_variant.barcode }}" : "";
+    var firstOrAvailableDisc = "{{ product.selected_or_first_available_variant.metafields.discontinued.tof }}" ? "{{ product.selected_or_first_available_variant.metafields.discontinued.tof }}" : "";
+    var selectedForsale = "{{ product.selected_or_first_available_variant.metafields.forsale.sell }}" ? "{{ product.selected_or_first_available_variant.metafields.forsale.sell }}" : "";
+
+    if (firstOrAvailableSKU != false) {
+      $('#display_sku').text("{{ product.selected_or_first_available_variant.sku }}");
+      }
+
+
+    if (firstOrAvailableUPC != false) {
+      $('#display_upc').text("{{ product.selected_or_first_available_variant.barcode }}");
+    }
+    if (firstOrAvailableDisc != false) {
+      if (firstOrAvailableDisc == 'true'){
+        $('.discontinued-notice p').text("This style has been discontinued.");
+      }
+      else {
+        $('.discontinued-notice p').text("");
+      }
+    }
+    if (selectedForsale != false) {
+      if (selectedForsale == 'no') {
+        console.log('no');
+        $('.form-actions, .selector-qty, .pricing').hide();
+        $('.not-sold-notice p').text("This style is not for sale on our website");
+      }
+      else {
+        $('.form-actions, .selector-qty, .pricing').show();
+        $('.not-sold-notice p').text("");
+      }
+    }
+
+  var variantInfo =[];
+    {% for variant in product.variants %}
+		
+      var infoHash = {};
+      infoHash['sku'] = "{{variant.sku}}";
+      infoHash['UPC'] = "{{variant.barcode}}";
+      infoHash['id'] = "{{variant.id}}";
+      {% assign discontinued = variant.metafields.discontinued %}
+      {% assign key = 'tof' %}
+      infoHash['discontinued'] = "{{discontinued[key]}}";
+      infoHash['forsale'] = "{{variant.metafields.forsale.sell}}";
+      variantInfo.push(infoHash);
+    {% endfor %}
+
+
+    $(window).on('change', function () {
+
+      for (var i = 0; i < variantInfo.length; i++) {
+        var selectedVariantSKU = variantInfo[i].sku ? variantInfo[i].sku : "";
+        var selectedVariantUPC = variantInfo[i].UPC ? variantInfo[i].UPC : "";
+        var selectedDiscontinued = variantInfo[i].discontinued ? variantInfo[i].discontinued : "";
+        var selectedForsale = variantInfo[i].forsale ? variantInfo[i].forsale : "";
+
+        if (document.URL.split('variant=')[1] == variantInfo[i].id) {
+          if (selectedVariantSKU != false) {
+              $('#display_sku').text(variantInfo[i].sku);
+
+          }
+          if (selectedVariantUPC != false) {
+            $('#display_upc').text(variantInfo[i].UPC);
+          }
+              if (selectedVariantUPC == false) {
+            $('#display_upc').text("");
+          }
+              if (selectedVariantSKU == false) {
+            $('#display_upc').text("");
+          }
+          if (selectedDiscontinued != false) {
+            if (variantInfo[i].discontinued == 'true'){
+              $('.discontinued-notice p').text("This style has been discontinued.");
+            }
+            else {
+              $('.discontinued-notice p').text("");
+            }
+          }
+          if (selectedForsale != false) {
+            if (selectedForsale == 'no') {
+              console.log('no');
+              $('.form-actions, .selector-qty, .pricing').hide();
+              $('.not-sold-notice p').text("This style is not for sale on our website");
+
+            }
+            else {
+              $('.form-actions, .selector-qty, .pricing').show();
+              $('.not-sold-notice p').text("");
+            }
+          }
+          if (selectedDiscontinued == false) {
+            $('.discontinued-notice').text("");
+          }
+
+        };
+      }
+    });
+  });
+</script>
+
+
+<style>
+
+.form-actions{
+  display:inline-block;
+  display: -moz-inline-box;
+}
+.pricing {
+  padding-left: 0.9375rem !important;
+  clear: both;
+}
+
+</style>

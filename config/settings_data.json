@@ -93,19 +93,6 @@
           "cycle_speed": 5
         }
       },
-      "text-with-optional-image": {
-        "type": "text-with-optional-image",
-        "settings": {
-          "image": "",
-          "title": "Your title",
-          "title_position": "left",
-          "show_overlay": true,
-          "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>",
-          "button_text": "",
-          "button_link": "",
-          "background_image": ""
-        }
-      },
       "collection-list": {
         "type": "collection-list",
         "blocks": {
@@ -139,84 +126,6 @@
           "grid_items_per_row": 3
         }
       },
-      "image-with-text-overlay": {
-        "type": "image-with-text-overlay",
-        "settings": {
-          "image": "",
-          "overlay_color": "#000000",
-          "text_color": "#ffffff",
-          "title": "",
-          "content": "Use a short, catchy sentence to showcase your store."
-        }
-      },
-      "featured-collection": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "Featured collection",
-          "collection": "frontpage",
-          "grid_items_per_row": 3,
-          "grid_items_count": 6,
-          "show_color_swatch": true,
-          "image_dimension": "normal"
-        }
-      },
-      "testimonials": {
-        "type": "testimonials",
-        "blocks": {
-          "testimonial-0": {
-            "type": "testimonial",
-            "settings": {
-              "author_picture": "",
-              "title": "Author name",
-              "quote": "<p>Share what your customers are saying about your products, your company...<\/p>"
-            }
-          },
-          "testimonial-1": {
-            "type": "testimonial",
-            "settings": {
-              "author_picture": "",
-              "title": "Author name",
-              "quote": "<p>Share what your customers are saying about your products, your company...<\/p>"
-            }
-          },
-          "testimonial-2": {
-            "type": "testimonial",
-            "settings": {
-              "author_picture": "",
-              "title": "Author name",
-              "quote": "<p>Share what your customers are saying about your products, your company...<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "testimonial-0",
-          "testimonial-1",
-          "testimonial-2"
-        ],
-        "settings": {
-          "title": "Testimonials"
-        }
-      },
-      "featured-blog": {
-        "type": "featured-article",
-        "blocks": {
-          "blog": {
-            "type": "blog",
-            "settings": {
-              "blog": "news"
-            }
-          }
-        },
-        "block_order": [
-          "blog"
-        ],
-        "settings": {
-          "title": "Featured article",
-          "show_author_name": true,
-          "show_date": true,
-          "background_image": ""
-        }
-      },
       "popup": {
         "type": "popup",
         "settings": {
@@ -228,17 +137,6 @@
           "popup_only_on_index": true,
           "popup_only_visitors": true,
           "popup_remember_me": "7"
-        }
-      },
-      "announcement": {
-        "type": "announcement",
-        "settings": {
-          "show_announcement": true,
-          "home_page_only": false,
-          "announcement_text": "Announce something here",
-          "announcement_link": "",
-          "announcement_color": "#ffffff",
-          "announcement_background": "#0c0c0d"
         }
       },
       "header": {
@@ -430,12 +328,7 @@
     },
     "content_for_index": [
       "slideshow",
-      "text-with-optional-image",
-      "collection-list",
-      "image-with-text-overlay",
-      "featured-collection",
-      "testimonials",
-      "featured-blog"
+      "collection-list"
     ]
   },
   "presets": {
@@ -486,10 +379,6 @@
             "type": "dual"
           }
         },
-        "text-with-optional-image": {
-          "type": "text-with-optional-image",
-          "settings": {}
-        },
         "collection-list": {
           "type": "collection-list",
           "blocks": {
@@ -512,64 +401,11 @@
             "collection-2"
           ],
           "settings": {}
-        },
-        "image-with-text-overlay": {
-          "type": "image-with-text-overlay",
-          "settings": {}
-        },
-        "featured-collection": {
-          "type": "featured-collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        },
-        "testimonials": {
-          "type": "testimonials",
-          "blocks": {
-            "testimonial-0": {
-              "type": "testimonial",
-              "settings": {}
-            },
-            "testimonial-1": {
-              "type": "testimonial",
-              "settings": {}
-            },
-            "testimonial-2": {
-              "type": "testimonial",
-              "settings": {}
-            }
-          },
-          "block_order": [
-            "testimonial-0",
-            "testimonial-1",
-            "testimonial-2"
-          ],
-          "settings": {}
-        },
-        "featured-blog": {
-          "type": "featured-article",
-          "blocks": {
-            "blog": {
-              "type": "blog",
-              "settings": {
-                "blog": "news"
-              }
-            }
-          },
-          "block_order": [
-            "blog"
-          ],
-          "settings": {}
         }
       },
       "content_for_index": [
         "slideshow",
-        "text-with-optional-image",
-        "collection-list",
-        "image-with-text-overlay",
-        "featured-collection",
-        "testimonials",
-        "featured-blog"
+        "collection-list"
       ]
     },
     "Rose": {
@@ -625,10 +461,6 @@
             "type": "full_width"
           }
         },
-        "text-with-optional-image": {
-          "type": "text-with-optional-image",
-          "settings": {}
-        },
         "collection-list": {
           "type": "collection-list",
           "blocks": {
@@ -651,66 +483,11 @@
             "collection-2"
           ],
           "settings": {}
-        },
-        "image-with-text-overlay": {
-          "type": "image-with-text-overlay",
-          "settings": {
-            "overlay_color": "#81b0e1"
-          }
-        },
-        "featured-collection": {
-          "type": "featured-collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        },
-        "testimonials": {
-          "type": "testimonials",
-          "blocks": {
-            "testimonial-0": {
-              "type": "testimonial",
-              "settings": {}
-            },
-            "testimonial-1": {
-              "type": "testimonial",
-              "settings": {}
-            },
-            "testimonial-2": {
-              "type": "testimonial",
-              "settings": {}
-            }
-          },
-          "block_order": [
-            "testimonial-0",
-            "testimonial-1",
-            "testimonial-2"
-          ],
-          "settings": {}
-        },
-        "featured-blog": {
-          "type": "featured-article",
-          "blocks": {
-            "blog": {
-              "type": "blog",
-              "settings": {
-                "blog": "news"
-              }
-            }
-          },
-          "block_order": [
-            "blog"
-          ],
-          "settings": {}
         }
       },
       "content_for_index": [
         "slideshow",
-        "text-with-optional-image",
-        "collection-list",
-        "image-with-text-overlay",
-        "featured-collection",
-        "testimonials",
-        "featured-blog"
+        "collection-list"
       ]
     }
   }

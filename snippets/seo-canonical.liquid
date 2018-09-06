@@ -1,0 +1,80 @@
+{% if template == '404' %}<meta http-equiv="refresh" content="0;URL={{ shop.url }}" />{% endif %}
+{% if template contains 'article.nursery-inspiration' %}<meta http-equiv="refresh" content="0;URL={{ shop.url }}/blogs/nursery-inspiration" />{% endif %}
+
+<!-- canonical parameter indexing for google seo -->
+{% if template contains 'product' %}
+<link rel="canonical" href="{{ shop.url }}{{ product.url }}">
+{% endif %}
+
+<!-- hides search results page from google search -->
+{% if template contains 'search' %}
+<meta name="robots" content="noindex,follow">
+{% endif %}
+{% if template contains 'article.nursery-inspiration' %}
+<meta name="robots" content="noindex,follow">
+{% endif %}
+<!-- canonical references for page parameter -->
+{% if template == 'collection.test' %}
+{%if paginate.current_page == '1' %}
+<link rel="next" href="{{shop.url}}{{collection.url}}?page=2">
+{% endif %}
+{%if paginate.current_page == '2' %}
+<link rel="next" href="{{shop.url}}{{collection.url}}?page=3">
+<link rel="prev" href="{{shop.url}}{{collection.url}}?page=1">
+{% endif %}
+{%if paginate.current_page == '3' %}
+<link rel="next" href="{{shop.url}}{{collection.url}}?page=4">
+<link rel="prev" href="{{shop.url}}{{collection.url}}?page=2">
+{% endif %}
+{%if paginate.current_page == '4' %}
+<link rel="prev" href="{{shop.url}}{{collection.url}}?page=3">
+{% endif %}
+{% endif %}
+{% if template == 'collection' %}
+{%if paginate.current_page == '1' %}
+<link rel="next" href="{{shop.url}}{{collection.url}}?page=2">
+{% endif %}
+{%if paginate.current_page == '2' %}
+<link rel="prev" href="{{shop.url}}{{collection.url}}?page=1">
+{% endif %}
+{% endif %}
+
+{% if collection and collection.products_count == 0 %}
+<meta name="robots" content="noindex" />
+{% endif %}
+
+{% if template == 'blog' %}
+{%if paginate.current_page == '1' %}
+<link rel="next" href="{{shop.url}}{{blog.url}}?page=2">
+{% endif %}
+{%if paginate.current_page == '2' %}
+<link rel="next" href="{{shop.url}}{{blog.url}}?page=3">
+<link rel="prev" href="{{shop.url}}{{blog.url}}?page=1">
+{% endif %}
+{%if paginate.current_page == '3' %}
+<link rel="next" href="{{shop.url}}{{blog.url}}?page=4">
+<link rel="prev" href="{{shop.url}}{{blog.url}}?page=2">
+{% endif %}
+{%if paginate.current_page == '4' %}
+<link rel="prev" href="{{shop.url}}{{blog.url}}?page=3">
+{% endif %}
+{% endif %}
+
+{%if template == 'product'%}
+{% for product in collection.products %}
+   {% if product.tags contains 'bundle-option' %}
+   <meta name="robots" content="noindex,nofollow">
+   {% else %}
+   {%endif%}
+{% endfor %}
+  {% if product.handle contains 'bundle'%}
+  <meta name="robots" content="noindex,nofollow">
+{%endif%}
+{%endif%}
+
+{% if collection.handle contains 'bundle' %}
+<meta name="robots" content="noindex,nofollow">
+{%endif%}
+{% if page.handle == 'pregnancy-center'%}
+<meta name="robots" content="noindex,nofollow">
+{%endif%}

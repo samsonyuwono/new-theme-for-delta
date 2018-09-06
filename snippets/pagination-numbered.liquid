@@ -1,0 +1,23 @@
+{% if paginate.pages > 1 %}
+<div class="pagination-wrap pagination-centered">
+  <ul class="pagination">
+    {% if paginate.previous %}
+      <li class="arrow">{{ '&laquo;' | link_to: paginate.previous.url }}</li>
+    {% else %}
+      <li class="arrow unavailable"><a href="">&laquo;</a></li>
+    {% endif %}
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <li>{{ part.title | link_to: part.url }}</li>
+      {% else %}
+        <li class="current">{{ part.title | link_to: part.url }}</li>
+      {% endif %}
+    {% endfor %}
+    {% if paginate.next %}
+      <li>{{ '&raquo;' | link_to: paginate.next.url }}</li>
+    {% else %}
+      <li class="arrow unavailable"><a href="">&raquo;</a></li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}}

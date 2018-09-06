@@ -1,0 +1,66 @@
+{%- if section.settings.show_announcement -%}
+  {%- unless section.settings.home_page_only and template != 'index' -%}
+    {%- capture content -%}
+      <div class="container">
+        <span class="announcement-bar__content">{{ section.settings.announcement_text | escape }}</span>
+      </div>
+    {%- endcapture -%}
+
+    {%- if section.settings.announcement_link -%}
+      <a href="{{ section.settings.announcement_link }}" class="announcement-bar">{{ content }}</a>
+    {%- else -%}
+      <div class="announcement-bar">{{ content }}</div>
+    {%- endif -%}
+
+    <style>
+      .announcement-bar {
+        color: {{ section.settings.announcement_color }};
+        background: {{ section.settings.announcement_background }};
+      }
+    </style>
+  {%- endunless -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "shopify-section__announcement-bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Link"
+    },
+    {
+      "type": "color",
+      "id": "announcement_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "announcement_background",
+      "label": "Background",
+      "default": "#0c0c0d"
+    }
+  ]
+}
+{% endschema %}

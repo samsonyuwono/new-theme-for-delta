@@ -1,0 +1,13 @@
+{% if use_sidebar %}
+  {% assign the_sidebar = 'sidebar-' | append: use_sidebar %}
+{% else %}
+  {% if template contains 'customer' %}
+    {% assign the_sidebar = 'sidebar-account' %}
+  {% elsif template contains 'blog' or template contains 'article' %}
+    {% assign the_sidebar = 'sidebar-blog' %}
+  {% else %}
+    {% assign the_sidebar = 'sidebar-page' %}
+  {% endif %}
+{% endif %}
+
+{% include the_sidebar %}

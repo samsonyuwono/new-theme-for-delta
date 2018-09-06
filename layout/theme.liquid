@@ -9,15 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
     <meta name="theme-color" content="{{ settings.accent_color }}">
 
-    <script type='text/javascript'>
-      (function (d, t) {
-        var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        bh.type = 'text/javascript';
-        bh.src = 'https://www.bugherd.com/sidebarv2.js?apikey=vwqikmbbyymwcnblx0j9xa';
-        s.parentNode.insertBefore(bh, s);
-        })(document, 'script');
-    </script>
-    
     <title>
       {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
     </title>
@@ -27,6 +18,7 @@
     {%- endif -%}
 
     <link rel="canonical" href="{{ canonical_url }}">
+    {% include 'seo-canonical'%}
 
     {%- comment -%} We preconnect of two popular domains (Shopify CDN and Google Font) to speed up performance {%- endcomment -%}
     <link rel="preconnect" href="//cdn.shopify.com" crossorigin>
@@ -42,18 +34,18 @@
     {{ content_for_header }}
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-    {{'nursery-banner.css' | asset_url | stylesheet_tag}}
 
+    <!-- styling for bundle pages "/app/productbuilder/{bundle-collection-handle}" -->
+    {%if template%}
+  	{%else%}
+  	{{ 'bold.css' | asset_url | stylesheet_tag }}
+  	{%endif%}
 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
-
     <script src="{{ 'modernizr.min.js' | asset_url }}"></script>
 
     <script>
-
-
       // This allows to expose several variables to the global scope, to be used in scripts
       window.theme = {
         template: {{ template | json }},
@@ -88,6 +80,8 @@
       {{ 'mag_popup.css' | asset_url | stylesheet_tag }}
       {{ 'product.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
+
+
   </head>
 
   {%- assign template_handle = template | replace: '.', ' ' | truncatewords: 1, '' | handle | replace: '_', '-' -%}
@@ -100,23 +94,25 @@
     <div class="page__overlay"></div>
 
     <div class="page__container {% if force_secondary_background %}page__container--secondary{% endif %}">
-
-      {% include 'header-actions' -%}
+      {%- section 'announcement' -%}
 
       {%- section 'header' -%}
-
-      <!-- for header and footer pop-ups -->
-      {% include 'header-footer-popup'%}
 
       <main id="main" class="main" role="main">
         {{ content_for_layout }}
       </main>
       {%include 'seo-collections'%}
-      {%- section 'footer' -%}
       {%- section 'newsletter' -%}
-
+      {%- section 'footer' -%}
     </div>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
+    <!-- For bundles pages '/apps/product-builder/{bundle-collection-handle}' -->
+    {%if template%}
+    {%else%}
+    {% include 'shopify-bundle-data' %}
+    {{ 'customizeBundles.js' | asset_url | script_tag }}
+    {%endif%}
 
     {%- if settings.currency_conversion_enabled -%}
       <script src="//cdn.shopify.com/s/javascripts/currencies.js"></script>
@@ -145,9 +141,6 @@
     {{ 'collection.js' | asset_url | script_tag }}
     {%endif%}
 
-    	{% include 'pop-up-right-tab' %}
   </body>
-
-  {{ 'header-footer-popup.js' | asset_url | script_tag }}
 
 </html>

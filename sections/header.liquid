@@ -1,3 +1,27 @@
+{%- capture header_logo -%}
+  <h1 class="header__logo {% if section.settings.logo != blank %}header__logo--image{% endif %} {% if section.settings.logo_position == 'center' %}header__logo--centered{% endif %}">
+    <a class="header__logo-link" href="{{ shop.url }}">
+      {%- if section.settings.logo != blank -%}
+        {%- capture image_size -%}{{ section.settings.logo_max_width | replace: 'px', '' }}x{%- endcapture -%}
+
+        <img class="header__logo-image header__logo-image--desktop {% if section.settings.mobile_logo != blank %}hidden-thumb{% endif %}"
+             src="{{ section.settings.logo | img_url: image_size }}"
+             srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+             alt="{{ section.settings.logo.alt | default: shop.name }}">
+
+        {%- if section.settings.mobile_logo -%}
+          <img class="header__logo-image header__logo-image--mobile hidden-handheld-and-up"
+               src="{{ section.settings.mobile_logo | img_url: 'x40' }}"
+               srcset="{{ section.settings.mobile_logo | img_url: 'x40' }} 1x, {{ section.settings.mobile_logo | img_url: 'x40', scale: 2 }} 2x"
+               alt="{{ section.settings.mobile_logo.alt | default: shop.name }}">
+        {%- endif -%}
+      {%- else -%}
+        <span class="header__logo-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+  </h1>
+{%- endcapture -%}
+
 {%- assign main_menu_handle = section.settings.navigation_menu | default: 'main-menu' -%}
 {%- assign main_menu = linklists[main_menu_handle] -%}
 
@@ -5,7 +29,6 @@
   <header class="header header--minimal header--init {% if section.settings.show_tall_header %}header--tall{% endif %}">
     <div class="container">
       <div class="header__inner">
-        {{ header_logo }}
 
         {%- if template.name == 'password' -%}
           <button class="header__password link" data-action="toggle-storefront-password">{%- include 'icon' with 'lock' -%}</button>
@@ -14,29 +37,74 @@
     </div>
   </header>
 {%- else -%}
-  <!-- {%- include 'header-sidebar-nav' -%}
+  {%- include 'header-sidebar-nav' -%}
   {%- include 'header-mini-cart' -%}
-  {%- include 'header-search' -%} -->
+  {%- include 'header-search' -%}
 
-  <!-- <header class="header {% if section.settings.show_tall_header %}header--tall{% endif %} {% if section.settings.logo_position == 'left' %}header--init{% endif %}"> -->
+  <header class="header {% if section.settings.show_tall_header %}header--tall{% endif %} {% if section.settings.logo_position == 'left' %}header--init{% endif %}">
     <div class="container">
       <div class="header__inner">
-        <!-- <button class="header__nav-toggle hidden-desk" data-action="toggle-mobile-sidebar">
+        <button class="header__nav-toggle hidden-desk" data-action="toggle-mobile-sidebar">
           <span></span>
           <span></span>
           <span></span>
-        </button> -->
+        </button>
 
-          {% include 'header-desktop-nav' %}
+        {%- if section.settings.logo_position == 'left' -%}
+          {{ header_logo }}
+          {%- include 'header-desktop-nav' -%}
+        {%- else -%}
+          {%- include 'header-desktop-nav' -%}
+          {{ header_logo }}
+        {%- endif -%}
 
+        <nav class="header__secondary-nav">
+          <ul class="header__links list--unstyled">
+            {%- if settings.currency_conversion_enabled -%}
+              <li class="header__link hidden-pocket">
+                {%- include 'currency-selector' -%}
+              </li>
+            {%- endif -%}
 
+            {%- if shop.customer_accounts_enabled -%}
+              <li class="header__link hidden-pocket">
+                {%- if customer -%}
+                  <a href="/account" class="link">{{ 'layout.header.account' | t }}</a>
+                {%- else -%}
+                  <a href="/account/login" class="link">{{ 'layout.header.login' | t }}</a>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
 
+            <li class="header__link hidden-pocket">
+              <a href="/cart" class="header__cart-count-wrapper link" data-action="toggle-mini-cart">
+                {{ 'layout.header.cart' | t }}
+                <span class="header__cart-count">{{ cart.item_count }}</span>
+              </a>
+            </li>
+
+            <li class="header__link">
+              <a href="/search" class="link" aria-label="{{ 'layout.header.search' | t }}" data-action="open-search">{%- include 'icon' with 'search' -%}</a>
+            </li>
+
+            <li class="header__link hidden-lap-and-up">
+              <a href="/cart" aria-label="{{ 'layout.header.cart' | t }}" data-action="toggle-mini-cart">
+                {%- include 'icon' with 'cart' -%}
+                <span class="header__cart-count">{{ cart.item_count }}</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
-  <!-- </header> -->
+  </header>
 {%- endif -%}
 
-
+<style>
+  .header__logo-image {
+    max-width: {{ section.settings.logo_max_width }}px;
+  }
+</style>
 
 {% schema %}
 {

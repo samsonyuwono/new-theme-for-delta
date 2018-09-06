@@ -36,9 +36,6 @@
     {%- endunless -%}
   {%- endcapture -%}
 
-  {%- if product_labels != blank -%}
-    <div class="product-item__labels labels">{{- product_labels | strip -}}</div>
-  {%- endif -%}
 
   <figure class="product-item__image-container">
     <a href="{{ product.url | within: collection }}" class="product-item__link">

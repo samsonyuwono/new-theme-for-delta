@@ -1,5 +1,9 @@
 {%- assign force_secondary_background = true -%}
 
+{% if page.handle == 'mattresses'%}
+  {% include 'mattress-landing' %}
+  {%endif %}
+
 <div class="page__content-wrapper">
   <div class="container">
     <div class="page__header">

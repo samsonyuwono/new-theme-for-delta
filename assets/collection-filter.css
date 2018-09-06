@@ -1,3 +1,61 @@
+@font-face{
+  font-family: 'Gotham Bold';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-bold.otf');
+}
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Gotham Book';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/GOTHIC.TTF');
+}
+@font-face{
+  font-family: 'Helvetica Medium Condensed';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/helvetica-neue-lt-std-67-medium-condensed.otf?9943094632125790425')
+}
+@font-face{
+  font-family: 'Cartoonist Kooky';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Cartoonist Kooky';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Gotham-Book';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
+}
+
+@font-face{
+  font-family: 'Century Gothic Bold';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-bold{
+  font-family: 'Gotham Bold';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.ultra{
+  font-family: 'Gotham Ultra';
+}
+.gotham-book{
+  font-family: 'Gotham Book';
+}
+.gotham-e-light{
+  font-family: 'Gotham Extra Light';
+}
+.gotham-light{
+  font-family: 'Gotham Light';
+}
+.cartoonist{
+  font-family: 'Cartoonist Kooky' !important;
+}
+
 #hideThisBox {
   display: none;
 }
@@ -13,35 +71,41 @@ ul#collectionGrid{
 }
 #filtersWrap{
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 134px;
   background-color: white;
 }
 #filtersWrap h3{
   margin-bottom: 0;
+  font-size: 66%;
+  margin-left: 32px;
+  color: #0e2f63;
+  font-weight: 800;
+  font-family: 'Gotham Medium';
+  text-transform: uppercase;
 }
+
 #collectionGrid .details{
  margin-top: 15px !important;
 }
 
-#mainFilterContainer {
-  visibility: hidden;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  right: 20px;
-  left: 10px;
-}
 
 .js-collection-filter{
-  padding: 2%;
-  /*width: auto;*/
+  cursor: pointer;
+  padding: 16px;
   height: 100%;
+  line-height: normal;
+  letter-spacing: 0.8px;
 }
 
 form.js-collection-filter h6 {
-  background-color: lightgray;
-  padding-left: 5px;
-  width: 140px;
+  color: midnightblue;
+  padding: 8px;
+  width: 160px;
+  height: 27px;
+  font-size: 13px;
+  background-color: lightsteelblue;
+  font-weight: 600;
+  font-family: 'Gotham Light';
 }
 
 form h6  .angle-down:after {
@@ -58,34 +122,39 @@ margin-right: 2px;
 
 #filterList{
   /*opacity: 0;*/
+  color: black;
   display: none;
   border-top: none;
   position: relative;
   border: 1px solid darkgray;
-  bottom: 17px;
-  padding-top: 15px;
+  bottom: 28px;
+  padding-top: 3px;
   height: auto;
-  width: 140px;
+  width: auto;
   z-index: 9999;
   background-color: white;
   transition: opacity .4s ease-in-out;
   -moz-transition: opacity .4s ease-in-out;
   -webkit-transition: opacity .4s ease-in-out;
+  line-height: 17px;
 }
 
 #filterList ul {
   margin-bottom: 0;
+  border-bottom: 1px #d3e4fe solid;
 }
 
 #filterList li {
   list-style: none !important;
   position: relative;
-  /* right: 17px; */
-  padding-left: 5px;
+  right: 2px;
+  top: 5px;
+  padding: 3% 6%;
 }
 
 #filterList li input {
   float: left;
+  height: 10px;
 }
 
 .checkBoxText {
@@ -93,6 +162,12 @@ margin-right: 2px;
   padding: 0px 0px 0px 5px;
   position: relative;
   bottom: 5px;
+  width: max-content;
+  font-size: 12px;
+  font-family: 'Gotham Book';
+  /* border-bottom: 19px black; */
+
+  color: #0e2f63;
 }
 
 
@@ -113,9 +188,10 @@ margin-right: 2px;
 }
 
 div#sort {
-  margin-left: auto;
-  position: relative;
-  bottom: 21px;
+  margin: 2% 12% 4% 46%;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
 }
 
 .checkBox {
@@ -131,17 +207,17 @@ div#sort {
 
  .filteredProduct {
    float: left;
- 	flex: 1 0 calc(20% - 10px);
+ 	 flex: 1 0 calc(20% - 10px);
    box-sizing: border-box;
    padding: 10px;
- 	margin-left: 10px;
- 	margin-top: 10px;
+ 	 margin: 0 0 16px 10px;
    position: relative;
-   top: -50px;
+   top: 41px;
   }
 
   #imageHB {
-    width: 172.76px;
+    width: 100%;
+    height: 100%;
     /*height: 123.42px;*/
   }
 
@@ -151,13 +227,21 @@ div#noFilterMainContainer.products.cards{
 .details{
  padding-top: 0 !important;
 }
+
 .prod-price{
-  display: block;
+  display: inline-block;
+  font-family: 'Gotham Book';
+  color: #5555555;
+  font-size: 80%;
+  color: #555555;
+  display: inline-block;
+  padding-top: 4px;
 }
 
 /*SWATCH RELATED*/
 .swatchAreaContainer {
  padding-top: 10px;
+text-align: center;
 }
 
 @media screen and (min-width: 641px) {
@@ -167,22 +251,48 @@ div#noFilterMainContainer.products.cards{
   }
   .detailsHB{
     width: 100%;
-    /*padding-top: 10px;*/
+    line-height: 1px;
+    padding-top: 10px;
   }
+}
+
+.detailsHB{
+  text-align: center;
+}
+
+.detailsHB h4 {
+  font-family: 'Gotham Book';
+  color: #acacac;
+  font-size: 70%;
+  font-weight: 700;
+  text-transform: initial;
+  letter-spacing: 1.5px;
+}
+
+.detailsHB span {
+  font-family: 'Gotham Bold';
+  color: #8daadb;
+  font-size: 82%;
+  text-transform: initial;
+  /* letter-spacing: 1px; */
+  font-weight: 100;
+      line-height: 18px;
+}
+
+.detailsHB span:hover {
+  color: #213e6c;
 }
 
 /*end overlap styling*/
 
 ul#append {
-  padding-top: 10%;
   background-color: white;
+  padding-top: 6%;
+  padding-left: 16px;
 }
 
 /*for iPads, etc. */
 @media screen and (max-width: 1024px) and (min-width: 641px) {
-  #filtersWrap{
-    padding-bottom: 80px;
-  }
   #filterList{
     width: auto;
   }
@@ -193,4 +303,151 @@ ul#append {
 
 ul {
 list-style-type: none;
+}
+
+div.hero_img_holder{
+  display: none;
+}
+
+div.hero_image{
+  display: none;
+}
+
+@media only screen and (max-width: 640px){
+div.hero_image{
+/*   display: none !important; */
+}
+div.collection-description {
+  display: none;
+}
+
+div.hero_img_holder{
+  content: " ";
+  padding: 0;
+  display: block;
+  width: 100%;
+  padding-top: 5%;
+  height: 180px;
+}
+
+div.hero_image{
+  max-width: 1254px;
+  height: 150px;
+  background-image: url({{collection.image.src | collection_img_url: 'original' }});
+  background-size: cover;
+  background-position: center;
+  display: block;
+  }
+}
+
+#customLoader {
+  position: relative;
+  /*color:*/
+  left: 25%;
+  bottom: 6px;
+  width: 25px;
+  height: 25px;
+  z-index: 99999;
+  background: url('https://cdn.shopify.com/s/files/1/0578/7201/files/custom_loading_ring.gif?7636562960440749129') 50% 50% no-repeat rgb(0,0,0);
+  background-size: 100px 65px;
+  background-color: rgba(249,249,249, 0.1);
+}
+
+#sort-by {
+  background-color: white;
+  padding: 12px;
+  width: 192px;
+  height: 24px;
+  border: 1px solid rgba(161,161,166,0.4);
+  font-size: 14px;
+  font-family: 'Gotham Light';
+}
+
+
+
+select {
+  border-radius: 3px;
+padding-right: 1.5rem;
+-webkit-transition: all .15s;
+-moz-transition: all .15s;
+transition: all .15s;
+}
+
+#list-template-collection{
+  margin-top: 35px;
+}
+
+
+@media screen and (min-width: 560px) and (max-width: 1023px){
+.product-container{
+    min-width: 33.33333%;
+  }
+  div#sort{
+    margin: 2% 12% 4% 0%;
+  }
+}
+@media screen and (min-width: 1024px){
+.product-container{
+  min-width: 25%;
+  display: inline-flex;
+  }
+  div#sort{
+    margin: 2% 12% 4% 7%;
+  }
+}
+
+@media screen and (min-width: 1300px){
+  div#sort{
+    margin: 2% 12% 4% 40%;
+  }
+}
+
+@media screen and (min-width: 1600px){
+  div#sort{
+    margin: 2% 12% 4% 60%;
+  }
+}
+
+@media screen and (min-width: 1900px){
+  div#sort{
+    margin: 2% 12% 4% 70%;
+  }
+}
+
+/* @media screen and (min-width: 2000px){
+  div#sort{
+    margin: 2% 12% 4% 80%;
+  }
+} */
+
+@media screen and (min-width: 2200px){
+  div#sort{
+    margin: 2% 12% 4% 90%;
+  }
+}
+
+.filteredProduct:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px 0 rgba(0,0,0,0.06);
+  transition: all 0.25s ease;
+}
+
+.color-swatch-template{
+  width: 22px;
+  height: 22px;
+  vertical-align: baseline;
+  border-width: 1px;
+  border: 1px solid #aba2a2 !important;
+  display: inline-flex;
+  margin: 0 6px;
+}
+
+.filterSwatches {
+  padding-top: 10px;
+}
+
+#borderTest img {
+  width: 100%;
+  height: auto;
+  padding-top: 7%;
 }

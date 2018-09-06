@@ -1,0 +1,28 @@
+<section>
+  <div class="widget widget-customer-details">
+    <div class="inner">
+      <header>
+        <h2>{{ 'customer_accounts.addresses.title' | t }}</h2>
+      </header>
+
+      {% if customer.default_address != nil %}
+        <span class="label secondary radius">{{ 'customer_accounts.addresses.default_address' | t }}</span>
+
+        <div class="address">
+          <ul class="vcard">
+            <li class="fn">{{ customer.default_address.first_name }} {{ customer.default_address.last_name }}</li>
+            <li class="company">{{ customer.default_address.company }}</li>
+            <li class="street-address">{{ customer.default_address.street }}</li>
+            <li class="locality">{{ customer.default_address.city }}</li>
+            <li>
+              <span class="state">{{ customer.default_address.province }}</span>, <span class="zip">{{ customer.default_address.zip }}</span>
+            </li>
+            <li class="country-name">{{ customer.default_address.country }}</li>
+          </ul>
+        </div>
+
+      {% endif %}
+      <a class="manage-addresses" href="/account/addresses">{{ 'customer_accounts.addresses.manage_addresses' | t }}</a>
+    </div>
+  </div>
+</section>

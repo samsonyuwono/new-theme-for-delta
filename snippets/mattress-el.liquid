@@ -1,0 +1,109 @@
+<!-- hides left nav bar -->
+<style>
+    header.page-header{
+    display: none;
+  }
+
+ #content-wrap > div > div.medium-8.large-9.columns.medium-push-4.large-push-3.primary{
+   left: 0;
+       	width: 100%;
+
+  }
+  #el_background{
+      width: 100%;
+      background-size: cover;
+    }
+
+  #content-wrap > div > div.medium-4.large-3.columns.medium-pull-8.large-pull-9.secondary.show-for-medium-up{
+    display: none !important;
+  }
+
+</style>
+
+
+<div id='el_background'>
+  <div class='row' id="el-header">
+    <div class='large-12 medium-12 small-12 column'>
+      <h1 id='el_title'>EXPERIENCE<span> luxury</span> <br /> <span id='select-text'>Select Mattress Type</span></h1>
+    </div>
+  </div>
+  <div id="double-label-slider"></div>
+</div>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  {{ 'slider.js' | asset_url | script_tag }}
+  {{'touchPunch.js' | asset_url | script_tag }}
+<script>
+  // IIFE - Immediately Invoked Function Expression
+  (function(yourcode){
+    // The global jQuery object is passed as a parameter
+    yourcode(window.jQuery, window, document)
+  }(function($, window, document){
+    // The $ is now locally scoped
+
+    // Listen for the jQuery ready event on the document
+    $(function(){
+      // The DOM is ready!
+    })
+
+    var doubleLabels = [
+      "<a><div id='icon-all'><h6>ALL</h6></div><img id='all-icon' src='https://cdn.shopify.com/s/files/1/0578/7201/files/EXPERINECE-LUXURY-SMALL-icon.png?9187852988277060639'></a>",
+      "<a><div id='Soy-Enhanced-Foam'><h6>SOY-ENHANCED FOAM</h6><p>sustainable ingredients create a healthy sleeping environment</p></div><img src='https://cdn.shopify.com/s/files/1/0578/7201/files/EL---Soy-Enhanced.png?5363211900990102124'></a>",
+      "<a><div id='Soy-Enhanced-Edge-Support'><h6>SOY-ENHANCED FOAM + edge support</h6><p>firmer edges for added strength</p></div><img src='https://cdn.shopify.com/s/files/1/0578/7201/files/EL--Soy-_-Edge-Support.png?5363211900990102124'></a>",
+      "<a><div id='Innerspring-Coils'><h6>INNERSPRING COILS</h6><p>increased durability and support</p></div><img src='https://cdn.shopify.com/s/files/1/0578/7201/files/EL---Innerspring-Coils.png?5363211900990102124'></a>",
+      "<a><div id='Pocketed-Coils'><h6>POCKETED COILS</h6><p>comfort + support for the ultimate sleeping experience</p></div><img src='https://cdn.shopify.com/s/files/1/0578/7201/files/EL--Pocketed-Coils.png?5363211900990102124'></a>"
+    ];
+    $("#double-label-slider")
+      .slider({
+          max: 4,
+          min: 0,
+          value: 0,
+          animate: 400,
+          slide: function(){
+            return false
+          }
+      })
+      .slider("pips", {
+          rest: "label",
+          labels: doubleLabels
+      });
+
+      $(".ui-slider-label[data-value='0'] a").on('click', function(){
+        $("#double-label-slider").slider("value", 0)
+        removeFilters();
+      });
+      $(".ui-slider-label[data-value='1'] a").on('click', function(){
+        $("#double-label-slider").slider("value", 1)
+        removeFilters();
+        $('.checkBox[value="Soy-Enhanced-Foam"]').click();
+      });
+      $(".ui-slider-label[data-value='2'] a").on('click', function(){
+        $("#double-label-slider").slider("value", 2)
+        removeFilters();
+        $('.checkBox[value="Soy-Enhanced-Edge-Support"]').click();
+      });
+      $(".ui-slider-label[data-value='3'] a").on('click', function(){
+        $("#double-label-slider").slider("value", 3)
+        removeFilters();
+        $('.checkBox[value="Innerspring-Coils"]').click();
+      });
+      $(".ui-slider-label[data-value='4'] a").on('click', function(){
+        $("#double-label-slider").slider("value", 4)
+        removeFilters();
+        $('.checkBox[value="Pocketed-Coils"]').click();
+      });
+
+  // ----- jQuery Filtering Product Types ----- //
+    function removeFilters(){
+      $('.checkBox').each(function(i){
+        if($(this).prop("checked") === true){
+          $(this).click()
+        }
+      })
+    }
+
+    setInterval(function(){
+      $('#filtersWrap').hide()
+    })
+  }))
+</script>

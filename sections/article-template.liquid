@@ -1,0 +1,187 @@
+{%- capture new_comment_form -%}
+  <div class="article-comments__form">
+    <h3 class="text--uppercase text--uppercase-secondary">{% if article.comments_count == 0 %}{{ 'blog.comments.form_no_comments' | t }}{% else %}{{ 'blog.comments.form_comments' | t }}{% endif %}</h3>
+
+    <div class="box box--secondary">
+      <div class="box__content">
+        {%- form 'new_comment', article -%}
+          {%- if form.posted_successfully? -%}
+            <div class="alert alert--success">
+              {%- if blog.moderated? -%}
+                <p class="alert__content">{{ 'blog.comments.success_moderated' | t }}</p>
+              {%- else -%}
+                <p class="alert__content">{{ 'blog.comments.success' | t }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            <div class="alert alert--error">
+              <h4 class="alert__title">{{ 'general.forms.errors' | t }}</h4>
+              {%- include 'form-errors' -%}
+            </div>
+          {%- endif -%}
+
+          <div class="form__control-row">
+            <div class="form__control">
+              <input type="text" class="form__input" name="comment[author]" placeholder="{{ 'blog.comments.name_placeholder' | t }}" aria-label="{{ 'blog.comments.name_placeholder' | t }}" value="{{ form.author | escape | default: customer.name }}" required="required">
+            </div>
+
+            <div class="form__control">
+              <input type="email" class="form__input" name="comment[email]" placeholder="{{ 'blog.comments.email_placeholder' | t }}" aria-label="{{ 'blog.comments.email_placeholder' | t }}" value="{{ form.email | escape | default: customer.email }}" required="required">
+            </div>
+          </div>
+
+          <div class="form__control">
+            <textarea rows="4" class="form__textarea" name="comment[body]" placeholder="{{ 'blog.comments.comment_placeholder' | t }}" aria-label="{{ 'blog.comments.comment_placeholder' | t }}" required="required">{{ form.body }}</textarea>
+
+            {%- if blog.moderated? -%}
+              <small class="form__input-hint">{{ 'blog.comments.approval_notice' | t }}</small>
+            {%- endif -%}
+          </div>
+
+          <button type="submit" class="button button--secondary">{{ 'blog.comments.submit' | t }}</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+{%- endcapture -%}
+
+<div class="page__content-wrapper {% if article.image and section.settings.show_blog_name == false %}page__content-wrapper--no-top-padding{% endif %}">
+  <div class="container">
+    {%- if section.settings.show_blog_name -%}
+      <div class="page__header">
+        <h1 class="page__title h1">{{ blog.title }}</h1>
+      </div>
+    {%- endif -%}
+
+    <article class="article article--full">
+      {%- if article.image -%}
+        <div class="article__image-wrapper" style="background: url({{ article.image | img_url: '1x1', format: 'jpg' }})">
+          <div class="article__image lazyload image--fade-in"
+               data-bgset="{{ article.image | img_url: '600x' }} 600w, {{ article.image | img_url: '800x' }} 800w, {{ article.image | img_url: '1000x' }} 1000w, {{ article.image | img_url: '1200x' }} 1200w, {{ article.image | img_url: '1400x' }} 1400w">
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="article__content">
+        {%- capture article_meta -%}
+          {%- if section.settings.show_author_name -%}
+            <span class="article__author article__meta-item">{{ 'blog.article.written_by' | t: author: article.user.first_name }}</span>
+          {%- endif -%}
+
+          {%- if section.settings.show_date -%}
+            <time datetime="{{ article.published_at | date: '%Y-%m-%dT%T' }}" class="article__date article__meta-item">{{ article.published_at | date: format: 'month_day_year' }}</time>
+          {%- endif -%}
+
+          {%- if article.comments_enabled? -%}
+            <a class="article__comments-count article__meta-item link hidden-thumb hidden-handheld" href="{{ article.url }}#comments">{{ 'blog.article.comments_count' | t: count: article.comments_count }}</a>
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if article_meta != blank -%}
+          <div class="article__meta text--uppercase">
+            {{ article_meta }}
+          </div>
+        {%- endif -%}
+
+        <h1 class="article__title h2">{{ article.title }}</h1>
+      </div>
+
+      <div class="article__body">
+        {%- include 'share-buttons' -%}
+
+        <div class="article__body-inner">
+          <div class="rte">
+            {{ article.content }}
+          </div>
+
+          {%- if section.settings.show_tags and article.tags.size > 0 -%}
+            <div class="article__tags text--uppercase">
+              <span class="text--uppercase-secondary">{{ 'blog.article.tags' | t }}: </span>
+
+              {%- for tag in article.tags -%}
+                {{ tag | link_to_tag: tag | replace: '<a', '<a class="link"' }}{% unless forloop.last %},{% endunless %}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </article>
+
+    {%- if blog.comments_enabled? -%}
+      <span class="anchor" id="comments"></span>
+
+      <div class="article-comments">
+        <div class="grid grid--large">
+          {%- if article.comments_count > 0 -%}
+            <div class="grid__cell 1/2--lap-and-up">
+              <h2 class="text--uppercase text--uppercase-secondary">{{ 'blog.comments.comments_count' | t: count: article.comments_count }}</h2>
+
+              <div class="article-comments__list">
+                {%- paginate article.comments by 25 -%}
+                  {%- for comment in article.comments -%}
+                    <div class="article-comments__item article-comment">
+                      <img class="article-comment__avatar" src="//www.gravatar.com/avatar/{{ comment.email | md5 }}?s=100" alt="{{ comment.author }}">
+
+                      <div class="article-comment__inner">
+                        <p class="article-comment__content text--respect-break">{{ comment.content | strip_html }}</p>
+
+                        <div class="article-comment__meta">
+                          <span class="article-comment__author">{{ comment.author }}</span>
+                          <time class="article-comment__time">{{ comment.created_at | date: format: 'month_day_year_time' }}</time>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endfor -%}
+
+                  {%- include 'pagination', minimal_pagination: true, pagination_hash: '#comments' -%}
+                {%- endpaginate -%}
+              </div>
+            </div>
+
+            <div class="grid__cell 1/2--lap-and-up">
+              {{ new_comment_form }}
+            </div>
+          {%- else -%}
+            <div class="grid__cell grid__cell--center 1/2--lap-and-up">
+              {{ new_comment_form }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_blog_name",
+      "label": "Show blog name",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author_name",
+      "label": "Show author name",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

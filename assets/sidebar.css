@@ -1,31 +1,92 @@
+@font-face{
+  font-family: 'Gotham Bold';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gotham-bold.otf');
+}
+@font-face{
+  font-family: 'Gotham Black';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Gotham Book';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
+}
+@font-face{
+  font-family: 'Helvetica Medium Condensed';
+  src: url('https://cdn.shopify.com/s/files/1/0578/7201/files/helvetica-neue-lt-std-67-medium-condensed.otf?9943094632125790425')
+}
+@font-face{
+  font-family: 'Cartoonist Kooky';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Cartoonist Kooky';
+  src:url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+@font-face{
+  font-family: 'Gotham-Book';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/Gotham_Book.otf');
+}
+
+@font-face{
+  font-family: 'Century Gothic Bold';
+  src: url('//cdn.shopify.com/s/files/1/0578/7201/files/gothicb.ttf');
+}
+.gotham-medium{
+  font-family: 'Gotham Medium';
+}
+.gotham-bold{
+  font-family: 'Gotham Bold';
+}
+.gotham-black{
+  font-family: 'Gotham Black';
+}
+.ultra{
+  font-family: 'Gotham Ultra';
+}
+.gotham-book{
+  font-family: 'Gotham Book';
+}
+.gotham-e-light{
+  font-family: 'Gotham Extra Light';
+}
+.gotham-light{
+  font-family: 'Gotham Light';
+}
+.cartoonist{
+  font-family: 'Cartoonist Kooky' !important;
+}
+
 /**
  * SIDEBAR NAVIGATION
  */
 
+.sidenav-container ul.dropdown{
+   display: none;
+}
 .sidenav-container {
     float: left;
     position: relative;
-    margin-right: 50px;
+    margin: 115px -2px 0 0;
     min-height: -webkit-fill-available;
     z-index: 1;
-  	background-color: #556d9b;
+  	background-color: #435c90;
   	color: white;
-  	font-family: 'Gotham Black';
-
+  	font-family: 'Gotham Bold';
+    max-width: 226px;
+    padding-bottom: 284%;
 }
 
 .sidenav-header h1 {
- padding: 13px 82px 5px 19px;
- font-size: 46px;
- font-family: sans-serif;
+ padding: 22px 0px 14px 14px;
+ font-size: 33px;
+ font-family: 'Gotham Book';
  text-transform: uppercase;
  font-weight: lighter;
 }
 
 
 .sidenav-container a {
-    font-size: 17px;
-
+    font-size: 15px;
     color: white;
   	text-align: left;
     display: block;
@@ -40,24 +101,29 @@
 
 .sidenav-container ul ul{
   	list-style:none;
-  	background-color: #60759c;
+  	background-color: #576e9a;
   	border-bottom: 1px groove;
-    line-height: 28px;
+    line-height: 20px;
 }
 
 .sidenav-container ul ul a{
-    font-size: 14px;
-    color: #c5d1e6;
+    font-size: 11px;
+    color: white;
     border-bottom: none;
-    padding: 0px 0px 0px 44px;
-    font-family: sans-serif;
+    padding: 2px 0px 1px 29px;
+    font-family: 'Gotham Book';
 }
 
 
 .sidenav-container a:hover {
     background-color: white;
   	color: #0e2f63;
+    font-family: 'Gotham Bold';
+    display: block;
 }
+
+
+
 
 @media (max-width: 800px){
   .sidenav-container {
@@ -178,6 +244,65 @@
 .sidebar-nav .social-media {
   margin: 18px 0 42px 0;
 }
+
+.sidenav-container .title-active {
+  background-color: white;
+  color: #0e2f63 !important;
+}
+
+.sidenav-container ul.dropdown .title-active{
+  display: block;
+  font-family: 'Gotham Bold';
+}
+
+.sidenav-container i.arrow {
+    border: solid #8dabdd;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    left: 20px;
+    position: relative;
+}
+
+.sidenav-container .title-active-arrow {
+    border-color: #003366 !important;
+}
+
+.sidenav-container .arrow-up {
+    transform: rotate(-135deg) !important;
+    -webkit-transform: rotate(-135deg) !important;
+}
+
+.sidenav-container .title-active{
+  color: #003366 !important;
+}
+.sidenav-container .title-active-arrow{
+    border-color: #003366 !important;
+  }
+
+  .hasDropdown {
+    color: #a4badc;
+  }
+
+  .sidenav-container .active {
+    background-color: white;
+    color: #0e2f63;
+    font-family: 'Gotham Bold';
+  }
+
+  .mainmenu
+
+  .active a.head {
+    color: #003366;
+  }
+
+  .sidenav-container .active ul.dropdown {
+    display: block;
+  }
+
+
 
 @include av-mq('handheld-and-up') {
   .sidebar-nav {

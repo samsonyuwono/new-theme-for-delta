@@ -1,0 +1,1922 @@
+<style>
+.for-info-popup{
+  display: none;
+}
+
+</style>
+<!-- For grabbing gliders, mattresses, and baby monitor(because they are re-used in every bundle) -->
+{%for product in collections.bundle-1-mid-century-modern-lifestyle-bianca.products %}
+
+  {%if product.title contains 'Glider' or product.title contains 'Rocking'%}
+  <div class="for-info-popup glider" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-option'%}
+          {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+
+  {%elsif product.title contains 'Mattress'%}
+  <div class="for-info-popup mattress" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-option'%}
+          {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+
+{%elsif product.title contains 'Digital Audio'%}
+  <div class="for-info-popup monitor" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endfor%}
+        {%endif%}
+  </div>
+ {%else%}
+
+ {%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-1-mid-century-modern-lifestyle-bianca'%}
+
+
+  <div class="for-info-popup  bundle-1" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+           {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+
+  {%endif%}
+
+
+  {%endif%}
+
+{%endfor%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-2-mid-century-modern-lifestyle-grey'%}
+
+
+{%for product in collections.bundle-2-mid-century-modern-lifestyle-grey.products %}
+  {%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+  {%else%}
+  <div class="for-info-popup bundle-2" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-3-mid-century-modern-lifestyle-walnut-espre'%}
+
+{%for product in collections.bundle-3-mid-century-modern-lifestyle-walnut-espre.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-3" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-4-archer-bianca'%}
+
+{%for product in collections.bundle-4-archer-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-4" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-5-archer-dark-chocolate'%}
+
+{%for product in collections.bundle-5-archer-dark-chocolate.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-5" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-6-archer-grey'%}
+
+
+{%for product in collections.bundle-6-archer-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-6" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-7-ashland-bianca'%}
+
+{%for product in collections.bundle-7-ashland-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-7" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-8-ashland-dark-chocolate'%}
+
+{%for product in collections.bundle-8-ashland-dark-chocolate.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-8" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-9-ashland-grey'%}
+
+{%for product in collections.bundle-9-ashland-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-9" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-10-canton-grey'%}
+
+{%for product in collections.bundle-10-canton-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-10" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-11-canton-bianca'%}
+
+{%for product in collections.bundle-11-canton-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-11" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-12-fall-river-bianca'%}
+
+{%for product in collections.bundle-12-fall-river-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-12" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-13-fall-river-dark-chocolate'%}
+
+{%for product in collections.bundle-13-fall-river-dark-chocolate.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-13" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-14-fall-river-grey'%}
+
+{%for product in collections.bundle-14-fall-river-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-14" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-15-fremont-bianca-with-aqua'%}
+
+{%for product in collections.bundle-15-fremont-bianca-with-aqua.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-15" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-16-fremont-bianca-with-ebony'%}
+{%for product in collections.bundle-16-fremont-bianca-with-ebony.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-16" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-17-fremont-bianca-with-grey'%}
+{%for product in collections.bundle-17-fremont-bianca-with-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-17" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-18-new-haven-aqua'%}
+
+{%for product in collections.bundle-18-new-haven-aqua.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-18" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-19-new-haven-ebony'%}
+
+{%for product in collections.bundle-19-new-haven-ebony.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-19" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-20-new-haven-charcoal'%}
+
+{%for product in collections.bundle-20-new-haven-charcoal.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-20" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-21-new-haven-grey'%}
+{%for product in collections.bundle-21-new-haven-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-21" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-22-new-haven-bianca'%}
+{%for product in collections.bundle-22-new-haven-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-22" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-23-oakmont-rustic-bianca'%}
+{%for product in collections.bundle-23-oakmont-rustic-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-23" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-24-oakmont-rustic-haze'%}
+
+{%for product in collections.bundle-24-oakmont-rustic-haze.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-24" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-25-peyton-bianca'%}
+
+{%for product in collections.bundle-25-peyton-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-25" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-26-peyton-ebony'%}
+
+{%for product in collections.bundle-26-peyton-ebony.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-26" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-27-ravello-antique-white'%}
+
+{%for product in collections.bundle-27-ravello-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-27" id="{{product.handle}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-28-ravello-storm'%}
+{%for product in collections.bundle-28-ravello-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-28" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-29-tivoli-antique-white'%}
+{%for product in collections.bundle-29-tivoli-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-29" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-30-tivoli-antique-chestnut'%}
+
+{%for product in collections.bundle-30-tivoli-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-30" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-31-bellevue-bianca-with-grey'%}
+
+{%for product in collections.bundle-31-bellevue-bianca-with-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-31" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-32-bellevue-bianca-with-ebony'%}
+
+{%for product in collections.bundle-32-bellevue-bianca-with-ebony.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-32" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-33-aster-bianca-with-grey'%}
+
+{%for product in collections.bundle-33-aster-bianca-with-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-33" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-34-aster-bianca-with-ebony'%}
+
+{%for product in collections.bundle-34-aster-bianca-with-ebony.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-34" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-35-ava-white'%}
+
+{%for product in collections.bundle-35-ava-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-35" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-36-emery-white'%}
+
+{%for product in collections.bundle-36-emery-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-36" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-37-emery-grey'%}
+
+{%for product in collections.bundle-37-emery-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-37" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-38-emery-dark-chocolate'%}
+
+{%for product in collections.bundle-38-emery-dark-chocolate.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-38" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-39-barrett-bianca'%}
+{%for product in collections.bundle-39-barrett-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-39" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-40-barrett-dark-chocolate'%}
+
+{%for product in collections.bundle-40-barrett-dark-chocolate.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-40" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-41-barrett-grey'%}
+{%for product in collections.bundle-41-barrett-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-41" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-42-banbury-bianca'%}
+
+{%for product in collections.bundle-42-banbury-bianca.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-42" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-43-banbury-grey'%}
+
+{%for product in collections.bundle-43-banbury-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-43" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-44-langley-rustic-grey'%}
+
+{%for product in collections.bundle-44-langley-rustic-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-44" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-45-langley-rustic-whitewash'%}
+
+{%for product in collections.bundle-45-langley-rustic-whitewash.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-45" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-46-langley-rustic-oak'%}
+
+{%for product in collections.bundle-46-langley-rustic-oak.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-46" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-47-tribeca-white-with-grey'%}
+
+{%for product in collections.bundle-47-tribeca-white-with-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-47" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-48-avery-bianca-white'%}
+
+{%for product in collections.bundle-48-avery-bianca-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-48" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-49-avery-charcoal-grey'%}
+
+{%for product in collections.bundle-49-avery-charcoal-grey.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-49" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-50-ainsworth-antique-white'%}
+
+{%for product in collections.bundle-50-ainsworth-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-50" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-51-ainsworth-storm'%}
+
+{%for product in collections.bundle-51-ainsworth-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-51" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-52-ainsworth-antique-chestnut'%}
+
+{%for product in collections.bundle-52-ainsworth-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-52" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-53-bedford-antique-white'%}
+
+{%for product in collections.bundle-53-bedford-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-53" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-54-bedford-storm'%}
+
+{%for product in collections.bundle-54-bedford-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-54" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-55-bedford-antique-chestnut'%}
+
+{%for product in collections.bundle-55-bedford-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-55" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-56-fontana-antique-white'%}
+
+{%for product in collections.bundle-56-fontana-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-56" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-57-fontana-storm'%}
+
+{%for product in collections.bundle-57-fontana-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-57" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-58--fontana-antique-chestnut'%}
+
+{%for product in collections.bundle-58-fontana-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-58" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-59-franklin-antique-white'%}
+
+{%for product in collections.bundle-59-franklin-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-59" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-60-franklin-storm'%}
+
+{%for product in collections.bundle-60-franklin-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-60" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-61-franklin-antique-chestnut'%}
+
+{%for product in collections.bundle-61-franklin-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-61" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-62-aden-antique-white'%}
+
+{%for product in collections.bundle-62-aden-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-62" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-63-aden-storm'%}
+
+{%for product in collections.bundle-63-aden-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-63" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-64-aden-antique-chestnut'%}
+
+{%for product in collections.bundle-64-aden-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-64" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-65-bristol-antique-white'%}
+
+{%for product in collections.bundle-65-bristol-antique-white.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-65" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-66-bristol-storm'%}
+
+{%for product in collections.bundle-66-bristol-storm.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-66" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
+
+{%if canonical_url == 'https://www.deltachildren.com/apps/productbuilder/bundle-67-bristol-antique-chestnut'%}
+
+{%for product in collections.bundle-67-bristol-antique-chestnut.products %}
+{%if product.title contains 'Glider' or product.title contains 'Rocking' or product.title contains 'Mattress' or product.title contains 'Digital Audio' %}
+{%else%}
+  <div class="for-info-popup bundle-67" id="{{product.title}}">
+    <h6 class="title-bundle">{{product.title}}</h6>
+    <p class="description-bundle">{{product.description}}</p>
+      {% if product.tags contains 'bundle-set'%}
+        {%for image in product.images limit:1 %}
+          <img alt="{{product.title}}" class="lazy bundle-set-img" id="{{product.title}}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+        {%endfor%}
+      {%endif%}
+      {% if product.tags contains 'bundle-option'%}
+        {%for image in product.images %}
+          {% if image.alt contains "pop-up" %}
+          <img alt="{{product.title}}" class="lazy pop-up-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'large' }}">
+          {%else%}
+          <img alt="{{product.title}}" class="lazy bundle-option-img" id="{{ product.variants.first.sku }}" src="" data-src="{{ image.src | product_img_url: 'original' }}">
+          {%endif%}
+          {%endfor%}
+        {%endif%}
+  </div>
+  {%endif%}
+{%endfor%}
+
+{%endif%}
